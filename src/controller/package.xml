@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>controller</name>
+  <version>2.3.2</version>
+  <license>BSD</license>
+
+  <description>
+    ROS2 driver for a generic Linux joystick.
+    Will contain a MacOS and Windows version later.
+    The joy package contains joy_node, a node that interfaces a
+    generic Linux joystick to ROS2. This node publishes a "Joy"
+    message, which contains the current state of each one of the
+    joystick's buttons and axes.
+  </description>
+
+  <maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+  <author>Mikael Arguedas</author>
+  <author>Morgan Quigley</author>
+  <author>Brian Gerkey</author>
+  <author>Kevin Watts</author>
+  <author>Blaise Gassend</author>
+  <author>Jonathan Bohren</author>
+
+  <url type="development">https://github.com/ros2/joystick_drivers</url>
+  <url type="bugtracker">https://github.com/ros2/joystick_drivers/issues</url>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <build_depend>rttest</build_depend>
+  <build_depend>tlsf_cpp</build_depend>
+  
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+  <exec_depend>rttest</exec_depend>
+  <exec_depend>tlsf_cpp</exec_depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

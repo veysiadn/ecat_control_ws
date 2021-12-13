@@ -283,6 +283,17 @@ typedef struct
     uint8_t  s_emergency_switch_val;
 }ReceivedData;
 
+/// CKim - SDO_data Structure holding all data needed to send/receive an SDO object.
+typedef struct {
+    uint16_t slave_position;    // Position based addressing.
+    uint16_t index;		        // Index in Object dictionary
+    uint8_t  sub_index;	        // Subindex in Object dictionary
+    uint32_t data ;             // Actual data to sent/receive
+    size_t   data_sz;	        // Size
+    size_t   result_sz;         // Resulted data size
+    uint32_t err_code;	        // Error code
+} SDO_data;
+
 /// EtherCAT SDO request structure for configuration phase.
 typedef struct
 {

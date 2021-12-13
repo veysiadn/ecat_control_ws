@@ -16,7 +16,7 @@ add_compile_options(-g -w -Wall -Wextra -Wpedantic -I/opt/etherlab/include -L/op
 ## Defining paths and libraries to include in the next section.
 set(etherlab_include /opt/etherlab/include)
 set(etherlab_lib /opt/etherlab/lib/libethercat.so.1.1.0)
-set(ecat_node_include ~/spinerobot_ws/src/ecat_pkg/include/ecat_pkg/)
+set(ecat_node_include ${CMAKE_CURRENT_SOURCE_DIR}/include/ecat_pkg)
 set(node_name "ecat_node")
 
 ## Finding packages that'll be required for compilation.
@@ -43,7 +43,7 @@ add_executable(ecat_node src/main.cpp
 ## you can add directory in this way or you can use 
 # include_directories(x/y) for general include for whole project..
 target_include_directories(ecat_node PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/ecat_pkg>
   $<INSTALL_INTERFACE:include>
   ${etherlab_include})
 

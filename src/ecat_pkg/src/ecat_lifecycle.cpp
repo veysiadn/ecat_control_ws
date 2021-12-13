@@ -366,7 +366,6 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
 
     #endif
     // get current time
-    clock_gettime(CLOCK_TO_USE, &wake_up_time);
     int begin=1e4;
     int status_check_counter = 1000;
     
@@ -374,6 +373,7 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
     // CKim - Initialization loop before entring control loop. 
     // Switch On and Enable Driver
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Enabling motors...");
+    clock_gettime(CLOCK_TO_USE, &wake_up_time);
     while(sig)
     {
         // CKim - Sleep for 1 ms
@@ -441,12 +441,17 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
         
         //WriteToSlavesInPositionMode();
         WriteToSlavesVelocityMode();
-        ecrt_domain_queue(g_master_domain);
-        // CKim - Sync Timer
-        clock_gettime(CLOCK_TO_USE, &time);
-        ecrt_master_sync_reference_clock_to(g_master, TIMESPEC2NS(time));
-        ecrt_master_sync_slave_clocks(g_master);
 
+        // CKim - Sync Timer
+        if(g_sync_ref_counter){
+            g_sync_ref_counter--;
+        }else{
+            clock_gettime(CLOCK_TO_USE, &time);
+            ecrt_master_sync_reference_clock_to(g_master, TIMESPEC2NS(time));
+            g_sync_ref_counter = 1;
+        }
+        ecrt_master_sync_slave_clocks(g_master);
+        ecrt_domain_queue(g_master_domain);
         // CKim - Send process data
         ecrt_master_send(g_master);
     }// while(sig)
@@ -628,10 +633,16 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
         UpdateCyclicTorqueModeParameters();
         WriteToSlavesInCyclicTorqueMode();
 #endif
-        ecrt_domain_queue(g_master_domain);
-        clock_gettime(CLOCK_TO_USE, &time);
-        ecrt_master_sync_reference_clock_to(g_master, TIMESPEC2NS(time));
+        if(g_sync_ref_counter){
+            g_sync_ref_counter--;
+        }else{
+            clock_gettime(CLOCK_TO_USE, &time);
+            ecrt_master_sync_reference_clock_to(g_master, TIMESPEC2NS(time));
+            g_sync_ref_counter = 1;
+        }
         ecrt_master_sync_slave_clocks(g_master);
+        
+        ecrt_domain_queue(g_master_domain);
         // send process data
         ecrt_master_send(g_master);
         

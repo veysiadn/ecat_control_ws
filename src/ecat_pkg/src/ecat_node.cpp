@@ -265,8 +265,6 @@ int EthercatNode::RegisterDomain()
     return 0;
 }
 
-
-
 int EthercatNode::SetProfilePositionParameters(ProfilePosParam& P, int position)
 {   
   // Operation mode to ProfilePositionMode for slave on that position.
@@ -617,7 +615,6 @@ int EthercatNode::SetCyclicSyncTorqueModeParametersAll(CSTorqueModeParam &P)
     return 0; 
 }
 
-
 int EthercatNode::WaitForOperationalMode()
 {
     int try_counter=0;
@@ -656,8 +653,6 @@ int EthercatNode::WaitForOperationalMode()
     return 0;
 }
 
-
-
 void EthercatNode::SetCustomSlave(EthercatSlave c_slave, int position)
 {
     slaves_[position] = c_slave ; 
@@ -683,8 +678,6 @@ void EthercatNode::ConfigDcSync(uint16_t assign_activate, int position)
 {
     return ecrt_slave_config_dc(slaves_[position].slave_config_, assign_activate, PERIOD_NS, slaves_[position].kSync0_shift_, 0, 0);
 }
-
-
 
 void EthercatNode::CheckSlaveConfigurationState()
 {
@@ -749,8 +742,6 @@ int EthercatNode::GetNumberOfConnectedSlaves()
     return 0 ;
 }
 
-
-
 void EthercatNode::DeactivateCommunication()
 {
     //ecrt_master_deactivate_slaves(g_master);
@@ -801,4 +792,25 @@ int EthercatNode::ShutDownEthercatMaster()
     return 0;
 }
 
+uint8_t EthercatNode::SdoRead(SDO_data &pack)
+{
+    if (ecrt_master_sdo_upload(g_master, pack.slave_position,pack.index,pack.sub_index,
+                    (uint8_t*)(&pack.data), pack.data_sz, &pack.result_sz, &pack.err_code))
+    {
+        RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__),"SDO read error, code: %d \n", &pack.err_code);
+        return -1;
+    }
+    return 0;
+}
+
+uint8_t EthercatNode::SdoWrite(SDO_data &pack)
+{
+    if (ecrt_master_sdo_download(g_master,pack.slave_position,pack.index,pack.sub_index,
+                                (uint8_t*)(&pack.data),pack.data_sz,&pack.err_code))
+    {
+        RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "SDO write error, code : %d \n ", &pack.err_code);
+        return -1;
+    }
+    return 0;
+}
 

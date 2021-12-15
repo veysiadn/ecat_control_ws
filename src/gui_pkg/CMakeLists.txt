@@ -36,15 +36,13 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 # Find ROS2 dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+## This is for custom message content from ecat and gui node.
 find_package(ecat_msgs REQUIRED)
 ## This is for joystick/Controller_node
 find_package(sensor_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 ## This package required for opencv library
 find_package(cv_bridge REQUIRED)
-  
-find_package(rttest)
-find_package(tlsf_cpp)
 
 
 ##############################################################################
@@ -81,7 +79,7 @@ add_executable(${node_name}
   ${SOURCES} 
   ${QT_RESOURCES}
   ${QT_UIS}
-  ${QT_HEADERS} 
+  ${QT_HEADERS}
   )
 include_directories(
     ${cv_bridge_INCLUDE_DIRS}
@@ -93,8 +91,6 @@ ament_target_dependencies(${node_name}
   ecat_msgs
   std_msgs
   cv_bridge
-  tlsf_cpp
-  rttest
   )
 
 #In case of QML, replace Widgets with Quick

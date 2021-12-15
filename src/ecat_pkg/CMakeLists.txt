@@ -24,13 +24,15 @@ set(node_name "ecat_node")
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_lifecycle REQUIRED)
+find_package(lifecycle_msgs REQUIRED)
 find_package(rttest)
 find_package(tlsf_cpp)
 ## This is for custom msg files.
 find_package(ecat_msgs REQUIRED)
 ## This is for joystick
 find_package(sensor_msgs REQUIRED)
-
+# This is for lifecycle node manager
+find_package(std_msgs REQUIRED)
 ## Output executable name and requied cpp files for executable
 add_executable(ecat_node src/main.cpp
                          src/ecat_node.cpp
@@ -52,16 +54,37 @@ target_link_libraries(ecat_node
 ${etherlab_lib}
 )
 # Add include directories
+# include_directories(
+#   ${etherlab_include}
+#   ${ecat_node_include}
+# )
 include_directories(
+  include
   ${etherlab_include}
   ${ecat_node_include}
-)
+  ${std_msgs_INCLUDE_DIRS}
+  ${sensor_msgs_INCLUDE_DIRS}
+  ${lifecycle_msgs_INCLUDE_DIRS}
+  ${rclcpp_lifecycle_INCLUDE_DIRS}
+  ${rclcpp_INCLUDE_DIRS}
+  )
 
+add_executable(lifecycle_node_manager src/lifecycle_node_manager.cpp)
+
+target_link_libraries(lifecycle_node_manager
+  ${rclcpp_lifecycle_LIBRARIES}
+  ${std_msgs_LIBRARIES}
+  ${sensor_msgs_LIBRARIES}
+  ${ecat_msgs_LIBRARIES}
+)
 ## Don't forget to add dependencies to your build file, 
 ## Use find_package(x) then add dependecy for x. 
-ament_target_dependencies(${node_name}  rclcpp rclcpp_lifecycle ecat_msgs sensor_msgs tlsf_cpp)
+ament_target_dependencies(${node_name}  rclcpp rclcpp_lifecycle ecat_msgs sensor_msgs lifecycle_msgs std_msgs tlsf_cpp)
+ament_target_dependencies(lifecycle_node_manager  rclcpp rclcpp_lifecycle ecat_msgs sensor_msgs lifecycle_msgs std_msgs)
 
-install(TARGETS ecat_node
+install(TARGETS 
+  ecat_node
+  lifecycle_node_manager
   DESTINATION lib/${PROJECT_NAME})
 
 

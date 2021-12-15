@@ -41,7 +41,7 @@
 #include <rclcpp_lifecycle/lifecycle_publisher.hpp>
 /******************************************************************************/
 /// Interface header files
-#include "std_msgs/msg/u_int8.hpp"
+#include "ecat_msgs/msg/gui_button_data.hpp"
 /// Interface header files.Contains custom msg files.
 #include "ecat_msgs/msg/data_received.hpp"
 #include "ecat_msgs/msg/data_sent.hpp"
@@ -129,8 +129,8 @@ class EthercatLifeCycle : public LifecycleNode
         /// This lifecycle publisher will be used to publish sent data from master to slaves.
         LifecyclePublisher<ecat_msgs::msg::DataSent>::SharedPtr     sent_data_publisher_;
         /// This subscriber  will be used to receive data from controller node.
-        rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr      joystick_subscriber_;
-        rclcpp::Subscription<std_msgs::msg::UInt8>::SharedPtr       gui_subscriber_;
+        rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr         joystick_subscriber_;
+        rclcpp::Subscription<ecat_msgs::msg::GuiButtonData>::SharedPtr  gui_subscriber_;
 
         
         ecat_msgs::msg::DataReceived     received_data_;
@@ -277,7 +277,7 @@ class EthercatLifeCycle : public LifecycleNode
          *        Updates parameters based on GUI node inputs.
          * 
          */
-        void HandleGuiNodeCallbacks(const std_msgs::msg::UInt8::SharedPtr gui_sub);
+        void HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonData::SharedPtr gui_sub);
 
         /**
          * @brief CKim - This function checks status word and returns
@@ -305,12 +305,9 @@ class EthercatLifeCycle : public LifecycleNode
         uint32_t command_ = 0x004F;
         Controller controller_;
         /// Values will be sent by controller node and will be assigned to variables below.
+        ecat_msgs::msg::GuiButtonData gui_buttons_status_;
         uint8_t gui_node_data_ = 1;
         uint8_t emergency_status_ = 1 ;
-        rclcpp::memory_strategy::MemoryStrategy::SharedPtr memory_strategy =
-        std::make_shared<AllocatorMemoryStrategy<TLSFAllocator<void>>>();
-        template<typename T = void>
-        using TLSFAllocator = tlsf_heap_allocator<T>;
         // Will be used as a parameter for taking timing measurements.
         std::int32_t measurement_time = 0 ; 
         Timing timer_info_ ; 

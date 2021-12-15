@@ -47,11 +47,10 @@
 //GUI_Node Headers
 #include "gui_node.hpp"
 #include "video_capture.hpp"
-#include "controlui.hpp"
 #include "gui_globals.hpp"
 
 // QT
-#include "ui_main_window.h"
+#include "ui_mainwindow.h"
 #include <QMainWindow>
 #include <QApplication>
 #include <QStandardItemModel>
@@ -73,28 +72,55 @@ class MainWindow;
     ~MainWindow();
 
   private slots:
-  /**
-   * @brief Resets all received values to 0.
-   * 
-   */
-    void on_button_reset_clicked();
-    /**
-     * @brief Updates GUI based on timer callback in this case 25ms.
-     * 
-     */
+//  /**
+//   * @brief Resets all received values to 0.
+//   *
+//   */
+//    void on_button_reset_clicked();
+//    /**
+//     * @brief Updates GUI based on timer callback in this case 25ms.
+//     *
+//     */
     void UpdateGUI();
     /**
-     * @brief Sets GUI appearance for disabled emergency button.
+     * @brief Sets GUI appearance for disabled buttons.
      */
-    void setDisabledStyleSheet();
+    void setDisabledStyleSheet(QPushButton *button);
     /**
-     * @brief Sets GUI appearance for enabled emergency button.
+     * @brief Sets GUI appearance for enabled buttons.
      */
-    void setEnabledStyleSheet();
-    /**
-     * @brief Stops motor movement while maintining EtherCAT communication in case of emergency.
-     */
-    void on_button_emergency_clicked();
+    void setEnabledStyleSheet(QPushButton *button);
+
+
+    void ResetControlButtonValues(unsigned char &button_val);
+//    /**
+//     * @brief Stops motor movement while maintining EtherCAT communication in case of emergency.
+//     */
+//    void on_button_emergency_clicked();
+
+    void on_b_enable_cyclic_pos_clicked();
+
+    void on_b_enable_cylic_vel_clicked();
+
+    void on_b_enable_vel_clicked();
+
+    void on_b_enable_pos_clicked();
+
+    void on_b_init_ecat_clicked();
+
+    void on_b_reinit_ecat_clicked();
+
+    void on_b_enable_drives_clicked();
+
+    void on_b_disable_drives_clicked();
+
+    void on_b_enter_cyclic_pdo_clicked();
+
+    void on_b_stop_cyclic_pdo_clicked();
+
+    void on_b_emergency_mode_clicked();
+
+    void on_b_send_clicked();
 
   private:
     /**
@@ -104,22 +130,22 @@ class MainWindow;
     void rosSpinThread();
     /**
      * @brief Shows motor status in GUI.
-     */
-    void ShowAllMotorStatus();
-    /**
-     * @brief Shows communication status in GUI.
-     */
-    void ShowComStatus();
-    /**
-     * @brief Shows emergency button and switch status in GUI.
-     */
-    void ShowEmergencyStatus();
-    /**
-     * @brief Reads status word and turns it to readable string format.
-     * @param index slave index
-     * @return QString readable status word format.
-     */
-    QString GetReadableStatusWord(int index);
+//     */
+//    void ShowAllMotorStatus();
+//    /**
+//     * @brief Shows communication status in GUI.
+//     */
+//    void ShowComStatus();
+//    /**
+//     * @brief Shows emergency button and switch status in GUI.
+//     */
+//    void ShowEmergencyStatus();
+//    /**
+//     * @brief Reads status word and turns it to readable string format.
+//     * @param index slave index
+//     * @return QString readable status word format.
+//     */
+//    QString GetReadableStatusWord(int index);
 
     Ui::MainWindow *ui;
     int argc_;
@@ -128,11 +154,11 @@ class MainWindow;
      * @brief timer to update GUI in specific intervals.In this case 25ms.
      * 
      */
+    int GetDriveStates(const int & statusWord);
     QTimer my_timer;
     // To get data from gui_node_ .
     std::shared_ptr<GuiNode> gui_node_;
     VideoCapture* opencv_video_cap;
-    ControlUI control_ui_;
     // Thread for ROS2 spinning.
     std::thread ros_spin_thread_;
   };

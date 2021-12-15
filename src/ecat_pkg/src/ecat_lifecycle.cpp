@@ -2,11 +2,11 @@
 
 using namespace EthercatLifeCycleNode ; 
 
-EthercatLifeCycle::EthercatLifeCycle(): LifecycleNode("ecat_node")
+EthercatLifeCycle::EthercatLifeCycle(): LifecycleNode("ecat_node",
+rclcpp::NodeOptions().use_intra_process_comms(false))
 {
     
     ecat_node_= std::make_unique<EthercatNode>();
-
     received_data_.status_word.resize(g_kNumberOfServoDrivers);
     received_data_.actual_pos.resize(g_kNumberOfServoDrivers);
     received_data_.actual_vel.resize(g_kNumberOfServoDrivers);
@@ -22,7 +22,6 @@ EthercatLifeCycle::EthercatLifeCycle(): LifecycleNode("ecat_node")
 
 EthercatLifeCycle::~EthercatLifeCycle()
 {
-    ecat_node_.reset();
 }
 
 node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_configure(const State &)
@@ -35,7 +34,7 @@ node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_co
     // In this example, we are optimizing for performance and limited resource usage (preventing
     // page faults), instead of reliability. Thus, we set the size of the history buffer to 1.
     rclcpp::KeepLast(1)
-  );
+    );
   // From http://www.opendds.org/qosusages.html: "A RELIABLE setting can potentially block while
   // trying to send." Therefore set the policy to best effort to avoid blocking during execution.
   qos.best_effort();
@@ -44,12 +43,14 @@ node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_co
         RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Configuration phase failed");
         return node_interfaces::LifecycleNodeInterface::CallbackReturn::FAILURE;
     }else{
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Creating publishers...\n");
         received_data_publisher_ = this->create_publisher<ecat_msgs::msg::DataReceived>("Slave_Feedback", qos);
         sent_data_publisher_     = this->create_publisher<ecat_msgs::msg::DataSent>("Master_Commands", qos);
         joystick_subscriber_     = this->create_subscription<sensor_msgs::msg::Joy>("Controller", qos, 
                                      std::bind(&EthercatLifeCycle::HandleControlNodeCallbacks, this,std::placeholders::_1));
-        gui_subscriber_          = this->create_subscription<std_msgs::msg::UInt8>("gui_buttons", qos, 
-                                    std::bind(&EthercatLifeCycle::HandleGuiNodeCallbacks, this, std::placeholders::_1));
+        gui_subscriber_          = this->create_subscription<ecat_msgs::msg::GuiButtonData>(
+            "gui_buttons", 1,std::bind(&EthercatLifeCycle::HandleGuiNodeCallbacks, 
+            this, std::placeholders::_1));
 
         return node_interfaces::LifecycleNodeInterface::CallbackReturn::SUCCESS;
     }
@@ -71,19 +72,28 @@ node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_ac
 
 node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_deactivate(const State &)
 {
+    std::this_thread::sleep_for(std::chrono::seconds(2));
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Deactivating.");
-    received_data_publisher_->on_deactivate();
-    sent_data_publisher_->on_deactivate();
-    ecat_node_->DeactivateCommunication();
+    // received_data_publisher_->on_deactivate();
+    // sent_data_publisher_->on_deactivate();
     return node_interfaces::LifecycleNodeInterface::CallbackReturn::SUCCESS;
 }
 
 node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_cleanup(const State &)
 {
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Cleaning up.");
-    ecat_node_.reset();
-    received_data_publisher_.reset();
-    sent_data_publisher_.reset();
+    ecat_node_->RestartEthercatMaster();
+    for (int i=0; i<NUM_OF_SLAVES; i++){
+        ecat_node_->slaves_[i].slave_pdo_domain_ = NULL;
+        ecat_node_->slaves_[i].slave_config_ = NULL;
+        ecat_node_->slaves_[i].slave_pdo_entry_info_ = NULL;
+        ecat_node_->slaves_[i].slave_pdo_entry_reg_ = NULL;
+        ecat_node_->slaves_[i].slave_pdo_info_ = NULL;
+        ecat_node_->slaves_[i].slave_sync_info_ = NULL;
+        g_master = NULL;
+        g_master_domain = NULL;
+        g_master_state = {} ;
+    }
     return node_interfaces::LifecycleNodeInterface::CallbackReturn::SUCCESS;
 }
 
@@ -102,7 +112,6 @@ node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_sh
 node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_error(const State &)
 {
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "On Error.");
-    ecat_node_.reset();
     return node_interfaces::LifecycleNodeInterface::CallbackReturn::SUCCESS;
 }
 
@@ -148,9 +157,9 @@ void EthercatLifeCycle::HandleControlNodeCallbacks(const sensor_msgs::msg::Joy::
 
 }
 
-void EthercatLifeCycle::HandleGuiNodeCallbacks(const std_msgs::msg::UInt8::SharedPtr gui_sub)
+void EthercatLifeCycle::HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonData::SharedPtr gui_sub)
 {
-    gui_node_data_ = gui_sub->data;
+    gui_buttons_status_ = *gui_sub;
 }
 
 int EthercatLifeCycle::SetComThreadPriorities()
@@ -226,7 +235,8 @@ int EthercatLifeCycle::InitEthercatCommunication()
 
     ecat_node_->GetAllSlaveInformation();
     for(int i = 0 ; i < NUM_OF_SLAVES ; i++){
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"--------------------Slave Info -------------------------\n"
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"\n"
+               "--------------------Slave Info -------------------------\n"
                "Slave alias         = %d\n "
                "Slave position      = %d\n "
                "Slave vendor_id     = 0x%08x\n "
@@ -374,7 +384,7 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
     // Switch On and Enable Driver
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Enabling motors...");
     clock_gettime(CLOCK_TO_USE, &wake_up_time);
-    while(sig)
+    while(sig && !gui_buttons_status_.b_stop_cyclic_pdo)
     {
         // CKim - Sleep for 1 ms
         wake_up_time = timespec_add(wake_up_time, g_cycle_time);
@@ -459,7 +469,7 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
 
     // ------------------------------------------------------- //
     // CKim - All motors enabled. Start control loop
-    while(sig){
+    while(sig && !gui_buttons_status_.b_stop_cyclic_pdo){
         wake_up_time = timespec_add(wake_up_time, g_cycle_time);
         clock_nanosleep(CLOCK_TO_USE, TIMER_ABSTIME, &wake_up_time, NULL);
         ecrt_master_application_time(g_master, TIMESPEC2NS(wake_up_time));
@@ -675,7 +685,7 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
 
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Leaving control thread.");
     ecat_node_->DeactivateCommunication();
-    return;
+    pthread_exit(NULL);
 }// StartPdoExchange end
 
 void EthercatLifeCycle::ReadFromSlaves()

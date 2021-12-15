@@ -19,9 +19,6 @@
   <build_depend>ecat_msgs</build_depend>
   <build_depend>sensor_msgs</build_depend>
   <build_depend>std_msgs</build_depend>
-  <build_depend>rttest</build_depend>
-  <build_depend>tlsf_cpp</build_depend>
-  
 
   <exec_depend>libqt5-core</exec_depend>
   <exec_depend>libqt5-gui</exec_depend>
@@ -31,9 +28,6 @@
   <exec_depend>sensor_msgs</exec_depend>
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>cv_bridge</exec_depend>
-  <exec_depend>rttest</exec_depend>
-  <exec_depend>tlsf_cpp</exec_depend>
-
 
     <export>
     <build_type>ament_cmake</build_type>

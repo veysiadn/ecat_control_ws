@@ -4,17 +4,23 @@
   using namespace GUI;
   GuiNode::GuiNode() : Node("gui_node")
   {
+    received_data_.resize(NUM_OF_SERVO_DRIVES);
     auto qos = rclcpp::QoS(rclcpp::KeepLast(1));
     qos.best_effort();
+
     controller_commands_= this->create_subscription<sensor_msgs::msg::Joy>("Controller", qos,
                                   std::bind(&GuiNode::HandleControllerCallbacks, this, std::placeholders::_1));
+
     slave_feedback_ = this->create_subscription<ecat_msgs::msg::DataReceived>("Slave_Feedback", qos,
                                    std::bind(&GuiNode::HandleSlaveFeedbackCallbacks, this, std::placeholders::_1));
+
     master_commands_ = this->create_subscription<ecat_msgs::msg::DataSent>("Master_Commands", qos,
                                    std::bind(&GuiNode::HandleMasterCommandCallbacks, this, std::placeholders::_1));
-    gui_publisher_ = create_publisher<ecat_msgs::msg::GuiButtonData>("gui_buttons", qos);
-    timer_ = this->create_wall_timer(1ms,std::bind(&GuiNode::timer_callback,this));
-    received_data_[0].p_emergency_switch_val=1;
+
+    gui_publisher_ = create_publisher<ecat_msgs::msg::GuiButtonData>("gui_buttons", 1);
+    timer_ = this->create_wall_timer(30ms,std::bind(&GuiNode::timer_callback,this));
+
+//    received_data_[0].p_emergency_switch_val=1;
     ResetContolButtonValues();
   }
 
@@ -25,10 +31,11 @@
 
   void GuiNode::timer_callback()
   {
-      auto button_info = ecat_msgs::msg::GuiButtonData();
-      button_info.b_init = emergency_button_val_;
-      gui_publisher_->publish(button_info);
+      ui_control_buttons_.header.stamp = this->now();
+      gui_publisher_->publish(ui_control_buttons_);
+      ResetContolButtonValues();
   }
+
   void GuiNode::HandleControllerCallbacks(const sensor_msgs::msg::Joy::SharedPtr msg)
   {
      for(int i=0; i < NUM_OF_SERVO_DRIVES ; i++){
@@ -67,18 +74,20 @@
      // emit UpdateParameters(0);
 
   }
- void GuiNode::ResetContolButtonValues()
+
+  void GuiNode::ResetContolButtonValues()
  {
-     control_buttons_.b_init = 0 ;
-     control_buttons_.b_reinit = 0 ;
-     control_buttons_.b_enable_motor = 0 ;
-     control_buttons_.b_disable_motor = 0 ;
-     control_buttons_.b_enable_cyclic_pos = 0 ;
-     control_buttons_.b_enable_cyclic_vel = 0 ;
-     control_buttons_.b_enable_vel = 0 ;
-     control_buttons_.b_enable_pos = 0 ;
-     control_buttons_.b_enter_cyclic_pdo = 0 ;
-     control_buttons_.b_emergency_mode = 0 ;
-     control_buttons_.b_send = 0 ;
+     ui_control_buttons_.b_init_ecat = 0 ;
+     ui_control_buttons_.b_reinit_ecat = 0 ;
+     ui_control_buttons_.b_enable_drives = 0 ;
+     ui_control_buttons_.b_disable_drives = 0 ;
+     ui_control_buttons_.b_enable_cyclic_pos = 0 ;
+     ui_control_buttons_.b_enable_cyclic_vel = 0 ;
+     ui_control_buttons_.b_enable_vel = 0 ;
+     ui_control_buttons_.b_enable_pos = 0 ;
+     ui_control_buttons_.b_enter_cyclic_pdo = 0 ;
+     ui_control_buttons_.b_emergency_mode = 0 ;
+     ui_control_buttons_.b_send = 0 ;
+     ui_control_buttons_.b_stop_cyclic_pdo = 0 ;
 
  }

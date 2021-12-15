@@ -73,23 +73,8 @@ namespace GUI {
  class GuiNode : public rclcpp::Node
   {
      //Q_OBJECT
-  public:
-      GuiNode();
-      virtual ~GuiNode();
-  public:
-      // Received data structure to store all subscribed data.
-      ReceivedData received_data_[NUM_OF_SERVO_DRIVES] = {};
-      // GUI button value to publish emergency button state.
-      uint8_t emergency_button_val_ = 1;
-      Timing time_info_;
-      ecat_msgs::msg::GuiButtonData control_buttons_;
+
   private:
-      // ROS2 subscriptions.
-      rclcpp::Subscription<ecat_msgs::msg::DataReceived>::SharedPtr slave_feedback_;
-      rclcpp::Subscription<ecat_msgs::msg::DataSent>::SharedPtr master_commands_;
-      rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr  controller_commands_;
-      rclcpp::TimerBase::SharedPtr timer_;
-      rclcpp::Publisher<ecat_msgs::msg::GuiButtonData>::SharedPtr gui_publisher_;
       /**
        * @brief Publishes gui button value in specified interval.
        */
@@ -119,6 +104,29 @@ namespace GUI {
          * @brief Resets control button values coming from control UI.
          */
         void ResetContolButtonValues();
+   private:
+        /// ROS2 subscriptions.
+        /// Acquired feedback information from connected slaves
+        rclcpp::Subscription<ecat_msgs::msg::DataReceived>::SharedPtr slave_feedback_;
+        /// Subscribed to commands that's being sent by ecat_master
+        rclcpp::Subscription<ecat_msgs::msg::DataSent>::SharedPtr master_commands_;
+
+        rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr  controller_commands_;
+        /// Timer for timer callbacks, publishing will be done in certain interval.
+        rclcpp::TimerBase::SharedPtr timer_;
+        /// Gui publisher, which contains clicked button information
+        rclcpp::Publisher<ecat_msgs::msg::GuiButtonData>::SharedPtr gui_publisher_;
+
+     public:
+         GuiNode();
+         virtual ~GuiNode();
+     public:
+         /// Received data structure to store all subscribed data.
+         std::vector<ReceivedData> received_data_;
+         /// GUI button value to publish emergency button state.
+         ecat_msgs::msg::GuiButtonData ui_control_buttons_;
+         /// For time measurements
+         Timing time_info_;
   };// class GuiNode
 
  } // namespace GUI

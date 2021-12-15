@@ -259,7 +259,12 @@ namespace EthercatCommunication
      * @return 0 if succesfull, otherwise -1.
      */ 
         int ShutDownEthercatMaster();
-
+    /**
+     * @brief Restarts Ethercat master via command line tool.
+     * 
+     * @return 0 if succesfull, otherwise -1.
+     */
+        int RestartEthercatMaster();
     /**
      * @brief This function reads data from specified index and subindex via SDO, returned data will be stored in 
      * pack.data which needs to be casted to correct data type afterwards.

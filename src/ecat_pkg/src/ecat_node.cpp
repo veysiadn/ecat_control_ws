@@ -24,6 +24,7 @@ EthercatNode::~EthercatNode()
 
 int  EthercatNode::ConfigureMaster()
 {
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Requesting EtherCAT master...\n");
     g_master = ecrt_request_master(0);    
     if (!g_master) {
         
@@ -744,7 +745,7 @@ int EthercatNode::GetNumberOfConnectedSlaves()
 
 void EthercatNode::DeactivateCommunication()
 {
-    //ecrt_master_deactivate_slaves(g_master);
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Deactivating & Releasing EtherCAT master...");
     ecrt_master_deactivate(g_master);
     ecrt_release_master(g_master);
 }
@@ -757,10 +758,11 @@ void EthercatNode::ReleaseMaster()
 
 int EthercatNode::OpenEthercatMaster()
 {
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Trying to open EtherCAT master...");
     fd = std::system("ls /dev | grep EtherCAT* > /dev/null");
     if(fd){
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Opening EtherCAT master...");
-        std::system("cd ~; sudo ethercatctl start");
+        std::system("sudo ethercatctl start");
         usleep(2e6);
         fd = std::system("ls /dev | grep EtherCAT* > /dev/null");
         if(fd){
@@ -770,6 +772,7 @@ int EthercatNode::OpenEthercatMaster()
                 return 0 ;
             }
     }
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "EtherCAT master opened...");
     return 0 ; 
 }
 
@@ -790,6 +793,22 @@ int EthercatNode::ShutDownEthercatMaster()
         }
     }
     return 0;
+}
+
+int EthercatNode::RestartEthercatMaster()
+{
+
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Restarting EtherCAT master...");
+    std::system("cd ~; sudo ethercatctl restart\n");
+    usleep(2e6);
+    fd = std::system("ls /dev | grep EtherCAT* > /dev/null\n");
+    if(!fd){
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"EtherCAT restart succesfull.");
+        return 0;
+    }else {
+        RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Error : EtherCAT restart error.");
+        return -1 ;
+    }
 }
 
 uint8_t EthercatNode::SdoRead(SDO_data &pack)

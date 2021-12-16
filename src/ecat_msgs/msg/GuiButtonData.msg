@@ -13,3 +13,4 @@ uint8 b_enter_cyclic_pdo
 uint8 b_emergency_mode
 uint8 b_send
 uint8 b_stop_cyclic_pdo
+uint32 l_target_value

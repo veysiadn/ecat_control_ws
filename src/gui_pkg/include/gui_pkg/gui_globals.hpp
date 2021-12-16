@@ -62,6 +62,7 @@ struct ControlUIButtonData{
     uint8_t b_enter_cyclic_pdo;
     uint8_t b_emergency_mode;
     uint8_t b_send;
+    uint32_t l_target_val;
 };
 
 #define SM_COMM_RESET              	0x81

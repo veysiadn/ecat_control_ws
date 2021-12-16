@@ -74,14 +74,16 @@ node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_de
 {
     std::this_thread::sleep_for(std::chrono::seconds(2));
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Deactivating.");
-    // received_data_publisher_->on_deactivate();
-    // sent_data_publisher_->on_deactivate();
+     received_data_publisher_->on_deactivate();
+     sent_data_publisher_->on_deactivate();
     return node_interfaces::LifecycleNodeInterface::CallbackReturn::SUCCESS;
 }
 
 node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_cleanup(const State &)
 {
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Cleaning up.");
+    ecat_node_->ReleaseMaster();
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
     ecat_node_->RestartEthercatMaster();
     for (int i=0; i<NUM_OF_SLAVES; i++){
         ecat_node_->slaves_[i].slave_pdo_domain_ = NULL;
@@ -680,7 +682,7 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
 
     ecrt_domain_queue(g_master_domain);
     ecrt_master_send(g_master);
-    usleep(10000);
+    usleep(100);
     // ------------------------------------------------------- //
 
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Leaving control thread.");

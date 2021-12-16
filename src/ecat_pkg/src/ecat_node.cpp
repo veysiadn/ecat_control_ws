@@ -747,12 +747,10 @@ void EthercatNode::DeactivateCommunication()
 {
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Deactivating & Releasing EtherCAT master...");
     ecrt_master_deactivate(g_master);
-    ecrt_release_master(g_master);
 }
 
 void EthercatNode::ReleaseMaster()
 {
-    ecrt_master_deactivate(g_master);
     ecrt_release_master(g_master);
 }
 

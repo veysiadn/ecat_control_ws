@@ -11,6 +11,7 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
     this->my_timer.setInterval(30);  // Update rate 30 ms for GUI.
     this->my_timer.start();
     connect(&my_timer, SIGNAL(timeout()), this, SLOT(UpdateGUI()));
+    CallUnconfiguredStateUI();
 }
 
 MainWindow::~MainWindow()
@@ -80,7 +81,7 @@ int MainWindow::GetDriveStates(const int & statusWord)
 }
 
 
-void MainWindow::setDisabledStyleSheet(QPushButton *button)
+void MainWindow::SetDisabledStyleSheet(QPushButton *button)
 {
     button->setEnabled(false);
     button->setStyleSheet("color: rgb(255, 255, 255);"
@@ -88,7 +89,7 @@ void MainWindow::setDisabledStyleSheet(QPushButton *button)
                                          "font: bold 75 15pt;");
 }
 
-void MainWindow::setEnabledStyleSheet(QPushButton *button)
+void MainWindow::SetEnabledStyleSheet(QPushButton *button)
 {
     button->setEnabled(true);
     button->setStyleSheet("color: rgb(255, 255, 255);"
@@ -123,6 +124,7 @@ void MainWindow::on_b_enable_pos_clicked()
 void MainWindow::on_b_init_ecat_clicked()
 {
     gui_node_->ui_control_buttons_.b_init_ecat = 1 ;
+    CallInactiveStateUI();
 }
 
 void MainWindow::on_b_reinit_ecat_clicked()
@@ -143,7 +145,7 @@ void MainWindow::on_b_disable_drives_clicked()
 void MainWindow::on_b_enter_cyclic_pdo_clicked()
 {
     gui_node_->ui_control_buttons_.b_enter_cyclic_pdo = 1 ;
-
+    CallActiveStateUI();
 }
 
 void MainWindow::on_b_stop_cyclic_pdo_clicked()
@@ -159,6 +161,19 @@ void MainWindow::on_b_emergency_mode_clicked()
 void MainWindow::on_b_send_clicked()
 {
     gui_node_->ui_control_buttons_.b_send = 1 ;
+    for(int i = 0 ; i < NUM_OF_SERVO_DRIVES; i++){
+        switch (i) {
+            case 0:
+                gui_node_->ui_control_buttons_.spn_target_values[i] = static_cast<int> (ui->spn_target_val_1->value());
+                break;
+            case 1:
+                gui_node_->ui_control_buttons_.spn_target_values[i] = static_cast<int> (ui->spn_target_val_2->value());
+                break;
+            case 2:
+                gui_node_->ui_control_buttons_.spn_target_values[i] = static_cast<int> (ui->spn_target_val_3->value());
+                break;
+        }
+    }
 }
 
 void MainWindow::ResetControlButtonValues(unsigned char &button_val)
@@ -176,6 +191,50 @@ void MainWindow::ResetControlButtonValues(unsigned char &button_val)
    gui_node_->ui_control_buttons_.b_send = 0 ;
    gui_node_->ui_control_buttons_.b_stop_cyclic_pdo = 0 ;
    button_val = 1;
+}
+
+void MainWindow::CallUnconfiguredStateUI()
+{
+    SetDisabledStyleSheet(ui->b_reinit_ecat);
+    SetDisabledStyleSheet(ui->b_enter_cyclic_pdo);
+    SetDisabledStyleSheet(ui->b_stop_cyclic_pdo);
+    SetDisabledStyleSheet(ui->b_enable_drives);
+    SetDisabledStyleSheet(ui->b_disable_drives);
+    SetDisabledStyleSheet(ui->b_send);
+    SetDisabledStyleSheet(ui->b_enable_cyclic_pos);
+    SetDisabledStyleSheet(ui->b_enable_cylic_vel);
+    SetDisabledStyleSheet(ui->b_enable_pos);
+    SetDisabledStyleSheet(ui->b_enable_vel);
+}
+
+void MainWindow::CallInactiveStateUI()
+{
+    SetDisabledStyleSheet(ui->b_init_ecat);
+    SetDisabledStyleSheet(ui->b_stop_cyclic_pdo);
+
+    SetEnabledStyleSheet(ui->b_reinit_ecat);
+    SetEnabledStyleSheet(ui->b_enter_cyclic_pdo);
+    SetEnabledStyleSheet(ui->b_enable_drives);
+    SetEnabledStyleSheet(ui->b_disable_drives);
+    SetEnabledStyleSheet(ui->b_send);
+    SetEnabledStyleSheet(ui->b_enable_cyclic_pos);
+    SetEnabledStyleSheet(ui->b_enable_cylic_vel);
+    SetEnabledStyleSheet(ui->b_enable_pos);
+    SetEnabledStyleSheet(ui->b_enable_vel);
+}
+void MainWindow::CallActiveStateUI()
+{
+    SetEnabledStyleSheet(ui->b_stop_cyclic_pdo);
+    SetDisabledStyleSheet(ui->b_init_ecat);
+    SetDisabledStyleSheet(ui->b_reinit_ecat);
+    SetDisabledStyleSheet(ui->b_enter_cyclic_pdo);
+    SetDisabledStyleSheet(ui->b_enable_drives);
+    SetDisabledStyleSheet(ui->b_disable_drives);
+    SetDisabledStyleSheet(ui->b_send);
+    SetDisabledStyleSheet(ui->b_enable_cyclic_pos);
+    SetDisabledStyleSheet(ui->b_enable_cylic_vel);
+    SetDisabledStyleSheet(ui->b_enable_pos);
+    SetDisabledStyleSheet(ui->b_enable_vel);  
 }
 //void MainWindow::ShowEmergencyStatus()
 //{
@@ -441,4 +500,12 @@ void MainWindow::ResetControlButtonValues(unsigned char &button_val)
 //{
 //    gui_node_->emergency_button_val_ = 0;
 //    setDisabledStyleSheet();
+//}
+
+//void MainWindow::on_lne_target_value_1_cursorPositionChanged(int arg1, int arg2)
+//{
+//    ui->lne_target_value_1->setStyleSheet(
+//                "QLineEdit{background:white;"
+//                 "color:black;"
+//                 "font:bold 75 12pt \"Noto Sans\";}");
 //}

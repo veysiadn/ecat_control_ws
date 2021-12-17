@@ -259,6 +259,7 @@ public:
    * how long we wait for a response before returning
    * unknown state
    */
+  
   bool
   change_state(std::uint8_t transition, std::chrono::seconds time_out = 5s)
   {

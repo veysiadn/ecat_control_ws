@@ -72,31 +72,10 @@ class MainWindow;
     ~MainWindow();
 
   private slots:
-//  /**
-//   * @brief Resets all received values to 0.
-//   *
-//   */
-//    void on_button_reset_clicked();
-//    /**
-//     * @brief Updates GUI based on timer callback in this case 25ms.
-//     *
-//     */
-    void UpdateGUI();
-    /**
-     * @brief Sets GUI appearance for disabled buttons.
-     */
-    void setDisabledStyleSheet(QPushButton *button);
-    /**
-     * @brief Sets GUI appearance for enabled buttons.
-     */
-    void setEnabledStyleSheet(QPushButton *button);
 
+    void UpdateGUI();
 
     void ResetControlButtonValues(unsigned char &button_val);
-//    /**
-//     * @brief Stops motor movement while maintining EtherCAT communication in case of emergency.
-//     */
-//    void on_button_emergency_clicked();
 
     void on_b_enable_cyclic_pos_clicked();
 
@@ -130,7 +109,7 @@ class MainWindow;
     void rosSpinThread();
     /**
      * @brief Shows motor status in GUI.
-//     */
+//   */
 //    void ShowAllMotorStatus();
 //    /**
 //     * @brief Shows communication status in GUI.
@@ -146,7 +125,33 @@ class MainWindow;
 //     * @return QString readable status word format.
 //     */
 //    QString GetReadableStatusWord(int index);
+    /**
+     * @brief This function will update UI style (enable-disable buttons) based on unconfigured state style
+     * @note In unconfigured state only Initialize Ethercat button will be enabled.
+     * @note That this state naming comes from lifecycle node in ROS2.
+     */
+    void CallUnconfiguredStateUI();
 
+    /**
+     * @brief This function will update UI style (enable-disable buttons) based on inactive state style.
+     * @note  In this state state only Initialize/Reinitialize Ethercat buttons and STOP Cyclic Exchange button will
+     * be disabled other will be enabled.
+     */
+    void CallInactiveStateUI();
+    /**
+     * @brief This function will update UI style (enable-disable buttons) based on active state style.
+     * @note In this state only Emergency Mode and Stop Cyclic Exchange buttons will be enabled.
+     */
+    void CallActiveStateUI();
+
+    /**
+     * @brief Sets GUI appearance for disabled buttons.
+     */
+    void SetDisabledStyleSheet(QPushButton *button);
+    /**
+     * @brief Sets GUI appearance for enabled buttons.
+     */
+    void SetEnabledStyleSheet(QPushButton *button);
     Ui::MainWindow *ui;
     int argc_;
     char** argv_;

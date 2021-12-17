@@ -30,9 +30,11 @@
  *****************************************************************************/
 /*****************************************************************************
  * \file  gui_node.hpp
- * \brief GUI node implementation to show slave status and controller commands in ROS2
+ * \brief GUI node implementation to show slave status and controller commands in ROS2.
+ *        Additionally it publishes information regarding buttons on mainscreen.
  *        GUI node is a ROS2 node which subscribes EthercatLifecycle Node topics and 
- *        controller topics and shows those values via GUI.
+ *        controller topics and shows those values via GUI and publishes control ui
+ *        button values.
  *******************************************************************************/
 
 #pragma once
@@ -41,7 +43,6 @@
 
 // Message file headers, -custom and built-in-
 #include "sensor_msgs/msg/joy.hpp"
-#include "std_msgs/msg/u_int8.hpp"
 #include "ecat_msgs/msg/data_received.hpp"
 #include "ecat_msgs/msg/data_sent.hpp"
 #include "ecat_msgs/msg/gui_button_data.hpp"
@@ -66,18 +67,18 @@ using namespace std::chrono_literals;
 namespace GUI {
 
 /**
- * @brief This structure will be all data that'll be received by this node from other nodes.
- * 
+ * @brief This node will be responsible from all GUI interaction and visualization of feedback information acquired
+ * via EtherCAT communication.
  */
 
  class GuiNode : public rclcpp::Node
   {
-     //Q_OBJECT
 
   private:
       /**
        * @brief Publishes gui button value in specified interval.
        */
+
       void timer_callback();
       /**
        * @brief Function will be used for subscribtion callbacks from controller node
@@ -85,6 +86,7 @@ namespace GUI {
        *
        * @param msg controller command structure published by controller node.
        */
+
         void HandleControllerCallbacks(const sensor_msgs::msg::Joy::SharedPtr msg);
         /**
          * @brief Function will be used for subscribtion callbacks from EthercatLifecycle node
@@ -92,6 +94,7 @@ namespace GUI {
          *
          * @param msg Master commands structure published by EthercatLifecycle node
          */
+
         void HandleMasterCommandCallbacks(const ecat_msgs::msg::DataSent::SharedPtr msg);
         /**
          * @brief Function will be used for subscribtion callbacks from EthercatLifecycle node
@@ -99,6 +102,7 @@ namespace GUI {
          *
          * @param msg Slave feedback structure published by EthercatLifecycle node
          */
+
         void HandleSlaveFeedbackCallbacks(const ecat_msgs::msg::DataReceived::SharedPtr msg);
         /**
          * @brief Resets control button values coming from control UI.
@@ -108,12 +112,15 @@ namespace GUI {
         /// ROS2 subscriptions.
         /// Acquired feedback information from connected slaves
         rclcpp::Subscription<ecat_msgs::msg::DataReceived>::SharedPtr slave_feedback_;
+
         /// Subscribed to commands that's being sent by ecat_master
         rclcpp::Subscription<ecat_msgs::msg::DataSent>::SharedPtr master_commands_;
 
         rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr  controller_commands_;
+
         /// Timer for timer callbacks, publishing will be done in certain interval.
         rclcpp::TimerBase::SharedPtr timer_;
+
         /// Gui publisher, which contains clicked button information
         rclcpp::Publisher<ecat_msgs::msg::GuiButtonData>::SharedPtr gui_publisher_;
 

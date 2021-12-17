@@ -21,6 +21,7 @@ public:
     ~EndoscopeViewer();
 
 private slots:
+
     void on_b_start_capture_clicked();
 
     void on_b_stop_capture_clicked();

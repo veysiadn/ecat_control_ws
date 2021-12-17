@@ -20,9 +20,15 @@ void VideoCapture::run()
                 pixmap_cap = cvMatToQPixmap(frame_cap);
                 emit NewPixmapCapture();
             }
+            if(isInterruptionRequested()){
+                video_cap.release();
+                std::cout << "Release requested " << std::endl;
+                break;
+            }
             QThread::msleep((1/frame_rate)*1000);
         }
     }
+    return;
 }
 
 QImage VideoCapture::cvMatToQImage( const cv::Mat &inMat )

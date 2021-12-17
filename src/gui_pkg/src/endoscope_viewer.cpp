@@ -25,11 +25,15 @@ void EndoscopeViewer::on_b_start_capture_clicked()
 
 void EndoscopeViewer::on_b_stop_capture_clicked()
 {
-    opencv_video_cap_->exit();
-    opencv_video_cap_->quit();
+    if (opencv_video_cap_->isRunning()){
+        opencv_video_cap_->requestInterruption();
+    }
 }
 
 void EndoscopeViewer::on_b_exit_clicked()
 {
+    if (opencv_video_cap_->isRunning()){
+        opencv_video_cap_->requestInterruption();
+    }
     EndoscopeViewer::close();
 }

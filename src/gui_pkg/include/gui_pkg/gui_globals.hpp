@@ -1,7 +1,7 @@
 #ifndef GUI_GLOBALS_HPP
 #define GUI_GLOBALS_HPP
 
-#define NUM_OF_SERVO_DRIVES 1
+#define NUM_OF_SERVO_DRIVES 3
 #define ID_CAMERA 0
 
 
@@ -22,6 +22,12 @@ enum MotorStates{
         kRemote,
         kTargetReached,
         kInternalLimitActivate
+};
+
+enum LifeCycleStates{
+    kUnconfigured = 1,
+    kInactive,
+    kActive
 };
 
 struct ReceivedData
@@ -46,6 +52,7 @@ struct ReceivedData
     int32_t  left_x_axis;
     uint8_t  p_emergency_switch_val;
     uint8_t  com_status;
+    uint8_t  slave_com_status;
 };
 
 

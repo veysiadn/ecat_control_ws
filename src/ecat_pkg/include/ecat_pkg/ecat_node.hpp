@@ -55,6 +55,7 @@ namespace EthercatCommunication
             EthercatNode();
             ~EthercatNode();
         EthercatSlave slaves_[NUM_OF_SLAVES];
+        std::vector<SdoRequest> request_sdos_ ; 
     /**
      * @brief Requests master instance and creates a domain for a master.
      * @note  Keep in mind that created master and domain are global variables.
@@ -77,7 +78,7 @@ namespace EthercatCommunication
         void SetCustomSlave(EthercatSlave c_slave, int position);
     /**
      * @brief Obtains slave configuration for all slaves w.r.t master.
-     * @return 0 if succesfull, otherwise -1. 
+     * @return 0 if successfull, otherwise -1. 
      */
         int  ConfigureSlaves();
     /**
@@ -85,7 +86,7 @@ namespace EthercatCommunication
      *       
      * @param P Profile position parameter structure specified by user.
      * @param position Slave position
-     * @return 0 if succesfull, otherwise -1.
+     * @return 0 if successfull, otherwise -1.
      */
         int  SetProfilePositionParameters(ProfilePosParam& P , int position);
     /**
@@ -107,7 +108,7 @@ namespace EthercatCommunication
      * @brief Set mode to ProfileVelocityMode with specified parameters for all servo drives on the bus
      * 
      * @param P Profile velocity parameter structure specified by user.
-     * @return 0 if succesfull, -1 otherwise.
+     * @return 0 if successfull, -1 otherwise.
      * @todo Add error code to all functions.Instead of returning -1. 
      */
         int SetProfileVelocityParametersAll(ProfileVelocityParam& P);
@@ -156,13 +157,18 @@ namespace EthercatCommunication
      * @return 0 if sucessful, otherwise -1.
      */
         int SetCyclicSyncTorqueModeParametersAll(CSTorqueModeParam &P);
-
+    /**
+     * @brief Maps default SDOs which can be found @see SdoRequest struct.
+     * 
+     * @return 0 if successfull, otherwise -1.
+     */
+        int MapDefaultSdos();
     /**
      * @brief Maps default PDOs for our spine surgery robot implementation.
      * @note This method is specific for our spinerobot implementation.
      * If you have different topology or different servo drives use 
      * \see MapCustomPdos() function of modify this function based on your needs.
-     * @return 0 if succesfull, otherwise -1.
+     * @return 0 if successfull, otherwise -1.
      */
         int MapDefaultPdos();
     /**
@@ -170,7 +176,7 @@ namespace EthercatCommunication
      * @note  You have to specify slave syncs and slave pdo registers before using function
      * @param c_slave EthercatSlave instance
      * @param position Physical position of your slave w.r.t master
-     * @return 0 if succesfull, -1 otherwise.
+     * @return 0 if successfull, -1 otherwise.
      */
         int MapCustomPdos(EthercatSlave c_slave, int position);
     /**
@@ -223,14 +229,14 @@ namespace EthercatCommunication
      *        Reason for this function is that, master and slave has to do several exchange before becoming operational.
      *        So this function does exchange between master and slaves for up to 10 sec, could finish earlier.
      *        If timeout occurs it will return -1.
-     * @return 0 if succesfull, otherwise -1.
+     * @return 0 if successfull, otherwise -1.
      */
         int  WaitForOperationalMode();
 
     /**
      * @brief Opens EtherCAT master via command line tool if it's not already on.
      * 
-     * @return 0 if succesfull, otherwise -1.
+     * @return 0 if successfull, otherwise -1.
      */ 
         int OpenEthercatMaster();
     /**
@@ -256,13 +262,13 @@ namespace EthercatCommunication
     /**
      * @brief Shutdowns EtherCAT master via command line tool if it's not already off.
      * 
-     * @return 0 if succesfull, otherwise -1.
+     * @return 0 if successfull, otherwise -1.
      */ 
         int ShutDownEthercatMaster();
     /**
      * @brief Restarts Ethercat master via command line tool.
      * 
-     * @return 0 if succesfull, otherwise -1.
+     * @return 0 if successfull, otherwise -1.
      */
         int RestartEthercatMaster();
     /**
@@ -272,9 +278,9 @@ namespace EthercatCommunication
      * \note This is a blocking function, until response has been received.Don't use it in real-time context!!.
      * 
      * @param pack SDO_data struct which contains; index,subindex,data size, and data that will be used to store read data.
-     * @return 0 if succesfull, otherwise -1. 
+     * @return 0 if successfull, otherwise -1. 
      */
-        uint8_t SdoRead(SDO_data &pack);
+        int8_t SdoRead(SDO_data &pack);
 
     /**
      * @brief This function writes data to specified index and subindex via SDO.
@@ -282,10 +288,35 @@ namespace EthercatCommunication
      * \note This is a blocking function, until response has been received.Don't use it in real-time context!!.
      * 
      * @param pack SDO_data struct which contains; index,subindex,data size and data to be written.
-     * @return 0 if succesfull, otherwise -1. 
+     * @return 0 if successfull, otherwise -1. 
      */
-        uint8_t SdoWrite(SDO_data &pack);
-
+        int8_t SdoWrite(SDO_data &pack);
+    /**
+     * @brief Get the Status Word from CiA402 slaves in specified index via SDO communication.
+     * @param index slave index
+     * @return status word 
+     */
+        uint16_t GetStatusWordViaSDO(int index);
+    /**
+     * @brief Writes control word to slave in specified index.
+     * 
+     * @param index slave index, @param control_word control word to be written 
+     * @return 0 if successfull otherwise -1.
+     */
+        int16_t WriteControlWordViaSDO(int index,uint16_t control_word);
+    /**
+     * @brief Writes SDO in real-time context.
+     * 
+     * @param req 
+     * @param data 
+     */
+        void WriteSDO(ec_sdo_request_t *req, int32_t data,int size);
+    /**
+     * @brief Reads SDO in real-time context by creating read request.
+     * 
+     * @param req 
+     */
+        void ReadSDO(ec_sdo_request_t *req,uint16_t &status_word);
         private:
         /// File descriptor to open and wake  master from CLI.
         int  fd;

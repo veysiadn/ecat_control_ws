@@ -89,12 +89,16 @@ void MainWindow::SetDisabledStyleSheet(QPushButton *button)
                                          "font: bold 75 15pt;");
 }
 
-void MainWindow::SetEnabledStyleSheet(QPushButton *button)
+void MainWindow::SetEnabledStyleSheetSDO(QPushButton *button)
 {
     button->setEnabled(true);
-    button->setStyleSheet("color: rgb(255, 255, 255);"
-                                        "background-color: rgb(255, 0,0);"
-                                        "font: bold 75 15pt;");
+    button->setStyleSheet(sdo_style_sheet_);
+}
+
+void MainWindow::SetEnabledStyleSheetPDO(QPushButton *button)
+{
+    button->setEnabled(true);
+    button->setStyleSheet(blue_style_sheet_);
 }
 
 void MainWindow::on_b_enable_cyclic_pos_clicked()
@@ -102,7 +106,6 @@ void MainWindow::on_b_enable_cyclic_pos_clicked()
     gui_node_->ui_control_buttons_.b_enable_cyclic_pos = 1 ;
     // Todo : Disable buttons/ apply disable stylesheet.Make other buttons 0;
     //this->setDisabledStyleSheet(ui->b_enable_cyclic_pos);
-    ResetControlButtonValues(gui_node_->ui_control_buttons_.b_enable_cyclic_pos);
 }
 
 void MainWindow::on_b_enable_cylic_vel_clicked()
@@ -124,12 +127,25 @@ void MainWindow::on_b_enable_pos_clicked()
 void MainWindow::on_b_init_ecat_clicked()
 {
     gui_node_->ui_control_buttons_.b_init_ecat = 1 ;
+    int time_out_counter = 0;
+    while((gui_node_->current_lifecycle_state==kConfiguring || 
+    gui_node_->current_lifecycle_state !=kInactive) && time_out_counter!=15){
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        time_out_counter++;
+    }
     CallInactiveStateUI();
 }
 
 void MainWindow::on_b_reinit_ecat_clicked()
 {
     gui_node_->ui_control_buttons_.b_reinit_ecat = 1 ;
+    int time_out_counter = 0;
+    while((gui_node_->current_lifecycle_state==kCleaningUp || 
+    gui_node_->current_lifecycle_state !=kUnconfigured) && time_out_counter!=15){
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        time_out_counter++;
+    }
+    CallUnconfiguredStateUI();
 }
 
 void MainWindow::on_b_enable_drives_clicked()
@@ -145,12 +161,26 @@ void MainWindow::on_b_disable_drives_clicked()
 void MainWindow::on_b_enter_cyclic_pdo_clicked()
 {
     gui_node_->ui_control_buttons_.b_enter_cyclic_pdo = 1 ;
+    int time_out_counter = 0;
+    while((gui_node_->current_lifecycle_state==kActivating || 
+    gui_node_->current_lifecycle_state !=kActive) && time_out_counter!=15){
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        time_out_counter++;
+    }
     CallActiveStateUI();
 }
 
 void MainWindow::on_b_stop_cyclic_pdo_clicked()
 {
     gui_node_->ui_control_buttons_.b_stop_cyclic_pdo = 1 ;
+    int time_out_counter = 0;
+    while((gui_node_->current_lifecycle_state==kDeactivating || 
+    gui_node_->current_lifecycle_state !=kInactive) && time_out_counter!=15){
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        time_out_counter++;
+    }
+    if(gui_node_->current_lifecycle_state==kInactive)
+        CallInactiveStateUI();
 }
 
 void MainWindow::on_b_emergency_mode_clicked()
@@ -195,6 +225,7 @@ void MainWindow::ResetControlButtonValues(unsigned char &button_val)
 
 void MainWindow::CallUnconfiguredStateUI()
 {
+    SetEnabledStyleSheetPDO(ui->b_init_ecat);
     SetDisabledStyleSheet(ui->b_reinit_ecat);
     SetDisabledStyleSheet(ui->b_enter_cyclic_pdo);
     SetDisabledStyleSheet(ui->b_stop_cyclic_pdo);
@@ -212,22 +243,25 @@ void MainWindow::CallInactiveStateUI()
     SetDisabledStyleSheet(ui->b_init_ecat);
     SetDisabledStyleSheet(ui->b_stop_cyclic_pdo);
 
-    SetEnabledStyleSheet(ui->b_reinit_ecat);
-    SetEnabledStyleSheet(ui->b_enter_cyclic_pdo);
-    SetEnabledStyleSheet(ui->b_enable_drives);
-    SetEnabledStyleSheet(ui->b_disable_drives);
-    SetEnabledStyleSheet(ui->b_send);
-    SetEnabledStyleSheet(ui->b_enable_cyclic_pos);
-    SetEnabledStyleSheet(ui->b_enable_cylic_vel);
-    SetEnabledStyleSheet(ui->b_enable_pos);
-    SetEnabledStyleSheet(ui->b_enable_vel);
+    SetEnabledStyleSheetPDO(ui->b_reinit_ecat);
+    SetEnabledStyleSheetPDO(ui->b_enter_cyclic_pdo);
+
+    SetEnabledStyleSheetSDO(ui->b_enable_drives);
+    SetEnabledStyleSheetSDO(ui->b_disable_drives);
+    SetEnabledStyleSheetSDO(ui->b_send);
+    SetEnabledStyleSheetSDO(ui->b_enable_cyclic_pos);
+    SetEnabledStyleSheetSDO(ui->b_enable_cylic_vel);
+    SetEnabledStyleSheetSDO(ui->b_enable_pos);
+    SetEnabledStyleSheetSDO(ui->b_enable_vel);
 }
+
 void MainWindow::CallActiveStateUI()
 {
-    SetEnabledStyleSheet(ui->b_stop_cyclic_pdo);
+    SetEnabledStyleSheetPDO(ui->b_stop_cyclic_pdo);
+    SetEnabledStyleSheetPDO(ui->b_enter_cyclic_pdo);
+
     SetDisabledStyleSheet(ui->b_init_ecat);
     SetDisabledStyleSheet(ui->b_reinit_ecat);
-    SetDisabledStyleSheet(ui->b_enter_cyclic_pdo);
     SetDisabledStyleSheet(ui->b_enable_drives);
     SetDisabledStyleSheet(ui->b_disable_drives);
     SetDisabledStyleSheet(ui->b_send);
@@ -236,6 +270,7 @@ void MainWindow::CallActiveStateUI()
     SetDisabledStyleSheet(ui->b_enable_pos);
     SetDisabledStyleSheet(ui->b_enable_vel);  
 }
+
 //void MainWindow::ShowEmergencyStatus()
 //{
 //    QString qstr;

@@ -14,7 +14,7 @@ uint32_t             g_sync_ref_counter = 0;
 
 EthercatNode::EthercatNode()
 {
-
+    request_sdos_.resize(g_kNumberOfServoDrivers);
 }
 
 EthercatNode::~EthercatNode()
@@ -809,7 +809,7 @@ int EthercatNode::RestartEthercatMaster()
     }
 }
 
-uint8_t EthercatNode::SdoRead(SDO_data &pack)
+int8_t EthercatNode::SdoRead(SDO_data &pack)
 {
     if (ecrt_master_sdo_upload(g_master, pack.slave_position,pack.index,pack.sub_index,
                     (uint8_t*)(&pack.data), pack.data_sz, &pack.result_sz, &pack.err_code))
@@ -820,7 +820,7 @@ uint8_t EthercatNode::SdoRead(SDO_data &pack)
     return 0;
 }
 
-uint8_t EthercatNode::SdoWrite(SDO_data &pack)
+int8_t EthercatNode::SdoWrite(SDO_data &pack)
 {
     if (ecrt_master_sdo_download(g_master,pack.slave_position,pack.index,pack.sub_index,
                                 (uint8_t*)(&pack.data),pack.data_sz,&pack.err_code))
@@ -831,3 +831,145 @@ uint8_t EthercatNode::SdoWrite(SDO_data &pack)
     return 0;
 }
 
+uint16_t EthercatNode::GetStatusWordViaSDO(int index)
+{
+    SDO_data pack ; 
+    uint16_t status_word;  
+    pack.slave_position = index;
+    pack.index = OD_STATUS_WORD ; 
+    pack.sub_index = 0 ;
+    pack.data_sz = sizeof(uint16_t);
+    if(SdoRead(pack)){
+       std::cout << "Error while reading SDO " << std::endl;
+        return -1; 
+    }
+    status_word = (uint16_t)(pack.data);
+    return status_word ; 
+}
+
+int16_t EthercatNode::WriteControlWordViaSDO(int index,uint16_t control_word)
+{
+    SDO_data pack ; 
+    pack.index = OD_CONTROL_WORD;  
+    pack.slave_position = index;
+    pack.sub_index = 0 ;
+    pack.data_sz = sizeof(uint16_t);
+    pack.data = uint32_t(control_word);
+    if(SdoWrite(pack)){
+        std::cout << "Error while writing SDO " << std::endl;
+        return -1; 
+    }
+    return 0;
+}
+
+int EthercatNode::MapDefaultSdos()
+{
+    for(int i=0;i<g_kNumberOfServoDrivers;i++){
+        if (!(request_sdos_[i].target_vel = ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_TARGET_VELOCITY, sizeof(int32_t)))) {
+            fprintf(stderr, "Failed to create SDO request for Target Velocity.\n");
+            return -1;
+        }
+        ecrt_sdo_request_timeout(request_sdos_[i].target_vel, 500); // ms
+
+        if (!(request_sdos_[i].actual_vel = ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_TARGET_VELOCITY, sizeof(int32_t)))) {
+            fprintf(stderr, "Failed to create SDO request for Actual Velocity.\n");
+            return -1;
+        }
+        ecrt_sdo_request_timeout(request_sdos_[i].actual_vel, 500); // ms
+        
+        if (!(request_sdos_[i].target_pos = ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_TARGET_POSITION, sizeof(int32_t)))) {
+            fprintf(stderr, "Failed to create SDO request for Target Position.\n");
+            return -1;
+        }
+        ecrt_sdo_request_timeout(request_sdos_[i].target_pos, 500); // ms
+
+        if (!(request_sdos_[i].actual_pos = ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_TARGET_POSITION, sizeof(int32_t)))) {
+            fprintf(stderr, "Failed to create SDO request for Actual Position.\n");
+            return -1;
+        }
+        ecrt_sdo_request_timeout(request_sdos_[i].actual_pos, 500); // ms        
+
+        if (!(request_sdos_[i].target_tor = ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_TARGET_TORQUE, sizeof(int16_t)))) {
+            fprintf(stderr, "Failed to create SDO request for Target Torque\n");
+            return -1;
+        }
+        ecrt_sdo_request_timeout(request_sdos_[i].target_tor, 500); // ms
+
+        if (!(request_sdos_[i].actual_tor = ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_TARGET_TORQUE, sizeof(int16_t)))) {
+            fprintf(stderr, "Failed to create SDO request for Actual Torque\n");
+            return -1;
+        }
+        ecrt_sdo_request_timeout(request_sdos_[i].actual_tor, 500); // ms
+
+        if (!(request_sdos_[i].control_word = ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_CONTROL_WORD, sizeof(uint16_t)))) {
+            fprintf(stderr, "Failed to create SDO request for Control Word\n");
+            return -1;
+        }
+        ecrt_sdo_request_timeout(request_sdos_[i].control_word, 500); // ms
+
+        if (!(request_sdos_[i].status_word = ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_STATUS_WORD, sizeof(uint16_t)))) {
+            fprintf(stderr, "Failed to create SDO request for Status Word\n");
+            return -1;
+        }
+        ecrt_sdo_request_timeout(request_sdos_[i].status_word, 500); // ms
+
+        if (!(request_sdos_[i].op_mode = ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_OPERATION_MODE, sizeof(uint8_t)))) {
+            fprintf(stderr, "Failed to create SDO request for Op Mode \n");
+            return -1;
+        }
+        ecrt_sdo_request_timeout(request_sdos_[i].op_mode, 500); // ms
+
+        if (!(request_sdos_[i].op_mode_display = ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_OPERATION_MODE_DISPLAY, 1))) {
+            fprintf(stderr, "Failed to create SDO request for Op Mode Display\n");
+            return -1;
+        }
+        ecrt_sdo_request_timeout(request_sdos_[i].op_mode_display, 500); // ms
+    }
+    return 0; 
+}
+
+void EthercatNode::WriteSDO(ec_sdo_request_t *req, int32_t data,int size)
+{
+	switch (ecrt_sdo_request_state(req)) {
+		case EC_REQUEST_UNUSED: // request was not used yet
+			ecrt_sdo_request_write(req); // trigger first write
+			break;
+		case EC_REQUEST_BUSY:
+			fprintf(stderr, "SDO write still busy...\n");
+			break;
+		case EC_REQUEST_SUCCESS:
+            if(size==1)
+                EC_WRITE_U8(ecrt_sdo_request_data(req), data&0xff);
+            else if(size==2)
+                EC_WRITE_U16(ecrt_sdo_request_data(req), data&0xffff);                
+            else if (size==4)
+                EC_WRITE_U32(ecrt_sdo_request_data(req), data&0Xffffffff);
+            else
+			fprintf(stderr, "Size value is invalid, try 1,2 or 4\n");
+			break;
+		case EC_REQUEST_ERROR:
+			fprintf(stderr, "Failed to write SDO!\n");
+			ecrt_sdo_request_write(req); // retry writing
+			break;
+	}
+}
+
+void EthercatNode::ReadSDO(ec_sdo_request_t *req, uint16_t &status_word)
+{
+    switch (ecrt_sdo_request_state(req)) {
+        case EC_REQUEST_UNUSED: // request was not used yet
+            ecrt_sdo_request_read(req); // trigger first read
+            break;
+        case EC_REQUEST_BUSY:
+            fprintf(stderr, "SDO still busy...\n");
+            break;
+        case EC_REQUEST_SUCCESS:
+            status_word = EC_READ_U32(ecrt_sdo_request_data(req));
+            ecrt_sdo_request_read(req); // trigger next read
+            break;
+        case EC_REQUEST_ERROR:
+            fprintf(stderr, "Failed to read SDO!\n");
+            ecrt_sdo_request_read(req); // retry reading
+            break;
+    }
+}

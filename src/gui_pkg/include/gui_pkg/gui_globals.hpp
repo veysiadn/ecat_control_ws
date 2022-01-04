@@ -1,7 +1,7 @@
 #ifndef GUI_GLOBALS_HPP
 #define GUI_GLOBALS_HPP
 
-#define NUM_OF_SERVO_DRIVES 3
+#define NUM_OF_SERVO_DRIVES 1
 #define ID_CAMERA 0
 
 
@@ -11,24 +11,34 @@
 
 
 enum MotorStates{
-        kReadyToSwitchOn = 1,
-        kSwitchedOn,
-        kOperationEnabled,
-        kFault,
-        kVoltageEnabled,
-        kQuickStop,
-        kSwitchOnDisabled,
-        kWarning,
-        kRemote,
-        kTargetReached,
-        kInternalLimitActivate
+    kReadyToSwitchOn = 1,
+    kSwitchedOn,
+    kOperationEnabled,
+    kFault,
+    kVoltageEnabled,
+    kQuickStop,
+    kSwitchOnDisabled,
+    kWarning,
+    kRemote,
+    kTargetReached,
+    kInternalLimitActivate
 };
 
+
 enum LifeCycleStates{
-    kUnconfigured = 1,
+    kInitialized,
+    kUnconfigured,
     kInactive,
-    kActive
+    kActive,
+    kFinalized,
+    kConfiguring = 10,
+    kCleaningUp, 
+    kShuttingDown,
+    kActivating,
+    kDeactivating,
+    kErrorProcessing
 };
+
 
 struct ReceivedData
 {
@@ -53,6 +63,7 @@ struct ReceivedData
     uint8_t  p_emergency_switch_val;
     uint8_t  com_status;
     uint8_t  slave_com_status;
+    uint8_t  current_lifecycle_state;
 };
 
 
@@ -75,12 +86,12 @@ struct ControlUIButtonData{
 #define SM_COMM_RESET              	0x81
 #define SM_FULL_RESET              	0x82
 #define SM_START                  	0x01
-#define SM_GO_READY_TO_SWITCH_ON        0x06
+#define SM_GO_READY_TO_SWITCH_ON    0x06
 #define SM_GO_SWITCH_ON            	0x07
 #define SM_GO_ENABLE               	0X0F
 #define SM_GO_SWITCH_ON_DISABLE    	0x00
 #define SM_RUN                    	0x1F
 #define SM_EXPEDITE               	0x3F       //like run, but dont finish actual position profile
 #define SM_QUICKSTOP              	0x02
-#define SM_RELATIVE_                    0X7F
+#define SM_RELATIVE_                0X7F
 #endif // GUI_GLOBALS_HPP

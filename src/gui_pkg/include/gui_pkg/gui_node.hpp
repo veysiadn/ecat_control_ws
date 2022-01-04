@@ -134,6 +134,7 @@ namespace GUI {
          ecat_msgs::msg::GuiButtonData ui_control_buttons_;
          /// For time measurements
          Timing time_info_;
+         uint8_t current_lifecycle_state = 0;
   };// class GuiNode
 
  } // namespace GUI

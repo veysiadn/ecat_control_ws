@@ -72,9 +72,10 @@ private:
 
     QPixmap pixmap_cap;              //Qt image
     cv::Mat frame_cap;               //OpenCV image
-    cv::VideoCapture video_cap;   //video capture
+    cv::VideoCapture video_cap;      //video capture
 
     unsigned long frame_rate = 30;
+    uint8_t cam_id  = ID_CAMERA ; 
     // Convert opencv readings to QImage && QPixmap format
     QImage cvMatToQImage(const cv::Mat &inMat);
     QPixmap cvMatToQPixmap(const cv::Mat &inMat );

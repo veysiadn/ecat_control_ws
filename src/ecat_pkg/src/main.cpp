@@ -4,12 +4,12 @@
 #include "ecat_node.hpp"
 /****************************************************************************/
 #include "ecat_lifecycle.hpp"
-std::unique_ptr<EthercatLifeCycleNode::EthercatLifeCycle> ecat_lifecycle_node;
+std::shared_ptr<EthercatLifeCycleNode::EthercatLifeCycle> ecat_lifecycle_node;
 
 void signalHandler(int /*signum*/)
 {
     //sig = 0;
-    //usleep(1e3);
+    usleep(1e6);
     ecat_lifecycle_node->shutdown();
 }
 
@@ -44,7 +44,7 @@ int main(int argc, char **argv)
     // -----------------------------------------------------------------------------
 
     // CKim - Initialize and launch EthercatLifeCycleNode
-    ecat_lifecycle_node = std::make_unique<EthercatLifeCycleNode::EthercatLifeCycle>();
+    ecat_lifecycle_node = std::make_shared<EthercatLifeCycleNode::EthercatLifeCycle>();
     rclcpp::spin(ecat_lifecycle_node->get_node_base_interface());
     
     // CKim - Terminate node

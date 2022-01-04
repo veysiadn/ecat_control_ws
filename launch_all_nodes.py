@@ -32,7 +32,7 @@ def generate_launch_description():
         pd_node,
         Node(package='controller', executable='joy_node', output='screen', parameters=[
             {"dev": "/dev/input/js0"}]),
-        #Node(package='gui_pkg', executable='gui_node', output='screen',prefix = 'taskset -c 8,9'),
+        #Node(package='gui_pkg', executable='gui_node', output='screen',prefix = 'valgrind,taskset -c 8,9'),
         Node(package='gui_pkg', executable='gui_node', output='screen'),
         #Node(package='tool_pkg', node_executable='surgicalToolNode', output='screen'),
         Node(package='ecat_pkg', executable='lifecycle_node_manager', output='screen'),

@@ -178,6 +178,29 @@ typedef enum
     kCSTorque = 10,
 } OpMode ;
 
+  // constant declarations
+static constexpr uint8_t PRIMARY_STATE_UNKNOWN =
+0u;
+static constexpr uint8_t PRIMARY_STATE_UNCONFIGURED =
+1u;
+static constexpr uint8_t PRIMARY_STATE_INACTIVE =
+2u;
+static constexpr uint8_t PRIMARY_STATE_ACTIVE =
+3u;
+static constexpr uint8_t PRIMARY_STATE_FINALIZED =
+4u;
+static constexpr uint8_t TRANSITION_STATE_CONFIGURING =
+10u;
+static constexpr uint8_t TRANSITION_STATE_CLEANINGUP =
+11u;
+static constexpr uint8_t TRANSITION_STATE_SHUTTINGDOWN =
+12u;
+static constexpr uint8_t TRANSITION_STATE_ACTIVATING =
+13u;
+static constexpr uint8_t TRANSITION_STATE_DEACTIVATING =
+14u;
+static constexpr uint8_t TRANSITION_STATE_ERRORPROCESSING =
+15u;
 /// CIA 402 state machine motor states
 enum MotorStates{
 	kReadyToSwitchOn = 1,
@@ -295,23 +318,28 @@ typedef struct {
 } SDO_data;
 
 /// EtherCAT SDO request structure for configuration phase.
-typedef struct
+typedef struct 
 {
-    ec_sdo_request * profile_acc ;    
-    ec_sdo_request * profile_dec ;      
-    ec_sdo_request * profile_vel ;  
-    ec_sdo_request * quick_stop_dec ;
-    ec_sdo_request * motion_profile_type ;
-    ec_sdo_request * max_profile_vel ;
-    ec_sdo_request * max_fol_err ;
-    ec_sdo_request * speed_for_switch_search;
-    ec_sdo_request * speed_for_zero_search;
-    ec_sdo_request * homing_acc;
-    ec_sdo_request * curr_threshold_homing;
-    ec_sdo_request * home_offset;
-    ec_sdo_request * homing_method;		
-} SdoRequest ;
+    ec_sdo_request_t  * com_status;
+    ec_sdo_request_t  * target_pos ;
+    ec_sdo_request_t  * target_vel ;
+    ec_sdo_request_t  * target_tor ;
+    ec_sdo_request_t  * max_tor ;
+    ec_sdo_request_t  * control_word ;
+    ec_sdo_request_t  * op_mode ;
+    ec_sdo_request_t  * vel_offset ;
+    ec_sdo_request_t  * tor_offset ;
 
+    ec_sdo_request_t  * actual_pos ;
+    ec_sdo_request_t  * actual_vel ;
+    ec_sdo_request_t  * actual_cur ;
+    ec_sdo_request_t  * actual_tor ;
+    ec_sdo_request_t  * status_word ;
+    ec_sdo_request_t  * op_mode_display ;
+    ec_sdo_request_t  * left_limit_switch_val ;
+    ec_sdo_request_t  * right_limit_switch_val ;
+    ec_sdo_request_t  * emergency_switch_val ;
+}SdoRequest;
 
 /// Parameters that should be specified in position mode.
 typedef struct 

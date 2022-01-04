@@ -82,7 +82,7 @@ class EthercatLifeCycle : public LifecycleNode
      *        For more information about Lifecyclenode and it's interfaces check below link :
      *         https://design.ros2.org/articles/node_lifecycle.html
      *         \see node_interfaces::LifecycleNodeInterface::CallbackReturn
-     * @return Success if configuration succesfull,otherwise FAILURE 
+     * @return Success if configuration successfull,otherwise FAILURE 
      */
         node_interfaces::LifecycleNodeInterface::CallbackReturn on_configure(const State &);
     
@@ -90,28 +90,28 @@ class EthercatLifeCycle : public LifecycleNode
      * @brief Activates Ethercat lifecycle node and starts real-time Ethercat communication.
      *        All publishing is done in real-time loop in this active state.
      * 
-     * @return Success if activation succesfull,otherwise FAILURE
+     * @return Success if activation successfull,otherwise FAILURE
      */
         node_interfaces::LifecycleNodeInterface::CallbackReturn on_activate(const State &);
    
     /**
      * @brief Deactivates Ethercat lifecycle node, turns of real-time communication.
      * 
-     * @return Success if deactivation succesfull,otherwise FAILURE
+     * @return Success if deactivation successfull,otherwise FAILURE
      */
         node_interfaces::LifecycleNodeInterface::CallbackReturn on_deactivate(const State &);
     
     /**
      * @brief Cleans up all variables and datas assigned by Ethercat lifecycle node. 
      * 
-     * @return Success if cleanup succesfull,otherwise FAILURE 
+     * @return Success if cleanup successfull,otherwise FAILURE 
      */
         node_interfaces::LifecycleNodeInterface::CallbackReturn on_cleanup(const State &);
     
     /**
      * @brief Shuts down EtherCAT lifecycle node, releases Ethercat master.
      * 
-     * @return Success if shut down succesfull,otherwise FAILURE 
+     * @return Success if shut down successfull,otherwise FAILURE 
      */
         node_interfaces::LifecycleNodeInterface::CallbackReturn on_shutdown(const State &);
     
@@ -147,7 +147,7 @@ class EthercatLifeCycle : public LifecycleNode
         /**
          * @brief Sets Ethercat communication thread's properties 
          *        After this function called user must call StartEthercatCommunication() function]
-         * @return 0 if succesfull, otherwise -1.
+         * @return 0 if successfull, otherwise -1.
          */
         int SetComThreadPriorities();
         
@@ -171,7 +171,7 @@ class EthercatLifeCycle : public LifecycleNode
         /**
          * @brief Starts EtherCAT communcation
          * 
-         * @return 0 if succesfull, otherwise -1.
+         * @return 0 if successfull, otherwise -1.
          */
         int  StartEthercatCommunication(); 
 
@@ -199,9 +199,15 @@ class EthercatLifeCycle : public LifecycleNode
         /**
          * @brief Publishes all data that master received and will be sent
          * 
-         * @return 0 if succesfull otherwise -1. 
+         * @return 0 if successfull otherwise -1. 
          */
         int PublishAllData();
+        /**
+         * @brief Publishes received data from slaves under the /slave_feedback name
+         * 
+         * @return 0 if successfull, otherwise -1. 
+         */
+        int PublishReceivedData();
         
         /**
          * @brief Enables connected motor drives based on CIA402
@@ -292,6 +298,14 @@ class EthercatLifeCycle : public LifecycleNode
          * 
          */
         int EnableDrivers();
+
+        /**
+         * @brief Enables drives supporting CiA402s in specified index.
+         * 
+         * @param index slave index
+         * @return 0 if successfull, otherwise -1.
+         */
+        int8_t EnableDrivesViaSDO(int index);
 
     private : 
         /// pthread create required parameters.

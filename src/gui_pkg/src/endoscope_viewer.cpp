@@ -21,6 +21,7 @@ EndoscopeViewer::~EndoscopeViewer()
 void EndoscopeViewer::on_b_start_capture_clicked()
 {
     opencv_video_cap_->start(QThread::NormalPriority);
+
 }
 
 void EndoscopeViewer::on_b_stop_capture_clicked()

@@ -151,7 +151,9 @@ class MainWindow;
     /**
      * @brief Sets GUI appearance for enabled buttons.
      */
-    void SetEnabledStyleSheet(QPushButton *button);
+    void SetEnabledStyleSheetSDO(QPushButton *button);
+
+    void SetEnabledStyleSheetPDO(QPushButton *button);
     Ui::MainWindow *ui;
     int argc_;
     char** argv_;
@@ -160,6 +162,21 @@ class MainWindow;
      * 
      */
     int GetDriveStates(const int & statusWord);
+    const QString blue_style_sheet_ ="QPushButton:pressed {background-color: rgb(5, 153, 44);}"
+                                    "QPushButton {color: rgb(255, 255, 255);"
+                                    "selection-background-color: rgb(238, 238, 236);"
+                                    "selection-color: rgb(238, 238, 236);"
+                                    "background-color: rgb(19, 61, 128);"
+                                    "alternate-background-color: rgb(0, 0, 0);"
+                                    "font: bold 75 16pt \"Noto Sans\";}";
+    const QString sdo_style_sheet_ = "QPushButton:pressed {background-color: rgb(5, 153, 44);}"
+                                    "QPushButton {color: rgb(255, 255, 255);"
+                                    "background-color: rgb(252, 119, 3);"
+                                    "font: bold 75 15pt \"Noto Sans\";}";
+    const QString red_style_sheet = "QPushButton:pressed {background-color: rgb(252, 186, 3);}"
+                                          "QPushButton {color: rgb(255, 255, 255);"
+                                          "background-color: rgb(252, 0, 0);"
+                                          "font: bold 75 15pt \"Noto Sans\";}";
     QTimer my_timer;
     // To get data from gui_node_ .
     std::shared_ptr<GuiNode> gui_node_;

@@ -10,23 +10,24 @@ VideoCapture::VideoCapture(QObject *parent)
 
 void VideoCapture::run()
 {
-    if(video_cap.isOpened())
+    if(!video_cap.isOpened())
     {
-        while (true)
+        video_cap.open(cam_id);
+    }
+    while (true)
+    {
+        video_cap >> frame_cap;
+        if(!frame_cap.empty())
         {
-            video_cap >> frame_cap;
-            if(!frame_cap.empty())
-            {
-                pixmap_cap = cvMatToQPixmap(frame_cap);
-                emit NewPixmapCapture();
-            }
-            if(isInterruptionRequested()){
-                video_cap.release();
-                std::cout << "Release requested " << std::endl;
-                break;
-            }
-            QThread::msleep((1/frame_rate)*1000);
+            pixmap_cap = cvMatToQPixmap(frame_cap);
+            emit NewPixmapCapture();
         }
+        if(isInterruptionRequested()){
+            video_cap.release();
+            std::cout << "Release requested " << std::endl;
+            break;
+        }
+        QThread::msleep((1/frame_rate)*1000);
     }
     return;
 }

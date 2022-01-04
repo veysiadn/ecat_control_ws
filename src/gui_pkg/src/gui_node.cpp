@@ -26,7 +26,7 @@
     master_commands_ = this->create_subscription<ecat_msgs::msg::DataSent>("Master_Commands", qos,
                                    std::bind(&GuiNode::HandleMasterCommandCallbacks, this, std::placeholders::_1));
     /// Gui button value publisher
-    gui_publisher_ = create_publisher<ecat_msgs::msg::GuiButtonData>("gui_buttons", 1);
+    gui_publisher_ = create_publisher<ecat_msgs::msg::GuiButtonData>("gui_buttons", qos);
     /// Timer callback set to 33HZ.
     timer_ = this->create_wall_timer(30ms,std::bind(&GuiNode::timer_callback,this));
 
@@ -70,33 +70,33 @@
 
       for(int i=0; i < NUM_OF_SERVO_DRIVES ; i++){
         /// Servo Drive feedbacks
-        received_data_[i].actual_pos             =  msg->actual_pos[i];
-        received_data_[i].actual_vel             =  msg->actual_vel[i];
-        received_data_[i].actual_tor             =  msg->actual_tor[i];
-        received_data_[i].status_word            =  msg->status_word[i];
-        received_data_[i].slave_com_status       =  msg->slave_com_status[i];
-        received_data_[i].com_status             =  msg->com_status;
-
+        received_data_[i].actual_pos              =  msg->actual_pos[i];
+        received_data_[i].actual_vel              =  msg->actual_vel[i];
+        received_data_[i].actual_tor              =  msg->actual_tor[i];
+        received_data_[i].status_word             =  msg->status_word[i];
+        received_data_[i].slave_com_status        =  msg->slave_com_status[i];
+        received_data_[i].com_status              =  msg->com_status;
+        current_lifecycle_state                   =  msg->current_lifecycle_state;
         /// Costum slave feedbacks.
-        received_data_[i].left_limit_switch_val  =  msg->left_limit_switch_val;
-        received_data_[i].right_limit_switch_val =  msg->right_limit_switch_val;
-        received_data_[i].p_emergency_switch_val =  msg->emergency_switch_val;
+        received_data_[i].left_limit_switch_val   =  msg->left_limit_switch_val;
+        received_data_[i].right_limit_switch_val  =  msg->right_limit_switch_val;
+        received_data_[i].p_emergency_switch_val  =  msg->emergency_switch_val;
     }
   }
 
   void GuiNode::ResetContolButtonValues()
  {
-     ui_control_buttons_.b_init_ecat = 0 ;
-     ui_control_buttons_.b_reinit_ecat = 0 ;
-     ui_control_buttons_.b_enable_drives = 0 ;
-     ui_control_buttons_.b_disable_drives = 0 ;
-     ui_control_buttons_.b_enable_cyclic_pos = 0 ;
-     ui_control_buttons_.b_enable_cyclic_vel = 0 ;
-     ui_control_buttons_.b_enable_vel = 0 ;
-     ui_control_buttons_.b_enable_pos = 0 ;
-     ui_control_buttons_.b_enter_cyclic_pdo = 0 ;
-     ui_control_buttons_.b_emergency_mode = 0 ;
-     ui_control_buttons_.b_send = 0 ;
-     ui_control_buttons_.b_stop_cyclic_pdo = 0 ;
+    ui_control_buttons_.b_init_ecat = 0 ;
+    ui_control_buttons_.b_reinit_ecat = 0 ;
+    ui_control_buttons_.b_enable_drives = 0 ;
+    ui_control_buttons_.b_disable_drives = 0 ;
+    ui_control_buttons_.b_enable_cyclic_pos = 0 ;
+    ui_control_buttons_.b_enable_cyclic_vel = 0 ;
+    ui_control_buttons_.b_enable_vel = 0 ;
+    ui_control_buttons_.b_enable_pos = 0 ;
+    ui_control_buttons_.b_enter_cyclic_pdo = 0 ;
+    ui_control_buttons_.b_emergency_mode = 0 ;
+    ui_control_buttons_.b_send = 0 ;
+    ui_control_buttons_.b_stop_cyclic_pdo = 0 ;
  }
 

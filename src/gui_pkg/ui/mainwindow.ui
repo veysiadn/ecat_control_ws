@@ -35,7 +35,7 @@
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton:pressed {
-    background-color: rgb(224, 0, 0);
+    background-color: rgb(5, 153, 44);
 }
 QPushButton { 
 color: rgb(255, 255, 255);
@@ -60,7 +60,7 @@ Position Mode</string>
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton:pressed {
-    background-color: rgb(224, 0, 0);
+    background-color: rgb(5, 153, 44);
 }
 QPushButton { 
 color: rgb(255, 255, 255);
@@ -85,7 +85,7 @@ Velocity Mode</string>
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton:pressed {
-    background-color: rgb(224, 0, 0);
+    background-color: rgb(5, 153, 44);
 }
 QPushButton { 
 color: rgb(255, 255, 255);
@@ -110,7 +110,7 @@ Velocity Mode</string>
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton:pressed {
-    background-color: rgb(224, 0, 0);
+    background-color: rgb(5, 153, 44);
 }
 QPushButton { 
 color: rgb(255, 255, 255);
@@ -141,7 +141,7 @@ font: bold 75 15pt &quot;Noto Sans&quot;;
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton:pressed {
-    background-color: rgb(224, 0, 0);
+    background-color: rgb(5, 153, 44);
 }
 QPushButton { 
 color: rgb(255, 255, 255);
@@ -169,7 +169,7 @@ font: bold 75 16pt &quot;Noto Sans&quot;;
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton:pressed {
-    background-color: rgb(224, 0, 0);
+    background-color: rgb(5, 153, 44);
 }
 QPushButton { 
 color: rgb(255, 255, 255);
@@ -197,7 +197,7 @@ EtherCAT</string>
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton:pressed {
-    background-color: rgb(224, 0, 0);
+    background-color: rgb(5, 153, 44);
 }
 QPushButton { 
 color: rgb(255, 255, 255);
@@ -225,7 +225,7 @@ Drives</string>
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton:pressed {
-    background-color: rgb(224, 0, 0);
+    background-color: rgb(5, 153, 44);
 }
 QPushButton { 
 color: rgb(255, 255, 255);
@@ -412,7 +412,7 @@ font: bold 75 14pt &quot;Noto Sans&quot;;</string>
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton:pressed {
-    background-color: rgb(224, 0, 0);
+    background-color: rgb(5, 153, 44);
 }
 QPushButton { 
 color: rgb(255, 255, 255);

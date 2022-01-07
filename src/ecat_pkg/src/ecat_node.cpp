@@ -922,6 +922,9 @@ int16_t EthercatNode::WriteTargetVelocityViaSDO(int index,int32_t target_vel)
         std::cout << "Error while writing Target Velocity " << std::endl;
         return -1; 
     }
+    if(WriteControlWordViaSDO(index,SM_RUN)){
+        return -1;
+    }
     return 0;
 }
 
@@ -952,6 +955,9 @@ int16_t EthercatNode::WriteTargetPositionViaSDO(int index,int32_t target_pos)
     if(SdoWrite(pack)){
         std::cout << "Error while writing Target Position " << std::endl;
         return -1; 
+    }
+    if(WriteControlWordViaSDO(index,SM_RUN)){
+        return -1;
     }
     return 0;
 }
@@ -984,14 +990,11 @@ int16_t EthercatNode::WriteTargetTorqueViaSDO(int index,uint16_t target_tor)
         std::cout << "Error while writing SDO " << std::endl;
         return -1; 
     }
+    if(WriteControlWordViaSDO(index,SM_RUN)){
+        return -1;
+    }
     return 0;
 }
-
-
-
-
-
-
 
 int EthercatNode::MapDefaultSdos()
 {

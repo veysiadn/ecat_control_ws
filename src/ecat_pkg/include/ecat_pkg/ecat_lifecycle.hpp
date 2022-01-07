@@ -300,12 +300,19 @@ class EthercatLifeCycle : public LifecycleNode
         int EnableDrivers();
 
         /**
-         * @brief Enables drives supporting CiA402s in specified index.
+         * @brief Enables drives supporting CiA402 in specified index.
          * 
          * @param index slave index
          * @return 0 if successfull, otherwise -1.
          */
         int8_t EnableDrivesViaSDO(int index);
+        /**
+         * @brief Disables drives supporting CiA402 in specified index.
+         * 
+         * @param index slave index
+         * @return 0 if successful, otherwise -1.
+         */
+        int8_t DisableDrivesViaSDO(int index);
         
         /**
          * @brief Assigns operation mode parameters based on selected operation mode.

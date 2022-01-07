@@ -16,6 +16,7 @@ rclcpp::NodeOptions().use_intra_process_comms(false))
     sent_data_.target_pos.resize(g_kNumberOfServoDrivers);
     sent_data_.target_vel.resize(g_kNumberOfServoDrivers);
     sent_data_.target_tor.resize(g_kNumberOfServoDrivers);
+    gui_buttons_status_.spn_target_values.resize(g_kNumberOfServoDrivers);
     measurement_time = this->declare_parameter("measure_time",std::int32_t(1));
     received_data_.current_lifecycle_state = PRIMARY_STATE_UNCONFIGURED ;
     auto qos = rclcpp::QoS( rclcpp::KeepLast(1));
@@ -227,29 +228,114 @@ void EthercatLifeCycle::HandleControlNodeCallbacks(const sensor_msgs::msg::Joy::
 void EthercatLifeCycle::HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonData::SharedPtr gui_sub)
 {    
     gui_buttons_status_ = *gui_sub ; 
-    // gui_buttons_status_.b_init_ecat = gui_sub->b_init_ecat;
+    // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Error moving state to unconfigured.");
+    if(received_data_.current_lifecycle_state == PRIMARY_STATE_INACTIVE){
+        if(gui_buttons_status_.b_enable_cyclic_pos){
+            g_kOperationMode = kCSPosition;
+            for(int i = 0; i < g_kNumberOfServoDrivers; i++){
+              ecat_node_->WriteOpModeViaSDO(i,kCSPosition);
+            }
+        }
+        
+        if(gui_buttons_status_.b_enable_cyclic_vel){
+            g_kOperationMode = kCSVelocity;
+            for(int i = 0; i < g_kNumberOfServoDrivers; i++){
+              ecat_node_->WriteOpModeViaSDO(i,kCSVelocity);
+            }
+        }
+        
+        if(gui_buttons_status_.b_enable_pos){
+            g_kOperationMode = kProfilePosition;
+            for(int i = 0; i < g_kNumberOfServoDrivers; i++){
+              ecat_node_->WriteOpModeViaSDO(i,kProfilePosition);
+            }            
+        }
+        
+        if(gui_buttons_status_.b_enable_vel){
+            g_kOperationMode = kProfileVelocity;
+            for(int i = 0; i < g_kNumberOfServoDrivers; i++){
+              ecat_node_->WriteOpModeViaSDO(i,kProfileVelocity);
+            }
+        }
 
-    // gui_buttons_status_.b_reinit_ecat = gui_sub->b_reinit_ecat;
+        if(gui_buttons_status_.b_enable_drives){
+            for(int i = 0; i < g_kNumberOfServoDrivers; i++){
+              EnableDrivesViaSDO(i);
+            }
+        }
+        
+        if(gui_buttons_status_.b_disable_drives){
+            for(int i = 0; i < g_kNumberOfServoDrivers; i++){
+              DisableDrivesViaSDO(i);
+            }
+        }
+        
+        if(gui_buttons_status_.b_send){
+            switch (g_kOperationMode)
+            {
+            case kProfilePosition:
+                for(int i = 0 ; i < g_kNumberOfServoDrivers; i++){
+                    ecat_node_->WriteTargetPositionViaSDO(i,gui_buttons_status_.spn_target_values[i]);
+                }
+                break;
+            case kProfileTorque:
+                for(int i = 0 ; i < g_kNumberOfServoDrivers; i++){
+                    ecat_node_->WriteTargetTorqueViaSDO(i,gui_buttons_status_.spn_target_values[i]);
+                }
+                break;
+            case kCSPosition:
+                for(int i = 0 ; i < g_kNumberOfServoDrivers; i++){
+                    ecat_node_->WriteTargetPositionViaSDO(i,gui_buttons_status_.spn_target_values[i]);
+                }
+                break;
+            case kCSTorque:
+                for(int i = 0 ; i < g_kNumberOfServoDrivers; i++){
+                    ecat_node_->WriteTargetTorqueViaSDO(i,gui_buttons_status_.spn_target_values[i]);
+                }                
+                break;
+            case kCSVelocity:
+                for(int i = 0 ; i < g_kNumberOfServoDrivers; i++){
+                    ecat_node_->WriteTargetVelocityViaSDO(i,gui_buttons_status_.spn_target_values[i]);
+                }
+                break; 
+            case kProfileVelocity:
+                for(int i = 0 ; i < g_kNumberOfServoDrivers; i++){
+                    ecat_node_->WriteTargetVelocityViaSDO(i,gui_buttons_status_.spn_target_values[i]);
+                }
+                break;
+            default:
+                for(int i = 0 ; i < g_kNumberOfServoDrivers; i++){
+                    ecat_node_->WriteTargetVelocityViaSDO(i,gui_buttons_status_.spn_target_values[i]);
+                }
+                break;
+            }
+            
+        }
+    }
 
-    // gui_buttons_status_.b_enter_cyclic_pdo = gui_sub->b_enter_cyclic_pdo;
+    /*gui_buttons_status_.b_init_ecat = gui_sub->b_init_ecat;
 
-    // gui_buttons_status_.b_stop_cyclic_pdo = gui_sub->b_stop_cyclic_pdo;
+    gui_buttons_status_.b_reinit_ecat = gui_sub->b_reinit_ecat;
 
-    // gui_buttons_status_.b_send = gui_sub->b_send;
+    gui_buttons_status_.b_enter_cyclic_pdo = gui_sub->b_enter_cyclic_pdo;
 
-    // gui_buttons_status_.b_enable_cyclic_pos = gui_sub->b_enable_cyclic_pos;
+    gui_buttons_status_.b_stop_cyclic_pdo = gui_sub->b_stop_cyclic_pdo;
 
-    // gui_buttons_status_.b_enable_cyclic_vel= gui_sub->b_enable_cyclic_vel;
+    gui_buttons_status_.b_send = gui_sub->b_send;
 
-    // gui_buttons_status_.b_enable_drives = gui_sub->b_enable_drives;
+    gui_buttons_status_.b_enable_cyclic_pos = gui_sub->b_enable_cyclic_pos;
+
+    gui_buttons_status_.b_enable_cyclic_vel= gui_sub->b_enable_cyclic_vel;
+
+    gui_buttons_status_.b_enable_drives = gui_sub->b_enable_drives;
     
-    // gui_buttons_status_.b_disable_drives = gui_sub->b_disable_drives;
+    gui_buttons_status_.b_disable_drives = gui_sub->b_disable_drives;
 
-    // gui_buttons_status_.b_enable_vel = gui_sub->b_enable_vel;
+    gui_buttons_status_.b_enable_vel = gui_sub->b_enable_vel;
 
-    // gui_buttons_status_.b_enable_vel = gui_sub->b_enable_vel;
+    gui_buttons_status_.b_enable_vel = gui_sub->b_enable_vel;
 
-    // gui_buttons_status_.b_emergency_mode = gui_sub->b_emergency_mode;
+    gui_buttons_status_.b_emergency_mode = gui_sub->b_emergency_mode;*/
 
 }
 
@@ -308,20 +394,29 @@ int EthercatLifeCycle::SetComThreadPriorities()
 int EthercatLifeCycle::InitEthercatCommunication()
 {
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Opening EtherCAT device...\n");
-    if (ecat_node_->OpenEthercatMaster())
-    {
+    if (ecat_node_->OpenEthercatMaster()){
         return -1 ;
     }
 
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Configuring EtherCAT master...\n");
-    if (ecat_node_->ConfigureMaster())
-    {
+    if (ecat_node_->ConfigureMaster()){
         return -1 ;
     }
 
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Getting connected slave informations...\n");
     if(ecat_node_->GetNumberOfConnectedSlaves()){
         ecat_node_->ReleaseMaster();
+        for (int i=0; i<NUM_OF_SLAVES; i++){
+            ecat_node_->slaves_[i].slave_pdo_domain_ = NULL;
+            ecat_node_->slaves_[i].slave_config_ = NULL;
+            ecat_node_->slaves_[i].slave_pdo_entry_info_ = NULL;
+            ecat_node_->slaves_[i].slave_pdo_entry_reg_ = NULL;
+            ecat_node_->slaves_[i].slave_pdo_info_ = NULL;
+            ecat_node_->slaves_[i].slave_sync_info_ = NULL;
+            g_master = NULL;
+            g_master_domain = NULL;
+            g_master_state = {} ;
+        }
         return -1 ;
     }
 
@@ -1430,15 +1525,28 @@ int8_t EthercatLifeCycle::EnableDrivesViaSDO(int index)
 {
     for(int i = 0 ; i < 10 ; i++){
         received_data_.status_word[index] = ecat_node_->ReadStatusWordViaSDO(index);
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%d\n" ,received_data_.status_word[index]);
+        // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%d\n" ,received_data_.status_word[index]);
         if(EnableDrivers()==g_kNumberOfServoDrivers){
-            break;
+            return 0;
         };
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%d\n" ,sent_data_.control_word[index]);
+        // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%d\n" ,sent_data_.control_word[index]);
         if(ecat_node_->WriteControlWordViaSDO(index,sent_data_.control_word[index])){
-            std::cout << "Error while writing SDO " << std::endl; 
+            return -1;
         }       
      }
+     return 0;
 
+}
+
+int8_t EthercatLifeCycle::DisableDrivesViaSDO(int index)
+{
+    for(int i = 0 ; i < g_kNumberOfServoDrivers ; i++)
+    {
+        sent_data_.control_word[i] = SM_GO_SWITCH_ON_DISABLE;
+    }
+    if(ecat_node_->WriteControlWordViaSDO(index,sent_data_.control_word[index])){
+        return -1;       
+    }
+     return 0;
 }
 

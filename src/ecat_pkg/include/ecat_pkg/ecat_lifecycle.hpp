@@ -306,7 +306,18 @@ class EthercatLifeCycle : public LifecycleNode
          * @return 0 if successfull, otherwise -1.
          */
         int8_t EnableDrivesViaSDO(int index);
-
+        
+        /**
+         * @brief Assigns operation mode parameters based on selected operation mode.
+         * @note That if you want to change the parameters just change it by modifying these function.
+         * @note By default operation mode is selected as profile velocity mode.
+         */
+        void AssignOperationModeParameters();
+        /**
+         * @brief Updates control parameters based on selected mode.
+         * 
+         */
+        void UpdateControlParameters();
     private : 
         /// pthread create required parameters.
         pthread_t ethercat_thread_;

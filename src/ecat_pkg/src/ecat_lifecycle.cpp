@@ -51,6 +51,7 @@ node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_co
   // From http://www.opendds.org/qosusages.html: "A RELIABLE setting can potentially block while
   // trying to send." Therefore set the policy to best effort to avoid blocking during execution.
   qos.best_effort();
+  
     if(InitEthercatCommunication())
     {
         RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Configuration phase failed");
@@ -71,16 +72,15 @@ node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_ac
     received_data_.current_lifecycle_state = TRANSITION_STATE_ACTIVATING ; 
     PublishReceivedData();
     if(StartEthercatCommunication()){
-
         RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Activation phase failed");
         received_data_.current_lifecycle_state = PRIMARY_STATE_INACTIVE ;
-        PublishReceivedData();         
+        PublishReceivedData();
         return node_interfaces::LifecycleNodeInterface::CallbackReturn::FAILURE;
     }else{
         sent_data_publisher_->on_activate();
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Activation complete, real-time communication started.");
         received_data_.current_lifecycle_state = PRIMARY_STATE_ACTIVE ;
-        PublishReceivedData(); 
+        PublishReceivedData();
         return node_interfaces::LifecycleNodeInterface::CallbackReturn::SUCCESS;
     }
 }
@@ -90,11 +90,33 @@ node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_de
     received_data_.current_lifecycle_state = TRANSITION_STATE_DEACTIVATING ; 
     PublishReceivedData();
     std::this_thread::sleep_for(std::chrono::seconds(2));
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Deactivating.");
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Deactivating.\n");
     sent_data_publisher_->on_deactivate();
-    received_data_.current_lifecycle_state = PRIMARY_STATE_INACTIVE ;
-    PublishReceivedData();     
-    return node_interfaces::LifecycleNodeInterface::CallbackReturn::SUCCESS;
+    ecat_node_->DeactivateCommunication();
+    for (int i=0; i<NUM_OF_SLAVES; i++){
+        ecat_node_->slaves_[i].slave_pdo_domain_ = NULL;
+        ecat_node_->slaves_[i].slave_config_ = NULL;
+        ecat_node_->slaves_[i].slave_pdo_entry_info_ = NULL;
+        ecat_node_->slaves_[i].slave_pdo_entry_reg_ = NULL;
+        ecat_node_->slaves_[i].slave_pdo_info_ = NULL;
+        ecat_node_->slaves_[i].slave_sync_info_ = NULL;
+        g_master = NULL;
+        g_master_domain = NULL;
+        g_master_state = {} ;
+    }
+    if(InitEthercatCommunication())
+    {
+        RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Deactivating phase failed.\n");
+        received_data_.current_lifecycle_state = PRIMARY_STATE_ACTIVE ; 
+        PublishReceivedData();
+        return node_interfaces::LifecycleNodeInterface::CallbackReturn::FAILURE;
+    }else{
+        received_data_.current_lifecycle_state = PRIMARY_STATE_INACTIVE ;
+        PublishReceivedData();
+        return node_interfaces::LifecycleNodeInterface::CallbackReturn::SUCCESS;        
+    }
+    // received_data_.current_lifecycle_state = PRIMARY_STATE_INACTIVE ;
+    // PublishReceivedData();  
 }
 
 node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_cleanup(const State &)
@@ -103,8 +125,12 @@ node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_cl
     PublishReceivedData();
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Cleaning up.");
     ecat_node_->ReleaseMaster();
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    ecat_node_->RestartEthercatMaster();
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    if(ecat_node_->RestartEthercatMaster()){
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Cannot restart EtherCAT master, reinitialization error.");
+        return node_interfaces::LifecycleNodeInterface::CallbackReturn::SUCCESS;
+    }
+    
     for (int i=0; i<NUM_OF_SLAVES; i++){
         ecat_node_->slaves_[i].slave_pdo_domain_ = NULL;
         ecat_node_->slaves_[i].slave_config_ = NULL;
@@ -254,7 +280,7 @@ int EthercatLifeCycle::SetComThreadPriorities()
     /**********************************************************************************************/
     
     /* Set a specific stack size  */
-    err_ = pthread_attr_setstacksize(&ethercat_thread_attr_, 4096*64);
+    err_ = pthread_attr_setstacksize(&ethercat_thread_attr_, 4096*256);
     if (err_) {
         RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Error setting thread stack size  ! ");
         return -1 ;
@@ -326,60 +352,8 @@ int EthercatLifeCycle::InitEthercatCommunication()
         return -1;
     }
 
-#if VELOCITY_MODE
-    ProfileVelocityParam P ;
     
-    P.profile_acc=3e4 ;
-    P.profile_dec=3e4 ;
-    P.max_profile_vel = 7000 ;
-    P.quick_stop_dec = 3e4 ;
-    P.motion_profile_type = 0 ;
-    ecat_node_->SetProfileVelocityParametersAll(P);
-#endif
-
-#if POSITION_MODE
-    ProfilePosParam P ;
-    uint32_t max_fol_err ;
-    P.profile_vel = 450; //150 ;
-    P.profile_acc = 1e4;//1e4 ;
-    P.profile_dec = 1e4;//1e4 ;
-    P.max_profile_vel = 500; //100 ;
-    P.quick_stop_dec = 3e4;//3e4 ;
-    P.motion_profile_type = 0 ;
-    ecat_node_->SetProfilePositionParametersAll(P);
-#endif
-
-#if CYCLIC_POSITION_MODE
-    CSPositionModeParam P ;
-    uint32_t max_fol_err ;
-    P.profile_vel = 50 ;
-    P.profile_acc = 3e4 ;
-    P.profile_dec = 3e4 ;
-    P.max_profile_vel = 100 ;
-    P.quick_stop_dec = 3e4 ;
-    P.interpolation_time_period = 0;//1 ;
-    ecat_node_->SetCyclicSyncPositionModeParametersAll(P);
-#endif
-
-#if CYCLIC_VELOCITY_MODE
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Setting drives to CSV mode...\n");
-    CSVelocityModeParam P ;
-    P.velocity_controller_gain.Pgain = 40000;
-    P.velocity_controller_gain.Igain = 800000;
-    P.profile_dec=3e4 ;
-    P.quick_stop_dec = 3e4 ;
-    P.interpolation_time_period = 0;//1 ;
-    ecat_node_->SetCyclicSyncVelocityModeParametersAll(P);
-#endif
-
-#if CYCLIC_TORQUE_MODE
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Setting drives to CSV mode...\n");
-    CSTorqueModeParam P ;
-    P.profile_dec=3e4 ;
-    P.quick_stop_dec = 3e4 ;
-    ecat_node_->SetCyclicSyncTorqueModeParametersAll(P);
-#endif
-
+    AssignOperationModeParameters();
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Mapping default PDOs...\n");
     
     if(ecat_node_->MapDefaultPdos()){
@@ -388,7 +362,61 @@ int EthercatLifeCycle::InitEthercatCommunication()
 
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Configuring DC synchronization...\n");
     ecat_node_->ConfigDcSyncDefault();
+    return 0 ; 
+}
 
+void EthercatLifeCycle::AssignOperationModeParameters()
+{
+    if(g_kOperationMode==kProfilePosition){
+        ProfilePosParam P ;
+        uint32_t max_fol_err ;
+        P.profile_vel = 450; //150 ;
+        P.profile_acc = 1e4;//1e4 ;
+        P.profile_dec = 1e4;//1e4 ;
+        P.max_profile_vel = 500; //100 ;
+        P.quick_stop_dec = 3e4;//3e4 ;
+        P.motion_profile_type = 0 ;
+        ecat_node_->SetProfilePositionParametersAll(P);
+    }else if(g_kOperationMode==kCSPosition){
+        CSPositionModeParam P ;
+        uint32_t max_fol_err ;
+        P.profile_vel = 50 ;
+        P.profile_acc = 3e4 ;
+        P.profile_dec = 3e4 ;
+        P.max_profile_vel = 100 ;
+        P.quick_stop_dec = 3e4 ;
+        P.interpolation_time_period = 0;//1 ;
+        ecat_node_->SetCyclicSyncPositionModeParametersAll(P);
+    }else if(g_kOperationMode==kCSVelocity){
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Setting drives to CSV mode...\n");
+        CSVelocityModeParam P ;
+        P.velocity_controller_gain.Pgain = 40000;
+        P.velocity_controller_gain.Igain = 800000;
+        P.profile_dec=3e4 ;
+        P.quick_stop_dec = 3e4 ;
+        P.interpolation_time_period = 0;    //1 ;
+        ecat_node_->SetCyclicSyncVelocityModeParametersAll(P);
+    }else if(g_kOperationMode==kCSTorque){
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Setting drives to CSV mode...\n");
+        CSTorqueModeParam P ;
+        P.profile_dec=3e4 ;
+        P.quick_stop_dec = 3e4 ;
+        ecat_node_->SetCyclicSyncTorqueModeParametersAll(P);
+    }else {
+        g_kOperationMode==kProfileVelocity;
+        ProfileVelocityParam P ;
+        P.profile_acc=3e4 ;
+        P.profile_dec=3e4 ;
+        P.max_profile_vel = 7000 ;
+        P.quick_stop_dec = 3e4 ;
+        P.motion_profile_type = 0 ;
+        ecat_node_->SetProfileVelocityParametersAll(P);
+    }
+
+}
+
+int  EthercatLifeCycle::StartEthercatCommunication()
+{
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Activating master...\n");
     if(ecat_node_->ActivateMaster()){
         return  -1 ;
@@ -398,17 +426,12 @@ int EthercatLifeCycle::InitEthercatCommunication()
     if (ecat_node_->RegisterDomain()){
         return  -1 ;
     }
-
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Waiting for operational mode...\n");
     if (ecat_node_->WaitForOperationalMode()){
         return -1 ;
     }
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Initialization succesfull...\n");
     
-    return 0 ; 
-}
-
-int  EthercatLifeCycle::StartEthercatCommunication()
-{
     if (SetComThreadPriorities()){
         return -1 ;
     }
@@ -691,31 +714,8 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
 
         ReadFromSlaves();
 
-#if POSITION_MODE
-        UpdateMotorStatePositionMode();
-        UpdatePositionModeParameters();
-        WriteToSlavesInPositionMode();
-#endif
-#if CYCLIC_POSITION_MODE
-    UpdateMotorStatePositionMode();
-    UpdateCyclicPositionModeParameters();
-    WriteToSlavesInPositionMode();
-#endif 
-#if VELOCITY_MODE
-       UpdateMotorStateVelocityMode();
-       UpdateVelocityModeParameters();
-       WriteToSlavesVelocityMode();
-#endif
-#if CYCLIC_VELOCITY_MODE
-        UpdateMotorStateVelocityMode();
-        UpdateCyclicVelocityModeParameters();
-        WriteToSlavesVelocityMode();
-#endif
-#if CYCLIC_TORQUE_MODE
-        UpdateMotorStateVelocityMode();
-        UpdateCyclicTorqueModeParameters();
-        WriteToSlavesInCyclicTorqueMode();
-#endif
+        UpdateControlParameters();
+
         if(g_sync_ref_counter){
             g_sync_ref_counter--;
         }else{
@@ -757,9 +757,34 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
     // ------------------------------------------------------- //
 
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Leaving control thread.");
-    //ecat_node_->DeactivateCommunication();
+    // ecat_node_->DeactivateCommunication();
     pthread_exit(NULL);
 }// StartPdoExchange end
+
+void EthercatLifeCycle::UpdateControlParameters()
+{
+    if(g_kOperationMode==kProfilePosition){
+        UpdateMotorStatePositionMode();
+        UpdatePositionModeParameters();
+        WriteToSlavesInPositionMode();
+    }else if(g_kOperationMode==kCSPosition){
+        UpdateMotorStatePositionMode();
+        UpdateCyclicPositionModeParameters();
+        WriteToSlavesInPositionMode();
+    }else if(g_kOperationMode==kCSVelocity){
+        UpdateMotorStateVelocityMode();
+        UpdateCyclicVelocityModeParameters();
+        WriteToSlavesVelocityMode();
+    }else if(g_kOperationMode==kCSTorque){
+        UpdateMotorStateVelocityMode();
+        UpdateCyclicTorqueModeParameters();
+        WriteToSlavesInCyclicTorqueMode();
+    }else{
+        UpdateMotorStateVelocityMode();
+        UpdateVelocityModeParameters();
+        WriteToSlavesVelocityMode();
+    }
+}
 
 void EthercatLifeCycle::ReadFromSlaves()
 {
@@ -813,6 +838,7 @@ int EthercatLifeCycle::PublishReceivedData()
     received_data_.header.stamp = this->now();
     received_data_publisher_->publish(received_data_);
 }
+
 int EthercatLifeCycle::GetComState()
 {
     return al_state_ ; 
@@ -1403,7 +1429,7 @@ void EthercatLifeCycle::UpdateCyclicTorqueModeParameters()
 int8_t EthercatLifeCycle::EnableDrivesViaSDO(int index)
 {
     for(int i = 0 ; i < 10 ; i++){
-        received_data_.status_word[index] = ecat_node_->GetStatusWordViaSDO(index);
+        received_data_.status_word[index] = ecat_node_->ReadStatusWordViaSDO(index);
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%d\n" ,received_data_.status_word[index]);
         if(EnableDrivers()==g_kNumberOfServoDrivers){
             break;

@@ -252,7 +252,10 @@ namespace EthercatCommunication
         void GetAllSlaveInformation();
 
     /**
-     * @brief Deactivates slaves and can be called in real-time.
+     * @brief Deactivates master, and it is used to stop cyclic PDO exchange.
+     * @note That calling this function means that your PDO exchange will stop.
+     * @note Additionally all pointers created by requesting master are freed with this function./
+     * If you want to resume your communication, you'll have to do the configuration again.
      */
         void DeactivateCommunication();
     /**
@@ -271,6 +274,19 @@ namespace EthercatCommunication
      * @return 0 if successfull, otherwise -1.
      */
         int RestartEthercatMaster();
+    /**
+     * @brief Writes SDO in real-time context.
+     * 
+     * @param req 
+     * @param data 
+     */
+        void WriteSDO(ec_sdo_request_t *req, int32_t data,int size);
+    /**
+     * @brief Reads SDO in real-time context by creating read request.
+     * 
+     * @param req 
+     */
+        uint16_t ReadSDO(ec_sdo_request_t *req,uint16_t &status_word);
     /**
      * @brief This function reads data from specified index and subindex via SDO, returned data will be stored in 
      * pack.data which needs to be casted to correct data type afterwards.
@@ -291,32 +307,95 @@ namespace EthercatCommunication
      * @return 0 if successfull, otherwise -1. 
      */
         int8_t SdoWrite(SDO_data &pack);
+
     /**
      * @brief Get the Status Word from CiA402 slaves in specified index via SDO communication.
      * @param index slave index
      * @return status word 
      */
-        uint16_t GetStatusWordViaSDO(int index);
+        uint16_t ReadStatusWordViaSDO(int index);
     /**
-     * @brief Writes control word to slave in specified index.
+     * @brief Writes control word to slave in specified index via SDO.
      * 
      * @param index slave index, @param control_word control word to be written 
      * @return 0 if successfull otherwise -1.
      */
         int16_t WriteControlWordViaSDO(int index,uint16_t control_word);
     /**
-     * @brief Writes SDO in real-time context.
+     * @brief Writes desired operational mode, to slave in specified index via SDO.
      * 
-     * @param req 
-     * @param data 
+     * @param index slave index
+     * @param op_mode desired operational mode. @see OpMode enum defined in @file ecat_definitions.hpp
+     * @return 0 if successfull, otherwise -1. 
      */
-        void WriteSDO(ec_sdo_request_t *req, int32_t data,int size);
+        int16_t WriteOpModeViaSDO(int index,uint8_t op_mode);
     /**
-     * @brief Reads SDO in real-time context by creating read request.
+     * @brief Reads current operational mode from slave in specified index via SDO.
      * 
-     * @param req 
+     * @param index slave index
+     * @return status word of selected slave.
      */
-        void ReadSDO(ec_sdo_request_t *req,uint16_t &status_word);
+        uint8_t ReadOpModeViaSDO(int index);
+    /**
+     * @brief Reads actual velocity value from slave in specified index via SDO.
+     * 
+     * @param index slave index
+     * @return actual velocity value of selected slave. 
+     */
+        int32_t ReadActualVelocityViaSDO(int index);
+    /**
+     * @brief Writes target velocity value via SDO to slave in specified index.
+     * 
+     * @param index slave index
+     * @param target_vel desired target velocity val.
+     * @return 0 if successfull, othewise -1. 
+     */
+        int16_t WriteTargetVelocityViaSDO(int index,int32_t target_vel);
+    /**
+     * @brief Read actual position from slave in specified index via SDO.
+     * 
+     * @param index slave index
+     * @return actual position of selected slave.
+     */
+        int32_t ReadActualPositionViaSDO(int index);
+    /**
+     * @brief Writes target position value via SDO to slave in specified index.
+     * 
+     * @param index slave index.
+     * @param target_pos desired target position value.
+     * @return 0 if successfull, otherwise -1.
+     */
+        int16_t WriteTargetPositionViaSDO(int index,int32_t target_pos);
+    /**
+     * @brief Read actual torque value from slave in specified index via SDO.
+     * 
+     * @param index 
+     * @return uint16_t 
+     */
+        int16_t ReadActualTorqueViaSDO(int index);
+    /**
+     * @brief Writes target torque value to slave in specified index via SDO.
+     * 
+     * @param index slave index
+     * @param target_tor desired target torque value.
+     * @return 0 if successfull, otherwise -1.
+     */
+        int16_t WriteTargetTorqueViaSDO(int index,uint16_t target_tor);
+    /**
+     * @brief Enable CiA402 supported motor drives in specified index via SDO.
+     * 
+     * @param index slave index
+     * @return 0 if successfull, otherwise -1.
+     */
+        int16_t EnableDrivesViaSDO(int index);
+    /**
+     * @brief Disable CiA402 supported motor drives in specified index via SDO.
+     * 
+     * @param index slave index
+     * @return 0 if successfull, otherwise -1.
+     */        
+        int16_t DisableDrivesViaSDO(int index);
+
         private:
         /// File descriptor to open and wake  master from CLI.
         int  fd;

@@ -25,11 +25,12 @@ EthercatNode::~EthercatNode()
 int  EthercatNode::ConfigureMaster()
 {
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Requesting EtherCAT master...\n");
-    g_master = ecrt_request_master(0);    
     if (!g_master) {
-        
-        RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Requesting master instance failed ! ");
-        return -1 ;
+        g_master = ecrt_request_master(0);    
+        if(!g_master){
+            RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Requesting master instance failed ! ");
+            return -1 ;
+        }
     }
 
     g_master_domain = ecrt_master_create_domain(g_master);
@@ -257,11 +258,11 @@ int EthercatNode::RegisterDomain()
 {
     for(int i = 0 ; i < NUM_OF_SLAVES ; i++){
         slaves_[i].slave_pdo_domain_ = ecrt_domain_data(g_master_domain);
-        if(!(slaves_[i].slave_pdo_domain_) )
-        {
-            RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Domain PDO registration error");
-            return -1;
-        }
+        // if(!(slaves_[i].slave_pdo_domain_) )
+        // {
+        //     RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Domain PDO registration error");
+        //     return -1;
+        // }
     }
     return 0;
 }
@@ -745,8 +746,9 @@ int EthercatNode::GetNumberOfConnectedSlaves()
 
 void EthercatNode::DeactivateCommunication()
 {
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Deactivating & Releasing EtherCAT master...");
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Deactivating EtherCAT master : Cyclic PDO ended...\n");
     ecrt_master_deactivate(g_master);
+    ReleaseMaster();
 }
 
 void EthercatNode::ReleaseMaster()
@@ -756,21 +758,21 @@ void EthercatNode::ReleaseMaster()
 
 int EthercatNode::OpenEthercatMaster()
 {
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Trying to open EtherCAT master...");
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Trying to open EtherCAT master...\n");
     fd = std::system("ls /dev | grep EtherCAT* > /dev/null");
     if(fd){
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Opening EtherCAT master...");
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Opening EtherCAT master...\n");
         std::system("sudo ethercatctl start");
         usleep(2e6);
         fd = std::system("ls /dev | grep EtherCAT* > /dev/null");
         if(fd){
-            RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Error : EtherCAT device not found.");
+            RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Error : EtherCAT device not found.\n");
             return -1;
             }else {
                 return 0 ;
             }
     }
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "EtherCAT master opened...");
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "EtherCAT master opened...\n");
     return 0 ; 
 }
 
@@ -795,7 +797,6 @@ int EthercatNode::ShutDownEthercatMaster()
 
 int EthercatNode::RestartEthercatMaster()
 {
-
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Restarting EtherCAT master...");
     std::system("cd ~; sudo ethercatctl restart\n");
     usleep(2e6);
@@ -831,7 +832,7 @@ int8_t EthercatNode::SdoWrite(SDO_data &pack)
     return 0;
 }
 
-uint16_t EthercatNode::GetStatusWordViaSDO(int index)
+uint16_t EthercatNode::ReadStatusWordViaSDO(int index)
 {
     SDO_data pack ; 
     uint16_t status_word;  
@@ -840,7 +841,7 @@ uint16_t EthercatNode::GetStatusWordViaSDO(int index)
     pack.sub_index = 0 ;
     pack.data_sz = sizeof(uint16_t);
     if(SdoRead(pack)){
-       std::cout << "Error while reading SDO " << std::endl;
+       std::cout << "Error while reading Status Word " << std::endl;
         return -1; 
     }
     status_word = (uint16_t)(pack.data);
@@ -856,11 +857,141 @@ int16_t EthercatNode::WriteControlWordViaSDO(int index,uint16_t control_word)
     pack.data_sz = sizeof(uint16_t);
     pack.data = uint32_t(control_word);
     if(SdoWrite(pack)){
+        std::cout << "Error while writing Control Word " << std::endl;
+        return -1; 
+    }
+    return 0;
+}
+
+uint8_t EthercatNode::ReadOpModeViaSDO(int index)
+{
+    SDO_data pack ; 
+    uint8_t op_mode;  
+    pack.slave_position = index;
+    pack.index = OD_OPERATION_MODE ; 
+    pack.sub_index = 0 ;
+    pack.data_sz = sizeof(uint8_t);
+    if(SdoRead(pack)){
+       std::cout << "Error while reading Operation Mode " << std::endl;
+        return -1; 
+    }
+    op_mode = (uint8_t)(pack.data);
+    return op_mode ; 
+}
+
+int16_t EthercatNode::WriteOpModeViaSDO(int index,uint8_t op_mode)
+{
+    SDO_data pack ; 
+    pack.index = OD_OPERATION_MODE;  
+    pack.slave_position = index;
+    pack.sub_index = 0 ;
+    pack.data_sz = sizeof(uint8_t);
+    pack.data = uint32_t(op_mode);
+    if(SdoWrite(pack)){
+        std::cout << "Error while writing Op Mode " << std::endl;
+        return -1; 
+    }
+    return 0;
+}
+
+int32_t EthercatNode::ReadActualVelocityViaSDO(int index)
+{
+    SDO_data pack ; 
+    int32_t actual_vel;  
+    pack.slave_position = index;
+    pack.index = OD_VELOCITY_ACTUAL_VALUE ; 
+    pack.sub_index = 0 ;
+    pack.data_sz = sizeof(int32_t);
+    if(SdoRead(pack)){
+       std::cout << "Error while reading Actual Velocity " << std::endl;
+        return -1; 
+    }
+    actual_vel = (int32_t)(pack.data);
+    return actual_vel ; 
+}
+
+int16_t EthercatNode::WriteTargetVelocityViaSDO(int index,int32_t target_vel)
+{
+    SDO_data pack ; 
+    pack.index = OD_TARGET_VELOCITY;  
+    pack.slave_position = index;
+    pack.sub_index = 0 ;
+    pack.data_sz = sizeof(int32_t);
+    pack.data = int32_t(target_vel);
+    if(SdoWrite(pack)){
+        std::cout << "Error while writing Target Velocity " << std::endl;
+        return -1; 
+    }
+    return 0;
+}
+
+int32_t EthercatNode::ReadActualPositionViaSDO(int index)
+{
+    SDO_data pack ; 
+    int32_t actual_pos;  
+    pack.slave_position = index;
+    pack.index = OD_POSITION_ACTUAL_VAL ; 
+    pack.sub_index = 0 ;
+    pack.data_sz = sizeof(int32_t);
+    if(SdoRead(pack)){
+       std::cout << "Error while reading Actual Position " << std::endl;
+        return -1; 
+    }
+    actual_pos = (int32_t)(pack.data);
+    return actual_pos ; 
+}
+
+int16_t EthercatNode::WriteTargetPositionViaSDO(int index,int32_t target_pos)
+{
+    SDO_data pack ; 
+    pack.index = OD_TARGET_POSITION;  
+    pack.slave_position = index;
+    pack.sub_index = 0 ;
+    pack.data_sz = sizeof(int32_t);
+    pack.data = int32_t(target_pos);
+    if(SdoWrite(pack)){
+        std::cout << "Error while writing Target Position " << std::endl;
+        return -1; 
+    }
+    return 0;
+}
+
+int16_t EthercatNode::ReadActualTorqueViaSDO(int index)
+{
+    SDO_data pack ; 
+    int16_t actual_tor;  
+    pack.slave_position = index;
+    pack.index = OD_TORQUE_ACTUAL_VALUE ; 
+    pack.sub_index = 0 ;
+    pack.data_sz = sizeof(int16_t);
+    if(SdoRead(pack)){
+       std::cout << "Error while reading SDO " << std::endl;
+        return -1; 
+    }
+    actual_tor = (int16_t)(pack.data);
+    return actual_tor ; 
+}
+
+int16_t EthercatNode::WriteTargetTorqueViaSDO(int index,uint16_t target_tor)
+{
+    SDO_data pack ; 
+    pack.index = OD_TARGET_TORQUE;  
+    pack.slave_position = index;
+    pack.sub_index = 0 ;
+    pack.data_sz = sizeof(int16_t);
+    pack.data = uint32_t(target_tor);
+    if(SdoWrite(pack)){
         std::cout << "Error while writing SDO " << std::endl;
         return -1; 
     }
     return 0;
 }
+
+
+
+
+
+
 
 int EthercatNode::MapDefaultSdos()
 {
@@ -954,7 +1085,7 @@ void EthercatNode::WriteSDO(ec_sdo_request_t *req, int32_t data,int size)
 	}
 }
 
-void EthercatNode::ReadSDO(ec_sdo_request_t *req, uint16_t &status_word)
+uint16_t EthercatNode::ReadSDO(ec_sdo_request_t *req, uint16_t &status_word)
 {
     switch (ecrt_sdo_request_state(req)) {
         case EC_REQUEST_UNUSED: // request was not used yet

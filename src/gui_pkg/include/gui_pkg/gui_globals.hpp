@@ -66,6 +66,17 @@ struct ReceivedData
     uint8_t  current_lifecycle_state;
 };
 
+typedef enum
+{
+    kProfilePosition = 1,
+    kProfileVelocity = 3,
+    kProfileTorque   = 4,
+    kHoming = 6,
+    kInterpolatedPosition = 7,
+    kCSPosition = 8,
+    kCSVelocity = 9,
+    kCSTorque = 10,
+} OpMode ;
 
 struct ControlUIButtonData{
     uint8_t b_init_ecat;

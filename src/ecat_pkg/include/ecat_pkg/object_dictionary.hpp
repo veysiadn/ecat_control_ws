@@ -130,7 +130,7 @@
 #define SM_EXPEDITE               	0x3F       //like run, but dont finish actual position profile
 #define SM_QUICKSTOP              	0x02 
 #define SM_RELATIVE_POS				0X7F
-
+#define SM_HALT						0X1FF
 /* From CiA402,  - State coding
 	Statusword      |      PDS FSA state
 xxxx xxxx x0xx 0000 | Not ready to switch on

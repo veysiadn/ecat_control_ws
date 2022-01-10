@@ -148,7 +148,6 @@ color: rgb(255, 255, 255);
 selection-background-color: rgb(238, 238, 236);
 selection-color: rgb(238, 238, 236);
 background-color: rgb(19, 61, 128);
-alternate-background-color: rgb(0, 0, 0);
 font: bold 75 16pt &quot;Noto Sans&quot;;
 }
 </string>
@@ -176,14 +175,13 @@ color: rgb(255, 255, 255);
 selection-background-color: rgb(238, 238, 236);
 selection-color: rgb(238, 238, 236);
 background-color: rgb(19, 61, 128);
-alternate-background-color: rgb(0, 0, 0);
 font: bold 75 16pt &quot;Noto Sans&quot;;
 }
 </string>
             </property>
             <property name="text">
-             <string>Reinitialize 
-EtherCAT</string>
+             <string>Restart 
+EtherCAT Master</string>
             </property>
            </widget>
           </item>
@@ -204,7 +202,6 @@ color: rgb(255, 255, 255);
 selection-background-color: rgb(238, 238, 236);
 selection-color: rgb(238, 238, 236);
 background-color: rgb(19, 61, 128);
-alternate-background-color: rgb(0, 0, 0);
 font: bold 75 16pt &quot;Noto Sans&quot;;
 }
 </string>
@@ -264,7 +261,6 @@ color: rgb(255, 255, 255);
 selection-background-color: rgb(238, 238, 236);
 selection-color: rgb(238, 238, 236);
 background-color: rgb(19, 61, 128);
-alternate-background-color: rgb(0, 0, 0);
 font: bold 75 16pt &quot;Noto Sans&quot;;
 }
 </string>
@@ -292,7 +288,6 @@ color: rgb(255, 255, 255);
 selection-background-color: rgb(238, 238, 236);
 selection-color: rgb(238, 238, 236);
 background-color: rgb(19, 61, 128);
-alternate-background-color: rgb(0, 0, 0);
 font: bold 75 16pt &quot;Noto Sans&quot;;
 }
 </string>
@@ -360,6 +355,9 @@ font: bold 75 14pt &quot;Noto Sans&quot;;</string>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="minimum">
+               <number>-10000</number>
+              </property>
               <property name="maximum">
                <number>10000</number>
               </property>
@@ -376,6 +374,9 @@ font: bold 75 14pt &quot;Noto Sans&quot;;</string>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="minimum">
+               <number>-10000</number>
+              </property>
               <property name="maximum">
                <number>10000</number>
               </property>
@@ -391,6 +392,9 @@ font: bold 75 14pt &quot;Noto Sans&quot;;</string>
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="minimum">
+               <number>-10000</number>
               </property>
               <property name="maximum">
                <number>10000</number>
@@ -454,8 +458,8 @@ font: bold 75 16pt &quot;Noto Sans&quot;;</string>
         </item>
         <item>
          <layout class="QGridLayout" name="status_bar_gridLayout">
-          <item row="4" column="4">
-           <widget class="QLabel" name="lb_status_word_m2">
+          <item row="3" column="6">
+           <widget class="QLabel" name="lb_actual_tor_m3">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -484,8 +488,8 @@ font: bold 75 14pt &quot;Noto Sans&quot;;</string>
             </property>
            </widget>
           </item>
-          <item row="4" column="3">
-           <widget class="QLabel" name="lb_control_word_m2">
+          <item row="1" column="4">
+           <widget class="QLabel" name="lb_actual_vel_m2">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -514,8 +518,20 @@ font: bold 75 14pt &quot;Noto Sans&quot;;</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="1" colspan="2">
-           <widget class="QLabel" name="label_motor1">
+          <item row="3" column="5">
+           <widget class="QLabel" name="lb_target_tor_m3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(0, 0, 0);
 selection-background-color: rgb(238, 238, 236);
@@ -525,7 +541,40 @@ alternate-background-color: rgb(0, 0, 0);
 font: bold 75 14pt &quot;Noto Sans&quot;;</string>
             </property>
             <property name="text">
-             <string>Motor 1</string>
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="ls_target_tor">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+selection-background-color: rgb(238, 238, 236);
+selection-color: rgb(238, 238, 236);
+background-color:  rgb(255, 255, 255);
+alternate-background-color: rgb(0, 0, 0);
+font: bold 75 14pt &quot;Noto Sans&quot;;
+padding-left: 5px;
+padding-left: 5px;
+</string>
+            </property>
+            <property name="text">
+             <string>Target Torque / Actual Torque</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -565,8 +614,8 @@ padding-left: 8px;
             </property>
            </widget>
           </item>
-          <item row="3" column="1">
-           <widget class="QLabel" name="lb_target_tor_m1">
+          <item row="2" column="3">
+           <widget class="QLabel" name="lb_target_pos_m2">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -595,8 +644,32 @@ font: bold 75 14pt &quot;Noto Sans&quot;;</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="5">
-           <widget class="QLabel" name="lb_target_pos_m3">
+          <item row="6" column="0" colspan="7">
+           <widget class="QLabel" name="ls_ecat_status_bar">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+selection-background-color: rgb(238, 238, 236);
+selection-color: rgb(238, 238, 236);
+background-color: rgb(19, 61, 128);
+alternate-background-color: rgb(0, 0, 0);
+font: bold 75 16pt &quot;Noto Sans&quot;;</string>
+            </property>
+            <property name="text">
+             <string>EtherCAT State</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLabel" name="lb_actual_vel_m1">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -658,8 +731,8 @@ padding-left: 5px;
             </property>
            </widget>
           </item>
-          <item row="6" column="3" colspan="4">
-           <widget class="QLabel" name="lb_com_status">
+          <item row="3" column="1">
+           <widget class="QLabel" name="lb_target_tor_m1">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -688,8 +761,8 @@ font: bold 75 14pt &quot;Noto Sans&quot;;</string>
             </property>
            </widget>
           </item>
-          <item row="3" column="4">
-           <widget class="QLabel" name="lb_actual_tor_m2">
+          <item row="1" column="5">
+           <widget class="QLabel" name="lb_target_vel_m3">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -718,8 +791,8 @@ font: bold 75 14pt &quot;Noto Sans&quot;;</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="1">
-           <widget class="QLabel" name="lb_target_pos_m1">
+          <item row="4" column="1">
+           <widget class="QLabel" name="lb_control_word_m1">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -748,152 +821,8 @@ font: bold 75 14pt &quot;Noto Sans&quot;;</string>
             </property>
            </widget>
           </item>
-          <item row="7" column="3" colspan="4">
-           <widget class="QLabel" name="lb_emergency_status">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(0, 0, 0);
-selection-background-color: rgb(238, 238, 236);
-selection-color: rgb(238, 238, 236);
-background-color:  rgb(255, 255, 255);
-alternate-background-color: rgb(0, 0, 0);
-font: bold 75 14pt &quot;Noto Sans&quot;;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="3">
-           <widget class="QLabel" name="lb_target_tor_m2">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(0, 0, 0);
-selection-background-color: rgb(238, 238, 236);
-selection-color: rgb(238, 238, 236);
-background-color:  rgb(255, 255, 255);
-alternate-background-color: rgb(0, 0, 0);
-font: bold 75 14pt &quot;Noto Sans&quot;;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="0" colspan="7">
-           <widget class="QLabel" name="ls_ecat_status_bar">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Maximum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);
-selection-background-color: rgb(238, 238, 236);
-selection-color: rgb(238, 238, 236);
-background-color: rgb(19, 61, 128);
-alternate-background-color: rgb(0, 0, 0);
-font: bold 75 16pt &quot;Noto Sans&quot;;</string>
-            </property>
-            <property name="text">
-             <string>EtherCAT State</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="3">
-           <widget class="QLabel" name="lb_target_pos_m2">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(0, 0, 0);
-selection-background-color: rgb(238, 238, 236);
-selection-color: rgb(238, 238, 236);
-background-color:  rgb(255, 255, 255);
-alternate-background-color: rgb(0, 0, 0);
-font: bold 75 14pt &quot;Noto Sans&quot;;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="2">
-           <widget class="QLabel" name="lb_actual_pos_m1">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(0, 0, 0);
-selection-background-color: rgb(238, 238, 236);
-selection-color: rgb(238, 238, 236);
-background-color:  rgb(255, 255, 255);
-alternate-background-color: rgb(0, 0, 0);
-font: bold 75 14pt &quot;Noto Sans&quot;;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="6">
-           <widget class="QLabel" name="lb_status_word_m3">
+          <item row="2" column="4">
+           <widget class="QLabel" name="lb_actual_pos_m2">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -982,8 +911,230 @@ font: bold 75 14pt &quot;Noto Sans&quot;;</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="4">
-           <widget class="QLabel" name="lb_actual_pos_m2">
+          <item row="0" column="3" colspan="2">
+           <widget class="QLabel" name="label_motor2">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+selection-background-color: rgb(238, 238, 236);
+selection-color: rgb(238, 238, 236);
+background-color:  rgb(255, 255, 255);
+alternate-background-color: rgb(0, 0, 0);
+font: bold 75 14pt &quot;Noto Sans&quot;;</string>
+            </property>
+            <property name="text">
+             <string>Motor 2</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="2">
+           <widget class="QLabel" name="lb_status_word_m1">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+selection-background-color: rgb(238, 238, 236);
+selection-color: rgb(238, 238, 236);
+background-color:  rgb(255, 255, 255);
+alternate-background-color: rgb(0, 0, 0);
+font: bold 75 14pt &quot;Noto Sans&quot;;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_motor_no">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+selection-background-color: rgb(238, 238, 236);
+selection-color: rgb(238, 238, 236);
+background-color:  rgb(255, 255, 255);
+alternate-background-color: rgb(0, 0, 0);
+font: bold 75 14pt &quot;Noto Sans&quot;;</string>
+            </property>
+            <property name="text">
+             <string>MOTOR No</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="lb_target_vel_m1">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+selection-background-color: rgb(238, 238, 236);
+selection-color: rgb(238, 238, 236);
+background-color:  rgb(255, 255, 255);
+alternate-background-color: rgb(0, 0, 0);
+font: bold 75 14pt &quot;Noto Sans&quot;;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" colspan="2">
+           <widget class="QLabel" name="label_motor1">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+selection-background-color: rgb(238, 238, 236);
+selection-color: rgb(238, 238, 236);
+background-color:  rgb(255, 255, 255);
+alternate-background-color: rgb(0, 0, 0);
+font: bold 75 14pt &quot;Noto Sans&quot;;</string>
+            </property>
+            <property name="text">
+             <string>Motor 1</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QLabel" name="lb_target_vel_m2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+selection-background-color: rgb(238, 238, 236);
+selection-color: rgb(238, 238, 236);
+background-color:  rgb(255, 255, 255);
+alternate-background-color: rgb(0, 0, 0);
+font: bold 75 14pt &quot;Noto Sans&quot;;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="5" colspan="2">
+           <widget class="QLabel" name="label_motor3">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+selection-background-color: rgb(238, 238, 236);
+selection-color: rgb(238, 238, 236);
+background-color:  rgb(255, 255, 255);
+alternate-background-color: rgb(0, 0, 0);
+font: bold 75 14pt &quot;Noto Sans&quot;;</string>
+            </property>
+            <property name="text">
+             <string>Motor 3</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="3" colspan="4">
+           <widget class="QLabel" name="lb_emergency_status">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+selection-background-color: rgb(238, 238, 236);
+selection-color: rgb(238, 238, 236);
+background-color:  rgb(255, 255, 255);
+alternate-background-color: rgb(0, 0, 0);
+font: bold 75 14pt &quot;Noto Sans&quot;;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="4">
+           <widget class="QLabel" name="lb_actual_tor_m2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+selection-background-color: rgb(238, 238, 236);
+selection-color: rgb(238, 238, 236);
+background-color:  rgb(255, 255, 255);
+alternate-background-color: rgb(0, 0, 0);
+font: bold 75 14pt &quot;Noto Sans&quot;;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="4">
+           <widget class="QLabel" name="lb_status_word_m2">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -1042,6 +1193,99 @@ font: bold 75 14pt &quot;Noto Sans&quot;;</string>
             </property>
            </widget>
           </item>
+          <item row="7" column="3" colspan="4">
+           <widget class="QLabel" name="lb_com_status">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+selection-background-color: rgb(238, 238, 236);
+selection-color: rgb(238, 238, 236);
+background-color:  rgb(255, 255, 255);
+alternate-background-color: rgb(0, 0, 0);
+font: bold 75 14pt &quot;Noto Sans&quot;;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="5">
+           <widget class="QLabel" name="lb_target_pos_m3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+selection-background-color: rgb(238, 238, 236);
+selection-color: rgb(238, 238, 236);
+background-color:  rgb(255, 255, 255);
+alternate-background-color: rgb(0, 0, 0);
+font: bold 75 14pt &quot;Noto Sans&quot;;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0" colspan="3">
+           <widget class="QLabel" name="ls_com_status">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+selection-background-color: rgb(238, 238, 236);
+selection-color: rgb(238, 238, 236);
+background-color:  rgb(255, 255, 255);
+alternate-background-color: rgb(0, 0, 0);
+font: bold 75 14pt &quot;Noto Sans&quot;;
+padding-left: 5px;
+padding-left: 5px;
+</string>
+            </property>
+            <property name="text">
+             <string>COM Status</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
           <item row="4" column="5">
            <widget class="QLabel" name="lb_control_word_m3">
             <property name="sizePolicy">
@@ -1072,8 +1316,8 @@ font: bold 75 14pt &quot;Noto Sans&quot;;</string>
             </property>
            </widget>
           </item>
-          <item row="4" column="2">
-           <widget class="QLabel" name="lb_status_word_m1">
+          <item row="4" column="6">
+           <widget class="QLabel" name="lb_status_word_m3">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -1102,8 +1346,8 @@ font: bold 75 14pt &quot;Noto Sans&quot;;</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="4">
-           <widget class="QLabel" name="lb_actual_vel_m2">
+          <item row="3" column="3">
+           <widget class="QLabel" name="lb_target_tor_m2">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -1132,44 +1376,8 @@ font: bold 75 14pt &quot;Noto Sans&quot;;</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="5" colspan="2">
-           <widget class="QLabel" name="label_motor3">
-            <property name="styleSheet">
-             <string notr="true">color: rgb(0, 0, 0);
-selection-background-color: rgb(238, 238, 236);
-selection-color: rgb(238, 238, 236);
-background-color:  rgb(255, 255, 255);
-alternate-background-color: rgb(0, 0, 0);
-font: bold 75 14pt &quot;Noto Sans&quot;;</string>
-            </property>
-            <property name="text">
-             <string>Motor 3</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="3" colspan="2">
-           <widget class="QLabel" name="label_motor2">
-            <property name="styleSheet">
-             <string notr="true">color: rgb(0, 0, 0);
-selection-background-color: rgb(238, 238, 236);
-selection-color: rgb(238, 238, 236);
-background-color:  rgb(255, 255, 255);
-alternate-background-color: rgb(0, 0, 0);
-font: bold 75 14pt &quot;Noto Sans&quot;;</string>
-            </property>
-            <property name="text">
-             <string>Motor 2</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="6">
-           <widget class="QLabel" name="lb_actual_tor_m3">
+          <item row="4" column="3">
+           <widget class="QLabel" name="lb_control_word_m2">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -1192,207 +1400,6 @@ font: bold 75 14pt &quot;Noto Sans&quot;;</string>
             </property>
             <property name="text">
              <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_motor_no">
-            <property name="styleSheet">
-             <string notr="true">color: rgb(0, 0, 0);
-selection-background-color: rgb(238, 238, 236);
-selection-color: rgb(238, 238, 236);
-background-color:  rgb(255, 255, 255);
-alternate-background-color: rgb(0, 0, 0);
-font: bold 75 14pt &quot;Noto Sans&quot;;</string>
-            </property>
-            <property name="text">
-             <string>MOTOR No</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="QLabel" name="lb_control_word_m1">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(0, 0, 0);
-selection-background-color: rgb(238, 238, 236);
-selection-color: rgb(238, 238, 236);
-background-color:  rgb(255, 255, 255);
-alternate-background-color: rgb(0, 0, 0);
-font: bold 75 14pt &quot;Noto Sans&quot;;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="5">
-           <widget class="QLabel" name="lb_target_vel_m3">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(0, 0, 0);
-selection-background-color: rgb(238, 238, 236);
-selection-color: rgb(238, 238, 236);
-background-color:  rgb(255, 255, 255);
-alternate-background-color: rgb(0, 0, 0);
-font: bold 75 14pt &quot;Noto Sans&quot;;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="3">
-           <widget class="QLabel" name="lb_target_vel_m2">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(0, 0, 0);
-selection-background-color: rgb(238, 238, 236);
-selection-color: rgb(238, 238, 236);
-background-color:  rgb(255, 255, 255);
-alternate-background-color: rgb(0, 0, 0);
-font: bold 75 14pt &quot;Noto Sans&quot;;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="5">
-           <widget class="QLabel" name="lb_target_tor_m3">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(0, 0, 0);
-selection-background-color: rgb(238, 238, 236);
-selection-color: rgb(238, 238, 236);
-background-color:  rgb(255, 255, 255);
-alternate-background-color: rgb(0, 0, 0);
-font: bold 75 14pt &quot;Noto Sans&quot;;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLabel" name="lb_target_vel_m1">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(0, 0, 0);
-selection-background-color: rgb(238, 238, 236);
-selection-color: rgb(238, 238, 236);
-background-color:  rgb(255, 255, 255);
-alternate-background-color: rgb(0, 0, 0);
-font: bold 75 14pt &quot;Noto Sans&quot;;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="ls_target_tor">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(0, 0, 0);
-selection-background-color: rgb(238, 238, 236);
-selection-color: rgb(238, 238, 236);
-background-color:  rgb(255, 255, 255);
-alternate-background-color: rgb(0, 0, 0);
-font: bold 75 14pt &quot;Noto Sans&quot;;
-padding-left: 5px;
-padding-left: 5px;
-</string>
-            </property>
-            <property name="text">
-             <string>Target Torque / Actual Torque</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -1432,7 +1439,67 @@ padding-left: 5px;
             </property>
            </widget>
           </item>
-          <item row="7" column="0" colspan="3">
+          <item row="2" column="1">
+           <widget class="QLabel" name="lb_target_pos_m1">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+selection-background-color: rgb(238, 238, 236);
+selection-color: rgb(238, 238, 236);
+background-color:  rgb(255, 255, 255);
+alternate-background-color: rgb(0, 0, 0);
+font: bold 75 14pt &quot;Noto Sans&quot;;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QLabel" name="lb_actual_pos_m1">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+selection-background-color: rgb(238, 238, 236);
+selection-color: rgb(238, 238, 236);
+background-color:  rgb(255, 255, 255);
+alternate-background-color: rgb(0, 0, 0);
+font: bold 75 14pt &quot;Noto Sans&quot;;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0" colspan="3">
            <widget class="QLabel" name="ls_emergency_status">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -1465,8 +1532,8 @@ padding-left: 5px;
             </property>
            </widget>
           </item>
-          <item row="6" column="0" colspan="3">
-           <widget class="QLabel" name="ls_com_status">
+          <item row="5" column="0">
+           <widget class="QLabel" name="ls_op_mode">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -1491,15 +1558,75 @@ padding-left: 5px;
 </string>
             </property>
             <property name="text">
-             <string>COM Status</string>
+             <string>Operational Mode</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
             </property>
            </widget>
           </item>
-          <item row="1" column="2">
-           <widget class="QLabel" name="lb_actual_vel_m1">
+          <item row="5" column="1" colspan="2">
+           <widget class="QLabel" name="lb_op_mode_m1">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+selection-background-color: rgb(238, 238, 236);
+selection-color: rgb(238, 238, 236);
+background-color:  rgb(255, 255, 255);
+alternate-background-color: rgb(0, 0, 0);
+font: bold 75 14pt &quot;Noto Sans&quot;;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="3" colspan="2">
+           <widget class="QLabel" name="lb_op_mode_m2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+selection-background-color: rgb(238, 238, 236);
+selection-color: rgb(238, 238, 236);
+background-color:  rgb(255, 255, 255);
+alternate-background-color: rgb(0, 0, 0);
+font: bold 75 14pt &quot;Noto Sans&quot;;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="5" colspan="2">
+           <widget class="QLabel" name="lb_op_mode_m3">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>

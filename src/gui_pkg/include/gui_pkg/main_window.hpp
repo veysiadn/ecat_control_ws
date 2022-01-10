@@ -109,22 +109,22 @@ class MainWindow;
     void rosSpinThread();
     /**
      * @brief Shows motor status in GUI.
-//   */
-//    void ShowAllMotorStatus();
-//    /**
-//     * @brief Shows communication status in GUI.
-//     */
-//    void ShowComStatus();
-//    /**
-//     * @brief Shows emergency button and switch status in GUI.
-//     */
-//    void ShowEmergencyStatus();
-//    /**
-//     * @brief Reads status word and turns it to readable string format.
-//     * @param index slave index
-//     * @return QString readable status word format.
-//     */
-//    QString GetReadableStatusWord(int index);
+    */
+    void ShowAllMotorStatus();
+    /**
+      * @brief Shows communication status in GUI.
+      */
+    void ShowComStatus();
+    /**
+      * @brief Shows emergency button and switch status in GUI.
+      */
+    void ShowEmergencyStatus();
+   /**
+    * @brief Reads status word and turns it to readable string format.
+    * @param index slave index
+    * @return QString readable status word format.
+    */
+    QString GetReadableStatusWord(int index);
     /**
      * @brief This function will update UI style (enable-disable buttons) based on unconfigured state style
      * @note In unconfigured state only Initialize Ethercat button will be enabled.
@@ -154,6 +154,9 @@ class MainWindow;
     void SetEnabledStyleSheetSDO(QPushButton *button);
 
     void SetEnabledStyleSheetPDO(QPushButton *button);
+
+    void ShowOperationMode();
+
     Ui::MainWindow *ui;
     int argc_;
     char** argv_;

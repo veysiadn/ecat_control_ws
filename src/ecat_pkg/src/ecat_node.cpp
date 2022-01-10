@@ -956,8 +956,13 @@ int16_t EthercatNode::WriteTargetPositionViaSDO(int index,int32_t target_pos)
         std::cout << "Error while writing Target Position " << std::endl;
         return -1; 
     }
-    if(WriteControlWordViaSDO(index,SM_RUN)){
-        return -1;
+    if(TEST_BIT(ReadStatusWordViaSDO(index),10)==1){
+        WriteControlWordViaSDO(index,SM_RELATIVE_POS);
+        WriteControlWordViaSDO(index,SM_GO_ENABLE);
+    }else{
+        if(WriteControlWordViaSDO(index,SM_GO_ENABLE)){
+            return -1;
+        }
     }
     return 0;
 }

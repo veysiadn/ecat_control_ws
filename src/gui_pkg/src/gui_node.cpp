@@ -11,6 +11,7 @@
     for(int i = 0; i < NUM_OF_SERVO_DRIVES; i++)
     {
         ui_control_buttons_.spn_target_values[i] = 0 ;
+        received_data_[i].p_emergency_switch_val = 1 ;
     }
     ResetContolButtonValues();
 
@@ -76,6 +77,7 @@
         received_data_[i].status_word             =  msg->status_word[i];
         received_data_[i].slave_com_status        =  msg->slave_com_status[i];
         received_data_[i].com_status              =  msg->com_status;
+        received_data_[i].op_mode_display         =  msg->op_mode_display[i]; 
         current_lifecycle_state                   =  msg->current_lifecycle_state;
         /// Costum slave feedbacks.
         received_data_[i].left_limit_switch_val   =  msg->left_limit_switch_val;

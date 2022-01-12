@@ -1,0 +1,471 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Spine Surgery Robot Control Framework}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Introduction}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Installation}{1}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}1\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}: Opening the box}{1}{subsection.1.2.1}%
+\contentsline {chapter}{\numberline {2}Todo List}{3}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Namespace Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Namespace List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Hierarchical Index}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Class Hierarchy}{7}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Class Index}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Class List}{9}{section.5.1}%
+\contentsline {chapter}{\numberline {6}File Index}{11}{chapter.6}%
+\contentsline {section}{\numberline {6.1}File List}{11}{section.6.1}%
+\contentsline {chapter}{\numberline {7}Namespace Documentation}{13}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Ethercat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Communication Namespace Reference}{13}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Detailed Description}{13}{subsection.7.1.1}%
+\contentsline {section}{\numberline {7.2}Ethercat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Life\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cycle\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Node Namespace Reference}{13}{section.7.2}%
+\contentsline {chapter}{\numberline {8}Class Documentation}{15}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Controller Struct Reference}{15}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Detailed Description}{15}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Member Data Documentation}{15}{subsection.8.1.2}%
+\contentsline {subsubsection}{\numberline {8.1.2.1}blue\_button\_}{16}{subsubsection.8.1.2.1}%
+\contentsline {subsubsection}{\numberline {8.1.2.2}green\_button\_}{16}{subsubsection.8.1.2.2}%
+\contentsline {subsubsection}{\numberline {8.1.2.3}left\_d\_button\_}{16}{subsubsection.8.1.2.3}%
+\contentsline {subsubsection}{\numberline {8.1.2.4}left\_l\_button\_}{16}{subsubsection.8.1.2.4}%
+\contentsline {subsubsection}{\numberline {8.1.2.5}left\_r\_button\_}{16}{subsubsection.8.1.2.5}%
+\contentsline {subsubsection}{\numberline {8.1.2.6}left\_rb\_button\_}{16}{subsubsection.8.1.2.6}%
+\contentsline {subsubsection}{\numberline {8.1.2.7}left\_start\_button\_}{16}{subsubsection.8.1.2.7}%
+\contentsline {subsubsection}{\numberline {8.1.2.8}left\_u\_button\_}{16}{subsubsection.8.1.2.8}%
+\contentsline {subsubsection}{\numberline {8.1.2.9}left\_x\_axis\_}{17}{subsubsection.8.1.2.9}%
+\contentsline {subsubsection}{\numberline {8.1.2.10}left\_y\_axis\_}{17}{subsubsection.8.1.2.10}%
+\contentsline {subsubsection}{\numberline {8.1.2.11}red\_button\_}{17}{subsubsection.8.1.2.11}%
+\contentsline {subsubsection}{\numberline {8.1.2.12}right\_rb\_button\_}{17}{subsubsection.8.1.2.12}%
+\contentsline {subsubsection}{\numberline {8.1.2.13}right\_start\_button\_}{17}{subsubsection.8.1.2.13}%
+\contentsline {subsubsection}{\numberline {8.1.2.14}right\_x\_axis\_}{17}{subsubsection.8.1.2.14}%
+\contentsline {subsubsection}{\numberline {8.1.2.15}right\_y\_axis\_}{17}{subsubsection.8.1.2.15}%
+\contentsline {subsubsection}{\numberline {8.1.2.16}xbox\_button\_}{17}{subsubsection.8.1.2.16}%
+\contentsline {subsubsection}{\numberline {8.1.2.17}yellow\_button\_}{18}{subsubsection.8.1.2.17}%
+\contentsline {section}{\numberline {8.2}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Position\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Mode\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Param Struct Reference}{18}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Detailed Description}{18}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Member Data Documentation}{18}{subsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.2.1}current\_controller\_gain}{18}{subsubsection.8.2.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2.2}interpolation\_time\_period}{19}{subsubsection.8.2.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.2.3}max\_fol\_err}{19}{subsubsection.8.2.2.3}%
+\contentsline {subsubsection}{\numberline {8.2.2.4}max\_gear\_input\_speed}{19}{subsubsection.8.2.2.4}%
+\contentsline {subsubsection}{\numberline {8.2.2.5}max\_profile\_vel}{19}{subsubsection.8.2.2.5}%
+\contentsline {subsubsection}{\numberline {8.2.2.6}motor\_rated\_torque}{19}{subsubsection.8.2.2.6}%
+\contentsline {subsubsection}{\numberline {8.2.2.7}nominal\_current}{19}{subsubsection.8.2.2.7}%
+\contentsline {subsubsection}{\numberline {8.2.2.8}position\_control\_parameter\_set}{19}{subsubsection.8.2.2.8}%
+\contentsline {subsubsection}{\numberline {8.2.2.9}profile\_acc}{19}{subsubsection.8.2.2.9}%
+\contentsline {subsubsection}{\numberline {8.2.2.10}profile\_dec}{20}{subsubsection.8.2.2.10}%
+\contentsline {subsubsection}{\numberline {8.2.2.11}profile\_vel}{20}{subsubsection.8.2.2.11}%
+\contentsline {subsubsection}{\numberline {8.2.2.12}quick\_stop\_dec}{20}{subsubsection.8.2.2.12}%
+\contentsline {subsubsection}{\numberline {8.2.2.13}software\_position\_limit}{20}{subsubsection.8.2.2.13}%
+\contentsline {subsubsection}{\numberline {8.2.2.14}torque\_constant}{20}{subsubsection.8.2.2.14}%
+\contentsline {section}{\numberline {8.3}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Torque\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Mode\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Param Struct Reference}{20}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Detailed Description}{21}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Member Data Documentation}{21}{subsection.8.3.2}%
+\contentsline {subsubsection}{\numberline {8.3.2.1}interpolation\_time\_period}{21}{subsubsection.8.3.2.1}%
+\contentsline {subsubsection}{\numberline {8.3.2.2}max\_gear\_input\_speed}{21}{subsubsection.8.3.2.2}%
+\contentsline {subsubsection}{\numberline {8.3.2.3}max\_profile\_vel}{21}{subsubsection.8.3.2.3}%
+\contentsline {subsubsection}{\numberline {8.3.2.4}motor\_rated\_torque}{21}{subsubsection.8.3.2.4}%
+\contentsline {subsubsection}{\numberline {8.3.2.5}nominal\_current}{21}{subsubsection.8.3.2.5}%
+\contentsline {subsubsection}{\numberline {8.3.2.6}profile\_acc}{21}{subsubsection.8.3.2.6}%
+\contentsline {subsubsection}{\numberline {8.3.2.7}profile\_dec}{22}{subsubsection.8.3.2.7}%
+\contentsline {subsubsection}{\numberline {8.3.2.8}profile\_vel}{22}{subsubsection.8.3.2.8}%
+\contentsline {subsubsection}{\numberline {8.3.2.9}quick\_stop\_dec}{22}{subsubsection.8.3.2.9}%
+\contentsline {subsubsection}{\numberline {8.3.2.10}software\_position\_limit}{22}{subsubsection.8.3.2.10}%
+\contentsline {subsubsection}{\numberline {8.3.2.11}torque\_constant}{22}{subsubsection.8.3.2.11}%
+\contentsline {section}{\numberline {8.4}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Velocity\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Mode\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Param Struct Reference}{22}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Detailed Description}{23}{subsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.4.2}Member Data Documentation}{23}{subsection.8.4.2}%
+\contentsline {subsubsection}{\numberline {8.4.2.1}current\_controller\_gain}{23}{subsubsection.8.4.2.1}%
+\contentsline {subsubsection}{\numberline {8.4.2.2}interpolation\_time\_period}{23}{subsubsection.8.4.2.2}%
+\contentsline {subsubsection}{\numberline {8.4.2.3}max\_fol\_err}{23}{subsubsection.8.4.2.3}%
+\contentsline {subsubsection}{\numberline {8.4.2.4}max\_gear\_input\_speed}{23}{subsubsection.8.4.2.4}%
+\contentsline {subsubsection}{\numberline {8.4.2.5}max\_profile\_vel}{24}{subsubsection.8.4.2.5}%
+\contentsline {subsubsection}{\numberline {8.4.2.6}motor\_rated\_torque}{24}{subsubsection.8.4.2.6}%
+\contentsline {subsubsection}{\numberline {8.4.2.7}nominal\_current}{24}{subsubsection.8.4.2.7}%
+\contentsline {subsubsection}{\numberline {8.4.2.8}profile\_acc}{24}{subsubsection.8.4.2.8}%
+\contentsline {subsubsection}{\numberline {8.4.2.9}profile\_dec}{24}{subsubsection.8.4.2.9}%
+\contentsline {subsubsection}{\numberline {8.4.2.10}profile\_vel}{24}{subsubsection.8.4.2.10}%
+\contentsline {subsubsection}{\numberline {8.4.2.11}quick\_stop\_dec}{24}{subsubsection.8.4.2.11}%
+\contentsline {subsubsection}{\numberline {8.4.2.12}software\_position\_limit}{24}{subsubsection.8.4.2.12}%
+\contentsline {subsubsection}{\numberline {8.4.2.13}torque\_constant}{25}{subsubsection.8.4.2.13}%
+\contentsline {subsubsection}{\numberline {8.4.2.14}velocity\_control\_parameter\_set}{25}{subsubsection.8.4.2.14}%
+\contentsline {section}{\numberline {8.5}Ethercat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Life\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cycle\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Node\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Ethercat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Life\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Cycle Class Reference}{25}{section.8.5}%
+\contentsline {subsection}{\numberline {8.5.1}Member Typedef Documentation}{28}{subsection.8.5.1}%
+\contentsline {subsubsection}{\numberline {8.5.1.1}TLSFAllocator}{28}{subsubsection.8.5.1.1}%
+\contentsline {subsection}{\numberline {8.5.2}Constructor \& Destructor Documentation}{28}{subsection.8.5.2}%
+\contentsline {subsubsection}{\numberline {8.5.2.1}EthercatLifeCycle()}{28}{subsubsection.8.5.2.1}%
+\contentsline {subsubsection}{\numberline {8.5.2.2}$\sim $EthercatLifeCycle()}{28}{subsubsection.8.5.2.2}%
+\contentsline {subsection}{\numberline {8.5.3}Member Function Documentation}{28}{subsection.8.5.3}%
+\contentsline {subsubsection}{\numberline {8.5.3.1}EnableMotors()}{28}{subsubsection.8.5.3.1}%
+\contentsline {subsubsection}{\numberline {8.5.3.2}GetComState()}{28}{subsubsection.8.5.3.2}%
+\contentsline {subsubsection}{\numberline {8.5.3.3}HandleControlNodeCallbacks()}{29}{subsubsection.8.5.3.3}%
+\contentsline {subsubsection}{\numberline {8.5.3.4}HandleGuiNodeCallbacks()}{29}{subsubsection.8.5.3.4}%
+\contentsline {subsubsection}{\numberline {8.5.3.5}InitEthercatCommunication()}{29}{subsubsection.8.5.3.5}%
+\contentsline {subsubsection}{\numberline {8.5.3.6}on\_activate()}{29}{subsubsection.8.5.3.6}%
+\contentsline {subsubsection}{\numberline {8.5.3.7}on\_cleanup()}{30}{subsubsection.8.5.3.7}%
+\contentsline {subsubsection}{\numberline {8.5.3.8}on\_configure()}{30}{subsubsection.8.5.3.8}%
+\contentsline {subsubsection}{\numberline {8.5.3.9}on\_deactivate()}{30}{subsubsection.8.5.3.9}%
+\contentsline {subsubsection}{\numberline {8.5.3.10}on\_error()}{31}{subsubsection.8.5.3.10}%
+\contentsline {subsubsection}{\numberline {8.5.3.11}on\_shutdown()}{31}{subsubsection.8.5.3.11}%
+\contentsline {subsubsection}{\numberline {8.5.3.12}PassCycylicExchange()}{31}{subsubsection.8.5.3.12}%
+\contentsline {subsubsection}{\numberline {8.5.3.13}PublishAllData()}{31}{subsubsection.8.5.3.13}%
+\contentsline {subsubsection}{\numberline {8.5.3.14}ReadFromSlaves()}{32}{subsubsection.8.5.3.14}%
+\contentsline {subsubsection}{\numberline {8.5.3.15}SetComThreadPriorities()}{32}{subsubsection.8.5.3.15}%
+\contentsline {subsubsection}{\numberline {8.5.3.16}StartEthercatCommunication()}{32}{subsubsection.8.5.3.16}%
+\contentsline {subsubsection}{\numberline {8.5.3.17}StartPdoExchange()}{32}{subsubsection.8.5.3.17}%
+\contentsline {subsubsection}{\numberline {8.5.3.18}UpdateCyclicPositionModeParameters()}{33}{subsubsection.8.5.3.18}%
+\contentsline {subsubsection}{\numberline {8.5.3.19}UpdateMotorStatePositionMode()}{33}{subsubsection.8.5.3.19}%
+\contentsline {subsubsection}{\numberline {8.5.3.20}UpdateMotorStateVelocityMode()}{33}{subsubsection.8.5.3.20}%
+\contentsline {subsubsection}{\numberline {8.5.3.21}UpdatePositionModeParameters()}{33}{subsubsection.8.5.3.21}%
+\contentsline {subsubsection}{\numberline {8.5.3.22}UpdateVelocityModeParameters()}{33}{subsubsection.8.5.3.22}%
+\contentsline {subsubsection}{\numberline {8.5.3.23}WriteToSlavesInPositionMode()}{34}{subsubsection.8.5.3.23}%
+\contentsline {subsubsection}{\numberline {8.5.3.24}WriteToSlavesVelocityMode()}{34}{subsubsection.8.5.3.24}%
+\contentsline {subsection}{\numberline {8.5.4}Member Data Documentation}{34}{subsection.8.5.4}%
+\contentsline {subsubsection}{\numberline {8.5.4.1}al\_state\_}{34}{subsubsection.8.5.4.1}%
+\contentsline {subsubsection}{\numberline {8.5.4.2}command\_}{34}{subsubsection.8.5.4.2}%
+\contentsline {subsubsection}{\numberline {8.5.4.3}controller\_}{34}{subsubsection.8.5.4.3}%
+\contentsline {subsubsection}{\numberline {8.5.4.4}ecat\_node\_}{34}{subsubsection.8.5.4.4}%
+\contentsline {subsubsection}{\numberline {8.5.4.5}emergency\_status\_}{35}{subsubsection.8.5.4.5}%
+\contentsline {subsubsection}{\numberline {8.5.4.6}err\_}{35}{subsubsection.8.5.4.6}%
+\contentsline {subsubsection}{\numberline {8.5.4.7}ethercat\_sched\_param\_}{35}{subsubsection.8.5.4.7}%
+\contentsline {subsubsection}{\numberline {8.5.4.8}ethercat\_thread\_}{35}{subsubsection.8.5.4.8}%
+\contentsline {subsubsection}{\numberline {8.5.4.9}ethercat\_thread\_attr\_}{35}{subsubsection.8.5.4.9}%
+\contentsline {subsubsection}{\numberline {8.5.4.10}gui\_node\_data\_}{35}{subsubsection.8.5.4.10}%
+\contentsline {subsubsection}{\numberline {8.5.4.11}gui\_subscriber\_}{35}{subsubsection.8.5.4.11}%
+\contentsline {subsubsection}{\numberline {8.5.4.12}joystick\_subscriber\_}{36}{subsubsection.8.5.4.12}%
+\contentsline {subsubsection}{\numberline {8.5.4.13}measurement\_time}{36}{subsubsection.8.5.4.13}%
+\contentsline {subsubsection}{\numberline {8.5.4.14}memory\_strategy}{36}{subsubsection.8.5.4.14}%
+\contentsline {subsubsection}{\numberline {8.5.4.15}motor\_state\_}{36}{subsubsection.8.5.4.15}%
+\contentsline {subsubsection}{\numberline {8.5.4.16}received\_data\_}{36}{subsubsection.8.5.4.16}%
+\contentsline {subsubsection}{\numberline {8.5.4.17}received\_data\_publisher\_}{36}{subsubsection.8.5.4.17}%
+\contentsline {subsubsection}{\numberline {8.5.4.18}sent\_data\_}{37}{subsubsection.8.5.4.18}%
+\contentsline {subsubsection}{\numberline {8.5.4.19}sent\_data\_publisher\_}{37}{subsubsection.8.5.4.19}%
+\contentsline {subsubsection}{\numberline {8.5.4.20}timer\_}{37}{subsubsection.8.5.4.20}%
+\contentsline {subsubsection}{\numberline {8.5.4.21}timer\_info\_}{37}{subsubsection.8.5.4.21}%
+\contentsline {section}{\numberline {8.6}Ethercat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Communication\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Ethercat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Node Class Reference}{37}{section.8.6}%
+\contentsline {subsection}{\numberline {8.6.1}Constructor \& Destructor Documentation}{39}{subsection.8.6.1}%
+\contentsline {subsubsection}{\numberline {8.6.1.1}EthercatNode()}{39}{subsubsection.8.6.1.1}%
+\contentsline {subsubsection}{\numberline {8.6.1.2}$\sim $EthercatNode()}{39}{subsubsection.8.6.1.2}%
+\contentsline {subsection}{\numberline {8.6.2}Member Function Documentation}{39}{subsection.8.6.2}%
+\contentsline {subsubsection}{\numberline {8.6.2.1}ActivateMaster()}{40}{subsubsection.8.6.2.1}%
+\contentsline {subsubsection}{\numberline {8.6.2.2}CheckMasterDomainState()}{40}{subsubsection.8.6.2.2}%
+\contentsline {subsubsection}{\numberline {8.6.2.3}CheckMasterState()}{40}{subsubsection.8.6.2.3}%
+\contentsline {subsubsection}{\numberline {8.6.2.4}CheckSlaveConfigurationState()}{40}{subsubsection.8.6.2.4}%
+\contentsline {subsubsection}{\numberline {8.6.2.5}ConfigDcSync()}{40}{subsubsection.8.6.2.5}%
+\contentsline {subsubsection}{\numberline {8.6.2.6}ConfigDcSyncDefault()}{41}{subsubsection.8.6.2.6}%
+\contentsline {subsubsection}{\numberline {8.6.2.7}ConfigureMaster()}{41}{subsubsection.8.6.2.7}%
+\contentsline {subsubsection}{\numberline {8.6.2.8}ConfigureSlaves()}{41}{subsubsection.8.6.2.8}%
+\contentsline {subsubsection}{\numberline {8.6.2.9}DeactivateCommunication()}{42}{subsubsection.8.6.2.9}%
+\contentsline {subsubsection}{\numberline {8.6.2.10}DefineDefaultSlaves()}{42}{subsubsection.8.6.2.10}%
+\contentsline {subsubsection}{\numberline {8.6.2.11}GetAllSlaveInformation()}{42}{subsubsection.8.6.2.11}%
+\contentsline {subsubsection}{\numberline {8.6.2.12}GetNumberOfConnectedSlaves()}{42}{subsubsection.8.6.2.12}%
+\contentsline {subsubsection}{\numberline {8.6.2.13}MapCustomPdos()}{42}{subsubsection.8.6.2.13}%
+\contentsline {subsubsection}{\numberline {8.6.2.14}MapDefaultPdos()}{43}{subsubsection.8.6.2.14}%
+\contentsline {subsubsection}{\numberline {8.6.2.15}OpenEthercatMaster()}{43}{subsubsection.8.6.2.15}%
+\contentsline {subsubsection}{\numberline {8.6.2.16}RegisterDomain()}{44}{subsubsection.8.6.2.16}%
+\contentsline {subsubsection}{\numberline {8.6.2.17}ReleaseMaster()}{44}{subsubsection.8.6.2.17}%
+\contentsline {subsubsection}{\numberline {8.6.2.18}SetCustomSlave()}{44}{subsubsection.8.6.2.18}%
+\contentsline {subsubsection}{\numberline {8.6.2.19}SetCyclicSyncPositionModeParameters()}{44}{subsubsection.8.6.2.19}%
+\contentsline {subsubsection}{\numberline {8.6.2.20}SetCyclicSyncPositionModeParametersAll()}{45}{subsubsection.8.6.2.20}%
+\contentsline {subsubsection}{\numberline {8.6.2.21}SetProfilePositionParameters()}{45}{subsubsection.8.6.2.21}%
+\contentsline {subsubsection}{\numberline {8.6.2.22}SetProfilePositionParametersAll()}{45}{subsubsection.8.6.2.22}%
+\contentsline {subsubsection}{\numberline {8.6.2.23}SetProfileVelocityParameters()}{46}{subsubsection.8.6.2.23}%
+\contentsline {subsubsection}{\numberline {8.6.2.24}SetProfileVelocityParametersAll()}{46}{subsubsection.8.6.2.24}%
+\contentsline {subsubsection}{\numberline {8.6.2.25}ShutDownEthercatMaster()}{46}{subsubsection.8.6.2.25}%
+\contentsline {subsubsection}{\numberline {8.6.2.26}WaitForOperationalMode()}{47}{subsubsection.8.6.2.26}%
+\contentsline {subsection}{\numberline {8.6.3}Member Data Documentation}{47}{subsection.8.6.3}%
+\contentsline {subsubsection}{\numberline {8.6.3.1}fd}{47}{subsubsection.8.6.3.1}%
+\contentsline {subsubsection}{\numberline {8.6.3.2}slaves\_}{47}{subsubsection.8.6.3.2}%
+\contentsline {section}{\numberline {8.7}Ethercat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Slave Class Reference}{47}{section.8.7}%
+\contentsline {subsection}{\numberline {8.7.1}Constructor \& Destructor Documentation}{48}{subsection.8.7.1}%
+\contentsline {subsubsection}{\numberline {8.7.1.1}EthercatSlave()}{48}{subsubsection.8.7.1.1}%
+\contentsline {subsubsection}{\numberline {8.7.1.2}$\sim $EthercatSlave()}{48}{subsubsection.8.7.1.2}%
+\contentsline {subsection}{\numberline {8.7.2}Member Function Documentation}{49}{subsection.8.7.2}%
+\contentsline {subsubsection}{\numberline {8.7.2.1}CheckSlaveConfigState()}{49}{subsubsection.8.7.2.1}%
+\contentsline {subsection}{\numberline {8.7.3}Member Data Documentation}{49}{subsection.8.7.3}%
+\contentsline {subsubsection}{\numberline {8.7.3.1}data\_}{49}{subsubsection.8.7.3.1}%
+\contentsline {subsubsection}{\numberline {8.7.3.2}homing\_param\_}{49}{subsubsection.8.7.3.2}%
+\contentsline {subsubsection}{\numberline {8.7.3.3}kSync0\_shift\_}{49}{subsubsection.8.7.3.3}%
+\contentsline {subsubsection}{\numberline {8.7.3.4}motor\_state\_}{50}{subsubsection.8.7.3.4}%
+\contentsline {subsubsection}{\numberline {8.7.3.5}offset\_}{50}{subsubsection.8.7.3.5}%
+\contentsline {subsubsection}{\numberline {8.7.3.6}position\_param\_}{50}{subsubsection.8.7.3.6}%
+\contentsline {subsubsection}{\numberline {8.7.3.7}slave\_config\_}{50}{subsubsection.8.7.3.7}%
+\contentsline {subsubsection}{\numberline {8.7.3.8}slave\_config\_state\_}{50}{subsubsection.8.7.3.8}%
+\contentsline {subsubsection}{\numberline {8.7.3.9}slave\_info\_}{50}{subsubsection.8.7.3.9}%
+\contentsline {subsubsection}{\numberline {8.7.3.10}slave\_pdo\_domain\_}{51}{subsubsection.8.7.3.10}%
+\contentsline {subsubsection}{\numberline {8.7.3.11}velocity\_param\_}{51}{subsubsection.8.7.3.11}%
+\contentsline {section}{\numberline {8.8}Homing\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Param Struct Reference}{51}{section.8.8}%
+\contentsline {subsection}{\numberline {8.8.1}Detailed Description}{51}{subsection.8.8.1}%
+\contentsline {subsection}{\numberline {8.8.2}Member Data Documentation}{51}{subsection.8.8.2}%
+\contentsline {subsubsection}{\numberline {8.8.2.1}curr\_threshold\_homing}{52}{subsubsection.8.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.8.2.2}home\_offset}{52}{subsubsection.8.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.8.2.3}homing\_acc}{52}{subsubsection.8.8.2.3}%
+\contentsline {subsubsection}{\numberline {8.8.2.4}homing\_method}{52}{subsubsection.8.8.2.4}%
+\contentsline {subsubsection}{\numberline {8.8.2.5}max\_fol\_err}{52}{subsubsection.8.8.2.5}%
+\contentsline {subsubsection}{\numberline {8.8.2.6}max\_profile\_vel}{52}{subsubsection.8.8.2.6}%
+\contentsline {subsubsection}{\numberline {8.8.2.7}quick\_stop\_dec}{52}{subsubsection.8.8.2.7}%
+\contentsline {subsubsection}{\numberline {8.8.2.8}speed\_for\_switch\_search}{53}{subsubsection.8.8.2.8}%
+\contentsline {subsubsection}{\numberline {8.8.2.9}speed\_for\_zero\_search}{53}{subsubsection.8.8.2.9}%
+\contentsline {section}{\numberline {8.9}Offset\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}DO Struct Reference}{53}{section.8.9}%
+\contentsline {subsection}{\numberline {8.9.1}Detailed Description}{53}{subsection.8.9.1}%
+\contentsline {subsection}{\numberline {8.9.2}Member Data Documentation}{54}{subsection.8.9.2}%
+\contentsline {subsubsection}{\numberline {8.9.2.1}actual\_cur}{54}{subsubsection.8.9.2.1}%
+\contentsline {subsubsection}{\numberline {8.9.2.2}actual\_pos}{54}{subsubsection.8.9.2.2}%
+\contentsline {subsubsection}{\numberline {8.9.2.3}actual\_tor}{54}{subsubsection.8.9.2.3}%
+\contentsline {subsubsection}{\numberline {8.9.2.4}actual\_vel}{54}{subsubsection.8.9.2.4}%
+\contentsline {subsubsection}{\numberline {8.9.2.5}control\_word}{54}{subsubsection.8.9.2.5}%
+\contentsline {subsubsection}{\numberline {8.9.2.6}emergency\_switch}{54}{subsubsection.8.9.2.6}%
+\contentsline {subsubsection}{\numberline {8.9.2.7}error\_code}{54}{subsubsection.8.9.2.7}%
+\contentsline {subsubsection}{\numberline {8.9.2.8}extra\_status\_reg}{55}{subsubsection.8.9.2.8}%
+\contentsline {subsubsection}{\numberline {8.9.2.9}l\_limit\_switch}{55}{subsubsection.8.9.2.9}%
+\contentsline {subsubsection}{\numberline {8.9.2.10}max\_tor}{55}{subsubsection.8.9.2.10}%
+\contentsline {subsubsection}{\numberline {8.9.2.11}op\_mode}{55}{subsubsection.8.9.2.11}%
+\contentsline {subsubsection}{\numberline {8.9.2.12}op\_mode\_display}{55}{subsubsection.8.9.2.12}%
+\contentsline {subsubsection}{\numberline {8.9.2.13}pos\_fol\_err}{55}{subsubsection.8.9.2.13}%
+\contentsline {subsubsection}{\numberline {8.9.2.14}profile\_acc}{55}{subsubsection.8.9.2.14}%
+\contentsline {subsubsection}{\numberline {8.9.2.15}profile\_dec}{55}{subsubsection.8.9.2.15}%
+\contentsline {subsubsection}{\numberline {8.9.2.16}profile\_vel}{56}{subsubsection.8.9.2.16}%
+\contentsline {subsubsection}{\numberline {8.9.2.17}quick\_stop\_dec}{56}{subsubsection.8.9.2.17}%
+\contentsline {subsubsection}{\numberline {8.9.2.18}r\_limit\_switch}{56}{subsubsection.8.9.2.18}%
+\contentsline {subsubsection}{\numberline {8.9.2.19}status\_word}{56}{subsubsection.8.9.2.19}%
+\contentsline {subsubsection}{\numberline {8.9.2.20}target\_pos}{56}{subsubsection.8.9.2.20}%
+\contentsline {subsubsection}{\numberline {8.9.2.21}target\_tor}{56}{subsubsection.8.9.2.21}%
+\contentsline {subsubsection}{\numberline {8.9.2.22}target\_vel}{56}{subsubsection.8.9.2.22}%
+\contentsline {section}{\numberline {8.10}Profile\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Pos\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Param Struct Reference}{57}{section.8.10}%
+\contentsline {subsection}{\numberline {8.10.1}Detailed Description}{57}{subsection.8.10.1}%
+\contentsline {subsection}{\numberline {8.10.2}Member Data Documentation}{57}{subsection.8.10.2}%
+\contentsline {subsubsection}{\numberline {8.10.2.1}max\_fol\_err}{57}{subsubsection.8.10.2.1}%
+\contentsline {subsubsection}{\numberline {8.10.2.2}max\_profile\_vel}{57}{subsubsection.8.10.2.2}%
+\contentsline {subsubsection}{\numberline {8.10.2.3}motion\_profile\_type}{57}{subsubsection.8.10.2.3}%
+\contentsline {subsubsection}{\numberline {8.10.2.4}profile\_acc}{58}{subsubsection.8.10.2.4}%
+\contentsline {subsubsection}{\numberline {8.10.2.5}profile\_dec}{58}{subsubsection.8.10.2.5}%
+\contentsline {subsubsection}{\numberline {8.10.2.6}profile\_vel}{58}{subsubsection.8.10.2.6}%
+\contentsline {subsubsection}{\numberline {8.10.2.7}quick\_stop\_dec}{58}{subsubsection.8.10.2.7}%
+\contentsline {section}{\numberline {8.11}Profile\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Velocity\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Param Struct Reference}{58}{section.8.11}%
+\contentsline {subsection}{\numberline {8.11.1}Detailed Description}{58}{subsection.8.11.1}%
+\contentsline {subsection}{\numberline {8.11.2}Member Data Documentation}{59}{subsection.8.11.2}%
+\contentsline {subsubsection}{\numberline {8.11.2.1}max\_profile\_vel}{59}{subsubsection.8.11.2.1}%
+\contentsline {subsubsection}{\numberline {8.11.2.2}motion\_profile\_type}{59}{subsubsection.8.11.2.2}%
+\contentsline {subsubsection}{\numberline {8.11.2.3}profile\_acc}{59}{subsubsection.8.11.2.3}%
+\contentsline {subsubsection}{\numberline {8.11.2.4}profile\_dec}{59}{subsubsection.8.11.2.4}%
+\contentsline {subsubsection}{\numberline {8.11.2.5}quick\_stop\_dec}{59}{subsubsection.8.11.2.5}%
+\contentsline {section}{\numberline {8.12}Received\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Data Struct Reference}{59}{section.8.12}%
+\contentsline {subsection}{\numberline {8.12.1}Detailed Description}{60}{subsection.8.12.1}%
+\contentsline {subsection}{\numberline {8.12.2}Member Data Documentation}{60}{subsection.8.12.2}%
+\contentsline {subsubsection}{\numberline {8.12.2.1}actual\_cur}{60}{subsubsection.8.12.2.1}%
+\contentsline {subsubsection}{\numberline {8.12.2.2}actual\_pos}{60}{subsubsection.8.12.2.2}%
+\contentsline {subsubsection}{\numberline {8.12.2.3}actual\_tor}{60}{subsubsection.8.12.2.3}%
+\contentsline {subsubsection}{\numberline {8.12.2.4}actual\_vel}{61}{subsubsection.8.12.2.4}%
+\contentsline {subsubsection}{\numberline {8.12.2.5}control\_word}{61}{subsubsection.8.12.2.5}%
+\contentsline {subsubsection}{\numberline {8.12.2.6}left\_limit\_switch\_val}{61}{subsubsection.8.12.2.6}%
+\contentsline {subsubsection}{\numberline {8.12.2.7}max\_tor}{61}{subsubsection.8.12.2.7}%
+\contentsline {subsubsection}{\numberline {8.12.2.8}op\_mode}{61}{subsubsection.8.12.2.8}%
+\contentsline {subsubsection}{\numberline {8.12.2.9}op\_mode\_display}{61}{subsubsection.8.12.2.9}%
+\contentsline {subsubsection}{\numberline {8.12.2.10}right\_limit\_switch\_val}{61}{subsubsection.8.12.2.10}%
+\contentsline {subsubsection}{\numberline {8.12.2.11}s\_emergency\_switch\_val}{61}{subsubsection.8.12.2.11}%
+\contentsline {subsubsection}{\numberline {8.12.2.12}status\_word}{62}{subsubsection.8.12.2.12}%
+\contentsline {subsubsection}{\numberline {8.12.2.13}target\_pos}{62}{subsubsection.8.12.2.13}%
+\contentsline {subsubsection}{\numberline {8.12.2.14}target\_tor}{62}{subsubsection.8.12.2.14}%
+\contentsline {subsubsection}{\numberline {8.12.2.15}target\_vel}{62}{subsubsection.8.12.2.15}%
+\contentsline {subsubsection}{\numberline {8.12.2.16}tor\_offset}{62}{subsubsection.8.12.2.16}%
+\contentsline {subsubsection}{\numberline {8.12.2.17}vel\_offset}{62}{subsubsection.8.12.2.17}%
+\contentsline {section}{\numberline {8.13}Sdo\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Request Struct Reference}{62}{section.8.13}%
+\contentsline {subsection}{\numberline {8.13.1}Detailed Description}{63}{subsection.8.13.1}%
+\contentsline {subsection}{\numberline {8.13.2}Member Data Documentation}{63}{subsection.8.13.2}%
+\contentsline {subsubsection}{\numberline {8.13.2.1}curr\_threshold\_homing}{63}{subsubsection.8.13.2.1}%
+\contentsline {subsubsection}{\numberline {8.13.2.2}home\_offset}{63}{subsubsection.8.13.2.2}%
+\contentsline {subsubsection}{\numberline {8.13.2.3}homing\_acc}{63}{subsubsection.8.13.2.3}%
+\contentsline {subsubsection}{\numberline {8.13.2.4}homing\_method}{63}{subsubsection.8.13.2.4}%
+\contentsline {subsubsection}{\numberline {8.13.2.5}max\_fol\_err}{64}{subsubsection.8.13.2.5}%
+\contentsline {subsubsection}{\numberline {8.13.2.6}max\_profile\_vel}{64}{subsubsection.8.13.2.6}%
+\contentsline {subsubsection}{\numberline {8.13.2.7}motion\_profile\_type}{64}{subsubsection.8.13.2.7}%
+\contentsline {subsubsection}{\numberline {8.13.2.8}profile\_acc}{64}{subsubsection.8.13.2.8}%
+\contentsline {subsubsection}{\numberline {8.13.2.9}profile\_dec}{64}{subsubsection.8.13.2.9}%
+\contentsline {subsubsection}{\numberline {8.13.2.10}profile\_vel}{64}{subsubsection.8.13.2.10}%
+\contentsline {subsubsection}{\numberline {8.13.2.11}quick\_stop\_dec}{64}{subsubsection.8.13.2.11}%
+\contentsline {subsubsection}{\numberline {8.13.2.12}speed\_for\_switch\_search}{64}{subsubsection.8.13.2.12}%
+\contentsline {subsubsection}{\numberline {8.13.2.13}speed\_for\_zero\_search}{65}{subsubsection.8.13.2.13}%
+\contentsline {section}{\numberline {8.14}Timing Class Reference}{65}{section.8.14}%
+\contentsline {subsection}{\numberline {8.14.1}Member Function Documentation}{65}{subsection.8.14.1}%
+\contentsline {subsubsection}{\numberline {8.14.1.1}GetTime()}{65}{subsubsection.8.14.1.1}%
+\contentsline {subsubsection}{\numberline {8.14.1.2}MeasureTimeDifference()}{65}{subsubsection.8.14.1.2}%
+\contentsline {subsubsection}{\numberline {8.14.1.3}OutInfoToFile()}{65}{subsubsection.8.14.1.3}%
+\contentsline {subsection}{\numberline {8.14.2}Member Data Documentation}{66}{subsection.8.14.2}%
+\contentsline {subsubsection}{\numberline {8.14.2.1}counter\_}{66}{subsubsection.8.14.2.1}%
+\contentsline {subsubsection}{\numberline {8.14.2.2}last\_start\_time\_}{66}{subsubsection.8.14.2.2}%
+\contentsline {subsubsection}{\numberline {8.14.2.3}time\_span}{66}{subsubsection.8.14.2.3}%
+\contentsline {subsubsection}{\numberline {8.14.2.4}timer\_start\_}{66}{subsubsection.8.14.2.4}%
+\contentsline {subsubsection}{\numberline {8.14.2.5}timing\_info\_}{66}{subsubsection.8.14.2.5}%
+\contentsline {chapter}{\numberline {9}File Documentation}{67}{chapter.9}%
+\contentsline {section}{\numberline {9.1}/home/veysiadn/spinerobot\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ws/src/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pkg/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Make\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Lists.txt File Reference}{67}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Function Documentation}{67}{subsection.9.1.1}%
+\contentsline {subsubsection}{\numberline {9.1.1.1}cmake\_minimum\_required()}{67}{subsubsection.9.1.1.1}%
+\contentsline {subsubsection}{\numberline {9.1.1.2}set()}{68}{subsubsection.9.1.1.2}%
+\contentsline {subsection}{\numberline {9.1.2}Variable Documentation}{68}{subsection.9.1.2}%
+\contentsline {subsubsection}{\numberline {9.1.2.1}Wl}{68}{subsubsection.9.1.2.1}%
+\contentsline {section}{\numberline {9.2}/home/veysiadn/spinerobot\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ws/src/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pkg/include/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pkg/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}globals.hpp File Reference}{68}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Macro Definition Documentation}{71}{subsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.1.1}CLOCK\_TO\_USE}{71}{subsubsection.9.2.1.1}%
+\contentsline {subsubsection}{\numberline {9.2.1.2}CYCLIC\_POSITION\_MODE}{72}{subsubsection.9.2.1.2}%
+\contentsline {subsubsection}{\numberline {9.2.1.3}DIFF\_NS}{72}{subsubsection.9.2.1.3}%
+\contentsline {subsubsection}{\numberline {9.2.1.4}ENCODER\_RESOLUTION}{72}{subsubsection.9.2.1.4}%
+\contentsline {subsubsection}{\numberline {9.2.1.5}FINAL\_SLAVE}{72}{subsubsection.9.2.1.5}%
+\contentsline {subsubsection}{\numberline {9.2.1.6}FIVE\_DEGREE\_CCW}{72}{subsubsection.9.2.1.6}%
+\contentsline {subsubsection}{\numberline {9.2.1.7}FREQUENCY}{72}{subsubsection.9.2.1.7}%
+\contentsline {subsubsection}{\numberline {9.2.1.8}GEAR\_RATIO}{72}{subsubsection.9.2.1.8}%
+\contentsline {subsubsection}{\numberline {9.2.1.9}INC\_PER\_ROTATION}{73}{subsubsection.9.2.1.9}%
+\contentsline {subsubsection}{\numberline {9.2.1.10}MEASURE\_TIMING}{73}{subsubsection.9.2.1.10}%
+\contentsline {subsubsection}{\numberline {9.2.1.11}NUM\_OF\_SLAVES}{73}{subsubsection.9.2.1.11}%
+\contentsline {subsubsection}{\numberline {9.2.1.12}PERIOD\_MS}{73}{subsubsection.9.2.1.12}%
+\contentsline {subsubsection}{\numberline {9.2.1.13}PERIOD\_NS}{73}{subsubsection.9.2.1.13}%
+\contentsline {subsubsection}{\numberline {9.2.1.14}PERIOD\_US}{73}{subsubsection.9.2.1.14}%
+\contentsline {subsubsection}{\numberline {9.2.1.15}POSITION\_MODE}{73}{subsubsection.9.2.1.15}%
+\contentsline {subsubsection}{\numberline {9.2.1.16}RESET\_BIT}{74}{subsubsection.9.2.1.16}%
+\contentsline {subsubsection}{\numberline {9.2.1.17}SET\_BIT}{74}{subsubsection.9.2.1.17}%
+\contentsline {subsubsection}{\numberline {9.2.1.18}TEST\_BIT}{74}{subsubsection.9.2.1.18}%
+\contentsline {subsubsection}{\numberline {9.2.1.19}THIRTY\_DEGREE\_CCW}{74}{subsubsection.9.2.1.19}%
+\contentsline {subsubsection}{\numberline {9.2.1.20}TIMESPEC2NS}{74}{subsubsection.9.2.1.20}%
+\contentsline {subsubsection}{\numberline {9.2.1.21}VELOCITY\_MODE}{74}{subsubsection.9.2.1.21}%
+\contentsline {subsection}{\numberline {9.2.2}Enumeration Type Documentation}{74}{subsection.9.2.2}%
+\contentsline {subsubsection}{\numberline {9.2.2.1}ControlStructureBits}{74}{subsubsection.9.2.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.2.2}ErrorRegisterBits}{75}{subsubsection.9.2.2.2}%
+\contentsline {subsubsection}{\numberline {9.2.2.3}MotorStates}{75}{subsubsection.9.2.2.3}%
+\contentsline {subsubsection}{\numberline {9.2.2.4}OpMode}{76}{subsubsection.9.2.2.4}%
+\contentsline {subsubsection}{\numberline {9.2.2.5}SensorConfig}{76}{subsubsection.9.2.2.5}%
+\contentsline {subsection}{\numberline {9.2.3}Function Documentation}{77}{subsection.9.2.3}%
+\contentsline {subsubsection}{\numberline {9.2.3.1}timespec\_add()}{77}{subsubsection.9.2.3.1}%
+\contentsline {subsection}{\numberline {9.2.4}Variable Documentation}{77}{subsection.9.2.4}%
+\contentsline {subsubsection}{\numberline {9.2.4.1}g\_cycle\_time}{77}{subsubsection.9.2.4.1}%
+\contentsline {subsubsection}{\numberline {9.2.4.2}g\_kNsPerSec}{77}{subsubsection.9.2.4.2}%
+\contentsline {subsubsection}{\numberline {9.2.4.3}g\_kNumberOfServoDrivers}{78}{subsubsection.9.2.4.3}%
+\contentsline {subsubsection}{\numberline {9.2.4.4}g\_master}{78}{subsubsection.9.2.4.4}%
+\contentsline {subsubsection}{\numberline {9.2.4.5}g\_master\_domain}{78}{subsubsection.9.2.4.5}%
+\contentsline {subsubsection}{\numberline {9.2.4.6}g\_master\_domain\_state}{78}{subsubsection.9.2.4.6}%
+\contentsline {subsubsection}{\numberline {9.2.4.7}g\_master\_state}{78}{subsubsection.9.2.4.7}%
+\contentsline {subsubsection}{\numberline {9.2.4.8}g\_sync\_ref\_counter}{78}{subsubsection.9.2.4.8}%
+\contentsline {subsubsection}{\numberline {9.2.4.9}g\_sync\_timer}{79}{subsubsection.9.2.4.9}%
+\contentsline {subsubsection}{\numberline {9.2.4.10}sig}{79}{subsubsection.9.2.4.10}%
+\contentsline {section}{\numberline {9.3}/home/veysiadn/spinerobot\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ws/src/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pkg/include/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pkg/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}lifecycle.hpp File Reference}{79}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}Typedef Documentation}{80}{subsection.9.3.1}%
+\contentsline {subsubsection}{\numberline {9.3.1.1}TLSFAllocator}{80}{subsubsection.9.3.1.1}%
+\contentsline {section}{\numberline {9.4}/home/veysiadn/spinerobot\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ws/src/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pkg/include/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pkg/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}node.hpp File Reference}{80}{section.9.4}%
+\contentsline {section}{\numberline {9.5}/home/veysiadn/spinerobot\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ws/src/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pkg/include/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pkg/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}slave.hpp File Reference}{81}{section.9.5}%
+\contentsline {section}{\numberline {9.6}/home/veysiadn/spinerobot\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ws/src/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pkg/include/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pkg/object\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}dictionary.hpp File Reference}{83}{section.9.6}%
+\contentsline {subsection}{\numberline {9.6.1}Macro Definition Documentation}{85}{subsection.9.6.1}%
+\contentsline {subsubsection}{\numberline {9.6.1.1}OD\_ACTIVE\_FIELDBUS}{85}{subsubsection.9.6.1.1}%
+\contentsline {subsubsection}{\numberline {9.6.1.2}OD\_CHECK\_ERROR}{85}{subsubsection.9.6.1.2}%
+\contentsline {subsubsection}{\numberline {9.6.1.3}OD\_CONTROL\_STRUCTURE}{86}{subsubsection.9.6.1.3}%
+\contentsline {subsubsection}{\numberline {9.6.1.4}OD\_CONTROL\_WORD}{86}{subsubsection.9.6.1.4}%
+\contentsline {subsubsection}{\numberline {9.6.1.5}OD\_CURRENT\_ACTUAL\_VALUE}{86}{subsubsection.9.6.1.5}%
+\contentsline {subsubsection}{\numberline {9.6.1.6}OD\_CUSTOM\_PERSISTENT\_MEMORY\_1}{86}{subsubsection.9.6.1.6}%
+\contentsline {subsubsection}{\numberline {9.6.1.7}OD\_CUSTOM\_PERSISTENT\_MEMORY\_2}{86}{subsubsection.9.6.1.7}%
+\contentsline {subsubsection}{\numberline {9.6.1.8}OD\_CUSTOM\_PERSISTENT\_MEMORY\_3}{86}{subsubsection.9.6.1.8}%
+\contentsline {subsubsection}{\numberline {9.6.1.9}OD\_CUSTOM\_PERSISTENT\_MEMORY\_4}{86}{subsubsection.9.6.1.9}%
+\contentsline {subsubsection}{\numberline {9.6.1.10}OD\_DC\_CIRCUIT\_LINK\_VOLTAGE}{86}{subsubsection.9.6.1.10}%
+\contentsline {subsubsection}{\numberline {9.6.1.11}OD\_DIGITAL\_INCREMENTAL\_ENCODER\_1\_TYPE}{87}{subsubsection.9.6.1.11}%
+\contentsline {subsubsection}{\numberline {9.6.1.12}OD\_DIGITAL\_INPUTS}{87}{subsubsection.9.6.1.12}%
+\contentsline {subsubsection}{\numberline {9.6.1.13}OD\_DIGITAL\_OUTPUTS}{87}{subsubsection.9.6.1.13}%
+\contentsline {subsubsection}{\numberline {9.6.1.14}OD\_ERROR\_CODE}{87}{subsubsection.9.6.1.14}%
+\contentsline {subsubsection}{\numberline {9.6.1.15}OD\_ERROR\_REGISTER}{87}{subsubsection.9.6.1.15}%
+\contentsline {subsubsection}{\numberline {9.6.1.16}OD\_EXTRA\_STATUS\_REGISTER}{87}{subsubsection.9.6.1.16}%
+\contentsline {subsubsection}{\numberline {9.6.1.17}OD\_GEAR\_MAX\_INPUT\_SPEED}{87}{subsubsection.9.6.1.17}%
+\contentsline {subsubsection}{\numberline {9.6.1.18}OD\_GEAR\_MISC\_CONFIGURATION}{87}{subsubsection.9.6.1.18}%
+\contentsline {subsubsection}{\numberline {9.6.1.19}OD\_GEAR\_REDUCTION\_DENOMINATOR}{88}{subsubsection.9.6.1.19}%
+\contentsline {subsubsection}{\numberline {9.6.1.20}OD\_GEAR\_REDUCTION\_NUMERATOR}{88}{subsubsection.9.6.1.20}%
+\contentsline {subsubsection}{\numberline {9.6.1.21}OD\_INTERPOLATION\_TIME\_PERIOD}{88}{subsubsection.9.6.1.21}%
+\contentsline {subsubsection}{\numberline {9.6.1.22}OD\_INTERPOLATION\_TIME\_UNIT}{88}{subsubsection.9.6.1.22}%
+\contentsline {subsubsection}{\numberline {9.6.1.23}OD\_LINEAR\_RAMP\_TRAPEZOIDAL}{88}{subsubsection.9.6.1.23}%
+\contentsline {subsubsection}{\numberline {9.6.1.24}OD\_MAX\_CURRENT}{88}{subsubsection.9.6.1.24}%
+\contentsline {subsubsection}{\numberline {9.6.1.25}OD\_MAX\_FOLLOWING\_ERROR}{88}{subsubsection.9.6.1.25}%
+\contentsline {subsubsection}{\numberline {9.6.1.26}OD\_MAX\_MOTOR\_SPEED}{88}{subsubsection.9.6.1.26}%
+\contentsline {subsubsection}{\numberline {9.6.1.27}OD\_MAX\_PROFILE\_VELOCITY}{89}{subsubsection.9.6.1.27}%
+\contentsline {subsubsection}{\numberline {9.6.1.28}OD\_MOTION\_PROFILE\_TYPE}{89}{subsubsection.9.6.1.28}%
+\contentsline {subsubsection}{\numberline {9.6.1.29}OD\_MOTOR\_DATA\_NOMINAL\_CURRENT}{89}{subsubsection.9.6.1.29}%
+\contentsline {subsubsection}{\numberline {9.6.1.30}OD\_MOTOR\_DATA\_NUMBER\_OF\_POLE\_PAIRS}{89}{subsubsection.9.6.1.30}%
+\contentsline {subsubsection}{\numberline {9.6.1.31}OD\_MOTOR\_DATA\_OUTPUT\_CURRENT\_LIMIT}{89}{subsubsection.9.6.1.31}%
+\contentsline {subsubsection}{\numberline {9.6.1.32}OD\_MOTOR\_DATA\_THERMAL\_TIME\_CONSTANT\_WINDINGS}{89}{subsubsection.9.6.1.32}%
+\contentsline {subsubsection}{\numberline {9.6.1.33}OD\_MOTOR\_DATA\_TORQUE\_CONSTANT}{89}{subsubsection.9.6.1.33}%
+\contentsline {subsubsection}{\numberline {9.6.1.34}OD\_OPERATION\_MODE}{89}{subsubsection.9.6.1.34}%
+\contentsline {subsubsection}{\numberline {9.6.1.35}OD\_OPERATION\_MODE\_DISPLAY}{90}{subsubsection.9.6.1.35}%
+\contentsline {subsubsection}{\numberline {9.6.1.36}OD\_POSITION\_ACTUAL\_VAL}{90}{subsubsection.9.6.1.36}%
+\contentsline {subsubsection}{\numberline {9.6.1.37}OD\_POSITION\_DEMAND}{90}{subsubsection.9.6.1.37}%
+\contentsline {subsubsection}{\numberline {9.6.1.38}OD\_POSITON\_FOLLOWING\_ERROR}{90}{subsubsection.9.6.1.38}%
+\contentsline {subsubsection}{\numberline {9.6.1.39}OD\_POSITONCOUNTS}{90}{subsubsection.9.6.1.39}%
+\contentsline {subsubsection}{\numberline {9.6.1.40}OD\_POWER\_SUPPLY\_VOLTAGE}{90}{subsubsection.9.6.1.40}%
+\contentsline {subsubsection}{\numberline {9.6.1.41}OD\_PROFILE\_ACCELERATION}{90}{subsubsection.9.6.1.41}%
+\contentsline {subsubsection}{\numberline {9.6.1.42}OD\_PROFILE\_DECELERATION}{90}{subsubsection.9.6.1.42}%
+\contentsline {subsubsection}{\numberline {9.6.1.43}OD\_PROFILE\_VELOCITY}{91}{subsubsection.9.6.1.43}%
+\contentsline {subsubsection}{\numberline {9.6.1.44}OD\_QUICK\_STOP\_DECELERATION}{91}{subsubsection.9.6.1.44}%
+\contentsline {subsubsection}{\numberline {9.6.1.45}OD\_QUICK\_STOP\_MODE}{91}{subsubsection.9.6.1.45}%
+\contentsline {subsubsection}{\numberline {9.6.1.46}OD\_SENSOR\_CONFIGURATION}{91}{subsubsection.9.6.1.46}%
+\contentsline {subsubsection}{\numberline {9.6.1.47}OD\_STATUS\_WORD}{91}{subsubsection.9.6.1.47}%
+\contentsline {subsubsection}{\numberline {9.6.1.48}OD\_STOP\_OPTION\_CODE}{91}{subsubsection.9.6.1.48}%
+\contentsline {subsubsection}{\numberline {9.6.1.49}OD\_TARGET\_POSITION}{91}{subsubsection.9.6.1.49}%
+\contentsline {subsubsection}{\numberline {9.6.1.50}OD\_TARGET\_TORQUE}{92}{subsubsection.9.6.1.50}%
+\contentsline {subsubsection}{\numberline {9.6.1.51}OD\_TARGET\_VELOCITY}{92}{subsubsection.9.6.1.51}%
+\contentsline {subsubsection}{\numberline {9.6.1.52}OD\_TORQUE\_ACTUAL\_VALUE}{92}{subsubsection.9.6.1.52}%
+\contentsline {subsubsection}{\numberline {9.6.1.53}OD\_TORQUE\_MAX}{92}{subsubsection.9.6.1.53}%
+\contentsline {subsubsection}{\numberline {9.6.1.54}OD\_TORQUE\_OFFSET}{92}{subsubsection.9.6.1.54}%
+\contentsline {subsubsection}{\numberline {9.6.1.55}OD\_VELOCITY\_ACTUAL\_VALUE}{92}{subsubsection.9.6.1.55}%
+\contentsline {subsubsection}{\numberline {9.6.1.56}OD\_VELOCITY\_ADDRESS}{92}{subsubsection.9.6.1.56}%
+\contentsline {subsubsection}{\numberline {9.6.1.57}OD\_VELOCITY\_ENCODER\_RESOLUTION\_DEN}{92}{subsubsection.9.6.1.57}%
+\contentsline {subsubsection}{\numberline {9.6.1.58}OD\_VELOCITY\_ENCODER\_RESOLUTION\_NUM}{93}{subsubsection.9.6.1.58}%
+\contentsline {subsubsection}{\numberline {9.6.1.59}OD\_VELOCITY\_OFFSET}{93}{subsubsection.9.6.1.59}%
+\contentsline {subsubsection}{\numberline {9.6.1.60}SM\_COMM\_RESET}{93}{subsubsection.9.6.1.60}%
+\contentsline {subsubsection}{\numberline {9.6.1.61}SM\_CW\_ENABLE\_OPERATION}{93}{subsubsection.9.6.1.61}%
+\contentsline {subsubsection}{\numberline {9.6.1.62}SM\_CW\_ENABLE\_VOLTAGE}{93}{subsubsection.9.6.1.62}%
+\contentsline {subsubsection}{\numberline {9.6.1.63}SM\_CW\_FAULT\_RESET}{93}{subsubsection.9.6.1.63}%
+\contentsline {subsubsection}{\numberline {9.6.1.64}SM\_CW\_OD\_HALT}{93}{subsubsection.9.6.1.64}%
+\contentsline {subsubsection}{\numberline {9.6.1.65}SM\_CW\_QUICK\_STOP}{93}{subsubsection.9.6.1.65}%
+\contentsline {subsubsection}{\numberline {9.6.1.66}SM\_CW\_SWITCH\_ON}{94}{subsubsection.9.6.1.66}%
+\contentsline {subsubsection}{\numberline {9.6.1.67}SM\_EXPEDITE}{94}{subsubsection.9.6.1.67}%
+\contentsline {subsubsection}{\numberline {9.6.1.68}SM\_FAULT}{94}{subsubsection.9.6.1.68}%
+\contentsline {subsubsection}{\numberline {9.6.1.69}SM\_FAULT2}{94}{subsubsection.9.6.1.69}%
+\contentsline {subsubsection}{\numberline {9.6.1.70}SM\_FAULT\_REACTION\_ACTIVE}{94}{subsubsection.9.6.1.70}%
+\contentsline {subsubsection}{\numberline {9.6.1.71}SM\_FAULTREACTIONACTIVE2}{94}{subsubsection.9.6.1.71}%
+\contentsline {subsubsection}{\numberline {9.6.1.72}SM\_FSAFROMSTATUSWORD}{94}{subsubsection.9.6.1.72}%
+\contentsline {subsubsection}{\numberline {9.6.1.73}SM\_FULL\_RESET}{95}{subsubsection.9.6.1.73}%
+\contentsline {subsubsection}{\numberline {9.6.1.74}SM\_GO\_ENABLE}{95}{subsubsection.9.6.1.74}%
+\contentsline {subsubsection}{\numberline {9.6.1.75}SM\_GO\_READY\_TO\_SWITCH\_ON}{95}{subsubsection.9.6.1.75}%
+\contentsline {subsubsection}{\numberline {9.6.1.76}SM\_GO\_SWITCH\_ON}{95}{subsubsection.9.6.1.76}%
+\contentsline {subsubsection}{\numberline {9.6.1.77}SM\_GO\_SWITCH\_ON\_DISABLE}{95}{subsubsection.9.6.1.77}%
+\contentsline {subsubsection}{\numberline {9.6.1.78}SM\_NOT\_READY\_TO\_SWITCH\_ON}{95}{subsubsection.9.6.1.78}%
+\contentsline {subsubsection}{\numberline {9.6.1.79}SM\_NOT\_READY\_TO\_SWITCH\_ON\_2}{95}{subsubsection.9.6.1.79}%
+\contentsline {subsubsection}{\numberline {9.6.1.80}SM\_OPERATION\_ENABLED}{95}{subsubsection.9.6.1.80}%
+\contentsline {subsubsection}{\numberline {9.6.1.81}SM\_QUICK\_STOP\_ACTIVE}{96}{subsubsection.9.6.1.81}%
+\contentsline {subsubsection}{\numberline {9.6.1.82}SM\_QUICKSTOP}{96}{subsubsection.9.6.1.82}%
+\contentsline {subsubsection}{\numberline {9.6.1.83}SM\_READY\_TO\_SWITCH\_ON}{96}{subsubsection.9.6.1.83}%
+\contentsline {subsubsection}{\numberline {9.6.1.84}SM\_RELATIVE\_POS}{96}{subsubsection.9.6.1.84}%
+\contentsline {subsubsection}{\numberline {9.6.1.85}SM\_RUN}{96}{subsubsection.9.6.1.85}%
+\contentsline {subsubsection}{\numberline {9.6.1.86}SM\_START}{96}{subsubsection.9.6.1.86}%
+\contentsline {subsubsection}{\numberline {9.6.1.87}SM\_SW\_FAULT}{96}{subsubsection.9.6.1.87}%
+\contentsline {subsubsection}{\numberline {9.6.1.88}SM\_SW\_INTERNAL\_LIMIT\_ACTIVE}{96}{subsubsection.9.6.1.88}%
+\contentsline {subsubsection}{\numberline {9.6.1.89}SM\_SW\_OPERATION\_ENABLED}{97}{subsubsection.9.6.1.89}%
+\contentsline {subsubsection}{\numberline {9.6.1.90}SM\_SW\_QUICK\_STOP}{97}{subsubsection.9.6.1.90}%
+\contentsline {subsubsection}{\numberline {9.6.1.91}SM\_SW\_READY\_TO\_SWITCH\_ON}{97}{subsubsection.9.6.1.91}%
+\contentsline {subsubsection}{\numberline {9.6.1.92}SM\_SW\_REMOTE}{97}{subsubsection.9.6.1.92}%
+\contentsline {subsubsection}{\numberline {9.6.1.93}SM\_SW\_SWITCH\_ON\_DISABLED}{97}{subsubsection.9.6.1.93}%
+\contentsline {subsubsection}{\numberline {9.6.1.94}SM\_SW\_SWITCHED\_ON}{97}{subsubsection.9.6.1.94}%
+\contentsline {subsubsection}{\numberline {9.6.1.95}SM\_SW\_TARGET\_REACHED}{97}{subsubsection.9.6.1.95}%
+\contentsline {subsubsection}{\numberline {9.6.1.96}SM\_SW\_VOLTAGE\_ENABLED}{97}{subsubsection.9.6.1.96}%
+\contentsline {subsubsection}{\numberline {9.6.1.97}SM\_SW\_WARNING}{98}{subsubsection.9.6.1.97}%
+\contentsline {subsubsection}{\numberline {9.6.1.98}SM\_SWITCH\_ON\_DISABLED}{98}{subsubsection.9.6.1.98}%
+\contentsline {subsubsection}{\numberline {9.6.1.99}SM\_SWITCH\_ON\_DISABLED\_2}{98}{subsubsection.9.6.1.99}%
+\contentsline {subsubsection}{\numberline {9.6.1.100}SM\_SWITCHED\_ON}{98}{subsubsection.9.6.1.100}%
+\contentsline {section}{\numberline {9.7}/home/veysiadn/spinerobot\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ws/src/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pkg/include/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pkg/timing.hpp File Reference}{98}{section.9.7}%
+\contentsline {subsection}{\numberline {9.7.1}Macro Definition Documentation}{99}{subsection.9.7.1}%
+\contentsline {subsubsection}{\numberline {9.7.1.1}NUMBER\_OF\_SAMPLES}{99}{subsubsection.9.7.1.1}%
+\contentsline {section}{\numberline {9.8}/home/veysiadn/spinerobot\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ws/src/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pkg/src/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}lifecycle.cpp File Reference}{99}{section.9.8}%
+\contentsline {section}{\numberline {9.9}/home/veysiadn/spinerobot\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ws/src/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pkg/src/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}node.cpp File Reference}{100}{section.9.9}%
+\contentsline {subsection}{\numberline {9.9.1}Variable Documentation}{100}{subsection.9.9.1}%
+\contentsline {subsubsection}{\numberline {9.9.1.1}g\_master}{100}{subsubsection.9.9.1.1}%
+\contentsline {subsubsection}{\numberline {9.9.1.2}g\_master\_domain}{100}{subsubsection.9.9.1.2}%
+\contentsline {subsubsection}{\numberline {9.9.1.3}g\_master\_domain\_state}{101}{subsubsection.9.9.1.3}%
+\contentsline {subsubsection}{\numberline {9.9.1.4}g\_master\_state}{101}{subsubsection.9.9.1.4}%
+\contentsline {subsubsection}{\numberline {9.9.1.5}g\_sync\_ref\_counter}{101}{subsubsection.9.9.1.5}%
+\contentsline {subsubsection}{\numberline {9.9.1.6}g\_sync\_timer}{101}{subsubsection.9.9.1.6}%
+\contentsline {section}{\numberline {9.10}/home/veysiadn/spinerobot\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ws/src/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pkg/src/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}slave.cpp File Reference}{101}{section.9.10}%
+\contentsline {section}{\numberline {9.11}/home/veysiadn/spinerobot\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ws/src/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pkg/src/main.cpp File Reference}{102}{section.9.11}%
+\contentsline {subsection}{\numberline {9.11.1}Function Documentation}{102}{subsection.9.11.1}%
+\contentsline {subsubsection}{\numberline {9.11.1.1}main()}{102}{subsubsection.9.11.1.1}%
+\contentsline {subsubsection}{\numberline {9.11.1.2}signalHandler()}{102}{subsubsection.9.11.1.2}%
+\contentsline {subsection}{\numberline {9.11.2}Variable Documentation}{102}{subsection.9.11.2}%
+\contentsline {subsubsection}{\numberline {9.11.2.1}ecat\_lifecycle\_node}{103}{subsubsection.9.11.2.1}%
+\contentsline {section}{\numberline {9.12}/home/veysiadn/spinerobot\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ws/src/ecat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}pkg/src/timing.cpp File Reference}{103}{section.9.12}%
+\contentsline {chapter}{Index}{105}{section*.65}%

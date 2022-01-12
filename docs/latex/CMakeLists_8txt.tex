@@ -1,0 +1,38 @@
+\hypertarget{CMakeLists_8txt}{}\doxysection{/home/veysiadn/spinerobot\+\_\+ws/src/ecat\+\_\+pkg/\+C\+Make\+Lists.txt File Reference}
+\label{CMakeLists_8txt}\index{/home/veysiadn/spinerobot\_ws/src/ecat\_pkg/CMakeLists.txt@{/home/veysiadn/spinerobot\_ws/src/ecat\_pkg/CMakeLists.txt}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{CMakeLists_8txt_a0d121d952cf7d7860ef1e3398431acd6}{cmake\+\_\+minimum\+\_\+required}} (V\+E\+R\+S\+I\+ON 3.\+5) project(ecat\+\_\+pkg) if(N\+OT C\+M\+A\+K\+E\+\_\+\+C\+\_\+\+S\+T\+A\+N\+D\+A\+RD) \mbox{\hyperlink{CMakeLists_8txt_aa65b21b0e39e1b7971bb1cd4162a427c}{set}}(C\+M\+A\+K\+E\+\_\+\+C\+\_\+\+S\+T\+A\+N\+D\+A\+RD 99) endif() if(N\+OT C\+M\+A\+K\+E\+\_\+\+C\+X\+X\+\_\+\+S\+T\+A\+N\+D\+A\+RD) \mbox{\hyperlink{CMakeLists_8txt_aa65b21b0e39e1b7971bb1cd4162a427c}{set}}(C\+M\+A\+K\+E\+\_\+\+C\+X\+X\+\_\+\+S\+T\+A\+N\+D\+A\+RD 14) endif() add\+\_\+compile\+\_\+options(-\/g -\/w -\/Wall -\/Wextra -\/Wpedantic -\/I/opt/etherlab/include -\/L/opt/etherlab/lib -\/lethercat -\/lpthread -\/lrt -\/\mbox{\hyperlink{CMakeLists_8txt_a6ea9f23d4cdce36abec9d19975ffc7bf}{Wl}}
+\item 
+rpath opt etherlab lib \mbox{\hyperlink{CMakeLists_8txt_aa65b21b0e39e1b7971bb1cd4162a427c}{set}} (etherlab\+\_\+include/opt/etherlab/include) set(etherlab\+\_\+lib/opt/etherlab/lib/libethercat.\+so.\+1.\+1.\+0) set(ecat\+\_\+node\+\_\+include $\sim$/spinerobot\+\_\+ws/src/ecat\+\_\+pkg/include/ecat\+\_\+pkg/) set(node\+\_\+name \char`\"{}ecat\+\_\+node\char`\"{}) find\+\_\+package(ament\+\_\+cmake R\+E\+Q\+U\+I\+R\+ED) find\+\_\+package(rclcpp R\+E\+Q\+U\+I\+R\+ED) find\+\_\+package(rclcpp\+\_\+lifecycle R\+E\+Q\+U\+I\+R\+ED) find\+\_\+package(rttest) find\+\_\+package(tlsf\+\_\+cpp) find\+\_\+package(ecat\+\_\+msgs R\+E\+Q\+U\+I\+R\+ED) find\+\_\+package(sensor\+\_\+msgs R\+E\+Q\+U\+I\+R\+ED) add\+\_\+executable(ecat\+\_\+node src/main.\+cpp src/ecat\+\_\+node.\+cpp src/ecat\+\_\+slave.\+cpp src/ecat\+\_\+lifecycle.\+cpp src/timing.\+cpp) target\+\_\+include\+\_\+directories(ecat\+\_\+node P\+U\+B\+L\+IC \$$<$ B\+U\+I\+L\+D\+\_\+\+I\+N\+T\+E\+R\+F\+A\+CE
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+rpath \mbox{\hyperlink{CMakeLists_8txt_a6ea9f23d4cdce36abec9d19975ffc7bf}{Wl}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{CMakeLists_8txt_a0d121d952cf7d7860ef1e3398431acd6}\label{CMakeLists_8txt_a0d121d952cf7d7860ef1e3398431acd6}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!cmake\_minimum\_required@{cmake\_minimum\_required}}
+\index{cmake\_minimum\_required@{cmake\_minimum\_required}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{cmake\_minimum\_required()}{cmake\_minimum\_required()}}
+{\footnotesize\ttfamily cmake\+\_\+minimum\+\_\+required (\begin{DoxyParamCaption}\item[{V\+E\+R\+S\+I\+ON 3.}]{5 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{CMakeLists_8txt_aa65b21b0e39e1b7971bb1cd4162a427c}\label{CMakeLists_8txt_aa65b21b0e39e1b7971bb1cd4162a427c}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!set@{set}}
+\index{set@{set}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily rpath opt etherlab lib set (\begin{DoxyParamCaption}\item[{etherlab\+\_\+include/opt/etherlab/}]{include }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{CMakeLists_8txt_a6ea9f23d4cdce36abec9d19975ffc7bf}\label{CMakeLists_8txt_a6ea9f23d4cdce36abec9d19975ffc7bf}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!Wl@{Wl}}
+\index{Wl@{Wl}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{Wl}{Wl}}
+{\footnotesize\ttfamily rpath Wl}
+

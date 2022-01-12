@@ -1,0 +1,88 @@
+\hypertarget{ecat__node_8cpp}{}\doxysection{/home/veysiadn/spinerobot\+\_\+ws/src/ecat\+\_\+pkg/src/ecat\+\_\+node.cpp File Reference}
+\label{ecat__node_8cpp}\index{/home/veysiadn/spinerobot\_ws/src/ecat\_pkg/src/ecat\_node.cpp@{/home/veysiadn/spinerobot\_ws/src/ecat\_pkg/src/ecat\_node.cpp}}
+{\ttfamily \#include \char`\"{}ecat\+\_\+node.\+hpp\char`\"{}}\newline
+Include dependency graph for ecat\+\_\+node.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ecat__node_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+ec\+\_\+master\+\_\+t $\ast$ \mbox{\hyperlink{ecat__node_8cpp_a45e08eacd3bf384fc33a73106b94b592}{g\+\_\+master}} = N\+U\+LL
+\begin{DoxyCompactList}\small\item\em Extern global variable declaration. \end{DoxyCompactList}\item 
+ec\+\_\+master\+\_\+state\+\_\+t \mbox{\hyperlink{ecat__node_8cpp_a969ab73f74152e0ba1f0b2a684c29753}{g\+\_\+master\+\_\+state}} = \{\}
+\begin{DoxyCompactList}\small\item\em Ether\+C\+AT master. \end{DoxyCompactList}\item 
+ec\+\_\+domain\+\_\+t $\ast$ \mbox{\hyperlink{ecat__node_8cpp_a59c10b14596652ba74844434d967d78f}{g\+\_\+master\+\_\+domain}} = N\+U\+LL
+\begin{DoxyCompactList}\small\item\em Ether\+C\+AT master state. \end{DoxyCompactList}\item 
+ec\+\_\+domain\+\_\+state\+\_\+t \mbox{\hyperlink{ecat__node_8cpp_a4581f6b28a86eaa9f6616925eae015db}{g\+\_\+master\+\_\+domain\+\_\+state}} = \{\}
+\begin{DoxyCompactList}\small\item\em Ethercat data passing master domain. \end{DoxyCompactList}\item 
+struct timespec \mbox{\hyperlink{ecat__node_8cpp_ac7aec8f91749616a8015dd38184e427c}{g\+\_\+sync\+\_\+timer}}
+\begin{DoxyCompactList}\small\item\em Ether\+C\+AT master domain state. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{ecat__node_8cpp_a28bf20de2fed0ae3b068bd7f0c74119d}{g\+\_\+sync\+\_\+ref\+\_\+counter}} = 0
+\begin{DoxyCompactList}\small\item\em cycletime settings in ns. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ecat__node_8cpp_a45e08eacd3bf384fc33a73106b94b592}\label{ecat__node_8cpp_a45e08eacd3bf384fc33a73106b94b592}} 
+\index{ecat\_node.cpp@{ecat\_node.cpp}!g\_master@{g\_master}}
+\index{g\_master@{g\_master}!ecat\_node.cpp@{ecat\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_master}{g\_master}}
+{\footnotesize\ttfamily ec\+\_\+master\+\_\+t$\ast$ g\+\_\+master = N\+U\+LL}
+
+
+
+Extern global variable declaration. 
+
+\mbox{\Hypertarget{ecat__node_8cpp_a59c10b14596652ba74844434d967d78f}\label{ecat__node_8cpp_a59c10b14596652ba74844434d967d78f}} 
+\index{ecat\_node.cpp@{ecat\_node.cpp}!g\_master\_domain@{g\_master\_domain}}
+\index{g\_master\_domain@{g\_master\_domain}!ecat\_node.cpp@{ecat\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_master\_domain}{g\_master\_domain}}
+{\footnotesize\ttfamily ec\+\_\+domain\+\_\+t$\ast$ g\+\_\+master\+\_\+domain = N\+U\+LL}
+
+
+
+Ether\+C\+AT master state. 
+
+\mbox{\Hypertarget{ecat__node_8cpp_a4581f6b28a86eaa9f6616925eae015db}\label{ecat__node_8cpp_a4581f6b28a86eaa9f6616925eae015db}} 
+\index{ecat\_node.cpp@{ecat\_node.cpp}!g\_master\_domain\_state@{g\_master\_domain\_state}}
+\index{g\_master\_domain\_state@{g\_master\_domain\_state}!ecat\_node.cpp@{ecat\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_master\_domain\_state}{g\_master\_domain\_state}}
+{\footnotesize\ttfamily ec\+\_\+domain\+\_\+state\+\_\+t g\+\_\+master\+\_\+domain\+\_\+state = \{\}}
+
+
+
+Ethercat data passing master domain. 
+
+\mbox{\Hypertarget{ecat__node_8cpp_a969ab73f74152e0ba1f0b2a684c29753}\label{ecat__node_8cpp_a969ab73f74152e0ba1f0b2a684c29753}} 
+\index{ecat\_node.cpp@{ecat\_node.cpp}!g\_master\_state@{g\_master\_state}}
+\index{g\_master\_state@{g\_master\_state}!ecat\_node.cpp@{ecat\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_master\_state}{g\_master\_state}}
+{\footnotesize\ttfamily ec\+\_\+master\+\_\+state\+\_\+t g\+\_\+master\+\_\+state = \{\}}
+
+
+
+Ether\+C\+AT master. 
+
+\mbox{\Hypertarget{ecat__node_8cpp_a28bf20de2fed0ae3b068bd7f0c74119d}\label{ecat__node_8cpp_a28bf20de2fed0ae3b068bd7f0c74119d}} 
+\index{ecat\_node.cpp@{ecat\_node.cpp}!g\_sync\_ref\_counter@{g\_sync\_ref\_counter}}
+\index{g\_sync\_ref\_counter@{g\_sync\_ref\_counter}!ecat\_node.cpp@{ecat\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_sync\_ref\_counter}{g\_sync\_ref\_counter}}
+{\footnotesize\ttfamily uint32\+\_\+t g\+\_\+sync\+\_\+ref\+\_\+counter = 0}
+
+
+
+cycletime settings in ns. 
+
+\mbox{\Hypertarget{ecat__node_8cpp_ac7aec8f91749616a8015dd38184e427c}\label{ecat__node_8cpp_ac7aec8f91749616a8015dd38184e427c}} 
+\index{ecat\_node.cpp@{ecat\_node.cpp}!g\_sync\_timer@{g\_sync\_timer}}
+\index{g\_sync\_timer@{g\_sync\_timer}!ecat\_node.cpp@{ecat\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_sync\_timer}{g\_sync\_timer}}
+{\footnotesize\ttfamily struct timespec g\+\_\+sync\+\_\+timer}
+
+
+
+Ether\+C\+AT master domain state. 
+

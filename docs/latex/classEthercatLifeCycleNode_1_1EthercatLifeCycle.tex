@@ -1,0 +1,623 @@
+\hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle}{}\doxysection{Ethercat\+Life\+Cycle\+Node\+::Ethercat\+Life\+Cycle Class Reference}
+\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle}\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+
+
+{\ttfamily \#include $<$ecat\+\_\+lifecycle.\+hpp$>$}
+
+
+
+Inheritance diagram for Ethercat\+Life\+Cycle\+Node\+::Ethercat\+Life\+Cycle\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{classEthercatLifeCycleNode_1_1EthercatLifeCycle__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ethercat\+Life\+Cycle\+Node\+::Ethercat\+Life\+Cycle\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{classEthercatLifeCycleNode_1_1EthercatLifeCycle__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ab88fd9de520c44c80c64440443d25ff7}{Ethercat\+Life\+Cycle}} ()
+\item 
+\mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a9c591445a71b8a9d9e1913e183f9c8f3}{$\sim$\+Ethercat\+Life\+Cycle}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T  = void$>$ }\\using \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ada44b5981e5bbcb54144ad50dedb9753}{T\+L\+S\+F\+Allocator}} = tlsf\+\_\+heap\+\_\+allocator$<$ T $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+node\+\_\+interfaces\+::\+Lifecycle\+Node\+Interface\+::\+Callback\+Return \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_aff53e3ce90249a5eae244992926b5546}{on\+\_\+configure}} (const State \&)
+\begin{DoxyCompactList}\small\item\em Ethercat lifecycle node configuration function, node will start with this function For more information about Lifecyclenode and it\textquotesingle{}s interfaces check below link \+: \href{https://design.ros2.org/articles/node_lifecycle.html}{\texttt{ https\+://design.\+ros2.\+org/articles/node\+\_\+lifecycle.\+html}}. \end{DoxyCompactList}\item 
+node\+\_\+interfaces\+::\+Lifecycle\+Node\+Interface\+::\+Callback\+Return \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a8a02b7880be6b1013144c6cbdfff69d0}{on\+\_\+activate}} (const State \&)
+\begin{DoxyCompactList}\small\item\em Activates Ethercat lifecycle node and starts real-\/time Ethercat communication. All publishing is done in real-\/time loop in this active state. \end{DoxyCompactList}\item 
+node\+\_\+interfaces\+::\+Lifecycle\+Node\+Interface\+::\+Callback\+Return \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ac577f6a1a1e7dbc1a8eed0ab89147001}{on\+\_\+deactivate}} (const State \&)
+\begin{DoxyCompactList}\small\item\em Deactivates Ethercat lifecycle node, turns of real-\/time communication. \end{DoxyCompactList}\item 
+node\+\_\+interfaces\+::\+Lifecycle\+Node\+Interface\+::\+Callback\+Return \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a51c4cfcb0bb62abc07d69eb43dd7a2b7}{on\+\_\+cleanup}} (const State \&)
+\begin{DoxyCompactList}\small\item\em Cleans up all variables and datas assigned by Ethercat lifecycle node. \end{DoxyCompactList}\item 
+node\+\_\+interfaces\+::\+Lifecycle\+Node\+Interface\+::\+Callback\+Return \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_aa25e720251694b4db416e42ccd2ccc5c}{on\+\_\+shutdown}} (const State \&)
+\begin{DoxyCompactList}\small\item\em Shuts down Ether\+C\+AT lifecycle node, releases Ethercat master. \end{DoxyCompactList}\item 
+node\+\_\+interfaces\+::\+Lifecycle\+Node\+Interface\+::\+Callback\+Return \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a5496949daefea78b4b353463d4dd96d3}{on\+\_\+error}} (const State \&)
+\begin{DoxyCompactList}\small\item\em There isn\textquotesingle{}t any error recovery functionality for this node, just resets nodes. Reconfiguration is needed for restarting communication. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_aad342ebbb517eefd587c8030ea2b4e3e}{Handle\+Control\+Node\+Callbacks}} (const sensor\+\_\+msgs\+::msg\+::\+Joy\+::\+Shared\+Ptr msg)
+\begin{DoxyCompactList}\small\item\em This function handles callbacks from control node. It will update received values from controller node. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_aadb5d2d00179549ea65186fd0ad12aae}{Set\+Com\+Thread\+Priorities}} ()
+\begin{DoxyCompactList}\small\item\em Sets Ethercat communication thread\textquotesingle{}s properties After this function called user must call \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a2c5796d0f5f88a228c4b064d81a6b2f7}{Start\+Ethercat\+Communication()}} function\mbox{]}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ad059e2876da36b4549279643b380a480}{Init\+Ethercat\+Communication}} ()
+\begin{DoxyCompactList}\small\item\em Encapsulates all configuration steps for the Ether\+C\+AT communication with default slaves. And waits for connected slaves to become operational. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a2c5796d0f5f88a228c4b064d81a6b2f7}{Start\+Ethercat\+Communication}} ()
+\begin{DoxyCompactList}\small\item\em Starts Ether\+C\+AT communcation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a52a7c57222fb8c896986fafc470d3bc3}{Start\+Pdo\+Exchange}} (void $\ast$instance)
+\begin{DoxyCompactList}\small\item\em Realtime cyclic Pdo exchange function which will constantly read/write values from/to slaves. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a901c06f35510c5be5c40c4f934b5974b}{Get\+Com\+State}} ()
+\begin{DoxyCompactList}\small\item\em Gets master\textquotesingle{}s communication state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_acde7634de380e1bc00e138aa9d3f90f0}{Read\+From\+Slaves}} ()
+\begin{DoxyCompactList}\small\item\em Reads data from slaves and updates received data structure to be published. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a2f5f32634315c20ee20d44fd75faebf8}{Publish\+All\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Publishes all data that master received and will be sent. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ad0b93ac341e9e3f1aa08eba16a5cdc45}{Enable\+Motors}} ()
+\begin{DoxyCompactList}\small\item\em Enables connected motor drives based on C\+I\+A402. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a9d4c4f4d59fb5831e85c17b55bc23cbf}{Write\+To\+Slaves\+Velocity\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Updates data that will be sent to slaves. This updated data will be published as well. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a5bf86789850a0b8e21ef44f50aefa497}{Write\+To\+Slaves\+In\+Position\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Writes target position and control word to motor in profile position mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a1940951e1d285e7ce193d7444474dca7}{Update\+Velocity\+Mode\+Parameters}} ()
+\begin{DoxyCompactList}\small\item\em Acquired data from subscribed controller topic will be assigned as motor speed parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a8d762bf02972f1f318148175d5641317}{Update\+Position\+Mode\+Parameters}} ()
+\begin{DoxyCompactList}\small\item\em Acquired data from subscribed controller topic will be assigned as motor target position parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a434a3dc8581b010974d60b24e4ab7df2}{Update\+Cyclic\+Position\+Mode\+Parameters}} ()
+\begin{DoxyCompactList}\small\item\em Acquired data from subscribed controller topic will be assigned as motor cyclic target position parameter in configured interpolation time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ac81a74790509a9912c14982e9fa58d66}{Update\+Motor\+State\+Velocity\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Updates motor control world and motor state in velocity mode based on C\+I\+A402. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a1be54ebbef9bf865be39dd5b16b4e17f}{Update\+Motor\+State\+Position\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Updates motor control word and motor state in position mode based on C\+I\+A402 state machine,. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a4b9009e464f398aa89dab7ae2f4f8d38}{Handle\+Gui\+Node\+Callbacks}} (const std\+\_\+msgs\+::msg\+::\+U\+Int8\+::\+Shared\+Ptr gui\+\_\+sub)
+\begin{DoxyCompactList}\small\item\em This function will handle values from G\+UI node. Updates parameters based on G\+UI node inputs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void $\ast$ \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a3f14c000af09d7d9480d700266da624f}{Pass\+Cycylic\+Exchange}} (void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em Helper function to enter pthread\+\_\+create, since pthread\textquotesingle{}s are C function it doesn\textquotesingle{}t accept class member function, to pass class member function this helper function is created. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+rclcpp\+::\+Timer\+Base\+::\+Shared\+Ptr \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_aceb14d548ec18d88764a0ef49a28ee94}{timer\+\_\+}}
+\item 
+Lifecycle\+Publisher$<$ ecat\+\_\+msgs\+::msg\+::\+Data\+Received $>$\+::Shared\+Ptr \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a5b04ad15ed389f96ee8ccda5f2267e32}{received\+\_\+data\+\_\+publisher\+\_\+}}
+\begin{DoxyCompactList}\small\item\em This lifecycle publisher will be used to publish received feedback data from slaves. \end{DoxyCompactList}\item 
+Lifecycle\+Publisher$<$ ecat\+\_\+msgs\+::msg\+::\+Data\+Sent $>$\+::Shared\+Ptr \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_aff85c60922315e6ef94d71ca4bfe1daf}{sent\+\_\+data\+\_\+publisher\+\_\+}}
+\begin{DoxyCompactList}\small\item\em This lifecycle publisher will be used to publish sent data from master to slaves. \end{DoxyCompactList}\item 
+rclcpp\+::\+Subscription$<$ sensor\+\_\+msgs\+::msg\+::\+Joy $>$\+::Shared\+Ptr \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ab32a2bcc4d29d7fdec05346f28a6bb38}{joystick\+\_\+subscriber\+\_\+}}
+\begin{DoxyCompactList}\small\item\em This subscriber will be used to receive data from controller node. \end{DoxyCompactList}\item 
+rclcpp\+::\+Subscription$<$ std\+\_\+msgs\+::msg\+::\+U\+Int8 $>$\+::Shared\+Ptr \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a409e4ab637d81ced08b0db2c609b51bc}{gui\+\_\+subscriber\+\_\+}}
+\item 
+ecat\+\_\+msgs\+::msg\+::\+Data\+Received \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a03f7cd39fe66c336e7ff5465792bdfe7}{received\+\_\+data\+\_\+}}
+\item 
+ecat\+\_\+msgs\+::msg\+::\+Data\+Sent \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ae644985bdee331ff660a80f786d09355}{sent\+\_\+data\+\_\+}}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode}{Ethercat\+Node}} $>$ \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_adecbe58e78eb53eaf1a526b5b83712c6}{ecat\+\_\+node\+\_\+}}
+\item 
+pthread\+\_\+t \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ac443f07a1f4e7252788ca000ea70458f}{ethercat\+\_\+thread\+\_\+}}
+\begin{DoxyCompactList}\small\item\em pthread create required parameters. \end{DoxyCompactList}\item 
+struct sched\+\_\+param \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a80c1aefb15a64041bd5f59e47b3ac29e}{ethercat\+\_\+sched\+\_\+param\+\_\+}} = \{\}
+\item 
+pthread\+\_\+attr\+\_\+t \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a78acbaf6dc792b96f2df3fbef7395dfc}{ethercat\+\_\+thread\+\_\+attr\+\_\+}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a38d0a2c725202ef0fd67beff679ab9b1}{err\+\_\+}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a799a0bdf01f5a0da57c29900f3d8180d}{al\+\_\+state\+\_\+}} = 0
+\begin{DoxyCompactList}\small\item\em Application layer of slaves seen by master.(I\+N\+I\+T/\+P\+R\+E\+O\+P/\+S\+A\+F\+E\+O\+P/\+OP) \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a7380630e7299c28135f8eb0134729b26}{motor\+\_\+state\+\_\+}} \mbox{[}\mbox{\hyperlink{ecat__globals_8hpp_aacc3c7aef173b1cde9377fb7f05c924d}{g\+\_\+k\+Number\+Of\+Servo\+Drivers}}\mbox{]}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a8852f433f1e6d0927892fab6f88e01d1}{command\+\_\+}} = 0x004F
+\item 
+\mbox{\hyperlink{structController}{Controller}} \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a2b55e301403a0e5eaf17f2ee898d0f6e}{controller\+\_\+}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a976089de625f06f54ec68723854cfa81}{gui\+\_\+node\+\_\+data\+\_\+}} = 1
+\begin{DoxyCompactList}\small\item\em Values will be sent by controller node and will be assigned to variables below. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ab273dc79ac03b8bee9fcbf4bff21da61}{emergency\+\_\+status\+\_\+}} = 1
+\item 
+rclcpp\+::memory\+\_\+strategy\+::\+Memory\+Strategy\+::\+Shared\+Ptr \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a8b0df3007547a8a24c061509ff0b7bbd}{memory\+\_\+strategy}}
+\item 
+std\+::int32\+\_\+t \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ac3ddb4ba9d791e8186237a6da3da6a20}{measurement\+\_\+time}} = 0
+\item 
+\mbox{\hyperlink{classTiming}{Timing}} \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a40a619f28629b0a03ff7b980e608b299}{timer\+\_\+info\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ada44b5981e5bbcb54144ad50dedb9753}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ada44b5981e5bbcb54144ad50dedb9753}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!TLSFAllocator@{TLSFAllocator}}
+\index{TLSFAllocator@{TLSFAllocator}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{TLSFAllocator}{TLSFAllocator}}
+{\footnotesize\ttfamily template$<$typename T  = void$>$ \\
+using \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ada44b5981e5bbcb54144ad50dedb9753}{Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::\+T\+L\+S\+F\+Allocator}} =  tlsf\+\_\+heap\+\_\+allocator$<$T$>$\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ab88fd9de520c44c80c64440443d25ff7}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ab88fd9de520c44c80c64440443d25ff7}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!EthercatLifeCycle@{EthercatLifeCycle}}
+\index{EthercatLifeCycle@{EthercatLifeCycle}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{EthercatLifeCycle()}{EthercatLifeCycle()}}
+{\footnotesize\ttfamily Ethercat\+Life\+Cycle\+::\+Ethercat\+Life\+Cycle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a9c591445a71b8a9d9e1913e183f9c8f3}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a9c591445a71b8a9d9e1913e183f9c8f3}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!````~EthercatLifeCycle@{$\sim$EthercatLifeCycle}}
+\index{````~EthercatLifeCycle@{$\sim$EthercatLifeCycle}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{$\sim$EthercatLifeCycle()}{~EthercatLifeCycle()}}
+{\footnotesize\ttfamily Ethercat\+Life\+Cycle\+::$\sim$\+Ethercat\+Life\+Cycle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ad0b93ac341e9e3f1aa08eba16a5cdc45}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ad0b93ac341e9e3f1aa08eba16a5cdc45}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!EnableMotors@{EnableMotors}}
+\index{EnableMotors@{EnableMotors}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{EnableMotors()}{EnableMotors()}}
+{\footnotesize\ttfamily void Ethercat\+Life\+Cycle\+::\+Enable\+Motors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Enables connected motor drives based on C\+I\+A402. 
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a901c06f35510c5be5c40c4f934b5974b}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a901c06f35510c5be5c40c4f934b5974b}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!GetComState@{GetComState}}
+\index{GetComState@{GetComState}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{GetComState()}{GetComState()}}
+{\footnotesize\ttfamily int Ethercat\+Life\+Cycle\+::\+Get\+Com\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gets master\textquotesingle{}s communication state. 
+
+\begin{DoxySeeAlso}{See also}
+ec\+\_\+al\+\_\+state\+\_\+t
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Application layer state for master. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_aad342ebbb517eefd587c8030ea2b4e3e}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_aad342ebbb517eefd587c8030ea2b4e3e}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!HandleControlNodeCallbacks@{HandleControlNodeCallbacks}}
+\index{HandleControlNodeCallbacks@{HandleControlNodeCallbacks}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{HandleControlNodeCallbacks()}{HandleControlNodeCallbacks()}}
+{\footnotesize\ttfamily void Ethercat\+Life\+Cycle\+::\+Handle\+Control\+Node\+Callbacks (\begin{DoxyParamCaption}\item[{const sensor\+\_\+msgs\+::msg\+::\+Joy\+::\+Shared\+Ptr}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This function handles callbacks from control node. It will update received values from controller node. 
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a4b9009e464f398aa89dab7ae2f4f8d38}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a4b9009e464f398aa89dab7ae2f4f8d38}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!HandleGuiNodeCallbacks@{HandleGuiNodeCallbacks}}
+\index{HandleGuiNodeCallbacks@{HandleGuiNodeCallbacks}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{HandleGuiNodeCallbacks()}{HandleGuiNodeCallbacks()}}
+{\footnotesize\ttfamily void Ethercat\+Life\+Cycle\+::\+Handle\+Gui\+Node\+Callbacks (\begin{DoxyParamCaption}\item[{const std\+\_\+msgs\+::msg\+::\+U\+Int8\+::\+Shared\+Ptr}]{gui\+\_\+sub }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This function will handle values from G\+UI node. Updates parameters based on G\+UI node inputs. 
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ad059e2876da36b4549279643b380a480}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ad059e2876da36b4549279643b380a480}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!InitEthercatCommunication@{InitEthercatCommunication}}
+\index{InitEthercatCommunication@{InitEthercatCommunication}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{InitEthercatCommunication()}{InitEthercatCommunication()}}
+{\footnotesize\ttfamily int Ethercat\+Life\+Cycle\+::\+Init\+Ethercat\+Communication (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Encapsulates all configuration steps for the Ether\+C\+AT communication with default slaves. And waits for connected slaves to become operational. 
+
+\begin{DoxyReturn}{Returns}
+0 if succesful otherwise -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a8a02b7880be6b1013144c6cbdfff69d0}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a8a02b7880be6b1013144c6cbdfff69d0}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!on\_activate@{on\_activate}}
+\index{on\_activate@{on\_activate}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{on\_activate()}{on\_activate()}}
+{\footnotesize\ttfamily node\+\_\+interfaces\+::\+Lifecycle\+Node\+Interface\+::\+Callback\+Return Ethercat\+Life\+Cycle\+::on\+\_\+activate (\begin{DoxyParamCaption}\item[{const State \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Activates Ethercat lifecycle node and starts real-\/time Ethercat communication. All publishing is done in real-\/time loop in this active state. 
+
+\begin{DoxyReturn}{Returns}
+Success if activation succesfull,otherwise F\+A\+I\+L\+U\+RE 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a51c4cfcb0bb62abc07d69eb43dd7a2b7}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a51c4cfcb0bb62abc07d69eb43dd7a2b7}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!on\_cleanup@{on\_cleanup}}
+\index{on\_cleanup@{on\_cleanup}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{on\_cleanup()}{on\_cleanup()}}
+{\footnotesize\ttfamily node\+\_\+interfaces\+::\+Lifecycle\+Node\+Interface\+::\+Callback\+Return Ethercat\+Life\+Cycle\+::on\+\_\+cleanup (\begin{DoxyParamCaption}\item[{const State \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Cleans up all variables and datas assigned by Ethercat lifecycle node. 
+
+\begin{DoxyReturn}{Returns}
+Success if cleanup succesfull,otherwise F\+A\+I\+L\+U\+RE 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_aff53e3ce90249a5eae244992926b5546}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_aff53e3ce90249a5eae244992926b5546}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!on\_configure@{on\_configure}}
+\index{on\_configure@{on\_configure}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{on\_configure()}{on\_configure()}}
+{\footnotesize\ttfamily node\+\_\+interfaces\+::\+Lifecycle\+Node\+Interface\+::\+Callback\+Return Ethercat\+Life\+Cycle\+::on\+\_\+configure (\begin{DoxyParamCaption}\item[{const State \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ethercat lifecycle node configuration function, node will start with this function For more information about Lifecyclenode and it\textquotesingle{}s interfaces check below link \+: \href{https://design.ros2.org/articles/node_lifecycle.html}{\texttt{ https\+://design.\+ros2.\+org/articles/node\+\_\+lifecycle.\+html}}. 
+
+\begin{DoxySeeAlso}{See also}
+node\+\_\+interfaces\+::\+Lifecycle\+Node\+Interface\+::\+Callback\+Return 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Success if configuration succesfull,otherwise F\+A\+I\+L\+U\+RE 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ac577f6a1a1e7dbc1a8eed0ab89147001}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ac577f6a1a1e7dbc1a8eed0ab89147001}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!on\_deactivate@{on\_deactivate}}
+\index{on\_deactivate@{on\_deactivate}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{on\_deactivate()}{on\_deactivate()}}
+{\footnotesize\ttfamily node\+\_\+interfaces\+::\+Lifecycle\+Node\+Interface\+::\+Callback\+Return Ethercat\+Life\+Cycle\+::on\+\_\+deactivate (\begin{DoxyParamCaption}\item[{const State \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Deactivates Ethercat lifecycle node, turns of real-\/time communication. 
+
+\begin{DoxyReturn}{Returns}
+Success if deactivation succesfull,otherwise F\+A\+I\+L\+U\+RE 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a5496949daefea78b4b353463d4dd96d3}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a5496949daefea78b4b353463d4dd96d3}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!on\_error@{on\_error}}
+\index{on\_error@{on\_error}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{on\_error()}{on\_error()}}
+{\footnotesize\ttfamily node\+\_\+interfaces\+::\+Lifecycle\+Node\+Interface\+::\+Callback\+Return Ethercat\+Life\+Cycle\+::on\+\_\+error (\begin{DoxyParamCaption}\item[{const State \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+There isn\textquotesingle{}t any error recovery functionality for this node, just resets nodes. Reconfiguration is needed for restarting communication. 
+
+\begin{DoxyReturn}{Returns}
+Success 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_aa25e720251694b4db416e42ccd2ccc5c}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_aa25e720251694b4db416e42ccd2ccc5c}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!on\_shutdown@{on\_shutdown}}
+\index{on\_shutdown@{on\_shutdown}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{on\_shutdown()}{on\_shutdown()}}
+{\footnotesize\ttfamily node\+\_\+interfaces\+::\+Lifecycle\+Node\+Interface\+::\+Callback\+Return Ethercat\+Life\+Cycle\+::on\+\_\+shutdown (\begin{DoxyParamCaption}\item[{const State \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Shuts down Ether\+C\+AT lifecycle node, releases Ethercat master. 
+
+\begin{DoxyReturn}{Returns}
+Success if shut down succesfull,otherwise F\+A\+I\+L\+U\+RE 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a3f14c000af09d7d9480d700266da624f}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a3f14c000af09d7d9480d700266da624f}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!PassCycylicExchange@{PassCycylicExchange}}
+\index{PassCycylicExchange@{PassCycylicExchange}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{PassCycylicExchange()}{PassCycylicExchange()}}
+{\footnotesize\ttfamily void $\ast$ Ethercat\+Life\+Cycle\+::\+Pass\+Cycylic\+Exchange (\begin{DoxyParamCaption}\item[{void $\ast$}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Helper function to enter pthread\+\_\+create, since pthread\textquotesingle{}s are C function it doesn\textquotesingle{}t accept class member function, to pass class member function this helper function is created. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & Pointer to current class instance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a2f5f32634315c20ee20d44fd75faebf8}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a2f5f32634315c20ee20d44fd75faebf8}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!PublishAllData@{PublishAllData}}
+\index{PublishAllData@{PublishAllData}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{PublishAllData()}{PublishAllData()}}
+{\footnotesize\ttfamily int Ethercat\+Life\+Cycle\+::\+Publish\+All\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Publishes all data that master received and will be sent. 
+
+\begin{DoxyReturn}{Returns}
+0 if succesfull otherwise -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_acde7634de380e1bc00e138aa9d3f90f0}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_acde7634de380e1bc00e138aa9d3f90f0}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!ReadFromSlaves@{ReadFromSlaves}}
+\index{ReadFromSlaves@{ReadFromSlaves}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{ReadFromSlaves()}{ReadFromSlaves()}}
+{\footnotesize\ttfamily void Ethercat\+Life\+Cycle\+::\+Read\+From\+Slaves (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reads data from slaves and updates received data structure to be published. 
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_aadb5d2d00179549ea65186fd0ad12aae}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_aadb5d2d00179549ea65186fd0ad12aae}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!SetComThreadPriorities@{SetComThreadPriorities}}
+\index{SetComThreadPriorities@{SetComThreadPriorities}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{SetComThreadPriorities()}{SetComThreadPriorities()}}
+{\footnotesize\ttfamily int Ethercat\+Life\+Cycle\+::\+Set\+Com\+Thread\+Priorities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets Ethercat communication thread\textquotesingle{}s properties After this function called user must call \mbox{\hyperlink{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a2c5796d0f5f88a228c4b064d81a6b2f7}{Start\+Ethercat\+Communication()}} function\mbox{]}. 
+
+\begin{DoxyReturn}{Returns}
+0 if succesfull, otherwise -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a2c5796d0f5f88a228c4b064d81a6b2f7}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a2c5796d0f5f88a228c4b064d81a6b2f7}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!StartEthercatCommunication@{StartEthercatCommunication}}
+\index{StartEthercatCommunication@{StartEthercatCommunication}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{StartEthercatCommunication()}{StartEthercatCommunication()}}
+{\footnotesize\ttfamily int Ethercat\+Life\+Cycle\+::\+Start\+Ethercat\+Communication (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Starts Ether\+C\+AT communcation. 
+
+\begin{DoxyReturn}{Returns}
+0 if succesfull, otherwise -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a52a7c57222fb8c896986fafc470d3bc3}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a52a7c57222fb8c896986fafc470d3bc3}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!StartPdoExchange@{StartPdoExchange}}
+\index{StartPdoExchange@{StartPdoExchange}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{StartPdoExchange()}{StartPdoExchange()}}
+{\footnotesize\ttfamily void Ethercat\+Life\+Cycle\+::\+Start\+Pdo\+Exchange (\begin{DoxyParamCaption}\item[{void $\ast$}]{instance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Realtime cyclic Pdo exchange function which will constantly read/write values from/to slaves. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & Used during pthread\+\_\+create function to pass variables to realtime task. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+U\+LL 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a434a3dc8581b010974d60b24e4ab7df2}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a434a3dc8581b010974d60b24e4ab7df2}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!UpdateCyclicPositionModeParameters@{UpdateCyclicPositionModeParameters}}
+\index{UpdateCyclicPositionModeParameters@{UpdateCyclicPositionModeParameters}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{UpdateCyclicPositionModeParameters()}{UpdateCyclicPositionModeParameters()}}
+{\footnotesize\ttfamily void Ethercat\+Life\+Cycle\+::\+Update\+Cyclic\+Position\+Mode\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Acquired data from subscribed controller topic will be assigned as motor cyclic target position parameter in configured interpolation time. 
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a1be54ebbef9bf865be39dd5b16b4e17f}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a1be54ebbef9bf865be39dd5b16b4e17f}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!UpdateMotorStatePositionMode@{UpdateMotorStatePositionMode}}
+\index{UpdateMotorStatePositionMode@{UpdateMotorStatePositionMode}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{UpdateMotorStatePositionMode()}{UpdateMotorStatePositionMode()}}
+{\footnotesize\ttfamily void Ethercat\+Life\+Cycle\+::\+Update\+Motor\+State\+Position\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Updates motor control word and motor state in position mode based on C\+I\+A402 state machine,. 
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ac81a74790509a9912c14982e9fa58d66}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ac81a74790509a9912c14982e9fa58d66}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!UpdateMotorStateVelocityMode@{UpdateMotorStateVelocityMode}}
+\index{UpdateMotorStateVelocityMode@{UpdateMotorStateVelocityMode}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{UpdateMotorStateVelocityMode()}{UpdateMotorStateVelocityMode()}}
+{\footnotesize\ttfamily void Ethercat\+Life\+Cycle\+::\+Update\+Motor\+State\+Velocity\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Updates motor control world and motor state in velocity mode based on C\+I\+A402. 
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a8d762bf02972f1f318148175d5641317}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a8d762bf02972f1f318148175d5641317}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!UpdatePositionModeParameters@{UpdatePositionModeParameters}}
+\index{UpdatePositionModeParameters@{UpdatePositionModeParameters}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{UpdatePositionModeParameters()}{UpdatePositionModeParameters()}}
+{\footnotesize\ttfamily void Ethercat\+Life\+Cycle\+::\+Update\+Position\+Mode\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Acquired data from subscribed controller topic will be assigned as motor target position parameter. 
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a1940951e1d285e7ce193d7444474dca7}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a1940951e1d285e7ce193d7444474dca7}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!UpdateVelocityModeParameters@{UpdateVelocityModeParameters}}
+\index{UpdateVelocityModeParameters@{UpdateVelocityModeParameters}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{UpdateVelocityModeParameters()}{UpdateVelocityModeParameters()}}
+{\footnotesize\ttfamily void Ethercat\+Life\+Cycle\+::\+Update\+Velocity\+Mode\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Acquired data from subscribed controller topic will be assigned as motor speed parameter. 
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a5bf86789850a0b8e21ef44f50aefa497}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a5bf86789850a0b8e21ef44f50aefa497}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!WriteToSlavesInPositionMode@{WriteToSlavesInPositionMode}}
+\index{WriteToSlavesInPositionMode@{WriteToSlavesInPositionMode}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{WriteToSlavesInPositionMode()}{WriteToSlavesInPositionMode()}}
+{\footnotesize\ttfamily void Ethercat\+Life\+Cycle\+::\+Write\+To\+Slaves\+In\+Position\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Writes target position and control word to motor in profile position mode. 
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a9d4c4f4d59fb5831e85c17b55bc23cbf}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a9d4c4f4d59fb5831e85c17b55bc23cbf}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!WriteToSlavesVelocityMode@{WriteToSlavesVelocityMode}}
+\index{WriteToSlavesVelocityMode@{WriteToSlavesVelocityMode}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{WriteToSlavesVelocityMode()}{WriteToSlavesVelocityMode()}}
+{\footnotesize\ttfamily void Ethercat\+Life\+Cycle\+::\+Write\+To\+Slaves\+Velocity\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Updates data that will be sent to slaves. This updated data will be published as well. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a799a0bdf01f5a0da57c29900f3d8180d}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a799a0bdf01f5a0da57c29900f3d8180d}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!al\_state\_@{al\_state\_}}
+\index{al\_state\_@{al\_state\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{al\_state\_}{al\_state\_}}
+{\footnotesize\ttfamily uint8\+\_\+t Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::al\+\_\+state\+\_\+ = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Application layer of slaves seen by master.(I\+N\+I\+T/\+P\+R\+E\+O\+P/\+S\+A\+F\+E\+O\+P/\+OP) 
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a8852f433f1e6d0927892fab6f88e01d1}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a8852f433f1e6d0927892fab6f88e01d1}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!command\_@{command\_}}
+\index{command\_@{command\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{command\_}{command\_}}
+{\footnotesize\ttfamily uint32\+\_\+t Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::command\+\_\+ = 0x004F\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a2b55e301403a0e5eaf17f2ee898d0f6e}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a2b55e301403a0e5eaf17f2ee898d0f6e}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!controller\_@{controller\_}}
+\index{controller\_@{controller\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{controller\_}{controller\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structController}{Controller}} Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::controller\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_adecbe58e78eb53eaf1a526b5b83712c6}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_adecbe58e78eb53eaf1a526b5b83712c6}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!ecat\_node\_@{ecat\_node\_}}
+\index{ecat\_node\_@{ecat\_node\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{ecat\_node\_}{ecat\_node\_}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode}{Ethercat\+Node}}$>$ Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::ecat\+\_\+node\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ab273dc79ac03b8bee9fcbf4bff21da61}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ab273dc79ac03b8bee9fcbf4bff21da61}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!emergency\_status\_@{emergency\_status\_}}
+\index{emergency\_status\_@{emergency\_status\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{emergency\_status\_}{emergency\_status\_}}
+{\footnotesize\ttfamily uint8\+\_\+t Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::emergency\+\_\+status\+\_\+ = 1\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a38d0a2c725202ef0fd67beff679ab9b1}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a38d0a2c725202ef0fd67beff679ab9b1}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!err\_@{err\_}}
+\index{err\_@{err\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{err\_}{err\_}}
+{\footnotesize\ttfamily int32\+\_\+t Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::err\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a80c1aefb15a64041bd5f59e47b3ac29e}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a80c1aefb15a64041bd5f59e47b3ac29e}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!ethercat\_sched\_param\_@{ethercat\_sched\_param\_}}
+\index{ethercat\_sched\_param\_@{ethercat\_sched\_param\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{ethercat\_sched\_param\_}{ethercat\_sched\_param\_}}
+{\footnotesize\ttfamily struct sched\+\_\+param Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::ethercat\+\_\+sched\+\_\+param\+\_\+ = \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ac443f07a1f4e7252788ca000ea70458f}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ac443f07a1f4e7252788ca000ea70458f}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!ethercat\_thread\_@{ethercat\_thread\_}}
+\index{ethercat\_thread\_@{ethercat\_thread\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{ethercat\_thread\_}{ethercat\_thread\_}}
+{\footnotesize\ttfamily pthread\+\_\+t Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::ethercat\+\_\+thread\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pthread create required parameters. 
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a78acbaf6dc792b96f2df3fbef7395dfc}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a78acbaf6dc792b96f2df3fbef7395dfc}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!ethercat\_thread\_attr\_@{ethercat\_thread\_attr\_}}
+\index{ethercat\_thread\_attr\_@{ethercat\_thread\_attr\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{ethercat\_thread\_attr\_}{ethercat\_thread\_attr\_}}
+{\footnotesize\ttfamily pthread\+\_\+attr\+\_\+t Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::ethercat\+\_\+thread\+\_\+attr\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a976089de625f06f54ec68723854cfa81}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a976089de625f06f54ec68723854cfa81}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!gui\_node\_data\_@{gui\_node\_data\_}}
+\index{gui\_node\_data\_@{gui\_node\_data\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{gui\_node\_data\_}{gui\_node\_data\_}}
+{\footnotesize\ttfamily uint8\+\_\+t Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::gui\+\_\+node\+\_\+data\+\_\+ = 1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Values will be sent by controller node and will be assigned to variables below. 
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a409e4ab637d81ced08b0db2c609b51bc}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a409e4ab637d81ced08b0db2c609b51bc}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!gui\_subscriber\_@{gui\_subscriber\_}}
+\index{gui\_subscriber\_@{gui\_subscriber\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{gui\_subscriber\_}{gui\_subscriber\_}}
+{\footnotesize\ttfamily rclcpp\+::\+Subscription$<$std\+\_\+msgs\+::msg\+::\+U\+Int8$>$\+::Shared\+Ptr Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::gui\+\_\+subscriber\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ab32a2bcc4d29d7fdec05346f28a6bb38}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ab32a2bcc4d29d7fdec05346f28a6bb38}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!joystick\_subscriber\_@{joystick\_subscriber\_}}
+\index{joystick\_subscriber\_@{joystick\_subscriber\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{joystick\_subscriber\_}{joystick\_subscriber\_}}
+{\footnotesize\ttfamily rclcpp\+::\+Subscription$<$sensor\+\_\+msgs\+::msg\+::\+Joy$>$\+::Shared\+Ptr Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::joystick\+\_\+subscriber\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This subscriber will be used to receive data from controller node. 
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ac3ddb4ba9d791e8186237a6da3da6a20}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ac3ddb4ba9d791e8186237a6da3da6a20}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!measurement\_time@{measurement\_time}}
+\index{measurement\_time@{measurement\_time}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{measurement\_time}{measurement\_time}}
+{\footnotesize\ttfamily std\+::int32\+\_\+t Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::measurement\+\_\+time = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a8b0df3007547a8a24c061509ff0b7bbd}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a8b0df3007547a8a24c061509ff0b7bbd}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!memory\_strategy@{memory\_strategy}}
+\index{memory\_strategy@{memory\_strategy}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{memory\_strategy}{memory\_strategy}}
+{\footnotesize\ttfamily rclcpp\+::memory\+\_\+strategy\+::\+Memory\+Strategy\+::\+Shared\+Ptr Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::memory\+\_\+strategy\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{        std::make\_shared<AllocatorMemoryStrategy<TLSFAllocator<void>>>()}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a7380630e7299c28135f8eb0134729b26}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a7380630e7299c28135f8eb0134729b26}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!motor\_state\_@{motor\_state\_}}
+\index{motor\_state\_@{motor\_state\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{motor\_state\_}{motor\_state\_}}
+{\footnotesize\ttfamily uint32\+\_\+t Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::motor\+\_\+state\+\_\+\mbox{[}\mbox{\hyperlink{ecat__globals_8hpp_aacc3c7aef173b1cde9377fb7f05c924d}{g\+\_\+k\+Number\+Of\+Servo\+Drivers}}\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a03f7cd39fe66c336e7ff5465792bdfe7}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a03f7cd39fe66c336e7ff5465792bdfe7}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!received\_data\_@{received\_data\_}}
+\index{received\_data\_@{received\_data\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{received\_data\_}{received\_data\_}}
+{\footnotesize\ttfamily ecat\+\_\+msgs\+::msg\+::\+Data\+Received Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::received\+\_\+data\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a5b04ad15ed389f96ee8ccda5f2267e32}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a5b04ad15ed389f96ee8ccda5f2267e32}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!received\_data\_publisher\_@{received\_data\_publisher\_}}
+\index{received\_data\_publisher\_@{received\_data\_publisher\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{received\_data\_publisher\_}{received\_data\_publisher\_}}
+{\footnotesize\ttfamily Lifecycle\+Publisher$<$ecat\+\_\+msgs\+::msg\+::\+Data\+Received$>$\+::Shared\+Ptr Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::received\+\_\+data\+\_\+publisher\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This lifecycle publisher will be used to publish received feedback data from slaves. 
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ae644985bdee331ff660a80f786d09355}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_ae644985bdee331ff660a80f786d09355}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!sent\_data\_@{sent\_data\_}}
+\index{sent\_data\_@{sent\_data\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{sent\_data\_}{sent\_data\_}}
+{\footnotesize\ttfamily ecat\+\_\+msgs\+::msg\+::\+Data\+Sent Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::sent\+\_\+data\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_aff85c60922315e6ef94d71ca4bfe1daf}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_aff85c60922315e6ef94d71ca4bfe1daf}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!sent\_data\_publisher\_@{sent\_data\_publisher\_}}
+\index{sent\_data\_publisher\_@{sent\_data\_publisher\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{sent\_data\_publisher\_}{sent\_data\_publisher\_}}
+{\footnotesize\ttfamily Lifecycle\+Publisher$<$ecat\+\_\+msgs\+::msg\+::\+Data\+Sent$>$\+::Shared\+Ptr Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::sent\+\_\+data\+\_\+publisher\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This lifecycle publisher will be used to publish sent data from master to slaves. 
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_aceb14d548ec18d88764a0ef49a28ee94}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_aceb14d548ec18d88764a0ef49a28ee94}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!timer\_@{timer\_}}
+\index{timer\_@{timer\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{timer\_}{timer\_}}
+{\footnotesize\ttfamily rclcpp\+::\+Timer\+Base\+::\+Shared\+Ptr Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::timer\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a40a619f28629b0a03ff7b980e608b299}\label{classEthercatLifeCycleNode_1_1EthercatLifeCycle_a40a619f28629b0a03ff7b980e608b299}} 
+\index{EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}!timer\_info\_@{timer\_info\_}}
+\index{timer\_info\_@{timer\_info\_}!EthercatLifeCycleNode::EthercatLifeCycle@{EthercatLifeCycleNode::EthercatLifeCycle}}
+\doxysubsubsection{\texorpdfstring{timer\_info\_}{timer\_info\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTiming}{Timing}} Ethercat\+Life\+Cycle\+Node\+::\+Ethercat\+Life\+Cycle\+::timer\+\_\+info\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/veysiadn/spinerobot\+\_\+ws/src/ecat\+\_\+pkg/include/ecat\+\_\+pkg/\mbox{\hyperlink{ecat__lifecycle_8hpp}{ecat\+\_\+lifecycle.\+hpp}}\item 
+/home/veysiadn/spinerobot\+\_\+ws/src/ecat\+\_\+pkg/src/\mbox{\hyperlink{ecat__lifecycle_8cpp}{ecat\+\_\+lifecycle.\+cpp}}\end{DoxyCompactItemize}

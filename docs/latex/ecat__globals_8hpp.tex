@@ -1,0 +1,740 @@
+\hypertarget{ecat__globals_8hpp}{}\doxysection{/home/veysiadn/spinerobot\+\_\+ws/src/ecat\+\_\+pkg/include/ecat\+\_\+pkg/ecat\+\_\+globals.hpp File Reference}
+\label{ecat__globals_8hpp}\index{/home/veysiadn/spinerobot\_ws/src/ecat\_pkg/include/ecat\_pkg/ecat\_globals.hpp@{/home/veysiadn/spinerobot\_ws/src/ecat\_pkg/include/ecat\_pkg/ecat\_globals.hpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/resource.\+h$>$}\newline
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$sys/mman.\+h$>$}\newline
+{\ttfamily \#include $<$malloc.\+h$>$}\newline
+{\ttfamily \#include $<$sched.\+h$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include \char`\"{}ecrt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}object\+\_\+dictionary.\+hpp\char`\"{}}\newline
+Include dependency graph for ecat\+\_\+globals.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ecat__globals_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ecat__globals_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structController}{Controller}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structController}{Controller}} Parameters. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structOffsetPDO}{Offset\+P\+DO}}
+\begin{DoxyCompactList}\small\item\em offset for P\+DO entries to register P\+D\+Os. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structReceivedData}{Received\+Data}}
+\begin{DoxyCompactList}\small\item\em Received feedback data from slaves. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structSdoRequest}{Sdo\+Request}}
+\begin{DoxyCompactList}\small\item\em Ether\+C\+AT S\+DO request structure for configuration phase. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structProfilePosParam}{Profile\+Pos\+Param}}
+\begin{DoxyCompactList}\small\item\em Parameters that should be specified in position mode. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCSPositionModeParam}{C\+S\+Position\+Mode\+Param}}
+\begin{DoxyCompactList}\small\item\em Struct contains configuration parameters for cyclic sync. position mode. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCSVelocityModeParam}{C\+S\+Velocity\+Mode\+Param}}
+\begin{DoxyCompactList}\small\item\em Struct contains configuration parameters for cyclic sync. velocity mode. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCSTorqueModeParam}{C\+S\+Torque\+Mode\+Param}}
+\begin{DoxyCompactList}\small\item\em Struct contains configuration parameters for cyclic sync. torque mode. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structHomingParam}{Homing\+Param}}
+\begin{DoxyCompactList}\small\item\em Parameters that should be specified in homing mode. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structProfileVelocityParam}{Profile\+Velocity\+Param}}
+\begin{DoxyCompactList}\small\item\em Parameters that should be specified in velocity mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_a5d918ecbea3b854bbfe74765c9357be3}{N\+U\+M\+\_\+\+O\+F\+\_\+\+S\+L\+A\+V\+ES}}~2
+\begin{DoxyCompactList}\small\item\em Object dictionary paramaters P\+DO index and default values in here. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_a84142cd3e3bf14c4ecd4b6707a808c39}{F\+R\+E\+Q\+U\+E\+N\+CY}}~1000
+\begin{DoxyCompactList}\small\item\em Ethercat P\+DO exchange loop frequency in Hz. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_a68f5d933f0593175f4bd579e353d8f54}{M\+E\+A\+S\+U\+R\+E\+\_\+\+T\+I\+M\+I\+NG}}~1
+\begin{DoxyCompactList}\small\item\em If you want to measure timings leave it as one, otherwise make it 0. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_abc038b9c4db3369a55eec862a3fac0d3}{V\+E\+L\+O\+C\+I\+T\+Y\+\_\+\+M\+O\+DE}}~0
+\begin{DoxyCompactList}\small\item\em set this to 1 if you want to use it in velocity mode (and set position mode 0) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_a41325cb83383d2eb13badf1c991b76b6}{P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+M\+O\+DE}}~0
+\begin{DoxyCompactList}\small\item\em set this to 1 if you want to use it in position mode (and set velocity mode 0) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_a43e6b3b5ae4e9a94c798ed011e44c876}{C\+Y\+C\+L\+I\+C\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+M\+O\+DE}}~1
+\begin{DoxyCompactList}\small\item\em set this to 1 if you want to use it in cyclic synchronous position mode (and set velocity mode 0) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_a1b5f0a2cda8866a2a87331026ac8bd9a}{G\+E\+A\+R\+\_\+\+R\+A\+T\+IO}}~103
+\begin{DoxyCompactList}\small\item\em Define your own motor properties to configure increments in position mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_a8cdc17f43c9f3850f60d04f98216fc13}{E\+N\+C\+O\+D\+E\+R\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+ON}}~1024
+\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_aae638294dae324558d32f20ad29cd501}{I\+N\+C\+\_\+\+P\+E\+R\+\_\+\+R\+O\+T\+A\+T\+I\+ON}}~\mbox{\hyperlink{ecat__globals_8hpp_a1b5f0a2cda8866a2a87331026ac8bd9a}{G\+E\+A\+R\+\_\+\+R\+A\+T\+IO}}$\ast$\mbox{\hyperlink{ecat__globals_8hpp_a8cdc17f43c9f3850f60d04f98216fc13}{E\+N\+C\+O\+D\+E\+R\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+ON}}$\ast$4
+\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_a157cb770e20b46068ba85fdec0cfa4f1}{F\+I\+V\+E\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+C\+CW}}~int(\mbox{\hyperlink{ecat__globals_8hpp_aae638294dae324558d32f20ad29cd501}{I\+N\+C\+\_\+\+P\+E\+R\+\_\+\+R\+O\+T\+A\+T\+I\+ON}}/72)
+\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_a345f131f51c76cb464c7647eb1e25dd3}{T\+H\+I\+R\+T\+Y\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+C\+CW}}~int(\mbox{\hyperlink{ecat__globals_8hpp_aae638294dae324558d32f20ad29cd501}{I\+N\+C\+\_\+\+P\+E\+R\+\_\+\+R\+O\+T\+A\+T\+I\+ON}}/12)
+\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_ab495f8313ac709722de636c17e8a7381}{P\+E\+R\+I\+O\+D\+\_\+\+NS}}~(\mbox{\hyperlink{ecat__globals_8hpp_aaf4966dff24b810040e9c7196d621401}{g\+\_\+k\+Ns\+Per\+Sec}}/\mbox{\hyperlink{ecat__globals_8hpp_a84142cd3e3bf14c4ecd4b6707a808c39}{F\+R\+E\+Q\+U\+E\+N\+CY}})
+\begin{DoxyCompactList}\small\item\em Ether\+C\+AT communication period in nanoseconds. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_aa840a0ac3b87cf7c89b265e1912cbb5b}{P\+E\+R\+I\+O\+D\+\_\+\+US}}~(\mbox{\hyperlink{ecat__globals_8hpp_ab495f8313ac709722de636c17e8a7381}{P\+E\+R\+I\+O\+D\+\_\+\+NS}} / 1000)
+\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_a5fcd914889df46acf623f7d9a81654d7}{P\+E\+R\+I\+O\+D\+\_\+\+MS}}~(\mbox{\hyperlink{ecat__globals_8hpp_aa840a0ac3b87cf7c89b265e1912cbb5b}{P\+E\+R\+I\+O\+D\+\_\+\+US}} / 1000)
+\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_a974bbdb01bda0d358605aaaf61ebae97}{F\+I\+N\+A\+L\+\_\+\+S\+L\+A\+VE}}~(\mbox{\hyperlink{ecat__globals_8hpp_a5d918ecbea3b854bbfe74765c9357be3}{N\+U\+M\+\_\+\+O\+F\+\_\+\+S\+L\+A\+V\+ES}}-\/1)
+\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_a3e343f521bdee99c94f22627c930d24d}{T\+E\+S\+T\+\_\+\+B\+IT}}(N\+UM,  N)~((N\+UM \&  (1 $<$$<$ N))$>$$>$N)
+\begin{DoxyCompactList}\small\item\em To sync every cycle. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_a11c01176d68fc4cd05ed423d922eca26}{S\+E\+T\+\_\+\+B\+IT}}(N\+UM,  N)~(N\+UM $\vert$  (1 $<$$<$ N))
+\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_a4f447e47949e3f87b24ffd1039e07be1}{R\+E\+S\+E\+T\+\_\+\+B\+IT}}(N\+UM,  N)~(N\+UM \& $\sim$(1 $<$$<$ N))
+\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_a0ca04ace3fdf9024f99a7e1c50bea258}{T\+I\+M\+E\+S\+P\+E\+C2\+NS}}(T)~((uint64\+\_\+t) (T).tv\+\_\+sec $\ast$ \mbox{\hyperlink{ecat__globals_8hpp_aaf4966dff24b810040e9c7196d621401}{g\+\_\+k\+Ns\+Per\+Sec}} + (T).tv\+\_\+nsec)
+\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_aff98fed4398150e17dbcd151445065ee}{D\+I\+F\+F\+\_\+\+NS}}(A,  B)~(((B).tv\+\_\+sec -\/ (A).tv\+\_\+sec) $\ast$ \mbox{\hyperlink{ecat__globals_8hpp_aaf4966dff24b810040e9c7196d621401}{g\+\_\+k\+Ns\+Per\+Sec}} + (B).tv\+\_\+nsec -\/ (A).tv\+\_\+nsec)
+\item 
+\#define \mbox{\hyperlink{ecat__globals_8hpp_a5a01bd1cd59441f2db054ad38728de54}{C\+L\+O\+C\+K\+\_\+\+T\+O\+\_\+\+U\+SE}}~C\+L\+O\+C\+K\+\_\+\+M\+O\+N\+O\+T\+O\+N\+IC
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68af}{Op\+Mode}} \{ \newline
+\mbox{\hyperlink{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afad52f0058d24f3e3fec39d4502604a22e}{k\+Profile\+Position}} = 1, 
+\mbox{\hyperlink{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afa5d2b33d7161a77fdc97acfdc4de48a03}{k\+Profile\+Velocity}} = 3, 
+\mbox{\hyperlink{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afa3e1069b7c47950dd03ed7eb55f6421d2}{k\+Profile\+Torque}} = 4, 
+\mbox{\hyperlink{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afa90b00776b82cbe0b451a0a9c46e68945}{k\+Homing}} = 6, 
+\newline
+\mbox{\hyperlink{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afa7a6bd1ac4ba0aab0998cbccaded2ca27}{k\+Interpolated\+Position}} = 7, 
+\mbox{\hyperlink{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afa1566565deaca1a00f9046cea18ccf5de}{k\+C\+S\+Position}} = 8, 
+\mbox{\hyperlink{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afab7ddf4a5dec8aca3035989b429490bc4}{k\+C\+S\+Velocity}} = 9, 
+\mbox{\hyperlink{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afa32c69215479b5f329044f8c79a74e1a4}{k\+C\+S\+Torque}} = 10
+ \}
+\begin{DoxyCompactList}\small\item\em Motor operation modes. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7}{Motor\+States}} \{ \newline
+\mbox{\hyperlink{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7aefe8b16564c493d6aba4e1761d28fb6e}{k\+Ready\+To\+Switch\+On}} = 1, 
+\mbox{\hyperlink{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a1aec86a3bb84af0dc09dfba27134d870}{k\+Switched\+On}}, 
+\mbox{\hyperlink{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a830836c1b6166075e14d3cde3ba188bc}{k\+Operation\+Enabled}}, 
+\mbox{\hyperlink{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a17586673585e43ca084718a6a193c61d}{k\+Fault}}, 
+\newline
+\mbox{\hyperlink{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a94491568dfbb921ec2bc5e0b90bfdf51}{k\+Voltage\+Enabled}}, 
+\mbox{\hyperlink{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a9ebe2d45f83dd0328a95f91b5f7f3197}{k\+Quick\+Stop}}, 
+\mbox{\hyperlink{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a69fef3d95dbc631270c0a449c873b1f9}{k\+Switch\+On\+Disabled}}, 
+\mbox{\hyperlink{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a017887ee6e6d711cdb453f275fd971dc}{k\+Warning}}, 
+\newline
+\mbox{\hyperlink{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7af34e262497cefee9f006225d255f0b02}{k\+Remote}}, 
+\mbox{\hyperlink{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a2f6d5acfbeb8936f56c1a86dd1827dfb}{k\+Target\+Reached}}, 
+\mbox{\hyperlink{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7af6a3169aef150c63a68dc2206278bb11}{k\+Internal\+Limit\+Activate}}
+ \}
+\begin{DoxyCompactList}\small\item\em C\+IA 402 state machine motor states. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9}{Error\+Register\+Bits}} \{ \newline
+\mbox{\hyperlink{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9af711e7b7752014c8ec706ea554dfce92}{k\+Generic\+Error}} = 0, 
+\mbox{\hyperlink{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9ad6e632a0b86ed7fb7e6e3edcb429e8ee}{k\+Current\+Error}}, 
+\mbox{\hyperlink{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9a14832fe2ee52a654874fa813b50dbded}{k\+Voltage\+Error}}, 
+\mbox{\hyperlink{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9a02389ed04b418b8cb5fb8bfb103cccdb}{k\+Temperature\+Error}}, 
+\newline
+\mbox{\hyperlink{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9af97f356c1721064526054b6f066b496f}{k\+Communication\+Error}}, 
+\mbox{\hyperlink{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9a8af07a22c3ad75def4d66343ce660209}{k\+Device\+Profile\+Specific\+Error}}, 
+\mbox{\hyperlink{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9aea8b005869aaf5c494db89c503b06800}{k\+Reserved}}, 
+\mbox{\hyperlink{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9a5c26704f40c60ff29dba053bed06a202}{k\+Motion\+Error}}
+ \}
+\item 
+enum \mbox{\hyperlink{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2d}{Sensor\+Config}} \{ \newline
+\mbox{\hyperlink{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2dab5f681ac79a8660aba4a9d7dc6eb31f2}{k\+Sensor1\+Type\+None}} =0, 
+\mbox{\hyperlink{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2daf61a7493356a7aece1a7375167832ed9}{k\+Sensor1\+Type\+Digital\+Incremental\+Encoder1}} =1, 
+\mbox{\hyperlink{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2da6998cb5a0570925518e0263f50220bf6}{k\+Sensor2\+Type\+None}} =0, 
+\mbox{\hyperlink{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2da21874e2c5dbfc01e8448556c082994bb}{k\+Sensor2\+Type\+Digital\+Incremental\+Encoder2}} =256, 
+\newline
+\mbox{\hyperlink{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2da67d7a228bc250e460d37d76a9c438f4e}{k\+Sensor2\+Type\+Analog\+Incremental\+Encoder\+Sin\+Cos}} =512, 
+\mbox{\hyperlink{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2dacaa71830ad73062664079bb34fba171d}{k\+Sensor2\+Type\+S\+S\+I\+Absolute\+Encoder}} =768, 
+\mbox{\hyperlink{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2da33fa0423efc03ec99e691fec3382f55a}{k\+Sensor3\+Type\+None}} =0, 
+\mbox{\hyperlink{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2da510ca492e95b28ddb224d91f2e748369}{k\+Sensor3\+Type\+Digital\+Hall\+Sensor}} =131072
+ \}
+\begin{DoxyCompactList}\small\item\em Sensor Configuration for motor for more information. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcae}{Control\+Structure\+Bits}} \{ \newline
+\mbox{\hyperlink{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea1bc147fff50f73162083476ccf9259db}{k\+Current\+Control\+Structure}} = 0, 
+\mbox{\hyperlink{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea329e9cc9ead9ffb097e376d8b7c30077}{k\+Velocity\+Control\+Structure}} = 4, 
+\mbox{\hyperlink{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaeadefa2371cf291b699b95e373d12afc7a}{k\+Position\+Control\+Structure}} = 8, 
+\mbox{\hyperlink{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea42eacc8c934740b3b5c9a975b1e686ce}{k\+Gear\+Location}} = 12, 
+\newline
+\mbox{\hyperlink{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea58b060340f45f00efe9d02f5d74bd52d}{k\+Process\+Value\+Reference}} = 14, 
+\mbox{\hyperlink{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaeaf38c8622246ce7524f3e77d1127ebe60}{k\+Main\+Sensor}} = 16, 
+\mbox{\hyperlink{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea7ddb333c336bc9f1b5101e7913e27788}{k\+Auxiliary\+Sensor}} = 20, 
+\mbox{\hyperlink{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea145c866208cc96b7979e4accb809259d}{k\+Mounting\+Position\+Sensor1}} = 24, 
+\newline
+\mbox{\hyperlink{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea23783bb9190b137245e18da8094f44be}{k\+Mounting\+Position\+Sensor2}} = 26, 
+\mbox{\hyperlink{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea98dadce82ec3a84cfd178ed6841f1129}{k\+Mounting\+Position\+Sensor3}} = 28
+ \}
+\begin{DoxyCompactList}\small\item\em Control structure configuration for control mechanism to select sensor structure specific to hardware. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct timespec \mbox{\hyperlink{ecat__globals_8hpp_af38165367cb15a861318697b9cae5b53}{timespec\+\_\+add}} (struct timespec time1, struct timespec time2)
+\begin{DoxyCompactList}\small\item\em Add two timespec struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint32\+\_\+t \mbox{\hyperlink{ecat__globals_8hpp_aacc3c7aef173b1cde9377fb7f05c924d}{g\+\_\+k\+Number\+Of\+Servo\+Drivers}} = 1
+\begin{DoxyCompactList}\small\item\em Number of connected servo drives. \end{DoxyCompactList}\item 
+const uint32\+\_\+t \mbox{\hyperlink{ecat__globals_8hpp_aaf4966dff24b810040e9c7196d621401}{g\+\_\+k\+Ns\+Per\+Sec}} = 1000000000
+\begin{DoxyCompactList}\small\item\em Nanoseconds per second. \end{DoxyCompactList}\item 
+static volatile sig\+\_\+atomic\+\_\+t \mbox{\hyperlink{ecat__globals_8hpp_a6a68d8a40c73f3377978388da56fa9ad}{sig}} = 1
+\item 
+ec\+\_\+master\+\_\+t $\ast$ \mbox{\hyperlink{ecat__globals_8hpp_a45e08eacd3bf384fc33a73106b94b592}{g\+\_\+master}}
+\begin{DoxyCompactList}\small\item\em Extern global variable declaration. \end{DoxyCompactList}\item 
+ec\+\_\+master\+\_\+state\+\_\+t \mbox{\hyperlink{ecat__globals_8hpp_a969ab73f74152e0ba1f0b2a684c29753}{g\+\_\+master\+\_\+state}}
+\begin{DoxyCompactList}\small\item\em Ether\+C\+AT master. \end{DoxyCompactList}\item 
+ec\+\_\+domain\+\_\+t $\ast$ \mbox{\hyperlink{ecat__globals_8hpp_a59c10b14596652ba74844434d967d78f}{g\+\_\+master\+\_\+domain}}
+\begin{DoxyCompactList}\small\item\em Ether\+C\+AT master state. \end{DoxyCompactList}\item 
+ec\+\_\+domain\+\_\+state\+\_\+t \mbox{\hyperlink{ecat__globals_8hpp_a4581f6b28a86eaa9f6616925eae015db}{g\+\_\+master\+\_\+domain\+\_\+state}}
+\begin{DoxyCompactList}\small\item\em Ethercat data passing master domain. \end{DoxyCompactList}\item 
+struct timespec \mbox{\hyperlink{ecat__globals_8hpp_ac7aec8f91749616a8015dd38184e427c}{g\+\_\+sync\+\_\+timer}}
+\begin{DoxyCompactList}\small\item\em Ether\+C\+AT master domain state. \end{DoxyCompactList}\item 
+const struct timespec \mbox{\hyperlink{ecat__globals_8hpp_a0f34ecbeba93aefcdd077c6ce0758360}{g\+\_\+cycle\+\_\+time}} = \{0, \mbox{\hyperlink{ecat__globals_8hpp_ab495f8313ac709722de636c17e8a7381}{P\+E\+R\+I\+O\+D\+\_\+\+NS}}\}
+\begin{DoxyCompactList}\small\item\em timer for DC sync . \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{ecat__globals_8hpp_a28bf20de2fed0ae3b068bd7f0c74119d}{g\+\_\+sync\+\_\+ref\+\_\+counter}}
+\begin{DoxyCompactList}\small\item\em cycletime settings in ns. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ecat__globals_8hpp_a5a01bd1cd59441f2db054ad38728de54}\label{ecat__globals_8hpp_a5a01bd1cd59441f2db054ad38728de54}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!CLOCK\_TO\_USE@{CLOCK\_TO\_USE}}
+\index{CLOCK\_TO\_USE@{CLOCK\_TO\_USE}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{CLOCK\_TO\_USE}{CLOCK\_TO\_USE}}
+{\footnotesize\ttfamily \#define C\+L\+O\+C\+K\+\_\+\+T\+O\+\_\+\+U\+SE~C\+L\+O\+C\+K\+\_\+\+M\+O\+N\+O\+T\+O\+N\+IC}
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a43e6b3b5ae4e9a94c798ed011e44c876}\label{ecat__globals_8hpp_a43e6b3b5ae4e9a94c798ed011e44c876}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!CYCLIC\_POSITION\_MODE@{CYCLIC\_POSITION\_MODE}}
+\index{CYCLIC\_POSITION\_MODE@{CYCLIC\_POSITION\_MODE}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{CYCLIC\_POSITION\_MODE}{CYCLIC\_POSITION\_MODE}}
+{\footnotesize\ttfamily \#define C\+Y\+C\+L\+I\+C\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+M\+O\+DE~1}
+
+
+
+set this to 1 if you want to use it in cyclic synchronous position mode (and set velocity mode 0) 
+
+\mbox{\Hypertarget{ecat__globals_8hpp_aff98fed4398150e17dbcd151445065ee}\label{ecat__globals_8hpp_aff98fed4398150e17dbcd151445065ee}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!DIFF\_NS@{DIFF\_NS}}
+\index{DIFF\_NS@{DIFF\_NS}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{DIFF\_NS}{DIFF\_NS}}
+{\footnotesize\ttfamily \#define D\+I\+F\+F\+\_\+\+NS(\begin{DoxyParamCaption}\item[{}]{A,  }\item[{}]{B }\end{DoxyParamCaption})~(((B).tv\+\_\+sec -\/ (A).tv\+\_\+sec) $\ast$ \mbox{\hyperlink{ecat__globals_8hpp_aaf4966dff24b810040e9c7196d621401}{g\+\_\+k\+Ns\+Per\+Sec}} + (B).tv\+\_\+nsec -\/ (A).tv\+\_\+nsec)}
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a8cdc17f43c9f3850f60d04f98216fc13}\label{ecat__globals_8hpp_a8cdc17f43c9f3850f60d04f98216fc13}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!ENCODER\_RESOLUTION@{ENCODER\_RESOLUTION}}
+\index{ENCODER\_RESOLUTION@{ENCODER\_RESOLUTION}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{ENCODER\_RESOLUTION}{ENCODER\_RESOLUTION}}
+{\footnotesize\ttfamily \#define E\+N\+C\+O\+D\+E\+R\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+ON~1024}
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a974bbdb01bda0d358605aaaf61ebae97}\label{ecat__globals_8hpp_a974bbdb01bda0d358605aaaf61ebae97}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!FINAL\_SLAVE@{FINAL\_SLAVE}}
+\index{FINAL\_SLAVE@{FINAL\_SLAVE}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{FINAL\_SLAVE}{FINAL\_SLAVE}}
+{\footnotesize\ttfamily \#define F\+I\+N\+A\+L\+\_\+\+S\+L\+A\+VE~(\mbox{\hyperlink{ecat__globals_8hpp_a5d918ecbea3b854bbfe74765c9357be3}{N\+U\+M\+\_\+\+O\+F\+\_\+\+S\+L\+A\+V\+ES}}-\/1)}
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a157cb770e20b46068ba85fdec0cfa4f1}\label{ecat__globals_8hpp_a157cb770e20b46068ba85fdec0cfa4f1}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!FIVE\_DEGREE\_CCW@{FIVE\_DEGREE\_CCW}}
+\index{FIVE\_DEGREE\_CCW@{FIVE\_DEGREE\_CCW}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{FIVE\_DEGREE\_CCW}{FIVE\_DEGREE\_CCW}}
+{\footnotesize\ttfamily \#define F\+I\+V\+E\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+C\+CW~int(\mbox{\hyperlink{ecat__globals_8hpp_aae638294dae324558d32f20ad29cd501}{I\+N\+C\+\_\+\+P\+E\+R\+\_\+\+R\+O\+T\+A\+T\+I\+ON}}/72)}
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a84142cd3e3bf14c4ecd4b6707a808c39}\label{ecat__globals_8hpp_a84142cd3e3bf14c4ecd4b6707a808c39}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!FREQUENCY@{FREQUENCY}}
+\index{FREQUENCY@{FREQUENCY}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{FREQUENCY}{FREQUENCY}}
+{\footnotesize\ttfamily \#define F\+R\+E\+Q\+U\+E\+N\+CY~1000}
+
+
+
+Ethercat P\+DO exchange loop frequency in Hz. 
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a1b5f0a2cda8866a2a87331026ac8bd9a}\label{ecat__globals_8hpp_a1b5f0a2cda8866a2a87331026ac8bd9a}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!GEAR\_RATIO@{GEAR\_RATIO}}
+\index{GEAR\_RATIO@{GEAR\_RATIO}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{GEAR\_RATIO}{GEAR\_RATIO}}
+{\footnotesize\ttfamily \#define G\+E\+A\+R\+\_\+\+R\+A\+T\+IO~103}
+
+
+
+Define your own motor properties to configure increments in position mode. 
+
+\mbox{\Hypertarget{ecat__globals_8hpp_aae638294dae324558d32f20ad29cd501}\label{ecat__globals_8hpp_aae638294dae324558d32f20ad29cd501}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!INC\_PER\_ROTATION@{INC\_PER\_ROTATION}}
+\index{INC\_PER\_ROTATION@{INC\_PER\_ROTATION}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{INC\_PER\_ROTATION}{INC\_PER\_ROTATION}}
+{\footnotesize\ttfamily \#define I\+N\+C\+\_\+\+P\+E\+R\+\_\+\+R\+O\+T\+A\+T\+I\+ON~\mbox{\hyperlink{ecat__globals_8hpp_a1b5f0a2cda8866a2a87331026ac8bd9a}{G\+E\+A\+R\+\_\+\+R\+A\+T\+IO}}$\ast$\mbox{\hyperlink{ecat__globals_8hpp_a8cdc17f43c9f3850f60d04f98216fc13}{E\+N\+C\+O\+D\+E\+R\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+ON}}$\ast$4}
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a68f5d933f0593175f4bd579e353d8f54}\label{ecat__globals_8hpp_a68f5d933f0593175f4bd579e353d8f54}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!MEASURE\_TIMING@{MEASURE\_TIMING}}
+\index{MEASURE\_TIMING@{MEASURE\_TIMING}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{MEASURE\_TIMING}{MEASURE\_TIMING}}
+{\footnotesize\ttfamily \#define M\+E\+A\+S\+U\+R\+E\+\_\+\+T\+I\+M\+I\+NG~1}
+
+
+
+If you want to measure timings leave it as one, otherwise make it 0. 
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a5d918ecbea3b854bbfe74765c9357be3}\label{ecat__globals_8hpp_a5d918ecbea3b854bbfe74765c9357be3}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!NUM\_OF\_SLAVES@{NUM\_OF\_SLAVES}}
+\index{NUM\_OF\_SLAVES@{NUM\_OF\_SLAVES}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{NUM\_OF\_SLAVES}{NUM\_OF\_SLAVES}}
+{\footnotesize\ttfamily \#define N\+U\+M\+\_\+\+O\+F\+\_\+\+S\+L\+A\+V\+ES~2}
+
+
+
+Object dictionary paramaters P\+DO index and default values in here. 
+
+IgH Ether\+C\+AT library header file the user-\/space real-\/time interface library. IgH, Ether\+C\+AT related functions and data types. U\+S\+ER S\+H\+O\+U\+LD D\+E\+F\+I\+NE T\+H\+IS A\+R\+E\+AS Total number of connected slave to the bus. \mbox{\Hypertarget{ecat__globals_8hpp_a5fcd914889df46acf623f7d9a81654d7}\label{ecat__globals_8hpp_a5fcd914889df46acf623f7d9a81654d7}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!PERIOD\_MS@{PERIOD\_MS}}
+\index{PERIOD\_MS@{PERIOD\_MS}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{PERIOD\_MS}{PERIOD\_MS}}
+{\footnotesize\ttfamily \#define P\+E\+R\+I\+O\+D\+\_\+\+MS~(\mbox{\hyperlink{ecat__globals_8hpp_aa840a0ac3b87cf7c89b265e1912cbb5b}{P\+E\+R\+I\+O\+D\+\_\+\+US}} / 1000)}
+
+\mbox{\Hypertarget{ecat__globals_8hpp_ab495f8313ac709722de636c17e8a7381}\label{ecat__globals_8hpp_ab495f8313ac709722de636c17e8a7381}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!PERIOD\_NS@{PERIOD\_NS}}
+\index{PERIOD\_NS@{PERIOD\_NS}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{PERIOD\_NS}{PERIOD\_NS}}
+{\footnotesize\ttfamily \#define P\+E\+R\+I\+O\+D\+\_\+\+NS~(\mbox{\hyperlink{ecat__globals_8hpp_aaf4966dff24b810040e9c7196d621401}{g\+\_\+k\+Ns\+Per\+Sec}}/\mbox{\hyperlink{ecat__globals_8hpp_a84142cd3e3bf14c4ecd4b6707a808c39}{F\+R\+E\+Q\+U\+E\+N\+CY}})}
+
+
+
+Ether\+C\+AT communication period in nanoseconds. 
+
+\mbox{\Hypertarget{ecat__globals_8hpp_aa840a0ac3b87cf7c89b265e1912cbb5b}\label{ecat__globals_8hpp_aa840a0ac3b87cf7c89b265e1912cbb5b}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!PERIOD\_US@{PERIOD\_US}}
+\index{PERIOD\_US@{PERIOD\_US}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{PERIOD\_US}{PERIOD\_US}}
+{\footnotesize\ttfamily \#define P\+E\+R\+I\+O\+D\+\_\+\+US~(\mbox{\hyperlink{ecat__globals_8hpp_ab495f8313ac709722de636c17e8a7381}{P\+E\+R\+I\+O\+D\+\_\+\+NS}} / 1000)}
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a41325cb83383d2eb13badf1c991b76b6}\label{ecat__globals_8hpp_a41325cb83383d2eb13badf1c991b76b6}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!POSITION\_MODE@{POSITION\_MODE}}
+\index{POSITION\_MODE@{POSITION\_MODE}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{POSITION\_MODE}{POSITION\_MODE}}
+{\footnotesize\ttfamily \#define P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+M\+O\+DE~0}
+
+
+
+set this to 1 if you want to use it in position mode (and set velocity mode 0) 
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a4f447e47949e3f87b24ffd1039e07be1}\label{ecat__globals_8hpp_a4f447e47949e3f87b24ffd1039e07be1}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!RESET\_BIT@{RESET\_BIT}}
+\index{RESET\_BIT@{RESET\_BIT}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{RESET\_BIT}{RESET\_BIT}}
+{\footnotesize\ttfamily \#define R\+E\+S\+E\+T\+\_\+\+B\+IT(\begin{DoxyParamCaption}\item[{}]{N\+UM,  }\item[{}]{N }\end{DoxyParamCaption})~(N\+UM \& $\sim$(1 $<$$<$ N))}
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a11c01176d68fc4cd05ed423d922eca26}\label{ecat__globals_8hpp_a11c01176d68fc4cd05ed423d922eca26}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!SET\_BIT@{SET\_BIT}}
+\index{SET\_BIT@{SET\_BIT}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{SET\_BIT}{SET\_BIT}}
+{\footnotesize\ttfamily \#define S\+E\+T\+\_\+\+B\+IT(\begin{DoxyParamCaption}\item[{}]{N\+UM,  }\item[{}]{N }\end{DoxyParamCaption})~(N\+UM $\vert$  (1 $<$$<$ N))}
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a3e343f521bdee99c94f22627c930d24d}\label{ecat__globals_8hpp_a3e343f521bdee99c94f22627c930d24d}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!TEST\_BIT@{TEST\_BIT}}
+\index{TEST\_BIT@{TEST\_BIT}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_BIT}{TEST\_BIT}}
+{\footnotesize\ttfamily \#define T\+E\+S\+T\+\_\+\+B\+IT(\begin{DoxyParamCaption}\item[{}]{N\+UM,  }\item[{}]{N }\end{DoxyParamCaption})~((N\+UM \&  (1 $<$$<$ N))$>$$>$N)}
+
+
+
+To sync every cycle. 
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a345f131f51c76cb464c7647eb1e25dd3}\label{ecat__globals_8hpp_a345f131f51c76cb464c7647eb1e25dd3}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!THIRTY\_DEGREE\_CCW@{THIRTY\_DEGREE\_CCW}}
+\index{THIRTY\_DEGREE\_CCW@{THIRTY\_DEGREE\_CCW}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{THIRTY\_DEGREE\_CCW}{THIRTY\_DEGREE\_CCW}}
+{\footnotesize\ttfamily \#define T\+H\+I\+R\+T\+Y\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+C\+CW~int(\mbox{\hyperlink{ecat__globals_8hpp_aae638294dae324558d32f20ad29cd501}{I\+N\+C\+\_\+\+P\+E\+R\+\_\+\+R\+O\+T\+A\+T\+I\+ON}}/12)}
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a0ca04ace3fdf9024f99a7e1c50bea258}\label{ecat__globals_8hpp_a0ca04ace3fdf9024f99a7e1c50bea258}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!TIMESPEC2NS@{TIMESPEC2NS}}
+\index{TIMESPEC2NS@{TIMESPEC2NS}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{TIMESPEC2NS}{TIMESPEC2NS}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+S\+P\+E\+C2\+NS(\begin{DoxyParamCaption}\item[{}]{T }\end{DoxyParamCaption})~((uint64\+\_\+t) (T).tv\+\_\+sec $\ast$ \mbox{\hyperlink{ecat__globals_8hpp_aaf4966dff24b810040e9c7196d621401}{g\+\_\+k\+Ns\+Per\+Sec}} + (T).tv\+\_\+nsec)}
+
+\mbox{\Hypertarget{ecat__globals_8hpp_abc038b9c4db3369a55eec862a3fac0d3}\label{ecat__globals_8hpp_abc038b9c4db3369a55eec862a3fac0d3}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!VELOCITY\_MODE@{VELOCITY\_MODE}}
+\index{VELOCITY\_MODE@{VELOCITY\_MODE}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{VELOCITY\_MODE}{VELOCITY\_MODE}}
+{\footnotesize\ttfamily \#define V\+E\+L\+O\+C\+I\+T\+Y\+\_\+\+M\+O\+DE~0}
+
+
+
+set this to 1 if you want to use it in velocity mode (and set position mode 0) 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcae}\label{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcae}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!ControlStructureBits@{ControlStructureBits}}
+\index{ControlStructureBits@{ControlStructureBits}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{ControlStructureBits}{ControlStructureBits}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcae}{Control\+Structure\+Bits}}}
+
+
+
+Control structure configuration for control mechanism to select sensor structure specific to hardware. 
+
+\begin{DoxySeeAlso}{See also}
+E\+P\+O\+S4-\/\+Firmware-\/\+Specification pg. 140 
+\end{DoxySeeAlso}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kCurrentControlStructure@{kCurrentControlStructure}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kCurrentControlStructure@{kCurrentControlStructure}}}\mbox{\Hypertarget{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea1bc147fff50f73162083476ccf9259db}\label{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea1bc147fff50f73162083476ccf9259db}} 
+k\+Current\+Control\+Structure&These are bit locations not values for values. \begin{DoxySeeAlso}{See also}
+E\+P\+O\+S4-\/\+Firmware-\/\+Specification pg. 140 !!! 
+\end{DoxySeeAlso}
+\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kVelocityControlStructure@{kVelocityControlStructure}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kVelocityControlStructure@{kVelocityControlStructure}}}\mbox{\Hypertarget{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea329e9cc9ead9ffb097e376d8b7c30077}\label{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea329e9cc9ead9ffb097e376d8b7c30077}} 
+k\+Velocity\+Control\+Structure&0-\/3 , 4 bits. Val \+: 1 -\/ PI current controller \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kPositionControlStructure@{kPositionControlStructure}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kPositionControlStructure@{kPositionControlStructure}}}\mbox{\Hypertarget{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaeadefa2371cf291b699b95e373d12afc7a}\label{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaeadefa2371cf291b699b95e373d12afc7a}} 
+k\+Position\+Control\+Structure&4-\/7, 4bits. Val \+: 0 -\/ None $\vert$ 1 -\/ PI Vecolity controller (low pass filter) $\vert$ 2 -\/ PI velocity controller (observer) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kGearLocation@{kGearLocation}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kGearLocation@{kGearLocation}}}\mbox{\Hypertarget{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea42eacc8c934740b3b5c9a975b1e686ce}\label{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea42eacc8c934740b3b5c9a975b1e686ce}} 
+k\+Gear\+Location&8-\/11 , 4bits. Val \+: 0 -\/ None $\vert$ 1 -\/ P\+ID position controller \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kProcessValueReference@{kProcessValueReference}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kProcessValueReference@{kProcessValueReference}}}\mbox{\Hypertarget{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea58b060340f45f00efe9d02f5d74bd52d}\label{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea58b060340f45f00efe9d02f5d74bd52d}} 
+k\+Process\+Value\+Reference&1 bit Val \+: 0 -\/ None $\vert$ 1 -\/ Gear Mounted on system ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kMainSensor@{kMainSensor}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kMainSensor@{kMainSensor}}}\mbox{\Hypertarget{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaeaf38c8622246ce7524f3e77d1127ebe60}\label{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaeaf38c8622246ce7524f3e77d1127ebe60}} 
+k\+Main\+Sensor&14-\/15 2 bits. Val \+: 0 -\/ On motor (or undefined) $\vert$ 1 -\/ On gear ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kAuxiliarySensor@{kAuxiliarySensor}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kAuxiliarySensor@{kAuxiliarySensor}}}\mbox{\Hypertarget{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea7ddb333c336bc9f1b5101e7913e27788}\label{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea7ddb333c336bc9f1b5101e7913e27788}} 
+k\+Auxiliary\+Sensor&16-\/19 4 bits. Val \+: 0 -\/ None $\vert$ 1 -\/ Sensor 1 $\vert$ 2 -\/ Sensor 2 $\vert$ 3 -\/ Sensor 3 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kMountingPositionSensor1@{kMountingPositionSensor1}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kMountingPositionSensor1@{kMountingPositionSensor1}}}\mbox{\Hypertarget{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea145c866208cc96b7979e4accb809259d}\label{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea145c866208cc96b7979e4accb809259d}} 
+k\+Mounting\+Position\+Sensor1&20-\/23 4 bits. Val \+: 0 -\/ None $\vert$ 1 -\/ Sensor 1 $\vert$ 2 -\/ Sensor 2 $\vert$ 3 -\/ Sensor 3 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kMountingPositionSensor2@{kMountingPositionSensor2}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kMountingPositionSensor2@{kMountingPositionSensor2}}}\mbox{\Hypertarget{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea23783bb9190b137245e18da8094f44be}\label{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea23783bb9190b137245e18da8094f44be}} 
+k\+Mounting\+Position\+Sensor2&24-\/25 2 bits. Val \+: 0 -\/ On motor (or undefined) $\vert$ 1 -\/ On gear \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kMountingPositionSensor3@{kMountingPositionSensor3}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kMountingPositionSensor3@{kMountingPositionSensor3}}}\mbox{\Hypertarget{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea98dadce82ec3a84cfd178ed6841f1129}\label{ecat__globals_8hpp_ae56d58acf7f23ca7ce23ed016a45dcaea98dadce82ec3a84cfd178ed6841f1129}} 
+k\+Mounting\+Position\+Sensor3&26-\/27 2 bits. Val \+: 0 -\/ On motor (or undefined) $\vert$ 1 -\/ On gear \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9}\label{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!ErrorRegisterBits@{ErrorRegisterBits}}
+\index{ErrorRegisterBits@{ErrorRegisterBits}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{ErrorRegisterBits}{ErrorRegisterBits}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9}{Error\+Register\+Bits}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kGenericError@{kGenericError}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kGenericError@{kGenericError}}}\mbox{\Hypertarget{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9af711e7b7752014c8ec706ea554dfce92}\label{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9af711e7b7752014c8ec706ea554dfce92}} 
+k\+Generic\+Error&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kCurrentError@{kCurrentError}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kCurrentError@{kCurrentError}}}\mbox{\Hypertarget{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9ad6e632a0b86ed7fb7e6e3edcb429e8ee}\label{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9ad6e632a0b86ed7fb7e6e3edcb429e8ee}} 
+k\+Current\+Error&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kVoltageError@{kVoltageError}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kVoltageError@{kVoltageError}}}\mbox{\Hypertarget{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9a14832fe2ee52a654874fa813b50dbded}\label{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9a14832fe2ee52a654874fa813b50dbded}} 
+k\+Voltage\+Error&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kTemperatureError@{kTemperatureError}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kTemperatureError@{kTemperatureError}}}\mbox{\Hypertarget{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9a02389ed04b418b8cb5fb8bfb103cccdb}\label{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9a02389ed04b418b8cb5fb8bfb103cccdb}} 
+k\+Temperature\+Error&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kCommunicationError@{kCommunicationError}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kCommunicationError@{kCommunicationError}}}\mbox{\Hypertarget{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9af97f356c1721064526054b6f066b496f}\label{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9af97f356c1721064526054b6f066b496f}} 
+k\+Communication\+Error&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kDeviceProfileSpecificError@{kDeviceProfileSpecificError}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kDeviceProfileSpecificError@{kDeviceProfileSpecificError}}}\mbox{\Hypertarget{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9a8af07a22c3ad75def4d66343ce660209}\label{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9a8af07a22c3ad75def4d66343ce660209}} 
+k\+Device\+Profile\+Specific\+Error&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kReserved@{kReserved}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kReserved@{kReserved}}}\mbox{\Hypertarget{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9aea8b005869aaf5c494db89c503b06800}\label{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9aea8b005869aaf5c494db89c503b06800}} 
+k\+Reserved&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kMotionError@{kMotionError}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kMotionError@{kMotionError}}}\mbox{\Hypertarget{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9a5c26704f40c60ff29dba053bed06a202}\label{ecat__globals_8hpp_aad8633114c3b7bfa7443f128aad93aa9a5c26704f40c60ff29dba053bed06a202}} 
+k\+Motion\+Error&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7}\label{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!MotorStates@{MotorStates}}
+\index{MotorStates@{MotorStates}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{MotorStates}{MotorStates}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7}{Motor\+States}}}
+
+
+
+C\+IA 402 state machine motor states. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kReadyToSwitchOn@{kReadyToSwitchOn}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kReadyToSwitchOn@{kReadyToSwitchOn}}}\mbox{\Hypertarget{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7aefe8b16564c493d6aba4e1761d28fb6e}\label{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7aefe8b16564c493d6aba4e1761d28fb6e}} 
+k\+Ready\+To\+Switch\+On&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kSwitchedOn@{kSwitchedOn}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kSwitchedOn@{kSwitchedOn}}}\mbox{\Hypertarget{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a1aec86a3bb84af0dc09dfba27134d870}\label{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a1aec86a3bb84af0dc09dfba27134d870}} 
+k\+Switched\+On&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kOperationEnabled@{kOperationEnabled}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kOperationEnabled@{kOperationEnabled}}}\mbox{\Hypertarget{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a830836c1b6166075e14d3cde3ba188bc}\label{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a830836c1b6166075e14d3cde3ba188bc}} 
+k\+Operation\+Enabled&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kFault@{kFault}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kFault@{kFault}}}\mbox{\Hypertarget{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a17586673585e43ca084718a6a193c61d}\label{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a17586673585e43ca084718a6a193c61d}} 
+k\+Fault&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kVoltageEnabled@{kVoltageEnabled}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kVoltageEnabled@{kVoltageEnabled}}}\mbox{\Hypertarget{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a94491568dfbb921ec2bc5e0b90bfdf51}\label{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a94491568dfbb921ec2bc5e0b90bfdf51}} 
+k\+Voltage\+Enabled&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kQuickStop@{kQuickStop}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kQuickStop@{kQuickStop}}}\mbox{\Hypertarget{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a9ebe2d45f83dd0328a95f91b5f7f3197}\label{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a9ebe2d45f83dd0328a95f91b5f7f3197}} 
+k\+Quick\+Stop&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kSwitchOnDisabled@{kSwitchOnDisabled}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kSwitchOnDisabled@{kSwitchOnDisabled}}}\mbox{\Hypertarget{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a69fef3d95dbc631270c0a449c873b1f9}\label{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a69fef3d95dbc631270c0a449c873b1f9}} 
+k\+Switch\+On\+Disabled&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kWarning@{kWarning}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kWarning@{kWarning}}}\mbox{\Hypertarget{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a017887ee6e6d711cdb453f275fd971dc}\label{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a017887ee6e6d711cdb453f275fd971dc}} 
+k\+Warning&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kRemote@{kRemote}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kRemote@{kRemote}}}\mbox{\Hypertarget{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7af34e262497cefee9f006225d255f0b02}\label{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7af34e262497cefee9f006225d255f0b02}} 
+k\+Remote&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kTargetReached@{kTargetReached}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kTargetReached@{kTargetReached}}}\mbox{\Hypertarget{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a2f6d5acfbeb8936f56c1a86dd1827dfb}\label{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7a2f6d5acfbeb8936f56c1a86dd1827dfb}} 
+k\+Target\+Reached&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kInternalLimitActivate@{kInternalLimitActivate}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kInternalLimitActivate@{kInternalLimitActivate}}}\mbox{\Hypertarget{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7af6a3169aef150c63a68dc2206278bb11}\label{ecat__globals_8hpp_a5d175b4708e9a88ebbc35372ca1818b7af6a3169aef150c63a68dc2206278bb11}} 
+k\+Internal\+Limit\+Activate&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68af}\label{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68af}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!OpMode@{OpMode}}
+\index{OpMode@{OpMode}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{OpMode}{OpMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68af}{Op\+Mode}}}
+
+
+
+Motor operation modes. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kProfilePosition@{kProfilePosition}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kProfilePosition@{kProfilePosition}}}\mbox{\Hypertarget{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afad52f0058d24f3e3fec39d4502604a22e}\label{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afad52f0058d24f3e3fec39d4502604a22e}} 
+k\+Profile\+Position&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kProfileVelocity@{kProfileVelocity}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kProfileVelocity@{kProfileVelocity}}}\mbox{\Hypertarget{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afa5d2b33d7161a77fdc97acfdc4de48a03}\label{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afa5d2b33d7161a77fdc97acfdc4de48a03}} 
+k\+Profile\+Velocity&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kProfileTorque@{kProfileTorque}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kProfileTorque@{kProfileTorque}}}\mbox{\Hypertarget{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afa3e1069b7c47950dd03ed7eb55f6421d2}\label{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afa3e1069b7c47950dd03ed7eb55f6421d2}} 
+k\+Profile\+Torque&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kHoming@{kHoming}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kHoming@{kHoming}}}\mbox{\Hypertarget{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afa90b00776b82cbe0b451a0a9c46e68945}\label{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afa90b00776b82cbe0b451a0a9c46e68945}} 
+k\+Homing&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kInterpolatedPosition@{kInterpolatedPosition}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kInterpolatedPosition@{kInterpolatedPosition}}}\mbox{\Hypertarget{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afa7a6bd1ac4ba0aab0998cbccaded2ca27}\label{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afa7a6bd1ac4ba0aab0998cbccaded2ca27}} 
+k\+Interpolated\+Position&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kCSPosition@{kCSPosition}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kCSPosition@{kCSPosition}}}\mbox{\Hypertarget{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afa1566565deaca1a00f9046cea18ccf5de}\label{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afa1566565deaca1a00f9046cea18ccf5de}} 
+k\+C\+S\+Position&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kCSVelocity@{kCSVelocity}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kCSVelocity@{kCSVelocity}}}\mbox{\Hypertarget{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afab7ddf4a5dec8aca3035989b429490bc4}\label{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afab7ddf4a5dec8aca3035989b429490bc4}} 
+k\+C\+S\+Velocity&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kCSTorque@{kCSTorque}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kCSTorque@{kCSTorque}}}\mbox{\Hypertarget{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afa32c69215479b5f329044f8c79a74e1a4}\label{ecat__globals_8hpp_a56752d1aeb4bd4940e632396072d68afa32c69215479b5f329044f8c79a74e1a4}} 
+k\+C\+S\+Torque&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2d}\label{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2d}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!SensorConfig@{SensorConfig}}
+\index{SensorConfig@{SensorConfig}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{SensorConfig}{SensorConfig}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2d}{Sensor\+Config}}}
+
+
+
+Sensor Configuration for motor for more information. 
+
+\begin{DoxySeeAlso}{See also}
+E\+P\+O\+S4-\/\+Firmware-\/\+Specification Pg.\+138 
+\end{DoxySeeAlso}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kSensor1TypeNone@{kSensor1TypeNone}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kSensor1TypeNone@{kSensor1TypeNone}}}\mbox{\Hypertarget{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2dab5f681ac79a8660aba4a9d7dc6eb31f2}\label{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2dab5f681ac79a8660aba4a9d7dc6eb31f2}} 
+k\+Sensor1\+Type\+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kSensor1TypeDigitalIncrementalEncoder1@{kSensor1TypeDigitalIncrementalEncoder1}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kSensor1TypeDigitalIncrementalEncoder1@{kSensor1TypeDigitalIncrementalEncoder1}}}\mbox{\Hypertarget{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2daf61a7493356a7aece1a7375167832ed9}\label{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2daf61a7493356a7aece1a7375167832ed9}} 
+k\+Sensor1\+Type\+Digital\+Incremental\+Encoder1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kSensor2TypeNone@{kSensor2TypeNone}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kSensor2TypeNone@{kSensor2TypeNone}}}\mbox{\Hypertarget{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2da6998cb5a0570925518e0263f50220bf6}\label{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2da6998cb5a0570925518e0263f50220bf6}} 
+k\+Sensor2\+Type\+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kSensor2TypeDigitalIncrementalEncoder2@{kSensor2TypeDigitalIncrementalEncoder2}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kSensor2TypeDigitalIncrementalEncoder2@{kSensor2TypeDigitalIncrementalEncoder2}}}\mbox{\Hypertarget{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2da21874e2c5dbfc01e8448556c082994bb}\label{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2da21874e2c5dbfc01e8448556c082994bb}} 
+k\+Sensor2\+Type\+Digital\+Incremental\+Encoder2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kSensor2TypeAnalogIncrementalEncoderSinCos@{kSensor2TypeAnalogIncrementalEncoderSinCos}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kSensor2TypeAnalogIncrementalEncoderSinCos@{kSensor2TypeAnalogIncrementalEncoderSinCos}}}\mbox{\Hypertarget{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2da67d7a228bc250e460d37d76a9c438f4e}\label{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2da67d7a228bc250e460d37d76a9c438f4e}} 
+k\+Sensor2\+Type\+Analog\+Incremental\+Encoder\+Sin\+Cos&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kSensor2TypeSSIAbsoluteEncoder@{kSensor2TypeSSIAbsoluteEncoder}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kSensor2TypeSSIAbsoluteEncoder@{kSensor2TypeSSIAbsoluteEncoder}}}\mbox{\Hypertarget{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2dacaa71830ad73062664079bb34fba171d}\label{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2dacaa71830ad73062664079bb34fba171d}} 
+k\+Sensor2\+Type\+S\+S\+I\+Absolute\+Encoder&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kSensor3TypeNone@{kSensor3TypeNone}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kSensor3TypeNone@{kSensor3TypeNone}}}\mbox{\Hypertarget{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2da33fa0423efc03ec99e691fec3382f55a}\label{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2da33fa0423efc03ec99e691fec3382f55a}} 
+k\+Sensor3\+Type\+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kSensor3TypeDigitalHallSensor@{kSensor3TypeDigitalHallSensor}!ecat\_globals.hpp@{ecat\_globals.hpp}}\index{ecat\_globals.hpp@{ecat\_globals.hpp}!kSensor3TypeDigitalHallSensor@{kSensor3TypeDigitalHallSensor}}}\mbox{\Hypertarget{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2da510ca492e95b28ddb224d91f2e748369}\label{ecat__globals_8hpp_a4a8f52fe7f00c0838866e018dfd0fb2da510ca492e95b28ddb224d91f2e748369}} 
+k\+Sensor3\+Type\+Digital\+Hall\+Sensor&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ecat__globals_8hpp_af38165367cb15a861318697b9cae5b53}\label{ecat__globals_8hpp_af38165367cb15a861318697b9cae5b53}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!timespec\_add@{timespec\_add}}
+\index{timespec\_add@{timespec\_add}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{timespec\_add()}{timespec\_add()}}
+{\footnotesize\ttfamily struct timespec timespec\+\_\+add (\begin{DoxyParamCaption}\item[{struct timespec}]{time1,  }\item[{struct timespec}]{time2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add two timespec struct. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time1} & Timespec struct 1 \\
+\hline
+{\em time2} & Timespec struct 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Addition result 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ecat__globals_8hpp_a0f34ecbeba93aefcdd077c6ce0758360}\label{ecat__globals_8hpp_a0f34ecbeba93aefcdd077c6ce0758360}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!g\_cycle\_time@{g\_cycle\_time}}
+\index{g\_cycle\_time@{g\_cycle\_time}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{g\_cycle\_time}{g\_cycle\_time}}
+{\footnotesize\ttfamily const struct timespec g\+\_\+cycle\+\_\+time = \{0, \mbox{\hyperlink{ecat__globals_8hpp_ab495f8313ac709722de636c17e8a7381}{P\+E\+R\+I\+O\+D\+\_\+\+NS}}\}}
+
+
+
+timer for DC sync . 
+
+\mbox{\Hypertarget{ecat__globals_8hpp_aaf4966dff24b810040e9c7196d621401}\label{ecat__globals_8hpp_aaf4966dff24b810040e9c7196d621401}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!g\_kNsPerSec@{g\_kNsPerSec}}
+\index{g\_kNsPerSec@{g\_kNsPerSec}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{g\_kNsPerSec}{g\_kNsPerSec}}
+{\footnotesize\ttfamily const uint32\+\_\+t g\+\_\+k\+Ns\+Per\+Sec = 1000000000}
+
+
+
+Nanoseconds per second. 
+
+\mbox{\Hypertarget{ecat__globals_8hpp_aacc3c7aef173b1cde9377fb7f05c924d}\label{ecat__globals_8hpp_aacc3c7aef173b1cde9377fb7f05c924d}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!g\_kNumberOfServoDrivers@{g\_kNumberOfServoDrivers}}
+\index{g\_kNumberOfServoDrivers@{g\_kNumberOfServoDrivers}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{g\_kNumberOfServoDrivers}{g\_kNumberOfServoDrivers}}
+{\footnotesize\ttfamily const uint32\+\_\+t g\+\_\+k\+Number\+Of\+Servo\+Drivers = 1}
+
+
+
+Number of connected servo drives. 
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a45e08eacd3bf384fc33a73106b94b592}\label{ecat__globals_8hpp_a45e08eacd3bf384fc33a73106b94b592}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!g\_master@{g\_master}}
+\index{g\_master@{g\_master}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{g\_master}{g\_master}}
+{\footnotesize\ttfamily ec\+\_\+master\+\_\+t$\ast$ g\+\_\+master}
+
+
+
+Extern global variable declaration. 
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a59c10b14596652ba74844434d967d78f}\label{ecat__globals_8hpp_a59c10b14596652ba74844434d967d78f}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!g\_master\_domain@{g\_master\_domain}}
+\index{g\_master\_domain@{g\_master\_domain}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{g\_master\_domain}{g\_master\_domain}}
+{\footnotesize\ttfamily ec\+\_\+domain\+\_\+t$\ast$ g\+\_\+master\+\_\+domain}
+
+
+
+Ether\+C\+AT master state. 
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a4581f6b28a86eaa9f6616925eae015db}\label{ecat__globals_8hpp_a4581f6b28a86eaa9f6616925eae015db}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!g\_master\_domain\_state@{g\_master\_domain\_state}}
+\index{g\_master\_domain\_state@{g\_master\_domain\_state}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{g\_master\_domain\_state}{g\_master\_domain\_state}}
+{\footnotesize\ttfamily ec\+\_\+domain\+\_\+state\+\_\+t g\+\_\+master\+\_\+domain\+\_\+state}
+
+
+
+Ethercat data passing master domain. 
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a969ab73f74152e0ba1f0b2a684c29753}\label{ecat__globals_8hpp_a969ab73f74152e0ba1f0b2a684c29753}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!g\_master\_state@{g\_master\_state}}
+\index{g\_master\_state@{g\_master\_state}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{g\_master\_state}{g\_master\_state}}
+{\footnotesize\ttfamily ec\+\_\+master\+\_\+state\+\_\+t g\+\_\+master\+\_\+state}
+
+
+
+Ether\+C\+AT master. 
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a28bf20de2fed0ae3b068bd7f0c74119d}\label{ecat__globals_8hpp_a28bf20de2fed0ae3b068bd7f0c74119d}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!g\_sync\_ref\_counter@{g\_sync\_ref\_counter}}
+\index{g\_sync\_ref\_counter@{g\_sync\_ref\_counter}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{g\_sync\_ref\_counter}{g\_sync\_ref\_counter}}
+{\footnotesize\ttfamily uint32\+\_\+t g\+\_\+sync\+\_\+ref\+\_\+counter}
+
+
+
+cycletime settings in ns. 
+
+\mbox{\Hypertarget{ecat__globals_8hpp_ac7aec8f91749616a8015dd38184e427c}\label{ecat__globals_8hpp_ac7aec8f91749616a8015dd38184e427c}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!g\_sync\_timer@{g\_sync\_timer}}
+\index{g\_sync\_timer@{g\_sync\_timer}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{g\_sync\_timer}{g\_sync\_timer}}
+{\footnotesize\ttfamily struct timespec g\+\_\+sync\+\_\+timer}
+
+
+
+Ether\+C\+AT master domain state. 
+
+\mbox{\Hypertarget{ecat__globals_8hpp_a6a68d8a40c73f3377978388da56fa9ad}\label{ecat__globals_8hpp_a6a68d8a40c73f3377978388da56fa9ad}} 
+\index{ecat\_globals.hpp@{ecat\_globals.hpp}!sig@{sig}}
+\index{sig@{sig}!ecat\_globals.hpp@{ecat\_globals.hpp}}
+\doxysubsubsection{\texorpdfstring{sig}{sig}}
+{\footnotesize\ttfamily volatile sig\+\_\+atomic\+\_\+t sig = 1\hspace{0.3cm}{\ttfamily [static]}}
+

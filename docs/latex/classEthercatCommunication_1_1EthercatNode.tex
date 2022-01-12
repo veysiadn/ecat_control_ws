@@ -1,0 +1,521 @@
+\hypertarget{classEthercatCommunication_1_1EthercatNode}{}\doxysection{Ethercat\+Communication\+::Ethercat\+Node Class Reference}
+\label{classEthercatCommunication_1_1EthercatNode}\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+
+
+{\ttfamily \#include $<$ecat\+\_\+node.\+hpp$>$}
+
+
+
+Collaboration diagram for Ethercat\+Communication\+::Ethercat\+Node\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classEthercatCommunication_1_1EthercatNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a020b9007aa6e51112c09f3342dc5bc8d}{Ethercat\+Node}} ()
+\item 
+\mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a0535214bb0696de6537beafdc39c6207}{$\sim$\+Ethercat\+Node}} ()
+\item 
+int \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a44858407cdf70da448d663df9af054f1}{Configure\+Master}} ()
+\begin{DoxyCompactList}\small\item\em Requests master instance and creates a domain for a master. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_addf743b2ca64c1692e8d12f0045cde1d}{Define\+Default\+Slaves}} ()
+\begin{DoxyCompactList}\small\item\em Defines default connected slaves based on number of slaves. Specifies its position, vendor id , product code etc. Default connected slaves considered implementation specific. In our case it will be 3 motors and one Easy\+C\+AT slave. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_ad9c38c7d21f5c644634e647c7a9f42ab}{Set\+Custom\+Slave}} (\mbox{\hyperlink{classEthercatSlave}{Ethercat\+Slave}} c\+\_\+slave, int position)
+\begin{DoxyCompactList}\small\item\em Passes your defined slave to \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode}{Ethercat\+Node}} class. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a473246ebddb4b4d9c4e72434a563f0e2}{Configure\+Slaves}} ()
+\begin{DoxyCompactList}\small\item\em Obtains slave configuration for all slaves w.\+r.\+t master. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a7b60a300f70876769da887921932301f}{Set\+Profile\+Position\+Parameters}} (\mbox{\hyperlink{structProfilePosParam}{Profile\+Pos\+Param}} \&P, int position)
+\begin{DoxyCompactList}\small\item\em Set mode to Profile\+Position\+Mode with specified parameters for servo drive on that position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a67e154560b31cebc27431efc46d56b83}{Set\+Profile\+Position\+Parameters\+All}} (\mbox{\hyperlink{structProfilePosParam}{Profile\+Pos\+Param}} \&P)
+\begin{DoxyCompactList}\small\item\em Set the mode to Profile\+Position\+Mode with specified Parameters for all servo drives on the bus. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a1ce7e6a7f9f707ff6d8feb8b79078219}{Set\+Profile\+Velocity\+Parameters}} (\mbox{\hyperlink{structProfileVelocityParam}{Profile\+Velocity\+Param}} \&P, int position)
+\begin{DoxyCompactList}\small\item\em Set mode to Profile\+Velocity\+Mode with specified parameters for servo drive on that position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_ac0f1d24eb783d34c604f7a91ff5ba45c}{Set\+Profile\+Velocity\+Parameters\+All}} (\mbox{\hyperlink{structProfileVelocityParam}{Profile\+Velocity\+Param}} \&P)
+\begin{DoxyCompactList}\small\item\em Set mode to Profile\+Velocity\+Mode with specified parameters for all servo drives on the bus. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a3dd07ec5620f136505a3a41154557898}{Set\+Cyclic\+Sync\+Position\+Mode\+Parameters}} (\mbox{\hyperlink{structCSPositionModeParam}{C\+S\+Position\+Mode\+Param}} \&P, int position)
+\begin{DoxyCompactList}\small\item\em Set the Cyclic Sync Position Mode Parameters for slave in specified physical position w.\+r.\+t. master. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_aa9d52ad13b5ecc696e6ab0441573cde4}{Set\+Cyclic\+Sync\+Position\+Mode\+Parameters\+All}} (\mbox{\hyperlink{structCSPositionModeParam}{C\+S\+Position\+Mode\+Param}} \&P)
+\begin{DoxyCompactList}\small\item\em Sets the Cyclic Synchronous Position Mode Parameters for all connected motor driver slaves. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a2eefc79d0eda991d04050516890801c9}{Map\+Default\+Pdos}} ()
+\begin{DoxyCompactList}\small\item\em Maps default P\+D\+Os for our spine surgery robot implementation. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a1f1a5c53e93883924b5faa7e85a188c6}{Map\+Custom\+Pdos}} (ec\+\_\+sync\+\_\+info\+\_\+t $\ast$syncs, ec\+\_\+pdo\+\_\+entry\+\_\+reg\+\_\+t $\ast$pdo\+\_\+entry\+\_\+reg, int position)
+\begin{DoxyCompactList}\small\item\em Map Custom P\+DO based on your P\+DO mappings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a57ca95ffa0562dc7c34705a0514d6ea2}{Config\+Dc\+Sync\+Default}} ()
+\begin{DoxyCompactList}\small\item\em Configures DC sync for our default configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a5bb6c912a9fe73dc73a6cf216177e886}{Config\+Dc\+Sync}} (uint16\+\_\+t assign\+\_\+activate, int position)
+\begin{DoxyCompactList}\small\item\em Configures DC synchronization for specified slave position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a78c55e7bee137dcee3fb65d2954171fb}{Check\+Slave\+Configuration\+State}} ()
+\begin{DoxyCompactList}\small\item\em This function will check slave\textquotesingle{}s application layer states. (I\+N\+I\+T/\+P\+R\+E\+O\+P/\+S\+A\+F\+E\+O\+P/\+OP) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_af64a25729064c533ee955e0b461ddcca}{Check\+Master\+State}} ()
+\begin{DoxyCompactList}\small\item\em This function will check master\textquotesingle{}s state, in terms of number of responding slaves and their application layer states. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_af76be6b843886442b2d4d7b94be9374f}{Check\+Master\+Domain\+State}} ()
+\begin{DoxyCompactList}\small\item\em Reads the state of a domain. Stores the domain state in the given state structure. Using this method, the process data exchange can be monitored in realtime. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_aa0d2eae2b57c39c827a882699c705325}{Activate\+Master}} ()
+\begin{DoxyCompactList}\small\item\em Activates master, after this function call realtime operation can start. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a5ced6bccaa5b3cf141a39b26782bdb2e}{Register\+Domain}} ()
+\begin{DoxyCompactList}\small\item\em Registers domain for each slave. This method has to be called after ecrt\+\_\+master\+\_\+activate() to get the mapped domain process data memory. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a373f1966b60a63d9f54db94c05326931}{Wait\+For\+Operational\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Puts all slave to operational mode.\+User must call this before entering real-\/time operation. Reason for this function is that, master and slave has to do several exchange before becoming operational. So this function does exchange between master and slaves for up to 10 sec, could finish earlier. If timeout occurs it will return -\/1. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a4455e0ba8abeedb96055615eb5a37f68}{Open\+Ethercat\+Master}} ()
+\begin{DoxyCompactList}\small\item\em Opens Ether\+C\+AT master via command line tool if it\textquotesingle{}s not already on. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a284ff9ea43d86a07c696833a9ffc11fe}{Get\+Number\+Of\+Connected\+Slaves}} ()
+\begin{DoxyCompactList}\small\item\em Get the Number Of physically Connected Slaves to the bus.\+And checks if specified N\+U\+M\+\_\+\+O\+F\+\_\+\+S\+L\+A\+V\+ES is correct. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_ab39e88b76a081092bb0627a05cc5815a}{Get\+All\+Slave\+Information}} ()
+\begin{DoxyCompactList}\small\item\em Get the information of physically connected slaves to the master. This function will return connected slave\textquotesingle{}s vendor id, product code. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_afa5b462e02be78bbf21e76732f1cc316}{Deactivate\+Communication}} ()
+\begin{DoxyCompactList}\small\item\em Deactivates slaves and can be called in real-\/time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_ac3a61d761598ce347570b9b4e9d31cac}{Release\+Master}} ()
+\begin{DoxyCompactList}\small\item\em Deactivates and releases master shouldn\textquotesingle{}t be called in real-\/time. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_ace130837f0f23861d07f2d252960cac8}{Shut\+Down\+Ethercat\+Master}} ()
+\begin{DoxyCompactList}\small\item\em Shutdowns Ether\+C\+AT master via command line tool if it\textquotesingle{}s not already off. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEthercatSlave}{Ethercat\+Slave}} \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_adca54bebbcfe48cb57edca8de6c3d084}{slaves\+\_\+}} \mbox{[}\mbox{\hyperlink{ecat__globals_8hpp_a5d918ecbea3b854bbfe74765c9357be3}{N\+U\+M\+\_\+\+O\+F\+\_\+\+S\+L\+A\+V\+ES}}\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a3f8dd08c4b1cf9e455a60b8b5ae04cfb}{fd}}
+\begin{DoxyCompactList}\small\item\em File descriptor to open and wake master from C\+LI. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_a020b9007aa6e51112c09f3342dc5bc8d}\label{classEthercatCommunication_1_1EthercatNode_a020b9007aa6e51112c09f3342dc5bc8d}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!EthercatNode@{EthercatNode}}
+\index{EthercatNode@{EthercatNode}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{EthercatNode()}{EthercatNode()}}
+{\footnotesize\ttfamily Ethercat\+Node\+::\+Ethercat\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_a0535214bb0696de6537beafdc39c6207}\label{classEthercatCommunication_1_1EthercatNode_a0535214bb0696de6537beafdc39c6207}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!````~EthercatNode@{$\sim$EthercatNode}}
+\index{````~EthercatNode@{$\sim$EthercatNode}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{$\sim$EthercatNode()}{~EthercatNode()}}
+{\footnotesize\ttfamily Ethercat\+Node\+::$\sim$\+Ethercat\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_aa0d2eae2b57c39c827a882699c705325}\label{classEthercatCommunication_1_1EthercatNode_aa0d2eae2b57c39c827a882699c705325}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!ActivateMaster@{ActivateMaster}}
+\index{ActivateMaster@{ActivateMaster}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{ActivateMaster()}{ActivateMaster()}}
+{\footnotesize\ttfamily int Ethercat\+Node\+::\+Activate\+Master (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Activates master, after this function call realtime operation can start. 
+
+\begin{DoxyWarning}{Warning}
+Before activating master all configuration should be done 
+
+After calling this function you have to register domain(s) and start realtime task. 
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+0 if succesful, otherwise -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_af76be6b843886442b2d4d7b94be9374f}\label{classEthercatCommunication_1_1EthercatNode_af76be6b843886442b2d4d7b94be9374f}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!CheckMasterDomainState@{CheckMasterDomainState}}
+\index{CheckMasterDomainState@{CheckMasterDomainState}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{CheckMasterDomainState()}{CheckMasterDomainState()}}
+{\footnotesize\ttfamily void Ethercat\+Node\+::\+Check\+Master\+Domain\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads the state of a domain. Stores the domain state in the given state structure. Using this method, the process data exchange can be monitored in realtime. 
+
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_af64a25729064c533ee955e0b461ddcca}\label{classEthercatCommunication_1_1EthercatNode_af64a25729064c533ee955e0b461ddcca}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!CheckMasterState@{CheckMasterState}}
+\index{CheckMasterState@{CheckMasterState}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{CheckMasterState()}{CheckMasterState()}}
+{\footnotesize\ttfamily int Ethercat\+Node\+::\+Check\+Master\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function will check master\textquotesingle{}s state, in terms of number of responding slaves and their application layer states. 
+
+\begin{DoxyReturn}{Returns}
+0 if succesful, otherwise -\/1 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+ec\+\_\+master\+\_\+state\+\_\+t structure. 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_a78c55e7bee137dcee3fb65d2954171fb}\label{classEthercatCommunication_1_1EthercatNode_a78c55e7bee137dcee3fb65d2954171fb}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!CheckSlaveConfigurationState@{CheckSlaveConfigurationState}}
+\index{CheckSlaveConfigurationState@{CheckSlaveConfigurationState}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{CheckSlaveConfigurationState()}{CheckSlaveConfigurationState()}}
+{\footnotesize\ttfamily void Ethercat\+Node\+::\+Check\+Slave\+Configuration\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function will check slave\textquotesingle{}s application layer states. (I\+N\+I\+T/\+P\+R\+E\+O\+P/\+S\+A\+F\+E\+O\+P/\+OP) 
+
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_a5bb6c912a9fe73dc73a6cf216177e886}\label{classEthercatCommunication_1_1EthercatNode_a5bb6c912a9fe73dc73a6cf216177e886}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!ConfigDcSync@{ConfigDcSync}}
+\index{ConfigDcSync@{ConfigDcSync}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{ConfigDcSync()}{ConfigDcSync()}}
+{\footnotesize\ttfamily void Ethercat\+Node\+::\+Config\+Dc\+Sync (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{assign\+\_\+activate,  }\item[{int}]{position }\end{DoxyParamCaption})}
+
+
+
+Configures DC synchronization for specified slave position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em assign\+\_\+activate} & Activating DC synchronization for slave. 0x300 for Elmo $\vert$ and same for Easy\+C\+AT \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Assign activate parameters specified in slaves E\+SI file
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_a57ca95ffa0562dc7c34705a0514d6ea2}\label{classEthercatCommunication_1_1EthercatNode_a57ca95ffa0562dc7c34705a0514d6ea2}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!ConfigDcSyncDefault@{ConfigDcSyncDefault}}
+\index{ConfigDcSyncDefault@{ConfigDcSyncDefault}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{ConfigDcSyncDefault()}{ConfigDcSyncDefault()}}
+{\footnotesize\ttfamily void Ethercat\+Node\+::\+Config\+Dc\+Sync\+Default (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Configures DC sync for our default configuration. 
+
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_a44858407cdf70da448d663df9af054f1}\label{classEthercatCommunication_1_1EthercatNode_a44858407cdf70da448d663df9af054f1}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!ConfigureMaster@{ConfigureMaster}}
+\index{ConfigureMaster@{ConfigureMaster}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{ConfigureMaster()}{ConfigureMaster()}}
+{\footnotesize\ttfamily int Ethercat\+Node\+::\+Configure\+Master (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Requests master instance and creates a domain for a master. 
+
+\begin{DoxyNote}{Note}
+Keep in mind that created master and domain are global variables. 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+0 if succesful otherwise -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_a473246ebddb4b4d9c4e72434a563f0e2}\label{classEthercatCommunication_1_1EthercatNode_a473246ebddb4b4d9c4e72434a563f0e2}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!ConfigureSlaves@{ConfigureSlaves}}
+\index{ConfigureSlaves@{ConfigureSlaves}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{ConfigureSlaves()}{ConfigureSlaves()}}
+{\footnotesize\ttfamily int Ethercat\+Node\+::\+Configure\+Slaves (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtains slave configuration for all slaves w.\+r.\+t master. 
+
+\begin{DoxyReturn}{Returns}
+0 if succesfull, otherwise -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_afa5b462e02be78bbf21e76732f1cc316}\label{classEthercatCommunication_1_1EthercatNode_afa5b462e02be78bbf21e76732f1cc316}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!DeactivateCommunication@{DeactivateCommunication}}
+\index{DeactivateCommunication@{DeactivateCommunication}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{DeactivateCommunication()}{DeactivateCommunication()}}
+{\footnotesize\ttfamily void Ethercat\+Node\+::\+Deactivate\+Communication (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deactivates slaves and can be called in real-\/time. 
+
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_addf743b2ca64c1692e8d12f0045cde1d}\label{classEthercatCommunication_1_1EthercatNode_addf743b2ca64c1692e8d12f0045cde1d}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!DefineDefaultSlaves@{DefineDefaultSlaves}}
+\index{DefineDefaultSlaves@{DefineDefaultSlaves}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{DefineDefaultSlaves()}{DefineDefaultSlaves()}}
+{\footnotesize\ttfamily void Ethercat\+Communication\+::\+Ethercat\+Node\+::\+Define\+Default\+Slaves (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Defines default connected slaves based on number of slaves. Specifies its position, vendor id , product code etc. Default connected slaves considered implementation specific. In our case it will be 3 motors and one Easy\+C\+AT slave. 
+
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_ab39e88b76a081092bb0627a05cc5815a}\label{classEthercatCommunication_1_1EthercatNode_ab39e88b76a081092bb0627a05cc5815a}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!GetAllSlaveInformation@{GetAllSlaveInformation}}
+\index{GetAllSlaveInformation@{GetAllSlaveInformation}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{GetAllSlaveInformation()}{GetAllSlaveInformation()}}
+{\footnotesize\ttfamily void Ethercat\+Node\+::\+Get\+All\+Slave\+Information (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the information of physically connected slaves to the master. This function will return connected slave\textquotesingle{}s vendor id, product code. 
+
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_a284ff9ea43d86a07c696833a9ffc11fe}\label{classEthercatCommunication_1_1EthercatNode_a284ff9ea43d86a07c696833a9ffc11fe}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!GetNumberOfConnectedSlaves@{GetNumberOfConnectedSlaves}}
+\index{GetNumberOfConnectedSlaves@{GetNumberOfConnectedSlaves}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{GetNumberOfConnectedSlaves()}{GetNumberOfConnectedSlaves()}}
+{\footnotesize\ttfamily int Ethercat\+Node\+::\+Get\+Number\+Of\+Connected\+Slaves (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Number Of physically Connected Slaves to the bus.\+And checks if specified N\+U\+M\+\_\+\+O\+F\+\_\+\+S\+L\+A\+V\+ES is correct. 
+
+\begin{DoxyReturn}{Returns}
+0 if N\+U\+M\+\_\+\+O\+F\+\_\+\+S\+L\+A\+V\+ES setting is correct, otherwise -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_a1f1a5c53e93883924b5faa7e85a188c6}\label{classEthercatCommunication_1_1EthercatNode_a1f1a5c53e93883924b5faa7e85a188c6}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!MapCustomPdos@{MapCustomPdos}}
+\index{MapCustomPdos@{MapCustomPdos}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{MapCustomPdos()}{MapCustomPdos()}}
+{\footnotesize\ttfamily int Ethercat\+Node\+::\+Map\+Custom\+Pdos (\begin{DoxyParamCaption}\item[{ec\+\_\+sync\+\_\+info\+\_\+t $\ast$}]{syncs,  }\item[{ec\+\_\+pdo\+\_\+entry\+\_\+reg\+\_\+t $\ast$}]{pdo\+\_\+entry\+\_\+reg,  }\item[{int}]{position }\end{DoxyParamCaption})}
+
+
+
+Map Custom P\+DO based on your P\+DO mappings. 
+
+\begin{DoxyNote}{Note}
+You have to specify slave syncs and slave pdo registers before using function 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em S} & \mbox{\hyperlink{classEthercatSlave}{Ethercat\+Slave}} instance \\
+\hline
+{\em position} & Physical position of your slave w.\+r.\+t master \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if succesfull, -\/1 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_a2eefc79d0eda991d04050516890801c9}\label{classEthercatCommunication_1_1EthercatNode_a2eefc79d0eda991d04050516890801c9}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!MapDefaultPdos@{MapDefaultPdos}}
+\index{MapDefaultPdos@{MapDefaultPdos}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{MapDefaultPdos()}{MapDefaultPdos()}}
+{\footnotesize\ttfamily int Ethercat\+Node\+::\+Map\+Default\+Pdos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Maps default P\+D\+Os for our spine surgery robot implementation. 
+
+\begin{DoxyNote}{Note}
+This method is specific for our spinerobot implementation. If you have different topology or different servo drives use 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode_a1f1a5c53e93883924b5faa7e85a188c6}{Map\+Custom\+Pdos()}} function of modify this function based on your needs. 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+0 if succesfull, otherwise -\/1. 
+\end{DoxyReturn}
+This part is specific for our Custom E\+A\+S\+Y\+C\+AT slave configuration To create your custom slave and variables you can add variables to \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{structOffsetPDO}{Offset\+P\+DO}} struct. Also you have add your variables to received data structure, you may have to create your custom msg files as well.
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_a4455e0ba8abeedb96055615eb5a37f68}\label{classEthercatCommunication_1_1EthercatNode_a4455e0ba8abeedb96055615eb5a37f68}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!OpenEthercatMaster@{OpenEthercatMaster}}
+\index{OpenEthercatMaster@{OpenEthercatMaster}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{OpenEthercatMaster()}{OpenEthercatMaster()}}
+{\footnotesize\ttfamily int Ethercat\+Node\+::\+Open\+Ethercat\+Master (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Opens Ether\+C\+AT master via command line tool if it\textquotesingle{}s not already on. 
+
+\begin{DoxyReturn}{Returns}
+0 if succesfull, otherwise -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_a5ced6bccaa5b3cf141a39b26782bdb2e}\label{classEthercatCommunication_1_1EthercatNode_a5ced6bccaa5b3cf141a39b26782bdb2e}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!RegisterDomain@{RegisterDomain}}
+\index{RegisterDomain@{RegisterDomain}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{RegisterDomain()}{RegisterDomain()}}
+{\footnotesize\ttfamily int Ethercat\+Node\+::\+Register\+Domain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Registers domain for each slave. This method has to be called after ecrt\+\_\+master\+\_\+activate() to get the mapped domain process data memory. 
+
+\begin{DoxyReturn}{Returns}
+0 if succeful , otherwise -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_ac3a61d761598ce347570b9b4e9d31cac}\label{classEthercatCommunication_1_1EthercatNode_ac3a61d761598ce347570b9b4e9d31cac}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!ReleaseMaster@{ReleaseMaster}}
+\index{ReleaseMaster@{ReleaseMaster}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{ReleaseMaster()}{ReleaseMaster()}}
+{\footnotesize\ttfamily void Ethercat\+Node\+::\+Release\+Master (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deactivates and releases master shouldn\textquotesingle{}t be called in real-\/time. 
+
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_ad9c38c7d21f5c644634e647c7a9f42ab}\label{classEthercatCommunication_1_1EthercatNode_ad9c38c7d21f5c644634e647c7a9f42ab}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!SetCustomSlave@{SetCustomSlave}}
+\index{SetCustomSlave@{SetCustomSlave}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{SetCustomSlave()}{SetCustomSlave()}}
+{\footnotesize\ttfamily void Ethercat\+Node\+::\+Set\+Custom\+Slave (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEthercatSlave}{Ethercat\+Slave}}}]{c\+\_\+slave,  }\item[{int}]{position }\end{DoxyParamCaption})}
+
+
+
+Passes your defined slave to \mbox{\hyperlink{classEthercatCommunication_1_1EthercatNode}{Ethercat\+Node}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c\+\_\+slave} & first create your own \mbox{\hyperlink{classEthercatSlave}{Ethercat\+Slave}} instance and modify it then pass it to configuration. \\
+\hline
+{\em position} & specify the physical connection position for your custom configured slave. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_a3dd07ec5620f136505a3a41154557898}\label{classEthercatCommunication_1_1EthercatNode_a3dd07ec5620f136505a3a41154557898}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!SetCyclicSyncPositionModeParameters@{SetCyclicSyncPositionModeParameters}}
+\index{SetCyclicSyncPositionModeParameters@{SetCyclicSyncPositionModeParameters}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{SetCyclicSyncPositionModeParameters()}{SetCyclicSyncPositionModeParameters()}}
+{\footnotesize\ttfamily int Ethercat\+Node\+::\+Set\+Cyclic\+Sync\+Position\+Mode\+Parameters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCSPositionModeParam}{C\+S\+Position\+Mode\+Param}} \&}]{P,  }\item[{int}]{position }\end{DoxyParamCaption})}
+
+
+
+Set the Cyclic Sync Position Mode Parameters for slave in specified physical position w.\+r.\+t. master. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P} & Cyclic Sync. Position Mode Parameters. \\
+\hline
+{\em position} & Physical position of slave to be configured \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if sucessfull, otherwise -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_aa9d52ad13b5ecc696e6ab0441573cde4}\label{classEthercatCommunication_1_1EthercatNode_aa9d52ad13b5ecc696e6ab0441573cde4}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!SetCyclicSyncPositionModeParametersAll@{SetCyclicSyncPositionModeParametersAll}}
+\index{SetCyclicSyncPositionModeParametersAll@{SetCyclicSyncPositionModeParametersAll}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{SetCyclicSyncPositionModeParametersAll()}{SetCyclicSyncPositionModeParametersAll()}}
+{\footnotesize\ttfamily int Ethercat\+Node\+::\+Set\+Cyclic\+Sync\+Position\+Mode\+Parameters\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCSPositionModeParam}{C\+S\+Position\+Mode\+Param}} \&}]{P }\end{DoxyParamCaption})}
+
+
+
+Sets the Cyclic Synchronous Position Mode Parameters for all connected motor driver slaves. 
+
+\begin{DoxyReturn}{Returns}
+0 if sucessful, otherwise -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_a7b60a300f70876769da887921932301f}\label{classEthercatCommunication_1_1EthercatNode_a7b60a300f70876769da887921932301f}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!SetProfilePositionParameters@{SetProfilePositionParameters}}
+\index{SetProfilePositionParameters@{SetProfilePositionParameters}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{SetProfilePositionParameters()}{SetProfilePositionParameters()}}
+{\footnotesize\ttfamily int Ethercat\+Node\+::\+Set\+Profile\+Position\+Parameters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structProfilePosParam}{Profile\+Pos\+Param}} \&}]{P,  }\item[{int}]{position }\end{DoxyParamCaption})}
+
+
+
+Set mode to Profile\+Position\+Mode with specified parameters for servo drive on that position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P} & Profile position parameter structure specified by user. \\
+\hline
+{\em position} & Slave position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if succesfull, otherwise -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_a67e154560b31cebc27431efc46d56b83}\label{classEthercatCommunication_1_1EthercatNode_a67e154560b31cebc27431efc46d56b83}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!SetProfilePositionParametersAll@{SetProfilePositionParametersAll}}
+\index{SetProfilePositionParametersAll@{SetProfilePositionParametersAll}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{SetProfilePositionParametersAll()}{SetProfilePositionParametersAll()}}
+{\footnotesize\ttfamily int Ethercat\+Node\+::\+Set\+Profile\+Position\+Parameters\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structProfilePosParam}{Profile\+Pos\+Param}} \&}]{P }\end{DoxyParamCaption})}
+
+
+
+Set the mode to Profile\+Position\+Mode with specified Parameters for all servo drives on the bus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P} & Profile position parameter structure specified by user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if succesful, otherwise -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_a1ce7e6a7f9f707ff6d8feb8b79078219}\label{classEthercatCommunication_1_1EthercatNode_a1ce7e6a7f9f707ff6d8feb8b79078219}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!SetProfileVelocityParameters@{SetProfileVelocityParameters}}
+\index{SetProfileVelocityParameters@{SetProfileVelocityParameters}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{SetProfileVelocityParameters()}{SetProfileVelocityParameters()}}
+{\footnotesize\ttfamily int Ethercat\+Node\+::\+Set\+Profile\+Velocity\+Parameters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structProfileVelocityParam}{Profile\+Velocity\+Param}} \&}]{P,  }\item[{int}]{position }\end{DoxyParamCaption})}
+
+
+
+Set mode to Profile\+Velocity\+Mode with specified parameters for servo drive on that position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P} & Profile velocity parameter structure specified by user. \\
+\hline
+{\em position} & Slave position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if succesful, -\/1 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_ac0f1d24eb783d34c604f7a91ff5ba45c}\label{classEthercatCommunication_1_1EthercatNode_ac0f1d24eb783d34c604f7a91ff5ba45c}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!SetProfileVelocityParametersAll@{SetProfileVelocityParametersAll}}
+\index{SetProfileVelocityParametersAll@{SetProfileVelocityParametersAll}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{SetProfileVelocityParametersAll()}{SetProfileVelocityParametersAll()}}
+{\footnotesize\ttfamily int Ethercat\+Node\+::\+Set\+Profile\+Velocity\+Parameters\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structProfileVelocityParam}{Profile\+Velocity\+Param}} \&}]{P }\end{DoxyParamCaption})}
+
+
+
+Set mode to Profile\+Velocity\+Mode with specified parameters for all servo drives on the bus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P} & Profile velocity parameter structure specified by user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if succesfull, -\/1 otherwise. 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]Add error code to all functions.\+Instead of returning -\/1. \end{DoxyRefDesc}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_ace130837f0f23861d07f2d252960cac8}\label{classEthercatCommunication_1_1EthercatNode_ace130837f0f23861d07f2d252960cac8}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!ShutDownEthercatMaster@{ShutDownEthercatMaster}}
+\index{ShutDownEthercatMaster@{ShutDownEthercatMaster}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{ShutDownEthercatMaster()}{ShutDownEthercatMaster()}}
+{\footnotesize\ttfamily int Ethercat\+Node\+::\+Shut\+Down\+Ethercat\+Master (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Shutdowns Ether\+C\+AT master via command line tool if it\textquotesingle{}s not already off. 
+
+\begin{DoxyReturn}{Returns}
+0 if succesfull, otherwise -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_a373f1966b60a63d9f54db94c05326931}\label{classEthercatCommunication_1_1EthercatNode_a373f1966b60a63d9f54db94c05326931}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!WaitForOperationalMode@{WaitForOperationalMode}}
+\index{WaitForOperationalMode@{WaitForOperationalMode}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{WaitForOperationalMode()}{WaitForOperationalMode()}}
+{\footnotesize\ttfamily int Ethercat\+Node\+::\+Wait\+For\+Operational\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Puts all slave to operational mode.\+User must call this before entering real-\/time operation. Reason for this function is that, master and slave has to do several exchange before becoming operational. So this function does exchange between master and slaves for up to 10 sec, could finish earlier. If timeout occurs it will return -\/1. 
+
+\begin{DoxyReturn}{Returns}
+0 if succesfull, otherwise -\/1. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_a3f8dd08c4b1cf9e455a60b8b5ae04cfb}\label{classEthercatCommunication_1_1EthercatNode_a3f8dd08c4b1cf9e455a60b8b5ae04cfb}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!fd@{fd}}
+\index{fd@{fd}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{fd}{fd}}
+{\footnotesize\ttfamily int Ethercat\+Communication\+::\+Ethercat\+Node\+::fd\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+File descriptor to open and wake master from C\+LI. 
+
+\mbox{\Hypertarget{classEthercatCommunication_1_1EthercatNode_adca54bebbcfe48cb57edca8de6c3d084}\label{classEthercatCommunication_1_1EthercatNode_adca54bebbcfe48cb57edca8de6c3d084}} 
+\index{EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}!slaves\_@{slaves\_}}
+\index{slaves\_@{slaves\_}!EthercatCommunication::EthercatNode@{EthercatCommunication::EthercatNode}}
+\doxysubsubsection{\texorpdfstring{slaves\_}{slaves\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEthercatSlave}{Ethercat\+Slave}} Ethercat\+Communication\+::\+Ethercat\+Node\+::slaves\+\_\+\mbox{[}\mbox{\hyperlink{ecat__globals_8hpp_a5d918ecbea3b854bbfe74765c9357be3}{N\+U\+M\+\_\+\+O\+F\+\_\+\+S\+L\+A\+V\+ES}}\mbox{]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/veysiadn/spinerobot\+\_\+ws/src/ecat\+\_\+pkg/include/ecat\+\_\+pkg/\mbox{\hyperlink{ecat__node_8hpp}{ecat\+\_\+node.\+hpp}}\item 
+/home/veysiadn/spinerobot\+\_\+ws/src/ecat\+\_\+pkg/src/\mbox{\hyperlink{ecat__node_8cpp}{ecat\+\_\+node.\+cpp}}\end{DoxyCompactItemize}

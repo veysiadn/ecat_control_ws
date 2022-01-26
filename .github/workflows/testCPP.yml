@@ -5,9 +5,9 @@ name: C/C++test with CMake
 on:
   # Triggers the workflow on push or pull request events but only for the master (main) branch.
   push:
-    branches: [ master, main ]
+    branches: [ master ]
   pull_request:
-    branches: [ master, main ]
+    branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab.
   workflow_dispatch:
@@ -18,7 +18,7 @@ jobs:
     name: Analyze project with C/C++test
 
     # Specifies the type of runner that the job will run on.
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job.
     steps:

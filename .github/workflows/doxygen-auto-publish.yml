@@ -40,4 +40,4 @@ jobs:
           # GitHub Pages directory path
           ghpagesdir: ./docs/
           # Toggle dark mode CSS
-          darkmode: false 
+          #  darkmode: false 

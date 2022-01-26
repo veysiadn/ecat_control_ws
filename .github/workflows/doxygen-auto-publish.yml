@@ -24,17 +24,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       # Runs a single command using the runners shell
-      - name: Doxygenize
-        # You may pin to the exact commit or the version.
-        # uses: langroodi/doxygenize@7410df330cf5ede72291d768e2e051c44181c491
-        uses: langroodi/doxygenize@v1.6
+      
+      - name: Doxygen Action
+  # You may pin to the exact commit or the version.
+  # uses: mattnotmitt/doxygen-action@9039b4cfaf5097b76489c53c0cdc8cba59091b57
+        uses: mattnotmitt/doxygen-action@1.9.1
         with:
-          # Doxygen configuration file path
-          doxygenconf: ./docs/Doxyfile
-          # Generated HTML documents output folder
-          htmloutput: ./docs/
-          # GitHub Pages branch name
-          ghpagesbranch: master
-          # GitHub Pages directory path
-          ghpagesdir: ./docs/
-
+          # Path to Doxyfile
+          doxyfile-path: ./Doxyfile
+          # Working directory
+          working-directory: ./docs/
+          # Generate latex documentation

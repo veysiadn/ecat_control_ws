@@ -38,6 +38,6 @@ jobs:
           # GitHub Pages branch name
           ghpagesbranch: master
           # GitHub Pages directory path
-          #ghpagesdir: # default is ./
+          ghpagesdir: ./docs/
           # Toggle dark mode CSS
           darkmode: true 

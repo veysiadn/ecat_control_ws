@@ -1,4 +1,4 @@
-name: CI
+name: Generate-doc-publish
 
 # Controls when the workflow will run
 on:

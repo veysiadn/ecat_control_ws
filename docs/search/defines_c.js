@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['test_5fbit_751',['TEST_BIT',['../ecat__globals_8hpp.html#a3e343f521bdee99c94f22627c930d24d',1,'ecat_globals.hpp']]],
-  ['thirty_5fdegree_5fccw_752',['THIRTY_DEGREE_CCW',['../ecat__globals_8hpp.html#a345f131f51c76cb464c7647eb1e25dd3',1,'ecat_globals.hpp']]],
-  ['timespec2ns_753',['TIMESPEC2NS',['../ecat__globals_8hpp.html#a0ca04ace3fdf9024f99a7e1c50bea258',1,'ecat_globals.hpp']]]
+  ['period_5fms_0',['PERIOD_MS',['../ecat__globals_8hpp.html#a5fcd914889df46acf623f7d9a81654d7',1,'ecat_globals.hpp']]],
+  ['period_5fns_1',['PERIOD_NS',['../ecat__globals_8hpp.html#ab495f8313ac709722de636c17e8a7381',1,'ecat_globals.hpp']]],
+  ['period_5fus_2',['PERIOD_US',['../ecat__globals_8hpp.html#aa840a0ac3b87cf7c89b265e1912cbb5b',1,'ecat_globals.hpp']]],
+  ['protocol_5fversion_3',['PROTOCOL_VERSION',['../DxlMaster_8h.html#a277f7abca2044f354abe265252cb9252',1,'DxlMaster.h']]]
 ];

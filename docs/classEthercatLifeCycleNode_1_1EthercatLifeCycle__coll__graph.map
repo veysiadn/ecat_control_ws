@@ -1,6 +1,6 @@
 <map id="EthercatLifeCycleNode::EthercatLifeCycle" name="EthercatLifeCycleNode::EthercatLifeCycle">
-<area shape="rect" id="node1" title=" " alt="" coords="103,95,273,136"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,120,32"/>
-<area shape="rect" id="node3" href="$structController.html" title="Controller Parameters." alt="" coords="145,5,231,32"/>
-<area shape="rect" id="node4" href="$classTiming.html" title=" " alt="" coords="259,5,325,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="95,95,250,136"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,111,32"/>
+<area shape="rect" id="node3" href="$classController.html" title="Opens, reads from and publishes joystick events." alt="" coords="134,5,211,32"/>
+<area shape="rect" id="node4" href="$classTiming.html" title=" " alt="" coords="237,5,298,32"/>
 </map>

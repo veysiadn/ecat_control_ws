@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['num_5fof_5fslaves_643',['NUM_OF_SLAVES',['../ecat__globals_8hpp.html#a5d918ecbea3b854bbfe74765c9357be3',1,'ecat_globals.hpp']]],
-  ['number_5fof_5fsamples_644',['NUMBER_OF_SAMPLES',['../timing_8hpp.html#a3992a43fac1d452edf605ff497a25030',1,'timing.hpp']]]
+  ['id_5fcamera_0',['ID_CAMERA',['../gui__globals_8hpp.html#a1014738a6cd53047136514ced82de7b0',1,'gui_globals.hpp']]],
+  ['inc_5fper_5frotation_1',['INC_PER_ROTATION',['../ecat__globals_8hpp.html#aae638294dae324558d32f20ad29cd501',1,'ecat_globals.hpp']]],
+  ['interval_2',['INTERVAL',['../DxlMaster_8cpp.html#ab39fec97d85960796efedec442f38004',1,'DxlMaster.cpp']]]
 ];

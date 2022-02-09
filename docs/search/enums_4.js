@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sensorconfig_587',['SensorConfig',['../ecat__globals_8hpp.html#a4a8f52fe7f00c0838866e018dfd0fb2d',1,'ecat_globals.hpp']]]
+  ['opmode_0',['OpMode',['../ecat__definitions_8hpp.html#a56752d1aeb4bd4940e632396072d68af',1,'OpMode():&#160;ecat_definitions.hpp'],['../gui__globals_8hpp.html#a56752d1aeb4bd4940e632396072d68af',1,'OpMode():&#160;gui_globals.hpp']]]
 ];

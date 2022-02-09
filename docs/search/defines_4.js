@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gear_5fratio_640',['GEAR_RATIO',['../ecat__globals_8hpp.html#a1b5f0a2cda8866a2a87331026ac8bd9a',1,'ecat_globals.hpp']]]
+  ['encoder_5fresolution_0',['ENCODER_RESOLUTION',['../ecat__globals_8hpp.html#a8cdc17f43c9f3850f60d04f98216fc13',1,'ecat_globals.hpp']]]
 ];

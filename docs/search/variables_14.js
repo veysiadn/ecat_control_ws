@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['vel_5foffset_576',['vel_offset',['../structReceivedData.html#ac5c4a47a3cfcf5b1bd6a3014afdb958a',1,'ReceivedData']]],
-  ['velocity_5fcontrol_5fparameter_5fset_577',['velocity_control_parameter_set',['../structCSVelocityModeParam.html#a78d5373128d94634418ad4ca829559eb',1,'CSVelocityModeParam']]],
-  ['velocity_5fparam_5f_578',['velocity_param_',['../classEthercatSlave.html#a2a26b98ad5fa0a57da0920e0f508ed8b',1,'EthercatSlave']]]
+  ['ui_0',['ui',['../classControlUI.html#ad236121ee522c3acd7c0184bb5b5d98f',1,'ControlUI::ui()'],['../classEndoscopeViewer.html#ae6ea5d5cec08f886403fbfc08146e85d',1,'EndoscopeViewer::ui()'],['../classMainWindow.html#a35466a70ed47252a0191168126a352a5',1,'MainWindow::ui()']]],
+  ['ui_5fcontrol_5fbuttons_5f_1',['ui_control_buttons_',['../classGUI_1_1GuiNode.html#a625aa899ac48e4549c7f5fd0399181d7',1,'GUI::GuiNode']]]
 ];

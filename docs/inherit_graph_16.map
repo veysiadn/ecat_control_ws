@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structReceivedData.html" title="Received feedback data from slaves." alt="" coords="5,5,108,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,81,100,108"/>
+<area shape="rect" id="node2" href="$classGUI_1_1GuiNode.html" title="This node will be responsible from all GUI interaction and visualization of feedback information acqu..." alt="" coords="174,5,277,32"/>
+<area shape="rect" id="node3" href="$classJoySubscriber.html" title=" " alt="" coords="173,56,277,83"/>
+<area shape="rect" id="node4" href="$classLifecycleNodeManager.html" title=" " alt="" coords="148,107,303,133"/>
+<area shape="rect" id="node5" href="$classsurgicalToolNode.html" title=" " alt="" coords="164,157,287,184"/>
 </map>

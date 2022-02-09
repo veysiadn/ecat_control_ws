@@ -1,0 +1,296 @@
+src/controller/src/joy_node_linux.cpp:120:3: warning: Member variable 'Controller::open_' is not initialized in the constructor. [uninitMemberVar]
+  Controller()
+  ^
+src/controller/src/joy_node_linux.cpp:120:3: warning: Member variable 'Controller::sticky_buttons_' is not initialized in the constructor. [uninitMemberVar]
+  Controller()
+  ^
+src/controller/src/joy_node_linux.cpp:120:3: warning: Member variable 'Controller::default_trig_val_' is not initialized in the constructor. [uninitMemberVar]
+  Controller()
+  ^
+src/controller/src/joy_node_linux.cpp:120:3: warning: Member variable 'Controller::deadzone_' is not initialized in the constructor. [uninitMemberVar]
+  Controller()
+  ^
+src/controller/src/joy_node_linux.cpp:120:3: warning: Member variable 'Controller::autorepeat_rate_' is not initialized in the constructor. [uninitMemberVar]
+  Controller()
+  ^
+src/controller/src/joy_node_linux.cpp:120:3: warning: Member variable 'Controller::coalesce_interval_' is not initialized in the constructor. [uninitMemberVar]
+  Controller()
+  ^
+src/controller/src/joy_node_linux.cpp:120:3: warning: Member variable 'Controller::event_count_' is not initialized in the constructor. [uninitMemberVar]
+  Controller()
+  ^
+src/controller/src/joy_node_linux.cpp:120:3: warning: Member variable 'Controller::pub_count_' is not initialized in the constructor. [uninitMemberVar]
+  Controller()
+  ^
+src/controller/src/joy_node_linux.cpp:120:3: warning: Member variable 'Controller::lastDiagTime_' is not initialized in the constructor. [uninitMemberVar]
+  Controller()
+  ^
+src/controller/src/joy_node_linux.cpp:71:15: performance:inconclusive: Technically the member function 'Controller::get_dev_by_joy_name' can be static (but you may consider moving to unnamed namespace). [functionStatic]
+  std::string get_dev_by_joy_name(const std::string& joy_name, rclcpp::Logger logger)
+              ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:526:25: warning:inconclusive: Found suspicious equality comparison. Did you intend to assign a value instead? [constStatement]
+        g_kOperationMode==kProfileVelocity;
+                        ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:492:18: style: Unused variable: max_fol_err [unusedVariable]
+        uint32_t max_fol_err ;
+                 ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:502:18: style: Unused variable: max_fol_err [unusedVariable]
+        uint32_t max_fol_err ;
+                 ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:577:28: style: Variable 'print_max_min' is assigned a value that is never used. [unreadVariable]
+    uint32_t print_max_min = measurement_time * 60000 ;
+                           ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:578:24: style: Variable 'print_val' is assigned a value that is never used. [unreadVariable]
+    uint32_t print_val = 1e4;
+                       ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:580:24: style: Variable 'status_var' is assigned a value that is never used. [unreadVariable]
+    int32_t status_var = 0;
+                       ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:581:59: style: Variable 'publish_time_start' is assigned a value that is never used. [unreadVariable]
+    struct timespec wake_up_time, time, publish_time_start={}, publish_time_end={};
+                                                          ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:581:80: style: Variable 'publish_time_end' is assigned a value that is never used. [unreadVariable]
+    struct timespec wake_up_time, time, publish_time_start={}, publish_time_end={};
+                                                                               ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:827:32: style: Variable 'latency_max_ns' is reassigned a value before the old one has been used. [redundantAssignment]
+                latency_max_ns = 0;
+                               ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:710:32: note: latency_max_ns is assigned
+                latency_max_ns = latency_ns;
+                               ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:827:32: note: latency_max_ns is overwritten
+                latency_max_ns = 0;
+                               ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:828:32: style: Variable 'latency_min_ns' is reassigned a value before the old one has been used. [redundantAssignment]
+                latency_min_ns = 0xffffffff;
+                               ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:713:32: note: latency_min_ns is assigned
+                latency_min_ns = latency_ns;
+                               ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:828:32: note: latency_min_ns is overwritten
+                latency_min_ns = 0xffffffff;
+                               ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:821:31: style: Variable 'period_max_ns' is reassigned a value before the old one has been used. [redundantAssignment]
+                period_max_ns = 0;
+                              ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:716:31: note: period_max_ns is assigned
+                period_max_ns = period_ns;
+                              ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:821:31: note: period_max_ns is overwritten
+                period_max_ns = 0;
+                              ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:822:31: style: Variable 'period_min_ns' is reassigned a value before the old one has been used. [redundantAssignment]
+                period_min_ns = 0xffffffff;
+                              ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:719:31: note: period_min_ns is assigned
+                period_min_ns = period_ns;
+                              ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:822:31: note: period_min_ns is overwritten
+                period_min_ns = 0xffffffff;
+                              ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:824:29: style: Variable 'exec_max_ns' is reassigned a value before the old one has been used. [redundantAssignment]
+                exec_max_ns = 0;
+                            ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:722:29: note: exec_max_ns is assigned
+                exec_max_ns = exec_ns;
+                            ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:824:29: note: exec_max_ns is overwritten
+                exec_max_ns = 0;
+                            ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:825:29: style: Variable 'exec_min_ns' is reassigned a value before the old one has been used. [redundantAssignment]
+                exec_min_ns = 0xffffffff;
+                            ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:725:29: note: exec_min_ns is assigned
+                exec_min_ns = exec_ns;
+                            ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:825:29: note: exec_min_ns is overwritten
+                exec_min_ns = 0xffffffff;
+                            ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:584:28: style: Variable 'period_ns' is assigned a value that is never used. [unreadVariable]
+        uint32_t period_ns = 0, exec_ns = 0, latency_ns = 0,
+                           ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:584:41: style: Variable 'exec_ns' is assigned a value that is never used. [unreadVariable]
+        uint32_t period_ns = 0, exec_ns = 0, latency_ns = 0,
+                                        ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:590:35: style: Variable 'publishing_time_ns' is assigned a value that is never used. [unreadVariable]
+        int32_t publishing_time_ns=1e4, publish_time_max=0, publish_time_min=0xfffffff;
+                                  ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:591:24: style: Variable 'jitter' is assigned a value that is never used. [unreadVariable]
+        int32_t jitter = 0 , jitter_min = 0xfffffff, jitter_max = 0, old_latency=0;
+                       ^
+src/ecat_pkg/src/ecat_lifecycle.cpp:591:81: style: Variable 'old_latency' is assigned a value that is never used. [unreadVariable]
+        int32_t jitter = 0 , jitter_min = 0xfffffff, jitter_max = 0, old_latency=0;
+                                                                                ^
+src/ecat_pkg/src/ecat_node.cpp:729:27: style: Variable 'g_master_domain_state' is reassigned a value before the old one has been used. [redundantAssignment]
+    g_master_domain_state = ds;
+                          ^
+src/ecat_pkg/src/ecat_node.cpp:727:31: note: g_master_domain_state is assigned
+        g_master_domain_state = ds;
+                              ^
+src/ecat_pkg/src/ecat_node.cpp:729:27: note: g_master_domain_state is overwritten
+    g_master_domain_state = ds;
+                          ^
+src/ecat_pkg/src/ecat_node.cpp:94:34: style: Variable 'elmo_syncs' is assigned a value that is never used. [unreadVariable]
+    ec_sync_info_t elmo_syncs[5] = {
+                                 ^
+src/ecat_pkg/src/ecat_node.cpp:162:37: style: Variable 'easycat_syncs' is assigned a value that is never used. [unreadVariable]
+    ec_sync_info_t easycat_syncs[3] = {
+                                    ^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:32:11: style: struct member 'Controller::left_x_axis_' is never used. [unusedStructMember]
+    float left_x_axis_;
+          ^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:33:11: style: struct member 'Controller::left_y_axis_' is never used. [unusedStructMember]
+    float left_y_axis_;
+          ^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:34:11: style: struct member 'Controller::right_x_axis_' is never used. [unusedStructMember]
+    float right_x_axis_;
+          ^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:35:11: style: struct member 'Controller::right_y_axis_' is never used. [unusedStructMember]
+    float right_y_axis_;
+          ^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:36:13: style: struct member 'Controller::blue_button_' is never used. [unusedStructMember]
+    uint8_t blue_button_;
+            ^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:37:13: style: struct member 'Controller::green_button_' is never used. [unusedStructMember]
+    uint8_t green_button_;
+            ^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:38:13: style: struct member 'Controller::red_button_' is never used. [unusedStructMember]
+    uint8_t red_button_;
+            ^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:39:13: style: struct member 'Controller::yellow_button_' is never used. [unusedStructMember]
+    uint8_t yellow_button_;
+            ^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:40:13: style: struct member 'Controller::left_r_button_' is never used. [unusedStructMember]
+    uint8_t left_r_button_;
+            ^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:41:13: style: struct member 'Controller::left_l_button_' is never used. [unusedStructMember]
+    uint8_t left_l_button_;
+            ^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:42:13: style: struct member 'Controller::left_u_button_' is never used. [unusedStructMember]
+    uint8_t left_u_button_;
+            ^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:43:13: style: struct member 'Controller::left_d_button_' is never used. [unusedStructMember]
+    uint8_t left_d_button_ ;
+            ^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:44:13: style: struct member 'Controller::left_rb_button_' is never used. [unusedStructMember]
+    uint8_t left_rb_button_ ;
+            ^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:45:13: style: struct member 'Controller::right_rb_button_' is never used. [unusedStructMember]
+    uint8_t right_rb_button_ ;
+            ^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:46:13: style: struct member 'Controller::left_start_button_' is never used. [unusedStructMember]
+    uint8_t left_start_button_ ;
+            ^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:47:13: style: struct member 'Controller::right_start_button_' is never used. [unusedStructMember]
+    uint8_t right_start_button_ ;
+            ^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:48:13: style: struct member 'Controller::xbox_button_' is never used. [unusedStructMember]
+    uint8_t xbox_button_;
+            ^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:308:24: style: Variable 'future_result' is assigned a value that is never used. [unreadVariable]
+    auto future_result = client_change_state_->async_send_request(request);
+                       ^
+src/gui_pkg/src/main_window.cpp:332:27: warning: Logical conjunction always evaluates to false: state == 0x01 && state == 0. [incorrectLogicOperator]
+   else if (state == 0x01 && state==0){
+                          ^
+src/gui_pkg/include/gui_pkg/timing.hpp:25:8: style:inconclusive: Technically the member function 'Timing::OutInfoToFile' can be const. [functionConst]
+  void OutInfoToFile();
+       ^
+src/gui_pkg/src/timing.cpp:14:14: note: Technically the member function 'Timing::OutInfoToFile' can be const.
+void Timing::OutInfoToFile()
+             ^
+src/gui_pkg/include/gui_pkg/timing.hpp:25:8: note: Technically the member function 'Timing::OutInfoToFile' can be const.
+  void OutInfoToFile();
+       ^
+src/tool_pkg/src/DxlMaster.cpp:259:10: style: The scope of the variable 'dxl_addparam_result' can be reduced. [variableScope]
+    bool dxl_addparam_result = false;               // addParam result
+         ^
+src/tool_pkg/src/DxlMaster.cpp:294:10: style: The scope of the variable 'dxl_addparam_result' can be reduced. [variableScope]
+    bool dxl_addparam_result = false;               // addParam result
+         ^
+src/tool_pkg/src/DxlMaster.cpp:259:30: style: Variable 'dxl_addparam_result' is assigned a value that is never used. [unreadVariable]
+    bool dxl_addparam_result = false;               // addParam result
+                             ^
+src/tool_pkg/src/DxlMaster.cpp:294:30: style: Variable 'dxl_addparam_result' is assigned a value that is never used. [unreadVariable]
+    bool dxl_addparam_result = false;               // addParam result
+                             ^
+src/tool_pkg/src/surgicalToolNode.cpp:25:7: performance: Variable 'dxl' is assigned in constructor body. Consider performing initialization in initialization list. [useInitializationList]
+      dxl = std::make_unique<DxlMaster>();
+      ^
+src/controller/src/joy_node_linux.cpp:51:1: error: The one definition rule is violated, different classes/structs have the same name 'Controller' [ctuOneDefinitionRuleViolation]
+class Controller
+^
+src/ecat_pkg/src/lifecycle_node_manager.cpp:30:9: note: The one definition rule is violated, different classes/structs have the same name 'Controller'
+typedef struct
+        ^
+src/controller/src/joy_node_linux.cpp:51:1: note: The one definition rule is violated, different classes/structs have the same name 'Controller'
+class Controller
+^
+src/gui_pkg/src/timing.cpp:3:0: style: The function 'GetTime' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/timing.cpp:7:0: style: The function 'MeasureTimeDifference' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/timing.cpp:14:0: style: The function 'OutInfoToFile' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/main_window.cpp:168:0: style: The function 'ResetControlButtonValues' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/main_window.cpp:115:0: style: The function 'on_b_disable_drives_clicked' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/controlui.cpp:31:0: style: The function 'on_b_disable_motor_clicked' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/controlui.cpp:61:0: style: The function 'on_b_emergency_mode_clicked' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/controlui.cpp:36:0: style: The function 'on_b_enable_cyclic_pos_clicked' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/controlui.cpp:41:0: style: The function 'on_b_enable_cylic_vel_clicked' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/main_window.cpp:110:0: style: The function 'on_b_enable_drives_clicked' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/controlui.cpp:26:0: style: The function 'on_b_enable_motor_clicked' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/controlui.cpp:51:0: style: The function 'on_b_enable_pos_clicked' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/controlui.cpp:46:0: style: The function 'on_b_enable_vel_clicked' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/controlui.cpp:56:0: style: The function 'on_b_enter_cyclic_pdo_clicked' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/endoscope_viewer.cpp:34:0: style: The function 'on_b_exit_clicked' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/controlui.cpp:16:0: style: The function 'on_b_init_ecat_clicked' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/controlui.cpp:21:0: style: The function 'on_b_reinit_ecat_clicked' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/controlui.cpp:66:0: style: The function 'on_b_send_clicked' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/endoscope_viewer.cpp:21:0: style: The function 'on_b_start_capture_clicked' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/endoscope_viewer.cpp:27:0: style: The function 'on_b_stop_capture_clicked' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/main_window.cpp:132:0: style: The function 'on_b_stop_cyclic_pdo_clicked' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/video_capture.cpp:11:0: style: The function 'run' is never used. [unusedFunction]
+
+^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
+

@@ -37,5 +37,6 @@ var searchData=
   ['ethercatnode_34',['EthercatNode',['../classEthercatCommunication_1_1EthercatNode.html',1,'EthercatCommunication::EthercatNode'],['../classEthercatCommunication_1_1EthercatNode.html#a020b9007aa6e51112c09f3342dc5bc8d',1,'EthercatCommunication::EthercatNode::EthercatNode()']]],
   ['ethercatslave_35',['EthercatSlave',['../classEthercatSlave.html#af6372d6701c86e6d9c3e5c0c2bd3b350',1,'EthercatSlave::EthercatSlave()'],['../classEthercatSlave.html',1,'EthercatSlave']]],
   ['event_5fcount_5f_36',['event_count_',['../classController.html#a05cc7d634a0eb444cbe3b0dc2aa3cdce',1,'Controller']]],
-  ['extra_5fstatus_5freg_37',['extra_status_reg',['../structOffsetPDO.html#adee3c83f3857725dac30b685d1b90af2',1,'OffsetPDO']]]
+  ['exit_5fsignal_5f_37',['exit_signal_',['../classHapticNode.html#a57e6292d41b4fbfa4160d328c91cea3a',1,'HapticNode']]],
+  ['extra_5fstatus_5freg_38',['extra_status_reg',['../structOffsetPDO.html#adee3c83f3857725dac30b685d1b90af2',1,'OffsetPDO']]]
 ];

@@ -12,7 +12,7 @@ var searchData=
   ['on_5fb_5fenable_5fvel_5fclicked_9',['on_b_enable_vel_clicked',['../classControlUI.html#a53fce049541f1b8928c291dc0b973375',1,'ControlUI::on_b_enable_vel_clicked()'],['../classMainWindow.html#a683f079e077349dde8e1c689a773fb3b',1,'MainWindow::on_b_enable_vel_clicked()']]],
   ['on_5fb_5fenter_5fcyclic_5fpdo_5fclicked_10',['on_b_enter_cyclic_pdo_clicked',['../classControlUI.html#a6a52498be8c92662029dbb030d2ca1bc',1,'ControlUI::on_b_enter_cyclic_pdo_clicked()'],['../classMainWindow.html#a0eedabc30d1edaf26afb4f107362f935',1,'MainWindow::on_b_enter_cyclic_pdo_clicked()']]],
   ['on_5fb_5fexit_5fclicked_11',['on_b_exit_clicked',['../classEndoscopeViewer.html#a47cd1463ed68ac87c47421a8071e4f29',1,'EndoscopeViewer']]],
-  ['on_5fb_5finit_5fecat_5fclicked_12',['on_b_init_ecat_clicked',['../classMainWindow.html#a170ab939e9e2ede6fedf80989659518c',1,'MainWindow::on_b_init_ecat_clicked()'],['../classControlUI.html#ac0bc7c69bbf530993e389683849de789',1,'ControlUI::on_b_init_ecat_clicked()']]],
+  ['on_5fb_5finit_5fecat_5fclicked_12',['on_b_init_ecat_clicked',['../classControlUI.html#ac0bc7c69bbf530993e389683849de789',1,'ControlUI::on_b_init_ecat_clicked()'],['../classMainWindow.html#a170ab939e9e2ede6fedf80989659518c',1,'MainWindow::on_b_init_ecat_clicked()']]],
   ['on_5fb_5freinit_5fecat_5fclicked_13',['on_b_reinit_ecat_clicked',['../classControlUI.html#a6dfe6cfad33afd90749942879f73c096',1,'ControlUI::on_b_reinit_ecat_clicked()'],['../classMainWindow.html#ab56f617ffcf96ac8585b9fc1750ddd7e',1,'MainWindow::on_b_reinit_ecat_clicked()']]],
   ['on_5fb_5fsend_5fclicked_14',['on_b_send_clicked',['../classControlUI.html#a575af17c5689188be0c227209509f990',1,'ControlUI::on_b_send_clicked()'],['../classMainWindow.html#a5b1d835c15a1effaf79b388b1e20f268',1,'MainWindow::on_b_send_clicked()']]],
   ['on_5fb_5fstart_5fcapture_5fclicked_15',['on_b_start_capture_clicked',['../classEndoscopeViewer.html#a4637b0581afc5a9a5b7003d2816c8a75',1,'EndoscopeViewer']]],
@@ -24,5 +24,6 @@ var searchData=
   ['on_5ferror_21',['on_error',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a5496949daefea78b4b353463d4dd96d3',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
   ['on_5fshutdown_22',['on_shutdown',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#aa25e720251694b4db416e42ccd2ccc5c',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
   ['openethercatmaster_23',['OpenEthercatMaster',['../classEthercatCommunication_1_1EthercatNode.html#a4455e0ba8abeedb96055615eb5a37f68',1,'EthercatCommunication::EthercatNode']]],
-  ['outinfotofile_24',['OutInfoToFile',['../classTiming.html#abca929bf96a9035cdae89d6ac1c18509',1,'Timing::OutInfoToFile()'],['../classTiming.html#abca929bf96a9035cdae89d6ac1c18509',1,'Timing::OutInfoToFile()']]]
+  ['operator_3d_24',['operator=',['../classHapticNode.html#ae9af5f1fbd09ec9ccf0e0d7a16c1790f',1,'HapticNode::operator=(HapticNode &amp;&amp;c)=delete'],['../classHapticNode.html#a065d38b29f309a170a843d09dd4b491f',1,'HapticNode::operator=(const HapticNode &amp;c)=delete']]],
+  ['outinfotofile_25',['OutInfoToFile',['../classTiming.html#abca929bf96a9035cdae89d6ac1c18509',1,'Timing::OutInfoToFile()'],['../classTiming.html#abca929bf96a9035cdae89d6ac1c18509',1,'Timing::OutInfoToFile()']]]
 ];

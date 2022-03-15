@@ -12,5 +12,6 @@ var searchData=
   ['ethercat_5fthread_5f_9',['ethercat_thread_',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#ac443f07a1f4e7252788ca000ea70458f',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
   ['ethercat_5fthread_5fattr_5f_10',['ethercat_thread_attr_',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a78acbaf6dc792b96f2df3fbef7395dfc',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
   ['event_5fcount_5f_11',['event_count_',['../classController.html#a05cc7d634a0eb444cbe3b0dc2aa3cdce',1,'Controller']]],
-  ['extra_5fstatus_5freg_12',['extra_status_reg',['../structOffsetPDO.html#adee3c83f3857725dac30b685d1b90af2',1,'OffsetPDO']]]
+  ['exit_5fsignal_5f_12',['exit_signal_',['../classHapticNode.html#a57e6292d41b4fbfa4160d328c91cea3a',1,'HapticNode']]],
+  ['extra_5fstatus_5freg_13',['extra_status_reg',['../structOffsetPDO.html#adee3c83f3857725dac30b685d1b90af2',1,'OffsetPDO']]]
 ];

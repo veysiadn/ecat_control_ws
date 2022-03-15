@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>input_pkg</name>
+  <version>0.0.1</version>
+  <description>This node gets input data from Haptic Device via TCP/IP</description>
+  <maintainer email="cwkim@kist.re.kr">chunwoo</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+<!-- ************************************************** -->
+<!-- CKim - Build dependencies (rclcpp and other libraries)
+            should be added here -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>rclcpp</buildtool_depend>
+  <buildtool_depend>std_msgs</buildtool_depend>
+  <buildtool_depend>sensor_msgs</buildtool_depend>
+  <build_depend>ecat_msgs</build_depend>
+<!-- ************************************************** -->
+
+<!-- ************************************************** -->
+<!-- CKim - Build dependencies for messages and services -->
+  <build_depend>rosidl_default_generators</build_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <exec_depend>ecat_msgs</exec_depend>
+  <member_of_group>rosidl_interface_packages</member_of_group>
+<!-- ************************************************** -->
+
+
+
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

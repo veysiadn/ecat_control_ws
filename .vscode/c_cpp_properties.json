@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/usr/include/**",
+                "/opt/ros/foxy/include/**",
+                "/opt/etherlab/include",
+                "src/gui_pkg/include/gui_pkg",
+                "src/ecat_pkg/include/ecat_pkg",
+                "install/ecat_msgs/include/",
+                "ecat_pkg/include/ecat_pkg"
+            ],
+            "name": "ROS",
+            "configurationProvider": "go2sh.cmake-integration"
+        }
+    ],
+    "version": 4
+}

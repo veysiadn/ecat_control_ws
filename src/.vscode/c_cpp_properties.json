@@ -1,0 +1,18 @@
+{
+  "configurations": [
+      {
+          "name": "ecat_pkg",
+          "includePath": [
+              "${workspaceFolder}/**",
+              "/usr/include",
+              "/opt/etherlab/include",
+              "/opt/ros/foxy/include",
+              "/home/veysiadn/control_ui_ws/install/ecat_msgs/include/",
+              "/home/veysiadn/control_ui_ws/src/ecat_pkg/include/ecat_pkg"
+          ],
+          "configurationProvider": "go2sh.cmake-integration"
+      }
+      
+  ],
+  "version": 4
+}

@@ -52,7 +52,7 @@ static int8_t   g_kOperationMode = kProfileVelocity ;
 /// @note  That if you have different custom slave than EasyCAT you have to modify PDO mapping by yourself.
 #define CUSTOM_SLAVE      0  
 #define FREQUENCY       1000  /// Ethercat PDO exchange loop frequency in Hz
-#define MEASURE_TIMING         0    /// If you want to measure timings leave it as one, otherwise make it 0.
+#define MEASURE_TIMING    0    /// If you want to measure timings leave it as one, otherwise make it 0.
 /*****************************************************************************/
 #define GEAR_RATIO          103
 #define ENCODER_RESOLUTION  1024

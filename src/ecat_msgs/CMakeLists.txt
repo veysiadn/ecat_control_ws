@@ -26,6 +26,7 @@ set(msg_files
   "msg/DataReceived.msg"
   "msg/DataSent.msg"
   "msg/GuiButtonData.msg"
+  "msg/HapticCmd.msg"
 )
 ## generate interface from your msg files.
 rosidl_generate_interfaces(${PROJECT_NAME}

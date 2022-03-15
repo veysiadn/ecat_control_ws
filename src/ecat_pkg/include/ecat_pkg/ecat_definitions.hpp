@@ -72,14 +72,14 @@ const uint32_t           g_kNsPerSec = 1000000000;     /// Nanoseconds per secon
 /****************************************************************************/
 /// Global variable declarations, definitions are in @file ethercat_node.cpp
 static volatile sig_atomic_t sig = 1;
-extern ec_master_t        * g_master ;  /// EtherCAT master
-extern ec_master_state_t    g_master_state ; /// EtherCAT master state
+extern ec_master_t        * g_master ;  // EtherCAT master
+extern ec_master_state_t    g_master_state ; // EtherCAT master state
 
-extern ec_domain_t       * g_master_domain ; /// Ethercat data passing master domain
-extern ec_domain_state_t   g_master_domain_state ;   /// EtherCAT master domain state
+extern ec_domain_t       * g_master_domain ; // Ethercat data passing master domain
+extern ec_domain_state_t   g_master_domain_state ;   // EtherCAT master domain state
 
-extern struct timespec      g_sync_timer ;                       /// timer for DC sync .
-extern uint32_t             g_sync_ref_counter;                  /// To sync every cycle.
+extern struct timespec      g_sync_timer ;                       // timer for DC sync .
+extern uint32_t             g_sync_ref_counter;                  // To sync every cycle.
 /****************************************************************************/
 #define TEST_BIT(NUM,N)    ((NUM &  (1 << N))>>N)  /// Check specific bit in the data. 0 or 1.
 #define SET_BIT(NUM,N)      (NUM |  (1 << N))  /// Set(1) specific bit in the data.
@@ -115,7 +115,7 @@ inline struct timespec timespec_add(struct timespec time1, struct timespec time2
 
     return result;
 }
-/// Xbox Controller inputs
+
 typedef struct
 {
     float left_x_axis_;
@@ -151,7 +151,7 @@ typedef enum
     kCSTorque = 10,
 } OpMode ;
 
-/// constant declarations for lifecycle node
+  // constant declarations
 static constexpr uint8_t PRIMARY_STATE_UNKNOWN =
 0u;
 static constexpr uint8_t PRIMARY_STATE_UNCONFIGURED =

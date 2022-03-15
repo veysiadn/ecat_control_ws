@@ -31,7 +31,6 @@ rclcpp::NodeOptions().use_intra_process_comms(false))
     received_data_publisher_->on_activate();
 }
 
-
 EthercatLifeCycle::~EthercatLifeCycle()
 {
 
@@ -93,7 +92,6 @@ node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_de
     received_data_.current_lifecycle_state = TRANSITION_STATE_DEACTIVATING ; 
     PublishReceivedData();
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Deactivating.\n");
-    sent_data_publisher_->on_deactivate();
     ecat_node_->DeactivateCommunication();
     for (int i=0; i<NUM_OF_SLAVES; i++){
         ecat_node_->slaves_[i].slave_pdo_domain_ = NULL;
@@ -161,6 +159,8 @@ node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_sh
     ecat_node_->ShutDownEthercatMaster();
     received_data_.current_lifecycle_state = PRIMARY_STATE_FINALIZED ;
     PublishReceivedData(); 
+    received_data_publisher_->on_deactivate();
+    sent_data_publisher_->on_deactivate();
     return node_interfaces::LifecycleNodeInterface::CallbackReturn::SUCCESS;
 }
 
@@ -488,6 +488,7 @@ int EthercatLifeCycle::InitEthercatCommunication()
 void EthercatLifeCycle::AssignOperationModeParameters()
 {
     if(g_kOperationMode==kProfilePosition){
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Setting drives to Position mode...\n");
         ProfilePosParam P ;
         uint32_t max_fol_err ;
         P.profile_vel = 450; //150 ;
@@ -498,6 +499,7 @@ void EthercatLifeCycle::AssignOperationModeParameters()
         P.motion_profile_type = 0 ;
         ecat_node_->SetProfilePositionParametersAll(P);
     }else if(g_kOperationMode==kCSPosition){
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Setting drives to CSP mode...\n");
         CSPositionModeParam P ;
         uint32_t max_fol_err ;
         P.profile_vel = 50 ;
@@ -517,17 +519,18 @@ void EthercatLifeCycle::AssignOperationModeParameters()
         P.interpolation_time_period = 0;    //1 ;
         ecat_node_->SetCyclicSyncVelocityModeParametersAll(P);
     }else if(g_kOperationMode==kCSTorque){
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Setting drives to CSV mode...\n");
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Setting drives to CST mode...\n");
         CSTorqueModeParam P ;
         P.profile_dec=3e4 ;
         P.quick_stop_dec = 3e4 ;
         ecat_node_->SetCyclicSyncTorqueModeParametersAll(P);
     }else {
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Setting drives to Velocity mode...\n");
         g_kOperationMode==kProfileVelocity;
         ProfileVelocityParam P ;
         P.profile_acc=3e4 ;
         P.profile_dec=3e4 ;
-        P.max_profile_vel = 7000 ;
+        P.max_profile_vel = 500 ;
         P.quick_stop_dec = 3e4 ;
         P.motion_profile_type = 0 ;
         ecat_node_->SetProfileVelocityParametersAll(P);
@@ -654,7 +657,8 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
                 {
                     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "State of Drive %d : %d\n",i,motor_state_[i]);
                     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Trying to enable motors");
-                } 
+                }
+                PublishAllData(); 
             }
         }
 

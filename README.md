@@ -31,16 +31,14 @@
 - [ROS2 Foxy Installation](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 - [Dynamixel-SDK](https://github.com/ROBOTIS-GIT/DynamixelSDK)
 
-## Implementation
+## Building and running
   
 ```sh
-mkdir spinerobot_ws 
-cd spinerobot_ws
-git clone https://github.com/veysiadn/spinerobot_ws src
+git clone https://github.com/veysiadn/control_ui_ws
 sudo -s
 source /opt/ros/foxy/setup.bash
 colcon build --symlink install
 . install/setup.bash
-ros2 launch ./src/ethercat_nodes_launch.py
+ros2 launch launch_all_nodes.py
 ```
 

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['receiveddata_0',['ReceivedData',['../structReceivedData.html',1,'']]]
+  ['profileposparam_0',['ProfilePosParam',['../structProfilePosParam.html',1,'']]],
+  ['profilevelocityparam_1',['ProfileVelocityParam',['../structProfileVelocityParam.html',1,'']]]
 ];

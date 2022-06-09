@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mainwindow_0',['MainWindow',['../classMainWindow.html',1,'']]]
+  ['lifecyclenodemanager_0',['LifecycleNodeManager',['../classLifecycleNodeManager.html',1,'']]]
 ];

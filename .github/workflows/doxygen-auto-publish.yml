@@ -27,7 +27,7 @@ jobs:
       - name: Doxygen Action
         # You may pin to the exact commit or the version.
         # uses: mattnotmitt/doxygen-action@5636578e966e739b7f06c7fa74b1b3e8267484a5
-        uses: mattnotmitt/doxygen-action@1.9.3
+        uses: mattnotmitt/doxygen-action@1.9.2
         with:
           # Path to Doxyfile
           doxyfile-path: ./docs/Doxyfile

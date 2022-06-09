@@ -2,7 +2,7 @@ var searchData=
 [
   ['generate_5flaunch_5fdescription_0',['generate_launch_description',['../namespaceethercat__nodes__launch.html#afb900b0a1a8d0309db149ce9b68663f2',1,'ethercat_nodes_launch']]],
   ['get_5fdev_5fby_5fjoy_5fname_1',['get_dev_by_joy_name',['../classController.html#acfc3737a49027159c6f7cbbef861b212',1,'Controller']]],
-  ['get_5fstate_2',['get_state',['../classSafetyNode.html#ae1c6ef70c5513ece38b38599885370a8',1,'SafetyNode']]],
+  ['get_5fstate_2',['get_state',['../classLifecycleNodeManager.html#ac4ec2c56d5bc6aa831ed71efd1e887bc',1,'LifecycleNodeManager::get_state()'],['../classSafetyNode.html#ae1c6ef70c5513ece38b38599885370a8',1,'SafetyNode::get_state()']]],
   ['getallslaveinformation_3',['GetAllSlaveInformation',['../classEthercatCommunication_1_1EthercatNode.html#ab39e88b76a081092bb0627a05cc5815a',1,'EthercatCommunication::EthercatNode']]],
   ['getcomstate_4',['GetComState',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a901c06f35510c5be5c40c4f934b5974b',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
   ['getdriveerrormessage_5',['GetDriveErrorMessage',['../classMainWindow.html#a82066d3dda0ac56577f54a7818c45b23',1,'MainWindow']]],

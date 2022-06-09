@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="416" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="416" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="419" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="419" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structProfileVelocityParam_1aed394e31a80560c0530c57a3bf8bf967" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="417" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="417" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="420" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="420" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structProfileVelocityParam_1aeb9688ff83981562095d445d6dd2e437" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="418" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="418" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="421" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="421" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structProfileVelocityParam_1a0afdd1d807f97d6d8137519cbbffc4e2" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="419" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="419" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="422" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="422" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structProfileVelocityParam_1a2a981f1b49bd7c3dbaa080d857897947" prot="public" static="no" mutable="no">
         <type>uint16_t</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="420" column="17" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="420" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="423" column="17" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="423" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -75,7 +75,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="414" column="1" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="415" bodyend="421"/>
+    <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="417" column="1" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="418" bodyend="424"/>
     <listofallmembers>
       <member refid="structProfileVelocityParam_1a8bf3ab4ee7ccdb626a1ceff8b0ce7fba" prot="public" virt="non-virtual"><scope>ProfileVelocityParam</scope><name>max_profile_vel</name></member>
       <member refid="structProfileVelocityParam_1a2a981f1b49bd7c3dbaa080d857897947" prot="public" virt="non-virtual"><scope>ProfileVelocityParam</scope><name>motion_profile_type</name></member>

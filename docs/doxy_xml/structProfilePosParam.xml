@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="321" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="321" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="323" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="323" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structProfilePosParam_1a8588f65715da0e04b65f7a87e04b5aea" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="322" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="322" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="324" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="324" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structProfilePosParam_1a28531945d194b6184acfc58252021495" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="323" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="323" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="325" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="325" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structProfilePosParam_1a4fad96fd7804b2f24051095657d42472" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="324" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="324" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="326" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="326" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structProfilePosParam_1a5cda9a4f392b059c1829825d3537f872" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="325" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="325" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="327" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="327" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structProfilePosParam_1a7ef62445ceaee72a6789b585797d039b" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="326" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="326" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="328" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="328" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structProfilePosParam_1a821b805b7ef6f4e8c5fbc842d7987db6" prot="public" static="no" mutable="no">
         <type>uint16_t</type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="327" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="327" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="329" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="329" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structProfilePosParam_1ad2d624335c5628bc6f4160bed9e6c4a6" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="328" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="328" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="330" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="330" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structProfilePosParam_1abcb976befa531082677af4adf9e7a89d" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="329" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="329" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="331" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="331" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structProfilePosParam_1a8971c667340a81426f3f961565a65ee5" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="330" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="330" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="332" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="332" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -140,7 +140,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="319" column="1" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="320" bodyend="331"/>
+    <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="321" column="1" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="322" bodyend="333"/>
     <listofallmembers>
       <member refid="structProfilePosParam_1a8971c667340a81426f3f961565a65ee5" prot="public" virt="non-virtual"><scope>ProfilePosParam</scope><name>d_gain</name></member>
       <member refid="structProfilePosParam_1abcb976befa531082677af4adf9e7a89d" prot="public" virt="non-virtual"><scope>ProfilePosParam</scope><name>i_gain</name></member>

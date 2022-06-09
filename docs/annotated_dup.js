@@ -19,6 +19,7 @@ var annotated_dup =
     [ "EthercatSlave", "classEthercatSlave.html", "classEthercatSlave" ],
     [ "HapticNode", "classHapticNode.html", "classHapticNode" ],
     [ "HomingParam", "structHomingParam.html", "structHomingParam" ],
+    [ "LifecycleNodeManager", "classLifecycleNodeManager.html", "classLifecycleNodeManager" ],
     [ "MainWindow", "classMainWindow.html", "classMainWindow" ],
     [ "OffsetPDO", "structOffsetPDO.html", "structOffsetPDO" ],
     [ "ProfilePosParam", "structProfilePosParam.html", "structProfilePosParam" ],

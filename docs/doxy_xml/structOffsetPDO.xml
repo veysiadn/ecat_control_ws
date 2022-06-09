@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="231" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="231" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="233" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="233" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1a251ee93cafcd89a8f52c83e31a6dded9" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="232" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="232" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="234" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="234" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1af334e3b60bd6b6d8fddabd6559b89e69" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="233" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="233" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="235" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="235" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1af6588deb13afeac98d363737664f7796" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="234" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="234" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="236" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="236" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1af37d71dd68836a0862e3c58752f32de0" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="235" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="235" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="237" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="237" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1a8c4f5d0811f5157ddd5b2aad718ca216" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="236" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="236" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="238" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="238" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1a5a5931c0e00ddf408a6e1dd1b6389af9" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="237" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="237" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="239" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="239" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1a40d8cf803dc45383d24fcfbb49d176e4" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="238" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="238" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="240" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="240" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1a194b2ec45403a2b5b49d1e08e2480f38" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="239" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="239" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="241" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="241" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1a8c08a2a6e477cbfd2754796e9d69308c" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="240" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="240" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="242" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="242" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1a0df71a81151a20863587d9b51ca7422a" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -145,7 +145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="241" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="241" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="243" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="243" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1aa660132e2053405390ec7c21feab28a6" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -158,7 +158,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="243" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="243" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="245" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="245" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1a96dc5a40722273bac237b58db26a8087" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -171,7 +171,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="244" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="244" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="246" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="246" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1ae1bef0cbff32c077395e59137c8c802d" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -184,7 +184,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="245" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="245" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="247" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="247" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1a9497d0c8b4cc1de3dd0e435b4f071a92" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -197,7 +197,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="246" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="246" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="248" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="248" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1a16476df210bc19f871c89c0c7fd0d0c8" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -210,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="247" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="247" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="249" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="249" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1ad170d2294efd553e8f5e690c394c96ab" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -223,7 +223,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="248" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="248" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="250" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="250" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1a4ce519ced990d7ff2168b54822afc769" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -236,7 +236,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="249" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="249" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="251" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="251" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1a5389244040597e64914e8650abd81996" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -249,7 +249,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="250" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="250" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="252" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="252" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1adee3c83f3857725dac30b685d1b90af2" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -262,7 +262,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="251" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="251" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="253" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="253" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1a73449e20df59e1077d18532bbd0e87fd" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -275,7 +275,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="253" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="253" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="255" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="255" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1ab40d8928b356198511f325f6b1067e32" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -288,7 +288,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="254" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="254" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="256" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="256" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1a45d9cdcfef09d6089056db171755d262" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -301,7 +301,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="255" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="255" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="257" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="257" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structOffsetPDO_1ad94b77fa0e48ed563b4757a1648f9481" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -314,7 +314,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="256" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="256" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="258" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="258" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -322,7 +322,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="229" column="1" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="230" bodyend="257"/>
+    <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="231" column="1" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="232" bodyend="259"/>
     <listofallmembers>
       <member refid="structOffsetPDO_1a9497d0c8b4cc1de3dd0e435b4f071a92" prot="public" virt="non-virtual"><scope>OffsetPDO</scope><name>actual_cur</name></member>
       <member refid="structOffsetPDO_1aa660132e2053405390ec7c21feab28a6" prot="public" virt="non-virtual"><scope>OffsetPDO</scope><name>actual_pos</name></member>

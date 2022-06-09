@@ -5,6 +5,7 @@
     <innerfile refid="ecat__lifecycle_8cpp">ecat_lifecycle.cpp</innerfile>
     <innerfile refid="ecat__node_8cpp">ecat_node.cpp</innerfile>
     <innerfile refid="ecat__slave_8cpp">ecat_slave.cpp</innerfile>
+    <innerfile refid="lifecycle__node__manager_8cpp">lifecycle_node_manager.cpp</innerfile>
     <innerfile refid="ecat__pkg_2src_2main_8cpp">main.cpp</innerfile>
     <innerfile refid="ecat__pkg_2src_2timing_8cpp">timing.cpp</innerfile>
     <briefdescription>

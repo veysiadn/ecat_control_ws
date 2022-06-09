@@ -11,6 +11,7 @@ var hierarchy =
     [ "rclcpp::Node", null, [
       [ "GUI::GuiNode", "classGUI_1_1GuiNode.html", null ],
       [ "HapticNode", "classHapticNode.html", null ],
+      [ "LifecycleNodeManager", "classLifecycleNodeManager.html", null ],
       [ "SafetyNode", "classSafetyNode.html", null ]
     ] ],
     [ "OffsetPDO", "structOffsetPDO.html", null ],

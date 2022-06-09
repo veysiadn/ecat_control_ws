@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="338" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="338" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="340" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="340" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structCSPositionModeParam_1acc1611d030de3fb10c9e7fc10ff0427e" prot="public" static="no" mutable="no">
         <type>uint16_t</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="339" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="339" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="341" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="341" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structCSPositionModeParam_1a7ce4438d79c906eff81308e7d6a54e82" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="340" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="340" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="342" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="342" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structCSPositionModeParam_1a6684713794fac0a3e72c4483914df264" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="341" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="341" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="343" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="343" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structCSPositionModeParam_1ac971e0c8d41d927855decd204399a5c5" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="342" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="342" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="344" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="344" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structCSPositionModeParam_1ad7db2fa628b594bb742a189d47a09568" prot="public" static="no" mutable="no">
         <type>uint16_t</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="343" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="343" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="345" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="345" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structCSPositionModeParam_1a481933edb8103e9d0d2c27eda10f72c3" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="344" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="344" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="346" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="346" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structCSPositionModeParam_1a90400c6f6416fd21c5c3f1a32ab0317d" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="345" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="345" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="347" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="347" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structCSPositionModeParam_1a174d65383bd3d6255e88e89d9e921dbd" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="346" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="346" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="348" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="348" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structCSPositionModeParam_1a6a32c3784218f7dbc8b5cfbc40d35102" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="347" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="347" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="349" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="349" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structCSPositionModeParam_1ab06ecacb46d10ae9eddd1db4c1a44ccf" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -145,7 +145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="348" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="348" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="350" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="350" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structCSPositionModeParam_1abdc88bd545f17425a1b35af8ff86a80e" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -158,7 +158,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="349" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="349" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="351" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="351" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structCSPositionModeParam_1a1f8700628509d4f620265db41a4d1412" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -171,7 +171,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="350" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="350" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="352" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="352" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structCSPositionModeParam_1a7fa1d18cfe7454f638d90f98df14c857" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -184,7 +184,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="351" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="351" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="353" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="353" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -192,7 +192,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="336" column="1" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="337" bodyend="352"/>
+    <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="338" column="1" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="339" bodyend="354"/>
     <listofallmembers>
       <member refid="structCSPositionModeParam_1a7ce4438d79c906eff81308e7d6a54e82" prot="public" virt="non-virtual"><scope>CSPositionModeParam</scope><name>current_controller_gain</name></member>
       <member refid="structCSPositionModeParam_1a7fa1d18cfe7454f638d90f98df14c857" prot="public" virt="non-virtual"><scope>CSPositionModeParam</scope><name>interpolation_time_period</name></member>

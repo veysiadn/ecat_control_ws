@@ -236,7 +236,7 @@
       </memberdef>
       <memberdef kind="define" id="ecat__globals_8hpp_1a1b5f0a2cda8866a2a87331026ac8bd9a" prot="public" static="no">
         <name>GEAR_RATIO</name>
-        <initializer>103</initializer>
+        <initializer>49</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -247,7 +247,7 @@
       </memberdef>
       <memberdef kind="define" id="ecat__globals_8hpp_1a8cdc17f43c9f3850f60d04f98216fc13" prot="public" static="no">
         <name>ENCODER_RESOLUTION</name>
-        <initializer>1024</initializer>
+        <initializer>1000</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -428,8 +428,8 @@
 <codeline lineno="55" refid="ecat__globals_8hpp_1a68f5d933f0593175f4bd579e353d8f54" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEASURE_TIMING<sp/><sp/><sp/>1<sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="56" refid="ecat__globals_8hpp_1a1d48656bc4df51f3d8b17da91494a981" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DISTRIBUTED_CLOCK<sp/>0<sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment">/*****************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="58" refid="ecat__globals_8hpp_1a1b5f0a2cda8866a2a87331026ac8bd9a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GEAR_RATIO<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>103</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="59" refid="ecat__globals_8hpp_1a8cdc17f43c9f3850f60d04f98216fc13" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ENCODER_RESOLUTION<sp/><sp/>1024</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="ecat__globals_8hpp_1a1b5f0a2cda8866a2a87331026ac8bd9a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GEAR_RATIO<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>49</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="ecat__globals_8hpp_1a8cdc17f43c9f3850f60d04f98216fc13" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ENCODER_RESOLUTION<sp/><sp/>1000</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="60" refid="ecat__globals_8hpp_1aae638294dae324558d32f20ad29cd501" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INC_PER_ROTATION<sp/><sp/><sp/><sp/><sp/><sp/>GEAR_RATIO*ENCODER_RESOLUTION*4</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="61" refid="ecat__globals_8hpp_1a157cb770e20b46068ba85fdec0cfa4f1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FIVE_DEGREE_CCW<sp/><sp/><sp/><sp/><sp/><sp/>int(INC_PER_ROTATION/72)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="62" refid="ecat__globals_8hpp_1a345f131f51c76cb464c7647eb1e25dd3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>THIRTY_DEGREE_CCW<sp/><sp/><sp/><sp/>int(INC_PER_ROTATION/12)</highlight><highlight class="normal"></highlight></codeline>

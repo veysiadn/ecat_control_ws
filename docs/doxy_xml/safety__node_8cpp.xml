@@ -251,9 +251,9 @@
 <codeline lineno="132"><highlight class="normal"><sp/><sp/><ref refid="classSafetyNode_1ad7fcd00b7ad571292585ba0f925c71e7" kindref="member">init</ref>()</highlight></codeline>
 <codeline lineno="133"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
 <codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classSafetyNode_1ac84b90290107bf6cbceef3fb5f3368eb" kindref="member">client_get_state_</ref><sp/>=<sp/>this-&gt;create_client&lt;lifecycle_msgs::srv::GetState&gt;(</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="safety__node_8hpp_1ad7ed2848afc80f097ec467515e548453" kindref="member">node_get_state_topic</ref>);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="lifecycle__node__manager_8cpp_1ad7ed2848afc80f097ec467515e548453" kindref="member">node_get_state_topic</ref>);</highlight></codeline>
 <codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classSafetyNode_1a8bfafeed901f7601e58959c89c5ddbef" kindref="member">client_change_state_</ref><sp/>=<sp/>this-&gt;create_client&lt;lifecycle_msgs::srv::ChangeState&gt;(</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="safety__node_8hpp_1a980ba3270c938a20bc0c2071de540eb4" kindref="member">node_change_state_topic</ref>);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="lifecycle__node__manager_8cpp_1a980ba3270c938a20bc0c2071de540eb4" kindref="member">node_change_state_topic</ref>);</highlight></codeline>
 <codeline lineno="138"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="139"><highlight class="normal"></highlight></codeline>
 <codeline lineno="141"><highlight class="normal"></highlight></codeline>

@@ -479,7 +479,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="127" column="13" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="623" bodyend="749"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="127" column="13" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="624" bodyend="750"/>
       </memberdef>
       <memberdef kind="function" id="classMainWindow_1a263819c4964451f170471ab5b0f7769c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -598,7 +598,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="158" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="581" bodyend="621"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="158" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="581" bodyend="622"/>
       </memberdef>
       <memberdef kind="function" id="classMainWindow_1a82066d3dda0ac56577f54a7818c45b23" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -615,7 +615,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="160" column="13" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="751" bodyend="900"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="160" column="13" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="752" bodyend="901"/>
       </memberdef>
       <memberdef kind="function" id="classMainWindow_1a5d84e290c6ccc6d95c36d85ddad8ffce" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>

@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="285" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="285" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="287" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="287" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structSDO__data_1ab27216f8d966b4ccab79a9dd26f2af13" prot="public" static="no" mutable="no">
         <type>uint16_t</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="286" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="286" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="288" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="288" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structSDO__data_1a32ad9e80b6edf968610407b14be6fa3d" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="287" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="287" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="289" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="289" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structSDO__data_1a6fc03ed8f11205ea2afd8d330d29a252" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="288" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="288" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="290" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="290" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structSDO__data_1a058f7de385e0be24e5ee12f55232dd33" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="289" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="289" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="291" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="291" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structSDO__data_1af764158be41bfd4b1aca4b4f03606562" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="290" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="290" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="292" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="292" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structSDO__data_1a3f5e625868529a095438d7614dde0c79" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="291" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="291" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="293" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="293" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -101,7 +101,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="284" column="1" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="284" bodyend="292"/>
+    <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="286" column="1" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="286" bodyend="294"/>
     <listofallmembers>
       <member refid="structSDO__data_1a6fc03ed8f11205ea2afd8d330d29a252" prot="public" virt="non-virtual"><scope>SDO_data</scope><name>data</name></member>
       <member refid="structSDO__data_1a058f7de385e0be24e5ee12f55232dd33" prot="public" virt="non-virtual"><scope>SDO_data</scope><name>data_sz</name></member>

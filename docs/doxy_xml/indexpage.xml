@@ -6,11 +6,11 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><anchor id="index_1md_README"/> This repository contains ROS2 and EtherCAT based control framework for medical robots, but this implementation can be used with any robotic system with some modifications.Contains EtherCAT real-time thread with priority of 98. Software consists of four components (ROS2 nodes) :</para>
-<para>• EtherCAT node: Responsible for EtherCAT communication between master and slaves and publishes acquired feedback from slaves under /slave_feedback topic name in 1 kHz frequency. Additionally, subscribes to /master_commands topic, published from the control node, /gui_data topic published from the <ref refid="namespaceGUI" kindref="compound">GUI</ref> node, and /safety_info topic published from the safety node. Sends control commands to slaves via EtherCAT communication using control node parameters.</para>
-<para>• Control node: Kinematic calculations will be done in this node. This node subscribes /slave_feedback topic published from the EtherCAT node and publishes control commands under the /master_commands topic. Currently this node retrieves button and joystick data from Xbox <ref refid="classController" kindref="compound">Controller</ref> via USB communication.</para>
-<para>• <ref refid="namespaceGUI" kindref="compound">GUI</ref> node: Consists of camera viewer and slave feedback visualizers such as motor state, communication state, and emergency button state. Publishes under /gui_buttons data consists of soft button events, subscribes to /master_ commands, and /slave_feedback, and /safety info topics to give visual feedback to the user. Current version of the <ref refid="namespaceGUI" kindref="compound">GUI</ref> node shown in Figure 25. Control user interface buttons activated based on lifecycle node state.</para>
-<para>• Safety node: Subscribes to all published topics and checks the consistency in the system, decides about the state of the system. System-related safety information is checked every cycle. Manages lifecycle node and state transitions are triggered from this node. Published and subscribed topics for each node are shown in Table 3, and the details structure of the topics is shown in Table 4. Note that published topic messages can be changed by changing msg file contents in case custom message is required.</para>
+<para><anchor id="index_1md_README"/> This repository contains ROS2 and EtherCAT based control framework for our spine surgery robot project, but this implementation can be used with any robotic system with small modifications.Contains EtherCAT real-time thread with priority of 98. Software consists of four components (ROS2 nodes) :</para>
+<para>• EtherCAT node : Responsible for EtherCAT communication between master and slaves and publishes acquired feedback from slaves under /slavefeedback topicname in 1 kHz frequency. Additionally, subscribes to/mastercommands topic published from control node and sends control commands to slaves via EtherCATcommunication.</para>
+<para>• Control node : Kinematic calculations will be done in this node. This node subscribes /slavefeedback topic published from EtherCAT node and publishes control commands under /mastercommands topic.Currently this node retrieves button and joystick data from Xbox <ref refid="classController" kindref="compound">Controller</ref> via USB communication.</para>
+<para>• <ref refid="namespaceGUI" kindref="compound">GUI</ref> node : Consist of camera viewer and slave feedback visualizers such as motor state, communication state, emergency button state. Publishes under /guidata consists of soft emergency button events, subscribes to /mastercommands and /slavefeedback topics to give visual feedback to user</para>
+<para>• Surgical Tool Node : Contains Dynamixel SDK for RS485 communication with Dynamixel motors.</para>
 <para>Please check guides, links and documentations before installation, or using this control framework.</para>
 <sect1 id="index_1autotoc_md1">
 <title>Guides</title>
@@ -39,61 +39,14 @@
 </para>
 </sect1>
 <sect1 id="index_1autotoc_md3">
-<title>Implementation</title>
-<para><programlisting filename=".sh"><codeline><highlight class="normal">git<sp/>clone<sp/>https://github.com/veysiadn/spinerobot_ws<sp/></highlight></codeline>
-<codeline><highlight class="normal">cd<sp/>spinerobot_ws<sp/></highlight></codeline>
-<codeline><highlight class="normal">git<sp/>checkout<sp/>development</highlight></codeline>
+<title>Building and running</title>
+<para><programlisting filename=".sh"><codeline><highlight class="normal">git<sp/>clone<sp/>https://github.com/veysiadn/control_ui_ws</highlight></codeline>
 <codeline><highlight class="normal">sudo<sp/>-s</highlight></codeline>
 <codeline><highlight class="normal">source<sp/>/opt/ros/foxy/setup.bash</highlight></codeline>
 <codeline><highlight class="normal">colcon<sp/>build<sp/>--symlink<sp/>install</highlight></codeline>
 <codeline><highlight class="normal">.<sp/>install/setup.bash</highlight></codeline>
-<codeline><highlight class="normal">ros2<sp/>launch<sp/>./src/ethercat_nodes_launch.py</highlight></codeline>
-</programlisting></para>
-</sect1>
-<sect1 id="index_1autotoc_md4">
-<title>Getting Started</title>
-<sect2 id="index_1autotoc_md5">
-<title>STEP 1 :</title>
-<para>You should start your customization from <ref refid="ecat__globals_8hpp" kindref="compound">ecat_globals.hpp</ref> file. In that file you can specify :<itemizedlist>
-<listitem><para>Number of connected slaves and servo drives,</para>
-</listitem><listitem><para>Control operation mode : Velocity Mode, Position Mode, Torque Mode, Cyclic Synchronous Velocity,Position and Torque modes are supported.</para>
-</listitem><listitem><para>Control Frequency</para>
-</listitem><listitem><para>Enable/Disable Distributed Clock</para>
-</listitem><listitem><para>Motors encoder resolution : note that if you are using different type of motors you might need to create different definitions for each motor.</para>
-</listitem><listitem><para>Motor Gear Ratio : note that if you are using different type of motors you might need to create different definitions for each motor.</para>
-</listitem><listitem><para>Custom Slave : If you have different slave than the CiA402 supported servo drive you will need to define custom slave and PDO mapping for that custom slave.</para>
-</listitem><listitem><para>Keep in mind that this software addresses connected slaves based on physical position with respect to the master. For example the 0th slave will be the first slave that is connected to your Ethernet port.</para>
-</listitem><listitem><para>If you have a custom slave, it must be in the end of slave chain.</para>
-</listitem><listitem></listitem></itemizedlist>
-</para>
-</sect2>
-<sect2 id="index_1autotoc_md6">
-<title>STEP 2 :</title>
-<para>Once you did your initial configuration in the <ref refid="ecat__globals_8hpp" kindref="compound">ecat_globals.hpp</ref> file. You can modify user input method in main.cpp file.<itemizedlist>
-<listitem><para>Currently this software uses XboxController buttons and joystick data to send control commands to the connected motors, if you want to use different input you can remove Xbox related control parameters and add your own.</para>
-</listitem><listitem><para>If you want to use Xbox <ref refid="classController" kindref="compound">Controller</ref> for testing, keep in mind that each axis in the controller generates analog data in the range of -32768 ~ 32768.</para>
-</listitem></itemizedlist>
-</para>
-</sect2>
-<sect2 id="index_1autotoc_md7">
-<title>STEP 3 :</title>
-<para><itemizedlist>
-<listitem><para>Change configuration parameters for your motor in <ulink url="https://veysiadn.github.io/ecat_userspace/classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a620253b4fe34f13f06a60f1fb12a81cc">SetConfigurationParameters()</ulink> function in <ref refid="ecat__lifecycle_8cpp" kindref="compound">ecat_lifecycle.cpp</ref> file, based on your operation mode. You can check example page for detailed instructions on custom modifications, in Examples tab.</para>
-</listitem><listitem><para>Change control parameters based on your selected operation mode in <ref refid="ecat__lifecycle_8cpp" kindref="compound">ecat_lifecycle.cpp</ref> file in the Update functions. For example if you want to use velocity mode in your control loop, you can change function content of UpdateVelocityModeParameters();</para>
-</listitem></itemizedlist>
-</para>
-<para>Once you did those changes you will need recompile the software using make and you can test the executable.</para>
-</sect2>
-<sect2 id="index_1autotoc_md8">
-<title>NOTE</title>
-<para><itemizedlist>
-<listitem><para>This software heavily tested on Maxon EPOS drivers, therefore if you want to use different servo driver you will need to check PDO mapping of your slave, or you can do custom PDO mapping by using MapCustomPdo function defined in <ref refid="ecat__node_8cpp" kindref="compound">ecat_node.cpp</ref> file.</para>
-</listitem></itemizedlist>
-</para>
-</sect2>
-</sect1>
-<sect1 id="index_1autotoc_md9">
-<title>Good Luck ⚡</title>
+<codeline><highlight class="normal">ros2<sp/>launch<sp/>launch_all_nodes.py</highlight></codeline>
+</programlisting> </para>
 </sect1>
     </detaileddescription>
     <location file="README.md"/>

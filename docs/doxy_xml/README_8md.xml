@@ -9,18 +9,16 @@
     <programlisting>
 <codeline><highlight class="normal">##<sp/>Welcome<sp/>to<sp/>Veysi<sp/>ADIN<sp/>&amp;<sp/>Chunwoo<sp/>Kim&apos;s<sp/>ROS2<sp/>EtherCAT<sp/>package.</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal"><sp/><sp/>This<sp/>repository<sp/>contains<sp/>ROS2<sp/>and<sp/>EtherCAT<sp/>based<sp/>control<sp/>framework<sp/>for<sp/>medical<sp/>robots,<sp/>but<sp/>this<sp/>implementation<sp/>can<sp/>be<sp/>used<sp/>with<sp/>any<sp/>robotic<sp/>system<sp/>with<sp/>some<sp/>modifications.Contains<sp/>EtherCAT<sp/>real-time<sp/>thread<sp/>with<sp/>priority<sp/>of<sp/>98.<sp/>Software<sp/>consists<sp/>of<sp/>four<sp/>components<sp/>(ROS2<sp/>nodes)<sp/>:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>This<sp/>repository<sp/>contains<sp/>ROS2<sp/>and<sp/>EtherCAT<sp/>based<sp/>control<sp/>framework<sp/>for<sp/>our<sp/>spine<sp/>surgery<sp/>robot<sp/>project,<sp/>but<sp/>this<sp/>implementation<sp/>can<sp/>be<sp/>used<sp/>with<sp/>any<sp/>robotic<sp/>system<sp/>with<sp/>small<sp/>modifications.Contains<sp/>EtherCAT<sp/>real-time<sp/>thread<sp/>with<sp/>priority<sp/>of<sp/>98.<sp/>Software<sp/>consists<sp/>of<sp/>four<sp/>components<sp/>(ROS2<sp/>nodes)<sp/>:<sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal">•<sp/>EtherCAT<sp/>node:<sp/>Responsible<sp/>for<sp/>EtherCAT<sp/>communication<sp/>between<sp/>master<sp/>and<sp/>slaves<sp/>and<sp/>publishes<sp/>acquired<sp/>feedback<sp/>from<sp/>slaves<sp/>under<sp/>/slave_feedback<sp/>topic<sp/>name<sp/>in<sp/>1<sp/>kHz<sp/>frequency.<sp/>Additionally,<sp/>subscribes<sp/>to<sp/>/master_commands<sp/>topic,<sp/>published<sp/>from<sp/>the<sp/>control<sp/>node,<sp/>/gui_data<sp/>topic<sp/>published<sp/>from<sp/>the<sp/>GUI<sp/>node,<sp/>and<sp/>/safety_info<sp/>topic<sp/>published<sp/>from<sp/>the<sp/>safety<sp/>node.<sp/>Sends<sp/>control<sp/>commands<sp/>to<sp/>slaves<sp/>via<sp/>EtherCAT<sp/>communication<sp/>using<sp/>control<sp/>node<sp/>parameters.<sp/></highlight></codeline>
-<codeline></codeline>
-<codeline></codeline>
-<codeline><highlight class="normal">•<sp/>Control<sp/>node:<sp/>Kinematic<sp/>calculations<sp/>will<sp/>be<sp/>done<sp/>in<sp/>this<sp/>node.<sp/>This<sp/>node<sp/>subscribes<sp/>/slave_feedback<sp/>topic<sp/>published<sp/>from<sp/>the<sp/>EtherCAT<sp/>node<sp/>and<sp/>publishes<sp/>control<sp/>commands<sp/>under<sp/>the<sp/>/master_commands<sp/>topic.<sp/>Currently<sp/>this<sp/>node<sp/>retrieves<sp/>button<sp/>and<sp/>joystick<sp/>data<sp/>from<sp/>Xbox<sp/>Controller<sp/>via<sp/>USB<sp/>communication.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>•<sp/>EtherCAT<sp/>node<sp/>:<sp/>Responsible<sp/>for<sp/>EtherCAT<sp/>communication<sp/>between<sp/>master<sp/>and<sp/>slaves<sp/>and<sp/>publishes<sp/>acquired<sp/>feedback<sp/>from<sp/>slaves<sp/>under<sp/>/slavefeedback<sp/>topicname<sp/>in<sp/>1<sp/>kHz<sp/>frequency.<sp/>Additionally,<sp/>subscribes<sp/>to/mastercommands<sp/>topic<sp/>published<sp/>from<sp/>control<sp/>node<sp/>and<sp/>sends<sp/>control<sp/>commands<sp/>to<sp/>slaves<sp/>via<sp/>EtherCATcommunication.</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal">•<sp/>GUI<sp/>node:<sp/>Consists<sp/>of<sp/>camera<sp/>viewer<sp/>and<sp/>slave<sp/>feedback<sp/>visualizers<sp/>such<sp/>as<sp/>motor<sp/>state,<sp/>communication<sp/>state,<sp/>and<sp/>emergency<sp/>button<sp/>state.<sp/>Publishes<sp/>under<sp/>/gui_buttons<sp/>data<sp/>consists<sp/>of<sp/>soft<sp/>button<sp/>events,<sp/>subscribes<sp/>to<sp/>/master_<sp/>commands,<sp/>and<sp/>/slave_feedback,<sp/>and<sp/>/safety<sp/>info<sp/>topics<sp/>to<sp/>give<sp/>visual<sp/>feedback<sp/>to<sp/>the<sp/>user.<sp/>Current<sp/>version<sp/>of<sp/>the<sp/>GUI<sp/>node<sp/>shown<sp/>in<sp/>Figure<sp/>25.<sp/>Control<sp/>user<sp/>interface<sp/>buttons<sp/>activated<sp/>based<sp/>on<sp/>lifecycle<sp/>node<sp/>state.</highlight></codeline>
-<codeline></codeline>
-<codeline><highlight class="normal">•<sp/>Safety<sp/>node:<sp/>Subscribes<sp/>to<sp/>all<sp/>published<sp/>topics<sp/>and<sp/>checks<sp/>the<sp/>consistency<sp/>in<sp/>the<sp/>system,<sp/>decides<sp/>about<sp/>the<sp/>state<sp/>of<sp/>the<sp/>system.<sp/>System-related<sp/>safety<sp/>information<sp/>is<sp/>checked<sp/>every<sp/>cycle.<sp/>Manages<sp/>lifecycle<sp/>node<sp/>and<sp/>state<sp/>transitions<sp/>are<sp/>triggered<sp/>from<sp/>this<sp/>node.</highlight></codeline>
-<codeline><highlight class="normal">Published<sp/>and<sp/>subscribed<sp/>topics<sp/>for<sp/>each<sp/>node<sp/>are<sp/>shown<sp/>in<sp/>Table<sp/>3,<sp/>and<sp/>the<sp/>details<sp/>structure<sp/>of<sp/>the<sp/>topics<sp/>is<sp/>shown<sp/>in<sp/>Table<sp/>4.<sp/>Note<sp/>that<sp/>published<sp/>topic<sp/>messages<sp/>can<sp/>be<sp/>changed<sp/>by<sp/>changing<sp/>msg<sp/>file<sp/>contents<sp/>in<sp/>case<sp/>custom<sp/>message<sp/>is<sp/>required.</highlight></codeline>
-<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>•<sp/>Control<sp/>node<sp/>:<sp/>Kinematic<sp/>calculations<sp/>will<sp/>be<sp/>done<sp/>in<sp/>this<sp/>node.<sp/>This<sp/>node<sp/>subscribes<sp/>/slavefeedback<sp/>topic<sp/>published<sp/>from<sp/>EtherCAT<sp/>node<sp/>and<sp/>publishes<sp/>control<sp/>commands<sp/>under<sp/>/mastercommands<sp/>topic.Currently<sp/>this<sp/>node<sp/>retrieves<sp/>button<sp/>and<sp/>joystick<sp/>data<sp/>from<sp/>Xbox<sp/>Controller<sp/>via<sp/>USB<sp/>communication.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>•<sp/>GUI<sp/>node<sp/>:<sp/>Consist<sp/>of<sp/>camera<sp/>viewer<sp/>and<sp/>slave<sp/>feedback<sp/>visualizers<sp/>such<sp/>as<sp/>motor<sp/>state,<sp/>communication<sp/>state,<sp/>emergency<sp/>button<sp/>state.<sp/>Publishes<sp/>under<sp/>/guidata<sp/>consists<sp/>of<sp/>soft<sp/>emergency<sp/>button<sp/>events,<sp/>subscribes<sp/>to<sp/>/mastercommands<sp/>and<sp/>/slavefeedback<sp/>topics<sp/>to<sp/>give<sp/>visual<sp/>feedback<sp/>to<sp/>user</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/>•<sp/>Surgical<sp/>Tool<sp/>Node<sp/>:<sp/>Contains<sp/>Dynamixel<sp/>SDK<sp/>for<sp/>RS485<sp/>communication<sp/>with<sp/>Dynamixel<sp/>motors.</highlight></codeline>
+<codeline><highlight class="normal"><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/>Please<sp/>check<sp/>guides,<sp/>links<sp/>and<sp/>documentations<sp/>before<sp/>installation,<sp/>or<sp/>using<sp/>this<sp/>control<sp/>framework.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Guides</highlight></codeline>
@@ -42,48 +40,17 @@
 <codeline><highlight class="normal">-<sp/>[ROS2<sp/>Foxy<sp/>Installation](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>[Dynamixel-SDK](https://github.com/ROBOTIS-GIT/DynamixelSDK)</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">##<sp/>Implementation</highlight></codeline>
+<codeline><highlight class="normal">##<sp/>Building<sp/>and<sp/>running</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal">```sh</highlight></codeline>
-<codeline><highlight class="normal">git<sp/>clone<sp/>https://github.com/veysiadn/spinerobot_ws<sp/></highlight></codeline>
-<codeline><highlight class="normal">cd<sp/>spinerobot_ws<sp/></highlight></codeline>
-<codeline><highlight class="normal">git<sp/>checkout<sp/>development</highlight></codeline>
+<codeline><highlight class="normal">git<sp/>clone<sp/>https://github.com/veysiadn/control_ui_ws</highlight></codeline>
 <codeline><highlight class="normal">sudo<sp/>-s</highlight></codeline>
 <codeline><highlight class="normal">source<sp/>/opt/ros/foxy/setup.bash</highlight></codeline>
 <codeline><highlight class="normal">colcon<sp/>build<sp/>--symlink<sp/>install</highlight></codeline>
 <codeline><highlight class="normal">.<sp/>install/setup.bash</highlight></codeline>
-<codeline><highlight class="normal">ros2<sp/>launch<sp/>./src/ethercat_nodes_launch.py</highlight></codeline>
+<codeline><highlight class="normal">ros2<sp/>launch<sp/>launch_all_nodes.py</highlight></codeline>
 <codeline><highlight class="normal">```</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">##<sp/>Getting<sp/>Started</highlight></codeline>
-<codeline><highlight class="normal">###<sp/>STEP<sp/>1<sp/>:<sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>You<sp/>should<sp/>start<sp/>your<sp/>customization<sp/>from<sp/>ecat_globals.hpp<sp/>file.<sp/>In<sp/>that<sp/>file<sp/>you<sp/>can<sp/>specify<sp/>:<sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>-<sp/>Number<sp/>of<sp/>connected<sp/>slaves<sp/>and<sp/>servo<sp/>drives,</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>-<sp/>Control<sp/>operation<sp/>mode<sp/>:<sp/>Velocity<sp/>Mode,<sp/>Position<sp/>Mode,<sp/>Torque<sp/>Mode,<sp/>Cyclic<sp/>Synchronous<sp/>Velocity,Position<sp/>and<sp/>Torque<sp/>modes<sp/>are<sp/>supported.<sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>-<sp/>Control<sp/>Frequency</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>-<sp/>Enable/Disable<sp/>Distributed<sp/>Clock</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>-<sp/>Motors<sp/>encoder<sp/>resolution<sp/>:<sp/>note<sp/>that<sp/>if<sp/>you<sp/>are<sp/>using<sp/>different<sp/>type<sp/>of<sp/>motors<sp/>you<sp/>might<sp/>need<sp/>to<sp/>create<sp/>different<sp/>definitions<sp/>for<sp/>each<sp/>motor.</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>-<sp/>Motor<sp/>Gear<sp/>Ratio<sp/>:<sp/><sp/>note<sp/>that<sp/>if<sp/>you<sp/>are<sp/>using<sp/>different<sp/>type<sp/>of<sp/>motors<sp/>you<sp/>might<sp/>need<sp/>to<sp/>create<sp/>different<sp/>definitions<sp/>for<sp/>each<sp/>motor.</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>-<sp/>Custom<sp/>Slave<sp/>:<sp/>If<sp/>you<sp/>have<sp/>different<sp/>slave<sp/>than<sp/>the<sp/>CiA402<sp/>supported<sp/>servo<sp/>drive<sp/>you<sp/>will<sp/>need<sp/>to<sp/>define<sp/>custom<sp/>slave<sp/>and<sp/>PDO<sp/>mapping<sp/>for<sp/>that<sp/>custom<sp/>slave.</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>-<sp/>Keep<sp/>in<sp/>mind<sp/>that<sp/>this<sp/>software<sp/>addresses<sp/>connected<sp/>slaves<sp/>based<sp/>on<sp/>physical<sp/>position<sp/>with<sp/>respect<sp/>to<sp/>the<sp/>master.<sp/>For<sp/>example<sp/>the<sp/>0th<sp/>slave<sp/>will<sp/>be<sp/>the<sp/>first<sp/>slave<sp/>that<sp/>is<sp/>connected<sp/>to<sp/>your<sp/>Ethernet<sp/>port.<sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>-<sp/>If<sp/>you<sp/>have<sp/>a<sp/>custom<sp/>slave,<sp/>it<sp/>must<sp/>be<sp/>in<sp/>the<sp/>end<sp/>of<sp/>slave<sp/>chain.</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>-<sp/></highlight></codeline>
-<codeline><highlight class="normal">###<sp/>STEP<sp/>2<sp/>:<sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>Once<sp/>you<sp/>did<sp/>your<sp/>initial<sp/>configuration<sp/>in<sp/>the<sp/>ecat_globals.hpp<sp/>file.<sp/>You<sp/>can<sp/>modify<sp/>user<sp/>input<sp/>method<sp/>in<sp/>main.cpp<sp/>file.</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>-<sp/>Currently<sp/>this<sp/>software<sp/>uses<sp/>XboxController<sp/>buttons<sp/>and<sp/>joystick<sp/>data<sp/>to<sp/>send<sp/>control<sp/>commands<sp/>to<sp/>the<sp/>connected<sp/>motors,<sp/>if<sp/>you<sp/>want<sp/>to<sp/>use<sp/>different<sp/>input<sp/>you<sp/>can<sp/>remove<sp/>Xbox<sp/>related<sp/>control<sp/>parameters<sp/>and<sp/>add<sp/>your<sp/>own.</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>-<sp/>If<sp/>you<sp/>want<sp/>to<sp/>use<sp/>Xbox<sp/>Controller<sp/>for<sp/>testing,<sp/>keep<sp/>in<sp/>mind<sp/>that<sp/>each<sp/>axis<sp/>in<sp/>the<sp/>controller<sp/>generates<sp/>analog<sp/>data<sp/>in<sp/>the<sp/>range<sp/>of<sp/>-32768<sp/>~<sp/>32768.</highlight></codeline>
-<codeline></codeline>
-<codeline><highlight class="normal">###<sp/>STEP<sp/>3<sp/>:<sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>-<sp/>Change<sp/>configuration<sp/>parameters<sp/>for<sp/>your<sp/>motor<sp/>in<sp/>[SetConfigurationParameters()](https://veysiadn.github.io/ecat_userspace/classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a620253b4fe34f13f06a60f1fb12a81cc)<sp/>function<sp/>in<sp/>ecat_lifecycle.cpp<sp/>file,<sp/>based<sp/>on<sp/>your<sp/>operation<sp/>mode.<sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>You<sp/>can<sp/>check<sp/>example<sp/>page<sp/>for<sp/>detailed<sp/>instructions<sp/>on<sp/>custom<sp/>modifications,<sp/>in<sp/>Examples<sp/>tab.</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>-<sp/>Change<sp/>control<sp/>parameters<sp/>based<sp/>on<sp/>your<sp/>selected<sp/>operation<sp/>mode<sp/>in<sp/>ecat_lifecycle.cpp<sp/>file<sp/>in<sp/>the<sp/>Update<sp/>functions.<sp/>For<sp/>example<sp/>if<sp/>you<sp/>want<sp/>to<sp/>use<sp/>velocity<sp/>mode<sp/>in<sp/>your<sp/>control<sp/>loop,<sp/>you<sp/>can<sp/>change<sp/>function<sp/>content<sp/>of<sp/>UpdateVelocityModeParameters();</highlight></codeline>
-<codeline></codeline>
-<codeline><highlight class="normal">Once<sp/>you<sp/>did<sp/>those<sp/>changes<sp/>you<sp/>will<sp/>need<sp/>recompile<sp/>the<sp/>software<sp/>using<sp/>make<sp/>and<sp/>you<sp/>can<sp/>test<sp/>the<sp/>executable.<sp/></highlight></codeline>
-<codeline></codeline>
-<codeline><highlight class="normal">###<sp/>NOTE<sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>-<sp/>This<sp/>software<sp/>heavily<sp/>tested<sp/>on<sp/>Maxon<sp/>EPOS<sp/>drivers,<sp/>therefore<sp/>if<sp/>you<sp/>want<sp/>to<sp/>use<sp/>different<sp/>servo<sp/>driver<sp/>you<sp/>will<sp/>need<sp/>to<sp/>check<sp/>PDO<sp/>mapping<sp/>of<sp/>your<sp/>slave,<sp/>or<sp/>you<sp/>can<sp/>do<sp/>custom<sp/>PDO<sp/>mapping<sp/>by<sp/>using<sp/>MapCustomPdo<sp/>function<sp/>defined<sp/>in<sp/>ecat_node.cpp<sp/>file.<sp/></highlight></codeline>
-<codeline></codeline>
-<codeline><highlight class="normal">##<sp/>Good<sp/>Luck<sp/>⚡</highlight></codeline>
     </programlisting>
     <location file="README.md"/>
   </compounddef>

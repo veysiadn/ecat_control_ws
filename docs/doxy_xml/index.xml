@@ -17,6 +17,8 @@
     <member refid="classController_1a23d43716969133c3a84aefc223235bba" kind="variable"><name>left_y_axis_</name></member>
     <member refid="classController_1a4491f31970440809252f792325f3332c" kind="variable"><name>right_x_axis_</name></member>
     <member refid="classController_1a48605a75d1e18d653d428aa12f267cf7" kind="variable"><name>right_y_axis_</name></member>
+    <member refid="classController_1a3ed12af7d68f8726f4e256437440b1fd" kind="variable"><name>left_t_axis_</name></member>
+    <member refid="classController_1aac13f000223e5b886e5849298deade26" kind="variable"><name>right_t_axis_</name></member>
     <member refid="classController_1a21b2cc61fc8759e3612edf6cb7659844" kind="variable"><name>blue_button_</name></member>
     <member refid="classController_1af4090cca658badffa788cc347c0d8976" kind="variable"><name>green_button_</name></member>
     <member refid="classController_1aedf7f3ad3fc4cf9587eb814939f2fe1e" kind="variable"><name>red_button_</name></member>
@@ -96,6 +98,7 @@
   </compound>
   <compound refid="structCSVelocityModeParam" kind="struct"><name>CSVelocityModeParam</name>
     <member refid="structCSVelocityModeParam_1ad0394a462256fede3e57111c4b1af73f" kind="variable"><name>velocity_controller_gain</name></member>
+    <member refid="structCSVelocityModeParam_1ab388e3da9f58f577f4c729a7bfa6238a" kind="variable"><name>max_profile_vel</name></member>
     <member refid="structCSVelocityModeParam_1a0439f6be9b0240a3841ff23ebf90e165" kind="variable"><name>quick_stop_dec</name></member>
     <member refid="structCSVelocityModeParam_1aeaccf4ae308c275cdf7d4165f8d9a8d2" kind="variable"><name>profile_dec</name></member>
     <member refid="structCSVelocityModeParam_1a1924ebf9d9fa3a78df637fa45e585c14" kind="variable"><name>software_position_limit</name></member>
@@ -291,6 +294,21 @@
     <member refid="structHomingParam_1aa882eb093eb65f7d30976fbb1c761dc2" kind="variable"><name>curr_threshold_homing</name></member>
     <member refid="structHomingParam_1a4b529e1ff01a93d2e64dda04908aa449" kind="variable"><name>home_offset</name></member>
     <member refid="structHomingParam_1a78a0209212385df219c3e14c8ced924b" kind="variable"><name>homing_method</name></member>
+  </compound>
+  <compound refid="classLifecycleNodeManager" kind="class"><name>LifecycleNodeManager</name>
+    <member refid="classLifecycleNodeManager_1a581e21d23e48109070dd107ae16e269e" kind="variable"><name>joystick_subscriber_</name></member>
+    <member refid="classLifecycleNodeManager_1ada7b567e41c6273855e5b69928ff3e69" kind="variable"><name>gui_button_subscriber_</name></member>
+    <member refid="classLifecycleNodeManager_1adcbeb4506c68245896a5877d60bde177" kind="variable"><name>lifecycle_node_subscriber_</name></member>
+    <member refid="classLifecycleNodeManager_1aeae42c86e356c9bfbb787d7c4acfc2c5" kind="variable"><name>lifecycle_node_data_</name></member>
+    <member refid="classLifecycleNodeManager_1a603d3f6d11ee9018d2ca593e3c02f992" kind="variable"><name>controller_</name></member>
+    <member refid="classLifecycleNodeManager_1af28c2bee450c69abb56a51a00ea488a0" kind="variable"><name>client_get_state_</name></member>
+    <member refid="classLifecycleNodeManager_1ae66f3fc1ba1c0bd098b87c8d486b808f" kind="variable"><name>client_change_state_</name></member>
+    <member refid="classLifecycleNodeManager_1a57b3199b608b662cfdf4208dc75a869c" kind="function"><name>LifecycleNodeManager</name></member>
+    <member refid="classLifecycleNodeManager_1a4063aa04a8a5504ea4f3ab8e80eed43f" kind="function"><name>HandleGuiNodeCallbacks</name></member>
+    <member refid="classLifecycleNodeManager_1aa3db673f9e890ab7367a5d0eba9b91f5" kind="function"><name>HandleLifecycleNodeCallbacks</name></member>
+    <member refid="classLifecycleNodeManager_1a721197b46e8cd5670e0e7e5416e51210" kind="function"><name>init</name></member>
+    <member refid="classLifecycleNodeManager_1ac4ec2c56d5bc6aa831ed71efd1e887bc" kind="function"><name>get_state</name></member>
+    <member refid="classLifecycleNodeManager_1a01ecceb7259e421c9a35011031038198" kind="function"><name>change_state</name></member>
   </compound>
   <compound refid="classMainWindow" kind="class"><name>MainWindow</name>
     <member refid="classMainWindow_1a35466a70ed47252a0191168126a352a5" kind="variable"><name>ui</name></member>
@@ -512,30 +530,11 @@
   </compound>
   <compound refid="README_8md" kind="file"><name>README.md</name>
   </compound>
+  <compound refid="src_2README_8md" kind="file"><name>README.md</name>
+  </compound>
   <compound refid="joy__node__linux_8cpp" kind="file"><name>joy_node_linux.cpp</name>
     <member refid="joy__node__linux_8cpp_1ad8e9de5b070f6d2a84f39a36e0dcff9b" kind="typedef"><name>TLSFAllocator</name></member>
     <member refid="joy__node__linux_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
-  </compound>
-  <compound refid="controller_2CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
-    <member refid="controller_2CMakeLists_8txt_1ad1bf69fd353850593e105f63289c8339" kind="function"><name>cmake_minimum_required</name></member>
-    <member refid="controller_2CMakeLists_8txt_1ad9a9e945c10fdf0c9b1dadd2f594291f" kind="function"><name>include</name></member>
-    <member refid="controller_2CMakeLists_8txt_1a05b3c4a7d379ebcb46cd62d86850f807" kind="function"><name>else</name></member>
-  </compound>
-  <compound refid="ecat__msgs_2CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
-    <member refid="ecat__msgs_2CMakeLists_8txt_1a0dc9d1dbd6c0b50b14671a70c25ce475" kind="function"><name>cmake_minimum_required</name></member>
-  </compound>
-  <compound refid="ecat__pkg_2CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
-    <member refid="ecat__pkg_2CMakeLists_8txt_1a6ea9f23d4cdce36abec9d19975ffc7bf" kind="variable"><name>Wl</name></member>
-    <member refid="ecat__pkg_2CMakeLists_8txt_1a0d121d952cf7d7860ef1e3398431acd6" kind="function"><name>cmake_minimum_required</name></member>
-    <member refid="ecat__pkg_2CMakeLists_8txt_1a2e9817741974886b30eed9cfea09cd06" kind="function"><name>set</name></member>
-  </compound>
-  <compound refid="gui__pkg_2CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
-    <member refid="gui__pkg_2CMakeLists_8txt_1ae63cc5854ecdd1c87eb8ce252bc11a46" kind="function"><name>cmake_minimum_required</name></member>
-  </compound>
-  <compound refid="input__pkg_2CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
-    <member refid="input__pkg_2CMakeLists_8txt_1a97600d4bbf09916b9863e6b35fc77241" kind="function"><name>cmake_minimum_required</name></member>
-  </compound>
-  <compound refid="safety__pkg_2CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
   </compound>
   <compound refid="ecat__definitions_8hpp" kind="file"><name>ecat_definitions.hpp</name>
     <member refid="ecat__definitions_8hpp_1a3e343f521bdee99c94f22627c930d24d" kind="define"><name>TEST_BIT</name></member>
@@ -930,6 +929,12 @@
   </compound>
   <compound refid="ecat__slave_8cpp" kind="file"><name>ecat_slave.cpp</name>
   </compound>
+  <compound refid="lifecycle__node__manager_8cpp" kind="file"><name>lifecycle_node_manager.cpp</name>
+    <member refid="lifecycle__node__manager_8cpp_1aced6f4a17af3b1dcfe352533f20fa4ee" kind="variable"><name>lifecycle_node</name></member>
+    <member refid="lifecycle__node__manager_8cpp_1ad7ed2848afc80f097ec467515e548453" kind="variable"><name>node_get_state_topic</name></member>
+    <member refid="lifecycle__node__manager_8cpp_1a980ba3270c938a20bc0c2071de540eb4" kind="variable"><name>node_change_state_topic</name></member>
+    <member refid="lifecycle__node__manager_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
   <compound refid="ecat__pkg_2src_2main_8cpp" kind="file"><name>main.cpp</name>
     <member refid="ecat__pkg_2src_2main_8cpp_1aa823abaa3c85d090c2334e2f56728f89" kind="variable"><name>ecat_lifecycle_node</name></member>
     <member refid="ecat__pkg_2src_2main_8cpp_1adfe90e1a94b18921c8a8ec76d94edbd4" kind="function"><name>signalHandler</name></member>
@@ -1109,6 +1114,27 @@
   <compound refid="hapticNode_8cpp" kind="file"><name>hapticNode.cpp</name>
     <member refid="hapticNode_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
   </compound>
+  <compound refid="controller_2CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
+    <member refid="controller_2CMakeLists_8txt_1ad1bf69fd353850593e105f63289c8339" kind="function"><name>cmake_minimum_required</name></member>
+    <member refid="controller_2CMakeLists_8txt_1ad9a9e945c10fdf0c9b1dadd2f594291f" kind="function"><name>include</name></member>
+    <member refid="controller_2CMakeLists_8txt_1a05b3c4a7d379ebcb46cd62d86850f807" kind="function"><name>else</name></member>
+  </compound>
+  <compound refid="ecat__msgs_2CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
+    <member refid="ecat__msgs_2CMakeLists_8txt_1a0dc9d1dbd6c0b50b14671a70c25ce475" kind="function"><name>cmake_minimum_required</name></member>
+  </compound>
+  <compound refid="ecat__pkg_2CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
+    <member refid="ecat__pkg_2CMakeLists_8txt_1a6ea9f23d4cdce36abec9d19975ffc7bf" kind="variable"><name>Wl</name></member>
+    <member refid="ecat__pkg_2CMakeLists_8txt_1a0d121d952cf7d7860ef1e3398431acd6" kind="function"><name>cmake_minimum_required</name></member>
+    <member refid="ecat__pkg_2CMakeLists_8txt_1a2e9817741974886b30eed9cfea09cd06" kind="function"><name>set</name></member>
+  </compound>
+  <compound refid="gui__pkg_2CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
+    <member refid="gui__pkg_2CMakeLists_8txt_1ae63cc5854ecdd1c87eb8ce252bc11a46" kind="function"><name>cmake_minimum_required</name></member>
+  </compound>
+  <compound refid="input__pkg_2CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
+    <member refid="input__pkg_2CMakeLists_8txt_1a97600d4bbf09916b9863e6b35fc77241" kind="function"><name>cmake_minimum_required</name></member>
+  </compound>
+  <compound refid="safety__pkg_2CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
+  </compound>
   <compound refid="safety__node_8hpp" kind="file"><name>safety_node.hpp</name>
     <member refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833" kind="enum"><name>SafetyInfo</name></member>
     <member refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833a3df691a0fd74f5cff7a200944fcf95b5" kind="enumvalue"><name>kSafe</name></member>
@@ -1129,19 +1155,19 @@
   </compound>
   <compound refid="dir_620320258e45fc0c4377bdb2534829a3" kind="dir"><name>src/ecat_msgs</name>
   </compound>
-  <compound refid="dir_1ddb388387a7a32e5e04c01fabcf41c5" kind="dir"><name>src/ecat_pkg/include/ecat_pkg</name>
-  </compound>
   <compound refid="dir_6ed40f2d31a14c8f080c4f6acbbad9fa" kind="dir"><name>src/ecat_pkg</name>
   </compound>
-  <compound refid="dir_49c8a06a9201d6d04532d5a0bfb6e5e9" kind="dir"><name>src/gui_pkg/include/gui_pkg</name>
+  <compound refid="dir_1ddb388387a7a32e5e04c01fabcf41c5" kind="dir"><name>src/ecat_pkg/include/ecat_pkg</name>
   </compound>
   <compound refid="dir_a8d7c3dfc6a2d1ab1ed6aadf73452078" kind="dir"><name>src/gui_pkg</name>
   </compound>
-  <compound refid="dir_95e41177299382f82581ff6a0fdbe1b7" kind="dir"><name>src/safety_pkg/include</name>
+  <compound refid="dir_49c8a06a9201d6d04532d5a0bfb6e5e9" kind="dir"><name>src/gui_pkg/include/gui_pkg</name>
   </compound>
   <compound refid="dir_e13597078cf4e6075ccc1389ec844104" kind="dir"><name>src/ecat_pkg/include</name>
   </compound>
   <compound refid="dir_5f6a9ac372f08ad2f9f56fbda15f8efd" kind="dir"><name>src/gui_pkg/include</name>
+  </compound>
+  <compound refid="dir_95e41177299382f82581ff6a0fdbe1b7" kind="dir"><name>src/safety_pkg/include</name>
   </compound>
   <compound refid="dir_5a4e756bb77571bd5b8d32b7a3f7541e" kind="dir"><name>src/input_pkg/include</name>
   </compound>
@@ -1153,21 +1179,21 @@
   </compound>
   <compound refid="dir_afd3063867063183ef901a7a578d68e9" kind="dir"><name>src/ecat_pkg/launch/LaunchExample</name>
   </compound>
-  <compound refid="dir_2d5e762472730a416a9d6417e2041833" kind="dir"><name>src/safety_pkg</name>
-  </compound>
   <compound refid="dir_675f4537d6e4af31cfc867aad29c483f" kind="dir"><name>src/safety_pkg/include/safety_pkg</name>
   </compound>
-  <compound refid="dir_34a4b34f2cfbf09a1592a51ce47086eb" kind="dir"><name>src/ecat_pkg/src</name>
-  </compound>
-  <compound refid="dir_578fcc4aa7bb58f0f856b2f7d84499c2" kind="dir"><name>src/gui_pkg/src</name>
+  <compound refid="dir_2d5e762472730a416a9d6417e2041833" kind="dir"><name>src/safety_pkg</name>
   </compound>
   <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
   </compound>
-  <compound refid="dir_01e3b00c0e79295f4d52db5e62983e30" kind="dir"><name>src/controller/src</name>
+  <compound refid="dir_b3c8cf0a1583fdca019efa4931c113bd" kind="dir"><name>src/safety_pkg/src</name>
   </compound>
   <compound refid="dir_43175be8285d9322b122867840b67d13" kind="dir"><name>src/input_pkg/src</name>
   </compound>
-  <compound refid="dir_b3c8cf0a1583fdca019efa4931c113bd" kind="dir"><name>src/safety_pkg/src</name>
+  <compound refid="dir_578fcc4aa7bb58f0f856b2f7d84499c2" kind="dir"><name>src/gui_pkg/src</name>
+  </compound>
+  <compound refid="dir_34a4b34f2cfbf09a1592a51ce47086eb" kind="dir"><name>src/ecat_pkg/src</name>
+  </compound>
+  <compound refid="dir_01e3b00c0e79295f4d52db5e62983e30" kind="dir"><name>src/controller/src</name>
   </compound>
   <compound refid="indexpage" kind="page"><name>index</name>
   </compound>

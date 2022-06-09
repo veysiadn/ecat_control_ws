@@ -214,6 +214,32 @@
         </inbodydescription>
         <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="124" column="11" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="124" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="variable" id="classController_1a3ed12af7d68f8726f4e256437440b1fd" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Controller::left_t_axis_</definition>
+        <argsstring></argsstring>
+        <name>left_t_axis_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="125" column="11" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1aac13f000223e5b886e5849298deade26" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Controller::right_t_axis_</definition>
+        <argsstring></argsstring>
+        <name>right_t_axis_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="126" column="11" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="126" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="variable" id="classController_1a21b2cc61fc8759e3612edf6cb7659844" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
         <definition>uint8_t Controller::blue_button_</definition>
@@ -225,7 +251,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="125" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="125" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="127" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="127" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classController_1af4090cca658badffa788cc347c0d8976" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -238,7 +264,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="126" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="126" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="128" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="128" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classController_1aedf7f3ad3fc4cf9587eb814939f2fe1e" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -251,7 +277,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="127" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="127" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="129" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="129" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classController_1ae17bf9a44fae3b631880fb01f790dda8" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -264,7 +290,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="128" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="128" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="130" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="130" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classController_1afc07641196aa5459f44ccc52e896df2e" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -277,7 +303,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="129" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="129" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="131" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="131" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classController_1ab8b2eb8470d7ef53fa8d46876d229b8b" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -290,7 +316,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="130" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="130" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="132" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="132" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classController_1a2ef1067504a96ac17b88fa903e60e27d" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -303,7 +329,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="131" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="131" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="133" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="133" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classController_1a45cde5bec749e075351dcb620ee2508a" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -316,7 +342,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="132" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="132" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="134" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="134" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classController_1a08305d57bdb81da6a151bef723ae8a3e" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -329,7 +355,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="133" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="133" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="135" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="135" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classController_1a156db40170025123bf4a71c89e872dd0" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -342,7 +368,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="134" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="134" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="136" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="136" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classController_1ac70c2cb907d0a24b1773269558d2cf5a" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -355,7 +381,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="135" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="135" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="137" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="137" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classController_1a9695b16477597d0b1009839cb97856d7" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -368,7 +394,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="136" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="136" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="138" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="138" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classController_1a2295a00cf96f532ab8d11777e12ad16c" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -381,7 +407,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="137" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="137" bodyend="-1"/>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="139" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="139" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -469,6 +495,7 @@
       <member refid="classController_1afc07641196aa5459f44ccc52e896df2e" prot="public" virt="non-virtual"><scope>Controller</scope><name>left_r_button_</name></member>
       <member refid="classController_1a08305d57bdb81da6a151bef723ae8a3e" prot="public" virt="non-virtual"><scope>Controller</scope><name>left_rb_button_</name></member>
       <member refid="classController_1ac70c2cb907d0a24b1773269558d2cf5a" prot="public" virt="non-virtual"><scope>Controller</scope><name>left_start_button_</name></member>
+      <member refid="classController_1a3ed12af7d68f8726f4e256437440b1fd" prot="public" virt="non-virtual"><scope>Controller</scope><name>left_t_axis_</name></member>
       <member refid="classController_1a2ef1067504a96ac17b88fa903e60e27d" prot="public" virt="non-virtual"><scope>Controller</scope><name>left_u_button_</name></member>
       <member refid="classController_1af8e29e6b38ab7740566e703237c79654" prot="public" virt="non-virtual"><scope>Controller</scope><name>left_x_axis_</name></member>
       <member refid="classController_1a23d43716969133c3a84aefc223235bba" prot="public" virt="non-virtual"><scope>Controller</scope><name>left_y_axis_</name></member>
@@ -479,6 +506,7 @@
       <member refid="classController_1aedf7f3ad3fc4cf9587eb814939f2fe1e" prot="public" virt="non-virtual"><scope>Controller</scope><name>red_button_</name></member>
       <member refid="classController_1a156db40170025123bf4a71c89e872dd0" prot="public" virt="non-virtual"><scope>Controller</scope><name>right_rb_button_</name></member>
       <member refid="classController_1a9695b16477597d0b1009839cb97856d7" prot="public" virt="non-virtual"><scope>Controller</scope><name>right_start_button_</name></member>
+      <member refid="classController_1aac13f000223e5b886e5849298deade26" prot="public" virt="non-virtual"><scope>Controller</scope><name>right_t_axis_</name></member>
       <member refid="classController_1a4491f31970440809252f792325f3332c" prot="public" virt="non-virtual"><scope>Controller</scope><name>right_x_axis_</name></member>
       <member refid="classController_1a48605a75d1e18d653d428aa12f267cf7" prot="public" virt="non-virtual"><scope>Controller</scope><name>right_y_axis_</name></member>
       <member refid="classController_1acae097f8b09be11cf90e7d9c06197c86" prot="private" virt="non-virtual"><scope>Controller</scope><name>sticky_buttons_</name></member>

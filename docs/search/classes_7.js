@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mainwindow_0',['MainWindow',['../classMainWindow.html',1,'']]]
+  ['receiveddata_0',['ReceivedData',['../structReceivedData.html',1,'']]]
 ];

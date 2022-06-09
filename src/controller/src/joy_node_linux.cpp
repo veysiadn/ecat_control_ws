@@ -148,7 +148,7 @@ public:
     deadzone_ = node->declare_parameter("deadzone", 0.05);
     autorepeat_rate_ = node->declare_parameter("autorepeat_rate", 30.0);
     coalesce_interval_ = node->declare_parameter("coalesce_intervale", 0.001);
-    default_trig_val_ = node->declare_parameter("default_trig_val", false);
+    default_trig_val_ = node->declare_parameter("default_trig_val", true);
     sticky_buttons_ = node->declare_parameter("sticky_buttons", false);
 
     // Checks on parameters

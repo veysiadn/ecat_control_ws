@@ -11,7 +11,7 @@ var searchData=
   ['g_5fsync_5fref_5fcounter_8',['g_sync_ref_counter',['../ecat__node_8cpp.html#a28bf20de2fed0ae3b068bd7f0c74119d',1,'g_sync_ref_counter():&#160;ecat_node.cpp'],['../ecat__definitions_8hpp.html#a28bf20de2fed0ae3b068bd7f0c74119d',1,'g_sync_ref_counter():&#160;ecat_node.cpp']]],
   ['g_5fsync_5ftimer_9',['g_sync_timer',['../ecat__node_8cpp.html#ac7aec8f91749616a8015dd38184e427c',1,'g_sync_timer():&#160;ecat_node.cpp'],['../ecat__definitions_8hpp.html#ac7aec8f91749616a8015dd38184e427c',1,'g_sync_timer():&#160;ecat_node.cpp']]],
   ['green_5fbutton_5f_10',['green_button_',['../classController.html#af4090cca658badffa788cc347c0d8976',1,'Controller']]],
-  ['gui_5fbutton_5fsubscriber_5f_11',['gui_button_subscriber_',['../classLifecycleNodeManager.html#ada7b567e41c6273855e5b69928ff3e69',1,'LifecycleNodeManager']]],
+  ['gui_5fbutton_5fsubscriber_5f_11',['gui_button_subscriber_',['../classSafetyNode.html#add79790a628392c99133a596df4eb458',1,'SafetyNode']]],
   ['gui_5fbuttons_5fstatus_5f_12',['gui_buttons_status_',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#afad2d15841dcb953ab4f871c7fe34370',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
   ['gui_5fnode_5f_13',['gui_node_',['../classMainWindow.html#a4d0be713b3887132ae20938817a6116f',1,'MainWindow']]],
   ['gui_5fnode_5fdata_5f_14',['gui_node_data_',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a976089de625f06f54ec68723854cfa81',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],

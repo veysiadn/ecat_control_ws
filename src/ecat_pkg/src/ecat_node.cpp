@@ -104,23 +104,24 @@ int EthercatNode::MapDefaultPdos()
      * Product code:    0x61500000
      * Revision number: 0x01600000
      */
-
-    ec_pdo_entry_info_t maxon_epos_pdo_entries[9] = {
-        {OD_CONTROL_WORD, 16},      // CKim - First three entries will be read by slave (master sends command). RxPDO
+    // CKim - First three entries will be read by slave (master sends command). RxPDO
+    ec_pdo_entry_info_t maxon_epos_pdo_entries[10] = {
+        {OD_CONTROL_WORD, 16},      
         {OD_TARGET_VELOCITY,32},
         {OD_TARGET_POSITION, 32},
         {OD_TARGET_TORQUE,16},
         {OD_TORQUE_OFFSET,16},
-
-        {OD_STATUS_WORD, 16},       // CKim - Last three entries will be transmitted by slave (master receives the data). TxPDO
+        // CKim - entries will be transmitted by slave (master receives the data). TxPDO
+        {OD_STATUS_WORD, 16},       
         {OD_POSITION_ACTUAL_VAL, 32},
         {OD_VELOCITY_ACTUAL_VALUE,32},
-        {OD_TORQUE_ACTUAL_VALUE,16}
+        {OD_TORQUE_ACTUAL_VALUE,16},
+        {OD_ERROR_CODE,16}
     };
 
     ec_pdo_info_t maxon_pdos[2] = {
         {0x1600, 5, maxon_epos_pdo_entries + 0},    // CKim - RxPDO index of the EPOS4
-        {0x1a00, 4, maxon_epos_pdo_entries + 5}     // CKim - TxPDO index of the EPOS4
+        {0x1a00, 5, maxon_epos_pdo_entries + 5}     // CKim - TxPDO index of the EPOS4
     };
 
     // CKim - Sync manager configuration of the EPOS4. 0,1 is reserved for SDO communications
@@ -183,12 +184,18 @@ int EthercatNode::MapDefaultPdos()
     for(int i = 0; i < g_kNumberOfServoDrivers ; i++){
         this->slaves_[i].offset_.actual_pos        = ecrt_slave_config_reg_pdo_entry(this->slaves_[i].slave_config_,
                                                                                   OD_POSITION_ACTUAL_VAL,g_master_domain,NULL);
+       
         this->slaves_[i].offset_.status_word       = ecrt_slave_config_reg_pdo_entry(this->slaves_[i].slave_config_,
                                                                                   OD_STATUS_WORD,g_master_domain,NULL);
+        
         this->slaves_[i].offset_.actual_vel        = ecrt_slave_config_reg_pdo_entry(this->slaves_[i].slave_config_,
                                                                                   OD_VELOCITY_ACTUAL_VALUE,g_master_domain,NULL);
+      
         this->slaves_[i].offset_.actual_tor        = ecrt_slave_config_reg_pdo_entry(this->slaves_[i].slave_config_,
                                                                                   OD_TORQUE_ACTUAL_VALUE,g_master_domain,NULL);
+      
+        this->slaves_[i].offset_.error_code        = ecrt_slave_config_reg_pdo_entry(this->slaves_[i].slave_config_,
+                                                                                  OD_ERROR_CODE,g_master_domain,NULL);
 
         this->slaves_[i].offset_.torque_offset     = ecrt_slave_config_reg_pdo_entry(this->slaves_[i].slave_config_,
                                                                                   OD_TORQUE_OFFSET,g_master_domain,NULL);
@@ -206,6 +213,7 @@ int EthercatNode::MapDefaultPdos()
             (slaves_[i].offset_.actual_pos < 0) || (slaves_[i].offset_.status_word < 0) || (slaves_[i].offset_.actual_vel    < 0)
         ||  (slaves_[i].offset_.target_vel < 0) || (slaves_[i].offset_.target_pos  < 0) || (slaves_[i].offset_.control_word  < 0) 
         ||  (slaves_[i].offset_.target_tor < 0) || (slaves_[i].offset_.actual_tor  < 0) || (slaves_[i].offset_.torque_offset < 0)
+        ||  (slaves_[i].offset_.error_code < 0)
         )
         {
             RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Failed to configure  PDOs for motors.!");
@@ -574,6 +582,11 @@ int EthercatNode::SetCyclicSyncVelocityModeParametersAll(CSVelocityModeParam &P)
         }
         if(ecrt_slave_config_sdo32(slaves_[i].slave_config_,OD_VELOCITY_CONTROLLER_IGAIN,P.velocity_controller_gain.Igain) < 0) {
             RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Set velocity Igain failed ! ");
+            return -1;
+        }
+        // Max profile velocity.
+        if(ecrt_slave_config_sdo32(slaves_[i].slave_config_,OD_MAX_PROFILE_VELOCITY,P.max_profile_vel) < 0) {
+            RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Set max profile velocity failed ! ");
             return -1;
         }
         //profile deceleration

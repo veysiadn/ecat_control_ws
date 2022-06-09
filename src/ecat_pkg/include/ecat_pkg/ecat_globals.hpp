@@ -44,18 +44,19 @@
 /****************************************************************************/
                 /// USER SHOULD DEFINE THIS AREAS ///
 /// Number of connected servo drives.                
-const uint32_t  g_kNumberOfServoDrivers = 1 ; 
+const uint32_t  g_kNumberOfServoDrivers = 3 ; 
 /// Select operation mode for motors, default: Profile Velocity.
 static int8_t   g_kOperationMode = kProfileVelocity ;  
-#define NUM_OF_SLAVES     1  /// Total number of connected slave to the bus.
+#define NUM_OF_SLAVES     3  /// Total number of connected slave to the bus.
 /// Set this to 1 if you have custom EtherCAT slave other than servo drive.
 /// @note  That if you have different custom slave than EasyCAT you have to modify PDO mapping by yourself.
 #define CUSTOM_SLAVE      0  
 #define FREQUENCY       1000  /// Ethercat PDO exchange loop frequency in Hz
-#define MEASURE_TIMING    0    /// If you want to measure timings leave it as one, otherwise make it 0.
+#define MEASURE_TIMING   1    /// If you want to measure timings leave it as one, otherwise make it 0.
+#define DISTRIBUTED_CLOCK 0   /// If you want to use distributed clock make it one, otherwise leave it zero.
 /*****************************************************************************/
-#define GEAR_RATIO          103
-#define ENCODER_RESOLUTION  1024
+#define GEAR_RATIO          49
+#define ENCODER_RESOLUTION  1000
 #define INC_PER_ROTATION      GEAR_RATIO*ENCODER_RESOLUTION*4
 #define FIVE_DEGREE_CCW      int(INC_PER_ROTATION/72)
 #define THIRTY_DEGREE_CCW    int(INC_PER_ROTATION/12)

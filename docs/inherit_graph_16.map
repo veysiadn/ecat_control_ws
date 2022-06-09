@@ -1,8 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,107,100,133"/>
-<area shape="rect" id="node2" href="$classGUI_1_1GuiNode.html" title="This node will be responsible from all GUI interaction and visualization of feedback information acqu..." alt="" coords="174,5,277,32"/>
-<area shape="rect" id="node3" href="$classHapticNode.html" title=" " alt="" coords="180,56,271,83"/>
-<area shape="rect" id="node4" href="$classJoySubscriber.html" title=" " alt="" coords="173,107,277,133"/>
-<area shape="rect" id="node5" href="$classLifecycleNodeManager.html" title=" " alt="" coords="148,157,303,184"/>
-<area shape="rect" id="node6" href="$classsurgicalToolNode.html" title=" " alt="" coords="164,208,287,235"/>
+<area shape="rect" id="node1" href="$structSdoRequest.html" title="EtherCAT SDO request structure for configuration phase." alt="" coords="5,5,99,32"/>
 </map>

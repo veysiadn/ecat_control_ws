@@ -316,10 +316,11 @@ class EthercatLifeCycle : public LifecycleNode
         
         /**
          * @brief Assigns operation mode parameters based on selected operation mode.
-         * @note That if you want to change the parameters just change it by modifying these function.
+         * @note That if you want to change the parameters just change it by modifying this function.
          * @note By default operation mode is selected as profile velocity mode.
+         * @return 0 if succesful, otherwise -1.
          */
-        void AssignOperationModeParameters();
+        int SetConfigurationParameters();
         /**
          * @brief Updates control parameters based on selected mode.
          * 

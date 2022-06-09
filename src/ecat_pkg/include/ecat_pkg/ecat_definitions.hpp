@@ -122,6 +122,8 @@ typedef struct
     float left_y_axis_;
     float right_x_axis_;
     float right_y_axis_;
+    float left_t_axis_ ;
+    float right_t_axis_ ; 
     uint8_t blue_button_;
     uint8_t green_button_;
     uint8_t red_button_;
@@ -225,12 +227,13 @@ enum ControlStructureBits{
     kMountingPositionSensor2  = 26,  // 26-27 2 bits.  Val : 0 - On motor (or undefined) | 1 - On gear 
     kMountingPositionSensor3  = 28,  // 28-29 2 bits.  Val : 0 - On motor 
 };
-/// Offset for PDO entries to register PDOs.
+/// offset for PDO entries to register PDOs.
 typedef struct
 {
     uint32_t target_pos ;
     uint32_t target_vel ;
     uint32_t target_tor ;
+    uint32_t torque_offset;
     uint32_t max_tor  ;
     uint32_t control_word ;
     uint32_t op_mode ;
@@ -248,11 +251,11 @@ typedef struct
     uint32_t op_mode_display ;
     uint32_t error_code ;
     uint32_t extra_status_reg ;
-    uint32_t torque_offset;
 
     uint32_t r_limit_switch;
     uint32_t l_limit_switch;
     uint32_t emergency_switch;
+    uint32_t pressure_sensor; 
 } OffsetPDO ;
 
 
@@ -324,7 +327,9 @@ typedef struct
     uint32_t max_profile_vel ; 
     uint32_t quick_stop_dec ;
     uint16_t motion_profile_type ; 
-
+    uint32_t p_gain;
+    uint32_t i_gain;
+    uint32_t d_gain;
 } ProfilePosParam ;
 /**
  * @brief Struct contains configuration parameters for cyclic sync. position mode.
@@ -366,6 +371,7 @@ typedef struct
 typedef struct 
 {
     VelControlParam velocity_controller_gain ;
+    uint32_t max_profile_vel ;
     uint32_t quick_stop_dec ;
     uint32_t profile_dec ;
     uint32_t software_position_limit ; 
@@ -379,16 +385,17 @@ typedef struct
 {
     uint32_t nominal_current ;
     uint16_t torque_constant ;
-    uint32_t max_motor_speed ; 
-    uint32_t max_gear_input_speed ;
-    uint32_t current_controller_p_gain ;
-    uint32_t current_controller_i_gain ; 
-    uint32_t quick_stop_dec ;
-    uint32_t profile_dec ;
-    uint16_t motor_rated_torque ;
     uint32_t software_position_limit ; 
-
+    uint16_t motor_rated_torque ;
+    uint32_t max_gear_input_speed ; 
+    uint32_t profile_vel ;
+    uint32_t profile_acc ;
+    uint32_t profile_dec ;
+    uint32_t max_profile_vel ; 
+    uint32_t quick_stop_dec ;
+    uint32_t interpolation_time_period ;
 } CSTorqueModeParam ;
+
 
 /// Parameters that should be specified in homing mode.
 typedef struct
@@ -415,3 +422,230 @@ typedef struct
     uint32_t	profile_dec;
     uint16_t    motion_profile_type;
 } ProfileVelocityParam ;
+
+
+enum ErrorType
+{
+    NO_ERROR = 0,
+    GENERIC_ERROR = 0x1000,
+    GENERIC_INIT_ERROR = 0x1080,
+    GENERIC_INIT_ERROR_1 = 0x1081,
+    GENERIC_INIT_ERROR_2 = 0x1082,
+    GENERIC_INIT_ERROR_3 = 0x1083,
+    GENERIC_INIT_ERROR_4 = 0x1084,
+    GENERIC_INIT_ERROR_5 = 0x1085,
+    GENERIC_INIT_ERROR_6 = 0x1086,
+    GENERIC_INIT_ERROR_7 = 0x1087,
+    GENERIC_INIT_ERROR_8 = 0x1088,
+    FIRMWARE_INCOMPATIBLITY_ERROR = 0x1090,
+    OVER_CURRENT_ERROR = 0x2310,
+    POWER_STAGE_PROTECTION_ERROR = 0x2320,
+    OVER_VOLTAGE_ERROR = 0x3210,
+    UNDER_VOLTAGE_ERROR = 0x3220,
+    THERMAL_OVERLOAD_ERROR = 0x4210,
+    THERMAL_MOTOR_OVERLOAD_ERRROR = 0x4380,
+    LOGIC_SUPPLY_TOO_LOW_ERROR = 0x5113,
+    HARDWARE_DEFECT_ERROR = 0x5280,
+    HARDWARE_INCOMPATIBLITY_ERROR = 0x5281,
+    HARDWARE_ERROR = 0x5480,
+    HARDWARE_ERROR_1 = 0x5481,
+    HARDWARE_ERROR_2 = 0x5482,
+    HARDWARE_ERROR_3 = 0x5483,
+    SIGN_OF_LIFE_ERROR = 0x6080,
+    EXTENSION_1_WATCHDOG_ERROR = 0x6081,
+    INTERNAL_SOFTWARE_ERROR = 0x6180,
+    SOFTWARE_PARAMETER_ERROR = 0x6320,
+    PERSISTENT_PARAMETER_CORRUPT_ERROR = 0x6380,
+    POSITION_SENSOR_ERROR = 0x7320,
+    POSITION_SENSOR_BREACH_ERROR = 0x7380,
+    POSITION_SENSOR_RESOLUTION_ERROR  = 0x7381,
+    POSITION_SENSOR_INDEX_ERROR = 0x7382,
+    HALL_SENSOR_ERROR = 0x7388,
+    HALL_SENSOR_NOT_FOUND_ERROR =  0x7389,
+    HALL_ANGLE_DETECTION_ERROR = 0x738A,
+    SSI_SENSOR_ERROR = 0x738C,
+    SSI_SENSOR_FRAME_ERROR = 0x738D,
+    MISSING_MAIN_SENSOR_ERROR = 0x7390,
+    MISSING_COMMUTATION_SENSOR_ERROR = 0x7391, 
+    MAIN_SENSOR_DIRECTION_ERROR = 0x7392,
+    ETHERCAT_COMMUNCATION_ERROR = 0x8180,
+    ETHERCAT_INITIALIZATION_ERROR = 0x8181,
+    ETHERCAT_RX_QUEUE_OVERFLOW_ERROR = 0x8182,
+    ETHERCAT_COMMUNICATION_ERROR_INTERNAL  = 0x8183,
+    ETHERCAT_COMMUNICATION_CYCLE_TIME_ERROR = 0x8184,
+    ETHERCAT_PDO_COMMUNICATION_ERROR = 0x8280,
+    ETHERCAT_SDO_COMMUNICATION_ERROR = 0x8281,
+    FOLLOWING_ERROR = 0x8611,
+    NEGATIVE_LIMIT_SWITCH_ERROR = 0x8A80,
+    POSITIVE_LIMIT_SWITCH_ERROR = 0x8A81,
+    SOFTWARE_POSITION_LIMIT_ERROR = 0x8A82,
+    STO_ERROR = 0x8A88,
+    SYSTEM_OVERLOADED_ERROR = 0xFF01,
+    WATCHDOG_ERROR = 0xFF02,
+    SYSTEM_PEAK_OVERLOADED_ERROR = 0XFF0B,
+    CONTROLLER_GAIN_ERROR = 0xFF10,
+    AUTO_TUNING_INDENTIFICATION_ERROR = 0xFF11,
+    AUTO_TUNING_CURRENT_LIMIT_ERROR = 0xFF12,
+    AUTO_TUNING_IDENTIFICATION_CURRENT_ERROR = 0xFF13,
+    AUTO_TUNING_DATA_SAMPLING_ERROR  = 0xFF14,
+    AUTO_TUNING_SAMPLE_MISMATCH_ERROR = 0xFF15,
+    AUTO_TUNING_PARAMETER_ERROR = 0xFF16,
+    AUTO_TUNING_AMPLITUDE_MISMATCH_ERROR = 0xFF17,
+    AUTO_TUNING_TIMEOUT_ERROR = 0xFF19,
+    AUTO_TUNING_STAND_STILL_ERROR = 0xFF20,
+    AUTO_TUNING_TORQUE_INVALID_ERROR = 0xFF21,
+    AUTO_TUNING_MAX_SYSTEM_SPEED_ERROR = 0XFF22,
+    AUTO_TUNING_MOTOR_CONNECTION_ERROR = 0xFF23,
+    AUTO_TUNING_SENSOR_SIGNAL_ERROR = 0XFF24
+};
+
+static std::string GetErrorMessage(const int& err_code)
+{
+    switch (err_code)
+    {
+        case NO_ERROR:
+            return "No error";
+        case GENERIC_ERROR:
+            return "Generic error";
+        case GENERIC_INIT_ERROR:
+            return "Generic initialization error";
+        case GENERIC_INIT_ERROR_1:
+            return "Generic initialization error 1";
+        case GENERIC_INIT_ERROR_2:
+            return "Generic initialization error 2";
+        case GENERIC_INIT_ERROR_3:
+            return "Generic initialization error 3";
+        case GENERIC_INIT_ERROR_4:
+            return "Generic initialization error 4";
+        case GENERIC_INIT_ERROR_5:
+            return "Generic initialization error 5";
+        case GENERIC_INIT_ERROR_6:
+            return "Generic initialization error 6";
+        case GENERIC_INIT_ERROR_7:
+            return "Generic initialization error 7";
+        case GENERIC_INIT_ERROR_8:
+            return "Generic initialization error 8";
+        case FIRMWARE_INCOMPATIBLITY_ERROR:
+            return "Firmware incompatibility error";
+        case OVER_CURRENT_ERROR:
+            return "Over current error";
+        case POWER_STAGE_PROTECTION_ERROR:
+            return "Power stage protection error";
+        case OVER_VOLTAGE_ERROR:
+            return "Over voltage error";
+        case UNDER_VOLTAGE_ERROR:
+            return "Under voltage error";
+        case THERMAL_OVERLOAD_ERROR:
+            return "Thermal overload error";
+        case THERMAL_MOTOR_OVERLOAD_ERRROR:
+            return "Thermal motor overload error";
+        case LOGIC_SUPPLY_TOO_LOW_ERROR:     
+            return "Logic supply too low error";
+        case HARDWARE_DEFECT_ERROR:
+            return "Hardware defect error"; 
+        case HARDWARE_INCOMPATIBLITY_ERROR:
+            return "Hardware incompatibility error";
+        case HARDWARE_ERROR:
+            return "Hardware error";
+        case HARDWARE_ERROR_1:
+            return "Hardware error 1";
+        case HARDWARE_ERROR_2:
+            return "Hardware error 2";
+        case HARDWARE_ERROR_3:
+            return "Hardware error 3";
+        case SIGN_OF_LIFE_ERROR:
+            return "Sign of life error";
+        case EXTENSION_1_WATCHDOG_ERROR:
+            return "Extension 1 watchdog error";
+        case INTERNAL_SOFTWARE_ERROR:  
+            return "Internal software error";
+        case SOFTWARE_PARAMETER_ERROR:
+            return "Software parameter error";
+        case PERSISTENT_PARAMETER_CORRUPT_ERROR:
+            return "Persistent parameter corrupt error";
+        case POSITION_SENSOR_ERROR:
+            return "Position sensor error";
+        case POSITION_SENSOR_BREACH_ERROR:
+            return "Position sensor breach error";
+        case POSITION_SENSOR_RESOLUTION_ERROR:  
+            return "Position sensor resolution error";
+        case POSITION_SENSOR_INDEX_ERROR:
+            return "Position sensor index error";
+        case HALL_SENSOR_ERROR:
+            return "Hall sensor error";
+        case HALL_SENSOR_NOT_FOUND_ERROR:
+            return "Hall sensor not found error";
+        case HALL_ANGLE_DETECTION_ERROR:
+            return "Hall angle detection error";
+        case SSI_SENSOR_ERROR:
+            return "SSI sensor error";
+        case SSI_SENSOR_FRAME_ERROR:
+            return "SSI sensor frame error";
+        case MISSING_MAIN_SENSOR_ERROR:
+            return "Missing main sensor error";
+        case MISSING_COMMUTATION_SENSOR_ERROR:
+            return "Missing commutation sensor error";
+        case MAIN_SENSOR_DIRECTION_ERROR:
+            return "Main sensor direction error";
+        case ETHERCAT_COMMUNCATION_ERROR:
+            return "Ethercat communication error";
+        case ETHERCAT_INITIALIZATION_ERROR:
+            return "Ethercat initialization error";
+        case ETHERCAT_RX_QUEUE_OVERFLOW_ERROR:
+            return "Ethercat RX queue overflow error";
+        case ETHERCAT_COMMUNICATION_ERROR_INTERNAL:
+            return "Ethercat communication error internal";
+        case ETHERCAT_COMMUNICATION_CYCLE_TIME_ERROR:
+            return "Ethercat communication cycle time error";
+        case ETHERCAT_PDO_COMMUNICATION_ERROR:
+            return "Ethercat PDO communication error";
+        case ETHERCAT_SDO_COMMUNICATION_ERROR:
+            return "Ethercat SDO communication error";
+        case FOLLOWING_ERROR:
+            return "Following error";
+        case NEGATIVE_LIMIT_SWITCH_ERROR :
+            return "Negative limit switch error";
+        case POSITIVE_LIMIT_SWITCH_ERROR :
+            return "Positive limit switch error";
+        case SOFTWARE_POSITION_LIMIT_ERROR:
+            return "Software position limit error";
+        case STO_ERROR : 
+            return "STO error";
+        case SYSTEM_OVERLOADED_ERROR:
+            return "System overloaded error";
+        case WATCHDOG_ERROR:
+            return "Watchdog error";
+        case SYSTEM_PEAK_OVERLOADED_ERROR: 
+            return "System peak overloaded error";
+        case CONTROLLER_GAIN_ERROR:
+            return "Controller gain error";
+        case AUTO_TUNING_INDENTIFICATION_ERROR: 
+            return "Auto tuning identification error";
+        case AUTO_TUNING_CURRENT_LIMIT_ERROR:
+            return "Auto tuning current limit error";
+        case AUTO_TUNING_IDENTIFICATION_CURRENT_ERROR:
+            return "Auto tuning identification current error";
+        case AUTO_TUNING_DATA_SAMPLING_ERROR:
+            return "Auto tuning data sampling error";
+        case AUTO_TUNING_SAMPLE_MISMATCH_ERROR:
+            return "Auto tuning sample mismatch error";
+        case AUTO_TUNING_PARAMETER_ERROR:
+            return "Auto tuning parameter error";
+        case AUTO_TUNING_AMPLITUDE_MISMATCH_ERROR:
+            return "Auto tuning amplitude mismatch error";
+        case AUTO_TUNING_TIMEOUT_ERROR:
+            return "Auto tuning timeout error";
+        case AUTO_TUNING_STAND_STILL_ERROR:
+            return "Auto tuning stand still error";
+        case AUTO_TUNING_TORQUE_INVALID_ERROR:
+            return "Auto tuning torque invalid error";
+        case AUTO_TUNING_MAX_SYSTEM_SPEED_ERROR:
+            return "Auto tuning max system speed error";
+        case AUTO_TUNING_MOTOR_CONNECTION_ERROR:
+            return "Auto tuning motor connection error";
+        case AUTO_TUNING_SENSOR_SIGNAL_ERROR:
+            return "Auto tuning sensor signal error";        
+        default:
+            return "Unknown error";
+    }
+}

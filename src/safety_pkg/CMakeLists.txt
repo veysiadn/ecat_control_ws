@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(tool_pkg)
+project(safety_pkg)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -15,45 +15,40 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-set(dynamixel_include /usr/local/include/dynamixel_sdk/)
-set(dynamixel_lib  /usr/local/lib/libdxl_x64_cpp.so)
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
-#find_package(dynamixel_sdk REQUIRED) #CKim - Dynamixel Library
-## This is for joystick
-find_package(sensor_msgs REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+find_package(rclcpp_lifecycle REQUIRED)
 
-include_directories(include/tool_pkg)
+find_package(lifecycle_msgs REQUIRED)
+## This is for ecat_pkg
+find_package(ecat_msgs REQUIRED)
+## This is for joystick
+find_package(sensor_msgs REQUIRED)
+# This is for lifecycle node manager
+find_package(std_msgs REQUIRED)
 
-# Build
-add_executable(surgicalToolNode 
-               src/DxlMaster.cpp
-               src/surgicalToolNode.cpp)
-# target_include_directories(surgicalTool PUBLIC
-#   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-#   $<INSTALL_INTERFACE:include>)
+add_executable(safety_node src/safety_node.cpp)
 
-# CKim - Added dependency
-ament_target_dependencies(surgicalToolNode
-#  dynamixel_sdk_custom_interfaces
-#  dynamixel_sdk
-  sensor_msgs 
-  rclcpp
+target_include_directories(safety_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/safety_pkg>
+  $<INSTALL_INTERFACE:include>)
+
+
+target_link_libraries(safety_node
+  ${rclcpp_lifecycle_LIBRARIES}
+  ${std_msgs_LIBRARIES}
+  ${sensor_msgs_LIBRARIES}
+  ${ecat_msgs_LIBRARIES}
 )
-target_include_directories(surgicalToolNode PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>
-  ${dynamixel_include})
 
-target_link_libraries(surgicalToolNode
-${dynamixel_lib}
-)
-install(TARGETS surgicalToolNode
+ament_target_dependencies(safety_node  rclcpp rclcpp_lifecycle ecat_msgs sensor_msgs lifecycle_msgs std_msgs)
+
+install(TARGETS safety_node
   DESTINATION lib/${PROJECT_NAME})
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

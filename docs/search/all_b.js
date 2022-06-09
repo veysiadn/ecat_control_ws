@@ -14,15 +14,11 @@ var searchData=
   ['left_5fx_5faxis_11',['left_x_axis',['../structReceivedData.html#a2af989aebb271f62b967408aa869bc01',1,'ReceivedData']]],
   ['left_5fx_5faxis_5f_12',['left_x_axis_',['../classController.html#af8e29e6b38ab7740566e703237c79654',1,'Controller']]],
   ['left_5fy_5faxis_5f_13',['left_y_axis_',['../classController.html#a23d43716969133c3a84aefc223235bba',1,'Controller']]],
-  ['len_5fmx_5fgoal_5fposition_14',['LEN_MX_GOAL_POSITION',['../DxlMaster_8h.html#aad7008eade63b029f87ceb68bd74b188',1,'DxlMaster.h']]],
-  ['len_5fmx_5fmoving_5fspeed_15',['LEN_MX_MOVING_SPEED',['../DxlMaster_8h.html#a54cf3eec24bb0340d28c16340adb017d',1,'DxlMaster.h']]],
-  ['len_5fmx_5fpresent_5fposition_16',['LEN_MX_PRESENT_POSITION',['../DxlMaster_8h.html#a4096df10739581146b412fdffb60f0b7',1,'DxlMaster.h']]],
-  ['lifecycle_5fnode_17',['lifecycle_node',['../lifecycle__node__manager_8cpp.html#aced6f4a17af3b1dcfe352533f20fa4ee',1,'lifecycle_node_manager.cpp']]],
-  ['lifecycle_5fnode_5fdata_5f_18',['lifecycle_node_data_',['../classLifecycleNodeManager.html#aeae42c86e356c9bfbb787d7c4acfc2c5',1,'LifecycleNodeManager']]],
-  ['lifecycle_5fnode_5fmanager_2ecpp_19',['lifecycle_node_manager.cpp',['../lifecycle__node__manager_8cpp.html',1,'']]],
-  ['lifecycle_5fnode_5fsubscriber_5f_20',['lifecycle_node_subscriber_',['../classLifecycleNodeManager.html#adcbeb4506c68245896a5877d60bde177',1,'LifecycleNodeManager']]],
-  ['lifecycle_5fpub_5fsub_5flaunch_21',['lifecycle_pub_sub_launch',['../namespacelifecycle__pub__sub__launch.html',1,'']]],
-  ['lifecycle_5fpub_5fsub_5flaunch_2epy_22',['lifecycle_pub_sub_launch.py',['../lifecycle__pub__sub__launch_8py.html',1,'']]],
-  ['lifecyclenodemanager_23',['LifecycleNodeManager',['../classLifecycleNodeManager.html#a57b3199b608b662cfdf4208dc75a869c',1,'LifecycleNodeManager::LifecycleNodeManager()'],['../classLifecycleNodeManager.html',1,'LifecycleNodeManager']]],
-  ['lifecyclestates_24',['LifeCycleStates',['../gui__globals_8hpp.html#ae244c86447fc8505a577e48f17fb9b34',1,'gui_globals.hpp']]]
+  ['lifecycle_5fnode_14',['lifecycle_node',['../safety__node_8hpp.html#aced6f4a17af3b1dcfe352533f20fa4ee',1,'safety_node.hpp']]],
+  ['lifecycle_5fnode_5fdata_5f_15',['lifecycle_node_data_',['../classSafetyNode.html#ac7d3f21660608df7643b058c4e76e5ed',1,'SafetyNode']]],
+  ['lifecycle_5fnode_5fsubscriber_5f_16',['lifecycle_node_subscriber_',['../classSafetyNode.html#a1d5900bde952a9babd670c2f384278df',1,'SafetyNode']]],
+  ['lifecycle_5fpub_5fsub_5flaunch_17',['lifecycle_pub_sub_launch',['../namespacelifecycle__pub__sub__launch.html',1,'']]],
+  ['lifecycle_5fpub_5fsub_5flaunch_2epy_18',['lifecycle_pub_sub_launch.py',['../lifecycle__pub__sub__launch_8py.html',1,'']]],
+  ['lifecyclestates_19',['LifeCycleStates',['../gui__globals_8hpp.html#ae244c86447fc8505a577e48f17fb9b34',1,'gui_globals.hpp']]],
+  ['logic_5fsupply_5ftoo_5flow_5ferror_20',['LOGIC_SUPPLY_TOO_LOW_ERROR',['../ecat__definitions_8hpp.html#ab0df38968e4f03a3f1f6d6df0f31f45aaf222afd036ad548f510f85ecb6b115d1',1,'LOGIC_SUPPLY_TOO_LOW_ERROR():&#160;ecat_definitions.hpp'],['../gui__globals_8hpp.html#afeaa6acaf321700c18979784e52e5352af222afd036ad548f510f85ecb6b115d1',1,'LOGIC_SUPPLY_TOO_LOW_ERROR():&#160;gui_globals.hpp']]]
 ];

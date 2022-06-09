@@ -10,6 +10,7 @@ rclcpp::NodeOptions().use_intra_process_comms(false))
     received_data_.actual_pos.resize(g_kNumberOfServoDrivers);
     received_data_.actual_vel.resize(g_kNumberOfServoDrivers);
     received_data_.actual_tor.resize(g_kNumberOfServoDrivers);
+    received_data_.error_code.resize(g_kNumberOfServoDrivers);
     received_data_.op_mode_display.resize(g_kNumberOfServoDrivers);
     received_data_.slave_com_status.resize(g_kNumberOfServoDrivers);
     sent_data_.control_word.resize(g_kNumberOfServoDrivers);
@@ -192,6 +193,9 @@ void EthercatLifeCycle::HandleControlNodeCallbacks(const sensor_msgs::msg::Joy::
     controller_.right_x_axis_ = msg->axes[3];
     controller_.right_y_axis_ = msg->axes[4];
 
+    controller_.left_t_axis_  = (1.0-msg->axes[2])/2.0 ;
+    controller_.right_t_axis_ = (1.0-msg->axes[5])/2.0 ;
+
     controller_.green_button_       = msg->buttons[0];
     controller_.red_button_         = msg->buttons[1];
     controller_.blue_button_        = msg->buttons[2];
@@ -235,7 +239,7 @@ void EthercatLifeCycle::HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonDa
             g_kOperationMode = kCSPosition;
             for(int i = 0; i < g_kNumberOfServoDrivers; i++){
               ecat_node_->WriteOpModeViaSDO(i,kCSPosition);
-              AssignOperationModeParameters();
+              SetConfigurationParameters();
             }
         }
         
@@ -243,7 +247,7 @@ void EthercatLifeCycle::HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonDa
             g_kOperationMode = kCSVelocity;
             for(int i = 0; i < g_kNumberOfServoDrivers; i++){
               ecat_node_->WriteOpModeViaSDO(i,kCSVelocity);
-              AssignOperationModeParameters();
+              SetConfigurationParameters();
             }
         }
         
@@ -251,7 +255,7 @@ void EthercatLifeCycle::HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonDa
             g_kOperationMode = kProfilePosition;
             for(int i = 0; i < g_kNumberOfServoDrivers; i++){
               ecat_node_->WriteOpModeViaSDO(i,kProfilePosition);
-              AssignOperationModeParameters();
+              SetConfigurationParameters();
             }            
         }
         
@@ -259,7 +263,7 @@ void EthercatLifeCycle::HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonDa
             g_kOperationMode = kProfileVelocity;
             for(int i = 0; i < g_kNumberOfServoDrivers; i++){
               ecat_node_->WriteOpModeViaSDO(i,kProfileVelocity);
-              AssignOperationModeParameters();
+              SetConfigurationParameters();
             }
         }
 
@@ -391,7 +395,7 @@ int EthercatLifeCycle::SetComThreadPriorities()
     /**********************************************************************************************/
     
     /* Set a specific stack size  */
-    err_ = pthread_attr_setstacksize(&ethercat_thread_attr_, 4096*256);
+    err_ = pthread_attr_setstacksize(&ethercat_thread_attr_, 4096*4096);
     if (err_) {
         RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Error setting thread stack size  ! ");
         return -1 ;
@@ -472,8 +476,10 @@ int EthercatLifeCycle::InitEthercatCommunication()
         return -1;
     }
 
-    
-    AssignOperationModeParameters();
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Assigning configuration parameters...\n");
+    if(SetConfigurationParameters()){
+        return -1;
+    }
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Mapping default PDOs...\n");
     
     if(ecat_node_->MapDefaultPdos()){
@@ -481,12 +487,14 @@ int EthercatLifeCycle::InitEthercatCommunication()
     }
 
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Configuring DC synchronization...\n");
-    ecat_node_->ConfigDcSyncDefault();
+    if(DISTRIBUTED_CLOCK)
+        ecat_node_->ConfigDcSyncDefault();
     return 0 ; 
 }
 
-void EthercatLifeCycle::AssignOperationModeParameters()
+int EthercatLifeCycle::SetConfigurationParameters()
 {
+    int error = 0 ;
     if(g_kOperationMode==kProfilePosition){
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Setting drives to Position mode...\n");
         ProfilePosParam P ;
@@ -497,7 +505,7 @@ void EthercatLifeCycle::AssignOperationModeParameters()
         P.max_profile_vel = 500; //100 ;
         P.quick_stop_dec = 3e4;//3e4 ;
         P.motion_profile_type = 0 ;
-        ecat_node_->SetProfilePositionParametersAll(P);
+        error = ecat_node_->SetProfilePositionParametersAll(P);
     }else if(g_kOperationMode==kCSPosition){
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Setting drives to CSP mode...\n");
         CSPositionModeParam P ;
@@ -505,37 +513,38 @@ void EthercatLifeCycle::AssignOperationModeParameters()
         P.profile_vel = 50 ;
         P.profile_acc = 3e4 ;
         P.profile_dec = 3e4 ;
-        P.max_profile_vel = 100 ;
+        P.max_profile_vel = 500 ;
         P.quick_stop_dec = 3e4 ;
         P.interpolation_time_period = 0;//1 ;
-        ecat_node_->SetCyclicSyncPositionModeParametersAll(P);
+        error = ecat_node_->SetCyclicSyncPositionModeParametersAll(P);
     }else if(g_kOperationMode==kCSVelocity){
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Setting drives to CSV mode...\n");
         CSVelocityModeParam P ;
         P.velocity_controller_gain.Pgain = 40000;
         P.velocity_controller_gain.Igain = 800000;
         P.profile_dec=3e4 ;
+        P.max_profile_vel = 3000;
         P.quick_stop_dec = 3e4 ;
         P.interpolation_time_period = 0;    //1 ;
-        ecat_node_->SetCyclicSyncVelocityModeParametersAll(P);
+        error =  ecat_node_->SetCyclicSyncVelocityModeParametersAll(P);
     }else if(g_kOperationMode==kCSTorque){
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Setting drives to CST mode...\n");
         CSTorqueModeParam P ;
         P.profile_dec=3e4 ;
         P.quick_stop_dec = 3e4 ;
-        ecat_node_->SetCyclicSyncTorqueModeParametersAll(P);
+        error = ecat_node_->SetCyclicSyncTorqueModeParametersAll(P);
     }else {
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Setting drives to Velocity mode...\n");
         g_kOperationMode==kProfileVelocity;
         ProfileVelocityParam P ;
         P.profile_acc=3e4 ;
         P.profile_dec=3e4 ;
-        P.max_profile_vel = 500 ;
+        P.max_profile_vel = 1000 ;
         P.quick_stop_dec = 3e4 ;
         P.motion_profile_type = 0 ;
-        ecat_node_->SetProfileVelocityParametersAll(P);
+        error = ecat_node_->SetProfileVelocityParametersAll(P);
     }
-
+    return error; 
 }
 
 int  EthercatLifeCycle::StartEthercatCommunication()
@@ -595,7 +604,7 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
 
     #endif
     // get current time
-    int begin=1e4;
+    int begin=2e4;
     int status_check_counter = 1000;
     
     // ------------------------------------------------------- //
@@ -759,16 +768,10 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
 
         #if MEASURE_TIMING
         if(!begin)
-        clock_gettime(CLOCK_TO_USE, &publish_time_start);
+            clock_gettime(CLOCK_TO_USE, &publish_time_start);
         #endif
         
-        // timer_info_.GetTime();
-        PublishAllData();
-        // timer_info_.MeasureTimeDifference();
-        // if(timer_info_.counter_==NUMBER_OF_SAMPLES){
-        //     timer_info_.OutInfoToFile();
-        //     //break;
-        // }
+
         #if MEASURE_TIMING
         if(!begin)
         clock_gettime(CLOCK_TO_USE, &publish_time_end);
@@ -778,36 +781,38 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
         #endif
 
         #if MEASURE_TIMING
-            // output timing stats
+            // if you want to print timing stats
+            #if 1
             if(!print_val){
-                    // RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"-----------------------------------------------\n\n");
-                    // RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Tperiod   min   : %10u ns  | max : %10u ns\n",
-                    //         period_min_ns, period_max_ns);
-                    // RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Texec     min   : %10u ns  | max : %10u ns\n",
-                    //         exec_min_ns, exec_max_ns);
-                    // RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Tlatency  min   : %10u ns  | max : %10u ns\n",
-                    //         latency_min_ns, latency_max_ns);
-                    // RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Tjitter max     : %10u ns  \n",
-                    //         latency_max_ns-latency_min_ns);
-                    // RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"-----------------------------------------------\n\n");       
-                    // RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Tperiod min     : %10u ns  | max : %10u ns\n",
-                    //         min_period, max_period);
-                    // RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Texec  min      : %10u ns  | max : %10u ns\n",
-                    //         exec_min, exec_max);
-                    // RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Tjitter min     : %10u ns  | max : %10u ns\n",
-                    //         jitter_min, jitter_max);  
-                    // RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Publish time min: %10d ns  | max : %10d ns\n",
-                    //       publish_time_min, publish_time_max);                             
-                    // RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"-----------------------------------------------\n\n");
-                    // std::cout << min_period << " " << max_period << " " << exec_min << " " << exec_max << " " << jitter_min << " " << jitter_max << std::endl;
-                    /*  std::cout <<    "Left Switch   : " << unsigned(received_data_.left_limit_switch_val) << std::endl << 
-                                        "Right Switch  : " << unsigned(received_data_.right_limit_switch_val) << std::endl;
-                        std::cout << "Left X Axis    : " << controller_.left_x_axis_ << std::endl;
-                        std::cout << "Right X XAxis  : " << controller_.right_x_axis_ << std::endl;*/
-                        // std::cout << "Emergency button  : " << unsigned(gui_node_data_) << std::endl;
-                    //std::cout << std::dec << publishing_time_ns << std::endl;
-                    //std::cout << std::dec << time_span.count() << std::endl;
-                    print_val=10;
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"-----------------------------------------------\n\n");
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Tperiod   min   : %10u ns  | max : %10u ns\n",
+                        period_min_ns, period_max_ns);
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Texec     min   : %10u ns  | max : %10u ns\n",
+                        exec_min_ns, exec_max_ns);
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Tlatency  min   : %10u ns  | max : %10u ns\n",
+                        latency_min_ns, latency_max_ns);
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Tjitter max     : %10u ns  \n",
+                        latency_max_ns-latency_min_ns);                       
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"-----------------------------------------------\n\n");       
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Tperiod min     : %10u ns  | max : %10u ns\n",
+                        min_period, max_period);
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Texec  min      : %10u ns  | max : %10u ns\n",
+                        exec_min, exec_max);
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Tjitter min     : %10u ns  | max : %10u ns\n",
+                        jitter_min, jitter_max);  
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Publish time min: %10d ns  | max : %10d ns\n",
+                      publish_time_min, publish_time_max);                             
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"-----------------------------------------------\n\n");
+                
+                // std::cout << min_period << " " << max_period << " " << exec_min << " " << exec_max << " " << jitter_min << " " << jitter_max << std::endl;
+                /*  std::cout <<    "Left Switch   : " << unsigned(received_data_.left_limit_switch_val) << std::endl << 
+                                    "Right Switch  : " << unsigned(received_data_.right_limit_switch_val) << std::endl;
+                    std::cout << "Left X Axis    : " << controller_.left_x_axis_ << std::endl;
+                    std::cout << "Right X XAxis  : " << controller_.right_x_axis_ << std::endl;*/
+                    // std::cout << "Emergency button  : " << unsigned(gui_node_data_) << std::endl;
+                //std::cout << std::dec << publishing_time_ns << std::endl;
+                //std::cout << std::dec << time_span.count() << std::endl;
+                    print_val=1000;
 
                     //  std::cout << "Finished...." << std::endl;
                     //  break;
@@ -816,11 +821,7 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
                // latency_min_ns << " " <<  latency_max_ns << " " << latency_max_ns - latency_min_ns << std::endl;
                 print_val--;
             }
-            if(!print_max_min){
-                //RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Publish time min: %10d ns  | max : %10d ns\n",
-                //publish_time_min, publish_time_max);
-                break;
-            }
+            #endif
                 print_max_min--;        
                 period_max_ns = 0;
                 period_min_ns = 0xffffffff;
@@ -830,11 +831,16 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
 
                 latency_max_ns = 0;
                 latency_min_ns = 0xffffffff;
+                received_data_.period_ns = period_ns;
+                received_data_.exec_ns = exec_ns; 
+                received_data_.jitter_ns = jitter;
         #endif
 
         ReadFromSlaves();
 
         UpdateControlParameters();
+
+        PublishAllData();
 
         if(g_sync_ref_counter){
             g_sync_ref_counter--;
@@ -876,30 +882,24 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
     // ------------------------------------------------------- //
 
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Leaving control thread.");
-    // ecat_node_->DeactivateCommunication();
     pthread_exit(NULL);
 }// StartPdoExchange end
 
 void EthercatLifeCycle::UpdateControlParameters()
 {
     if(g_kOperationMode==kProfilePosition){
-        UpdateMotorStatePositionMode();
         UpdatePositionModeParameters();
         WriteToSlavesInPositionMode();
     }else if(g_kOperationMode==kCSPosition){
-        UpdateMotorStatePositionMode();
         UpdateCyclicPositionModeParameters();
         WriteToSlavesInPositionMode();
     }else if(g_kOperationMode==kCSVelocity){
-        UpdateMotorStateVelocityMode();
         UpdateCyclicVelocityModeParameters();
         WriteToSlavesVelocityMode();
     }else if(g_kOperationMode==kCSTorque){
-        UpdateMotorStateVelocityMode();
         UpdateCyclicTorqueModeParameters();
         WriteToSlavesInCyclicTorqueMode();
     }else{
-        UpdateMotorStateVelocityMode();
         UpdateVelocityModeParameters();
         WriteToSlavesVelocityMode();
     }
@@ -908,10 +908,11 @@ void EthercatLifeCycle::UpdateControlParameters()
 void EthercatLifeCycle::ReadFromSlaves()
 {
     for(int i = 0 ; i < g_kNumberOfServoDrivers ; i++){
-        received_data_.actual_pos[i]  = EC_READ_S32(ecat_node_->slaves_[i].slave_pdo_domain_ +ecat_node_->slaves_[i].offset_.actual_pos);
-        received_data_.actual_vel[i]  = EC_READ_S32(ecat_node_->slaves_[i].slave_pdo_domain_ +ecat_node_->slaves_[i].offset_.actual_vel);
-        received_data_.status_word[i] = EC_READ_U16(ecat_node_->slaves_[i].slave_pdo_domain_ +ecat_node_->slaves_[i].offset_.status_word);
+        received_data_.actual_pos[i]  = EC_READ_S32(ecat_node_->slaves_[i].slave_pdo_domain_ + ecat_node_->slaves_[i].offset_.actual_pos);
+        received_data_.actual_vel[i]  = EC_READ_S32(ecat_node_->slaves_[i].slave_pdo_domain_ + ecat_node_->slaves_[i].offset_.actual_vel);
+        received_data_.status_word[i] = EC_READ_U16(ecat_node_->slaves_[i].slave_pdo_domain_ + ecat_node_->slaves_[i].offset_.status_word);
         received_data_.actual_tor[i]  = EC_READ_S16(ecat_node_->slaves_[i].slave_pdo_domain_ + ecat_node_->slaves_[i].offset_.actual_tor);
+        received_data_.error_code[i]  = EC_READ_U16(ecat_node_->slaves_[i].slave_pdo_domain_ + ecat_node_->slaves_[i].offset_.error_code);
     }
     received_data_.com_status = al_state_ ; 
     #if CUSTOM_SLAVE
@@ -965,13 +966,25 @@ int EthercatLifeCycle::GetComState()
 
 void EthercatLifeCycle::UpdatePositionModeParameters()
 {   
-       // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Updating control parameters....\n");
+    /// WRITE YOUR CUSTOM CONTROL ALGORITHM, VARIABLES DECLARATAION HERE, LIKE IN EXAMPLE BELOW.
+    /// KEEP IN MIND THAT YOU WILL HAVE TO WAIT FOR THE MOTION TO FINISH IN POSITION MODE, THEREFORE
+    /// YOU HAVE TO CHECK 10th BIT OF STATUS WORD TO CHECK WHETHER TARGET IS REACHED OR NOT.
+    static uint8_t operation_ready = 0 ;
     for(int i = 0 ; i < g_kNumberOfServoDrivers ; i++){
-        if(motor_state_[i]==kOperationEnabled || motor_state_[i]==kTargetReached || motor_state_[i]==kSwitchedOn){
+        if(motor_state_[i]==kOperationEnabled || 
+        motor_state_[i]==kTargetReached || motor_state_[i]==kSwitchedOn){
             if (controller_.xbox_button_){
                 for(int j = 0 ; j < g_kNumberOfServoDrivers ; j++){
                     sent_data_.target_pos[j] = 0 ; 
-                    sent_data_.control_word[j] = SM_GO_ENABLE ;
+                    if(!operation_ready){
+                         sent_data_.control_word[j] = SM_RUN ;
+                         if(TEST_BIT(received_data_.status_word[j],10)){
+                            operation_ready = 1; 
+                         }
+                    }else{
+                        sent_data_.control_word[0] = SM_GO_ENABLE;
+                        operation_ready = 0; 
+                    }
                 }
                 break;
             }
@@ -989,9 +1002,19 @@ void EthercatLifeCycle::UpdatePositionModeParameters()
                 sent_data_.target_pos[0] = -THIRTY_DEGREE_CCW ;
             }
             
-            // if(controller_.red_button_ || controller_.blue_button_ || controller_.green_button_ || controller_.yellow_button_){
-            //     sent_data_.control_word[0] = SM_GO_ENABLE;
-            // }
+            if(controller_.red_button_ || controller_.blue_button_ || controller_.green_button_ 
+            || controller_.yellow_button_){
+                sent_data_.control_word[0] = SM_GO_ENABLE;
+                if(!operation_ready){
+                    sent_data_.control_word[0] = SM_RUN ;
+                    if(TEST_BIT(received_data_.status_word[0],10)){
+                    operation_ready = 1; 
+                    }
+                }else{
+                    sent_data_.control_word[0] = SM_GO_ENABLE;
+                    operation_ready = 0; 
+                }
+            }
             // Settings for motor 2 
             if(controller_.left_r_button_ > 0 ){
                 sent_data_.target_pos[1] = FIVE_DEGREE_CCW ;
@@ -1250,26 +1273,35 @@ void EthercatLifeCycle::WriteToSlavesInPositionMode()
 // CKim - Modifications
 void EthercatLifeCycle::UpdateCyclicPositionModeParameters()
 {
+    /// WRITE YOUR CUSTOM CONTROL ALGORITHM, VARIABLES DECLARATAION HERE, LIKE IN EXAMPLE BELOW.
     float deadzone = 0.05;
     float amp = 1.0 - deadzone;
     float val;
-    // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Updating control parameters....\n");
+    static uint8_t operation_ready = 0;
     for(int i = 0 ; i < g_kNumberOfServoDrivers ; i++){
-        if(motor_state_[i]==kOperationEnabled || motor_state_[i]==kTargetReached || motor_state_[i]==kSwitchedOn)
+        if(motor_state_[i]==kOperationEnabled || motor_state_[i]==kTargetReached 
+        || motor_state_[i]==kSwitchedOn)
         {
             // Settings for motor 1;
             val = controller_.left_x_axis_;
             if(val > deadzone) {
-                sent_data_.target_pos[0] = received_data_.actual_pos[0] + (val-deadzone)/amp*THIRTY_DEGREE_CCW/50 ;
+                sent_data_.target_pos[0] = received_data_.actual_pos[0] + (val-deadzone)/amp*THIRTY_DEGREE_CCW/500 ;
             }
             else if(val < -deadzone) {
-                sent_data_.target_pos[0] = received_data_.actual_pos[0] + (val+deadzone)/amp*THIRTY_DEGREE_CCW/50 ;
+                sent_data_.target_pos[0] = received_data_.actual_pos[0] + (val+deadzone)/amp*THIRTY_DEGREE_CCW/500 ;
             }
             // else {
             //     sent_data_.target_pos[0] = received_data_.actual_pos[0];
             // }
             //if((val > deadzone) || (val < -deadzone)){
+            if (!operation_ready){
+                sent_data_.control_word[0] = SM_RUN;
+                if(TEST_BIT(received_data_.status_word[0],10))
+                    operation_ready = 1;
+            }else{
                 sent_data_.control_word[0] = SM_GO_ENABLE;
+                operation_ready = 0; 
+            }
             //}
 
             // Settings for motor 2 
@@ -1306,108 +1338,86 @@ void EthercatLifeCycle::UpdateCyclicPositionModeParameters()
 
 void EthercatLifeCycle::UpdateCyclicVelocityModeParameters() 
 {
-    float deadzone = 0.05;      
-    float maxSpeed = 250.0;    // rpm
-    float val;
-    // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Updating control parameters....\n");
-
-    // Settings for motor 1;
+    /// WRITE YOUR CUSTOM CONTROL ALGORITHM, VARIABLES DECLARATAION HERE, LIKE IN EXAMPLE BELOW.
+    int m1_conversion_ratio = GEAR_RATIO*2;  // if you multiply this value with the RPM value mechanism will move in that RPM.
+    float m2_conversion_ratio = GEAR_RATIO*2*12*40/30;
+    float deadzone = 0.1;      
+    float maxSpeed_m1 = 3.0*m1_conversion_ratio;    // Robot will move with 3 RPM (MAX). (Control input range 0~1)
+    float maxSpeed_m2 = m2_conversion_ratio;
+    float maxSpeed = 1500.0;
+    float m1_left=0.0, m1_right=0.0, axis_m2=0.0, axis_m3=0.0;
+    // Motor 1 controls roll axis.
     if(motor_state_[0]==kOperationEnabled || motor_state_[0]==kSwitchedOn)
     {
-        val = controller_.left_y_axis_;
-        if((val > deadzone) || (val < -deadzone))       
-            {   sent_data_.target_vel[0] = -val*maxSpeed;    }
-        else
-            {   sent_data_.target_vel[0] = 0;               }
+        m1_left = controller_.left_t_axis_;
+        m1_right = controller_.right_t_axis_;
+        if((m1_right > deadzone))       
+            {   sent_data_.target_vel[0] = int32_t(m1_right*maxSpeed_m1);  }
+
+        if((m1_left > deadzone))       
+            {   sent_data_.target_vel[0] = int32_t(-m1_left*maxSpeed_m1);  }
+        if(m1_left > 1 || m1_right > 1 || m1_left < -1 || m1_right < -1) sent_data_.target_vel[0] = 0;
+        if(!(m1_left > deadzone || m1_right > deadzone)) sent_data_.target_vel[0]=0;
     }
     else    {   sent_data_.target_vel[0] = 0;   }
-    sent_data_.control_word[0] = SM_GO_ENABLE;
-    
-    // Settings for motor 2 
-    if(motor_state_[1]==kOperationEnabled || motor_state_[1]==kSwitchedOn)
-    {
-        val = controller_.left_x_axis_;
-        if((val > deadzone) || (val < -deadzone))       
-            {
-                sent_data_.target_vel[1] = -val*maxSpeed;
-                sent_data_.target_vel[0] -= sent_data_.target_vel[1];
-            }
-        else
-            {   sent_data_.target_vel[1] = 0;               }
-    }
-    else    {   sent_data_.target_vel[1] = 0;   }
-    sent_data_.control_word[1] = SM_GO_ENABLE;
-
-    // Settings for motor 3 
-    if(motor_state_[2]==kOperationEnabled || motor_state_[2]==kSwitchedOn)
-    {
-        if(controller_.right_rb_button_ > 0 )   {   sent_data_.target_vel[2] = 100;     }
-        else if(controller_.left_rb_button_ > 0){   sent_data_.target_vel[2] = -100;    }
-        else                                    {   sent_data_.target_vel[2] = 0;       }
-    }
-    else    {   sent_data_.target_vel[2] = 0;   }
-    sent_data_.control_word[2] = SM_GO_ENABLE;
-
-
-
-
-    // // Settings for motor 1;
-    // if(motor_state_[0]==kOperationEnabled || motor_state_[0]==kSwitchedOn)
-    // {
-    //     if(controller_.green_button_)        {   sent_data_.target_vel[0] = 200;           }
-    //     else if(controller_.yellow_button_)    {   sent_data_.target_vel[0] = -200;          }
-    //     else                                {   sent_data_.target_vel[0] = 0;                           }
-    // }
-    // else    {   sent_data_.target_vel[0] = 0;   }
     // sent_data_.control_word[0] = SM_GO_ENABLE;
     
-    // // Settings for motor 2 
-    // if(motor_state_[1]==kOperationEnabled || motor_state_[1]==kSwitchedOn)
-    // {
-    //     if(controller_.red_button_)         
-    //     {
-    //         //sent_data_.target_vel[0] = -200;           
-    //         sent_data_.target_vel[1] = 200;           
-    //     }
-    //     else if(controller_.blue_button_)   
-    //     {   
-    //         //sent_data_.target_vel[0] = +200;          
-    //         sent_data_.target_vel[1] = -200;          
-    //     }
-    //     else {   sent_data_.target_vel[1] = 0;  }
-    // }
-    // else    {   sent_data_.target_vel[1] = 0;   }
+
+    // Settings for motor 2
+    if(motor_state_[1]==kOperationEnabled || motor_state_[1]==kSwitchedOn)
+    {
+        axis_m2 = controller_.right_y_axis_;
+        if((axis_m2 > deadzone) || (axis_m2 < -deadzone))       
+            {
+                sent_data_.target_vel[1] = int32_t(axis_m2*maxSpeed_m2);
+            }
+        else
+            {
+                sent_data_.target_vel[1] = 0;
+            }
+    }
+    else    {   sent_data_.target_vel[1] = 0;   }
     // sent_data_.control_word[1] = SM_GO_ENABLE;
 
-    // // Settings for motor 3 
-    // if(motor_state_[2]==kOperationEnabled || motor_state_[2]==kSwitchedOn)
-    // {
-    //     if(controller_.right_rb_button_ > 0 )   {   sent_data_.target_vel[2] = 100;     }
-    //     else if(controller_.left_rb_button_ > 0){   sent_data_.target_vel[2] = -100;    }
-    //     else                                    {   sent_data_.target_vel[2] = 0;       }
-    // }
-    // else    {   sent_data_.target_vel[2] = 0;   }
+    // Settings for motor 2 
+    if((motor_state_[2]==kOperationEnabled || motor_state_[2]==kSwitchedOn))
+    {
+        axis_m3 = controller_.left_x_axis_;
+        if((axis_m3 > deadzone) || (axis_m3 < -deadzone))       
+            {
+                sent_data_.target_vel[2] = int32_t(-axis_m3*maxSpeed);
+                sent_data_.target_vel[1] = sent_data_.target_vel[2];
+            }
+        else
+            {   
+                sent_data_.target_vel[2] = 0;               
+            }
+    }
+    else    {   sent_data_.target_vel[2] = 0;   }
     // sent_data_.control_word[2] = SM_GO_ENABLE;
+    
 }
 
 void EthercatLifeCycle::UpdateVelocityModeParameters() 
-{
-   // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Updating control parameters....\n");
+{   
+    /// WRITE YOUR CUSTOM CONTROL ALGORITHM VARIABLES DECLARATAION HERE
     for(int i = 0 ; i < g_kNumberOfServoDrivers ; i++){
-        if(motor_state_[i]==kOperationEnabled || motor_state_[i]==kTargetReached || motor_state_[i]==kSwitchedOn){
-            // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "axis = %d \n target_vel = %d\n",controller_.right_x_axis_,sent_data_.target_vel[0]);
+        if(motor_state_[i]==kOperationEnabled || motor_state_[i]==kTargetReached 
+            || motor_state_[i]==kSwitchedOn){
+               /// WRITE YOUR CUSTOM CONTROL ALGORITHM HERE IF YOU WANT TO USE VELOCITY MODE
+              /// YOU CAN CHECK  EXAMPLE CONTROL CODE BELOW.
             if(controller_.right_x_axis_ > 0.1 || controller_.right_x_axis_ < -0.1 ){
-                sent_data_.target_vel[0] = controller_.right_x_axis_ * 250  ;
+                sent_data_.target_vel[0] = controller_.right_x_axis_ *500 ;
             }else{
                 sent_data_.target_vel[0] = 0;
             }
             if(controller_.left_x_axis_ < -0.1 || controller_.left_x_axis_ > 0.1){
-                sent_data_.target_vel[1] = controller_.left_x_axis_ * 250  ;
+                sent_data_.target_vel[1] = controller_.left_x_axis_ *500 ;
             }else{
                 sent_data_.target_vel[1] = 0 ;
             }
             if(controller_.left_y_axis_ < -0.1 || controller_.left_y_axis_ > 0.1){
-                sent_data_.target_vel[2] = controller_.left_y_axis_ * 250  ;
+                sent_data_.target_vel[2] = controller_.left_y_axis_ *500 ;
             }else{
                 sent_data_.target_vel[2] = 0 ;
             }

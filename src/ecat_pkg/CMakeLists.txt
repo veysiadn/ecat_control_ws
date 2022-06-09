@@ -69,22 +69,12 @@ include_directories(
   ${rclcpp_INCLUDE_DIRS}
   )
 
-add_executable(lifecycle_node_manager src/lifecycle_node_manager.cpp)
-
-target_link_libraries(lifecycle_node_manager
-  ${rclcpp_lifecycle_LIBRARIES}
-  ${std_msgs_LIBRARIES}
-  ${sensor_msgs_LIBRARIES}
-  ${ecat_msgs_LIBRARIES}
-)
 ## Don't forget to add dependencies to your build file, 
 ## Use find_package(x) then add dependecy for x. 
 ament_target_dependencies(${node_name}  rclcpp rclcpp_lifecycle ecat_msgs sensor_msgs lifecycle_msgs std_msgs tlsf_cpp)
-ament_target_dependencies(lifecycle_node_manager  rclcpp rclcpp_lifecycle ecat_msgs sensor_msgs lifecycle_msgs std_msgs)
 
 install(TARGETS 
   ecat_node
-  lifecycle_node_manager
   DESTINATION lib/${PROJECT_NAME})
 
 

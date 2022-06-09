@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['lifecyclenodemanager_0',['LifecycleNodeManager',['../classLifecycleNodeManager.html',1,'']]]
+  ['profileposparam_0',['ProfilePosParam',['../structProfilePosParam.html',1,'']]],
+  ['profilevelocityparam_1',['ProfileVelocityParam',['../structProfileVelocityParam.html',1,'']]]
 ];

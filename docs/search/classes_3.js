@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['guinode_0',['GuiNode',['../classGUI_1_1GuiNode.html',1,'GUI']]]
+  ['hapticnode_0',['HapticNode',['../classHapticNode.html',1,'']]],
+  ['homingparam_1',['HomingParam',['../structHomingParam.html',1,'']]]
 ];

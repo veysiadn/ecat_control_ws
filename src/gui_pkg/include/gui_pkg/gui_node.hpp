@@ -46,7 +46,7 @@
 #include "ecat_msgs/msg/data_received.hpp"
 #include "ecat_msgs/msg/data_sent.hpp"
 #include "ecat_msgs/msg/gui_button_data.hpp"
-
+#include "std_msgs/msg/u_int16.hpp"
 #include <rclcpp/rclcpp.hpp>    // Standard ROS2 header API
 //CPP
 #include <vector>
@@ -108,6 +108,8 @@ namespace GUI {
          * @brief Resets control button values coming from control UI.
          */
         void ResetContolButtonValues();
+
+        void HandleSafetyNodeCallback(const std_msgs::msg::UInt16::SharedPtr msg);
    private:
         /// ROS2 subscriptions.
         /// Acquired feedback information from connected slaves
@@ -117,6 +119,8 @@ namespace GUI {
         rclcpp::Subscription<ecat_msgs::msg::DataSent>::SharedPtr master_commands_;
 
         rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr  controller_commands_;
+
+        rclcpp::Subscription<std_msgs::msg::UInt16>::SharedPtr  safety_info_subscriber_;
 
         /// Timer for timer callbacks, publishing will be done in certain interval.
         rclcpp::TimerBase::SharedPtr timer_;
@@ -132,6 +136,7 @@ namespace GUI {
          std::vector<ReceivedData> received_data_;
          /// GUI button value to publish emergency button state.
          ecat_msgs::msg::GuiButtonData ui_control_buttons_;
+         std_msgs::msg::UInt16 safety_info_;
          /// For time measurements
          Timing time_info_;
          uint8_t current_lifecycle_state = 0;

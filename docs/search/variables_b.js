@@ -14,7 +14,7 @@ var searchData=
   ['left_5fx_5faxis_11',['left_x_axis',['../structReceivedData.html#a2af989aebb271f62b967408aa869bc01',1,'ReceivedData']]],
   ['left_5fx_5faxis_5f_12',['left_x_axis_',['../classController.html#af8e29e6b38ab7740566e703237c79654',1,'Controller']]],
   ['left_5fy_5faxis_5f_13',['left_y_axis_',['../classController.html#a23d43716969133c3a84aefc223235bba',1,'Controller']]],
-  ['lifecycle_5fnode_14',['lifecycle_node',['../lifecycle__node__manager_8cpp.html#aced6f4a17af3b1dcfe352533f20fa4ee',1,'lifecycle_node_manager.cpp']]],
-  ['lifecycle_5fnode_5fdata_5f_15',['lifecycle_node_data_',['../classLifecycleNodeManager.html#aeae42c86e356c9bfbb787d7c4acfc2c5',1,'LifecycleNodeManager']]],
-  ['lifecycle_5fnode_5fsubscriber_5f_16',['lifecycle_node_subscriber_',['../classLifecycleNodeManager.html#adcbeb4506c68245896a5877d60bde177',1,'LifecycleNodeManager']]]
+  ['lifecycle_5fnode_14',['lifecycle_node',['../safety__node_8hpp.html#aced6f4a17af3b1dcfe352533f20fa4ee',1,'safety_node.hpp']]],
+  ['lifecycle_5fnode_5fdata_5f_15',['lifecycle_node_data_',['../classSafetyNode.html#ac7d3f21660608df7643b058c4e76e5ed',1,'SafetyNode']]],
+  ['lifecycle_5fnode_5fsubscriber_5f_16',['lifecycle_node_subscriber_',['../classSafetyNode.html#a1d5900bde952a9babd670c2f384278df',1,'SafetyNode']]]
 ];

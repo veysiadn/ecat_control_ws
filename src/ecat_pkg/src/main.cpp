@@ -47,6 +47,11 @@ int main(int argc, char **argv)
     ecat_lifecycle_node = std::make_shared<EthercatLifeCycleNode::EthercatLifeCycle>();
     rclcpp::spin(ecat_lifecycle_node->get_node_base_interface());
     
+    rclcpp::executors::MultiThreadedExecutor exe;
+    exe.add_node(ecat_lifecycle_node->get_node_base_interface());
+
+    exe.spin();
+
     // CKim - Terminate node
     rclcpp::shutdown();
     return 0;

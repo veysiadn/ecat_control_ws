@@ -12,7 +12,6 @@ var searchData=
   ['b_5freinit_5fecat_9',['b_reinit_ecat',['../structControlUIButtonData.html#ad997dd1579d5ddba6b1732b245c78df0',1,'ControlUIButtonData']]],
   ['b_5fsend_10',['b_send',['../structControlUIButtonData.html#a16f408c268b53db43e393dd8cc27c22f',1,'ControlUIButtonData']]],
   ['b_5fstop_5fcyclic_5fpdo_11',['b_stop_cyclic_pdo',['../structControlUIButtonData.html#a6ea3c9660676c76b0a177782bcd1bc4f',1,'ControlUIButtonData']]],
-  ['baudrate_12',['baudrate',['../structDxlInfo.html#a770a21eec3fd5d56aeff9c11552ba355',1,'DxlInfo']]],
-  ['blue_5fbutton_5f_13',['blue_button_',['../classController.html#a21b2cc61fc8759e3612edf6cb7659844',1,'Controller']]],
-  ['blue_5fstyle_5fsheet_5f_14',['blue_style_sheet_',['../classMainWindow.html#ad8b6b03bd0dde96193232f0cbf7ed580',1,'MainWindow']]]
+  ['blue_5fbutton_5f_12',['blue_button_',['../classController.html#a21b2cc61fc8759e3612edf6cb7659844',1,'Controller']]],
+  ['blue_5fstyle_5fsheet_5f_13',['blue_style_sheet_',['../classMainWindow.html#ad8b6b03bd0dde96193232f0cbf7ed580',1,'MainWindow']]]
 ];

@@ -79,6 +79,7 @@
         received_data_[i].com_status              =  msg->com_status;
         received_data_[i].op_mode_display         =  msg->op_mode_display[i]; 
         current_lifecycle_state                   =  msg->current_lifecycle_state;
+        received_data_[i].error_code              =  msg->error_code[i];
         /// Costum slave feedbacks.
         received_data_[i].left_limit_switch_val   =  msg->left_limit_switch_val;
         received_data_[i].right_limit_switch_val  =  msg->right_limit_switch_val;

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>safety_pkg</name>
+  <version>0.0.2</version>
+  <description>Safety Package that will control lifecycle node state machine and safety state of the overall system</description>
+  <maintainer email="veysi.adin@kist.re.kr">veysiadn</maintainer>
+  <license>MIT Licence</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <build_depend>rclcpp</build_depend>
+  <build_depend>rclcpp_lifecycle</build_depend>
+  <build_depend>ecat_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>tlsf_cpp</build_depend>
+  <build_depend>lifecycle_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  <exec_depend>rclcpp</exec_depend>
+  <exec_depend>rclcpp_lifecycle</exec_depend>
+  <exec_depend>lifecycle_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>ecat_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

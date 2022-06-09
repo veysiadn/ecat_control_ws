@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['hapticnode_0',['HapticNode',['../classHapticNode.html',1,'']]],
-  ['homingparam_1',['HomingParam',['../structHomingParam.html',1,'']]]
+  ['mainwindow_0',['MainWindow',['../classMainWindow.html',1,'']]]
 ];

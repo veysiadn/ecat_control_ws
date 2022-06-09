@@ -1,12 +1,14 @@
 var searchData=
 [
-  ['updatecontrolparameters_0',['UpdateControlParameters',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a2be95ab458e8e637e2a6f3b57b750886',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
-  ['updatecyclicpositionmodeparameters_1',['UpdateCyclicPositionModeParameters',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a434a3dc8581b010974d60b24e4ab7df2',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
-  ['updatecyclictorquemodeparameters_2',['UpdateCyclicTorqueModeParameters',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a6bdee6a9dc5d22b58429a9ee507c9fe2',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
-  ['updatecyclicvelocitymodeparameters_3',['UpdateCyclicVelocityModeParameters',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#aa8678dbf6a5a60844c614553aaa6d484',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
-  ['updategui_4',['UpdateGUI',['../classMainWindow.html#a154d7ce1f55e8aa59a1a26923dade1bd',1,'MainWindow']]],
-  ['updatemotorstatepositionmode_5',['UpdateMotorStatePositionMode',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a1be54ebbef9bf865be39dd5b16b4e17f',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
-  ['updatemotorstatevelocitymode_6',['UpdateMotorStateVelocityMode',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#ac81a74790509a9912c14982e9fa58d66',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
-  ['updatepositionmodeparameters_7',['UpdatePositionModeParameters',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a8d762bf02972f1f318148175d5641317',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
-  ['updatevelocitymodeparameters_8',['UpdateVelocityModeParameters',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a1940951e1d285e7ce193d7444474dca7',1,'EthercatLifeCycleNode::EthercatLifeCycle']]]
+  ['wait_5ffor_5fresult_0',['wait_for_result',['../safety__node_8hpp.html#a8e07ddf5b5b0e71f767a82424f50286b',1,'safety_node.hpp']]],
+  ['waitforoperationalmode_1',['WaitForOperationalMode',['../classEthercatCommunication_1_1EthercatNode.html#a373f1966b60a63d9f54db94c05326931',1,'EthercatCommunication::EthercatNode']]],
+  ['writecontrolwordviasdo_2',['WriteControlWordViaSDO',['../classEthercatCommunication_1_1EthercatNode.html#aee2182955c56a328b4bc3557da0b241d',1,'EthercatCommunication::EthercatNode']]],
+  ['writeopmodeviasdo_3',['WriteOpModeViaSDO',['../classEthercatCommunication_1_1EthercatNode.html#a75ed37db8d0babb28d6663c98e481ebf',1,'EthercatCommunication::EthercatNode']]],
+  ['writesdo_4',['WriteSDO',['../classEthercatCommunication_1_1EthercatNode.html#ac661a944107b07129210d26d21416123',1,'EthercatCommunication::EthercatNode']]],
+  ['writetargetpositionviasdo_5',['WriteTargetPositionViaSDO',['../classEthercatCommunication_1_1EthercatNode.html#a105870eb7f04330b80711020c53878d6',1,'EthercatCommunication::EthercatNode']]],
+  ['writetargettorqueviasdo_6',['WriteTargetTorqueViaSDO',['../classEthercatCommunication_1_1EthercatNode.html#a846a11fce10f7235bc509d6f40382d7a',1,'EthercatCommunication::EthercatNode']]],
+  ['writetargetvelocityviasdo_7',['WriteTargetVelocityViaSDO',['../classEthercatCommunication_1_1EthercatNode.html#aec542d65642f1afad2a1a8d2a3295607',1,'EthercatCommunication::EthercatNode']]],
+  ['writetoslavesincyclictorquemode_8',['WriteToSlavesInCyclicTorqueMode',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a50318001792b039b8cf179e4d38108ec',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
+  ['writetoslavesinpositionmode_9',['WriteToSlavesInPositionMode',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a5bf86789850a0b8e21ef44f50aefa497',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
+  ['writetoslavesvelocitymode_10',['WriteToSlavesVelocityMode',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a9d4c4f4d59fb5831e85c17b55bc23cbf',1,'EthercatLifeCycleNode::EthercatLifeCycle']]]
 ];

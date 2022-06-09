@@ -157,6 +157,7 @@ class MainWindow;
 
     void ShowOperationMode();
 
+    QString GetDriveErrorMessage(const int& err_code);
     Ui::MainWindow *ui;
     int argc_;
     char** argv_;
@@ -186,4 +187,5 @@ class MainWindow;
     VideoCapture* opencv_video_cap;
     // Thread for ROS2 spinning.
     std::thread ros_spin_thread_;
+    uint8_t em_state_=0;
   };

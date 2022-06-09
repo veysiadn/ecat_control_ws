@@ -40,10 +40,11 @@
 </sect1>
 <sect1 id="index_1autotoc_md3">
 <title>Building and running</title>
-<para><programlisting filename=".sh"><codeline><highlight class="normal">git<sp/>clone<sp/>https://github.com/veysiadn/control_ui_ws</highlight></codeline>
-<codeline><highlight class="normal">sudo<sp/>-s</highlight></codeline>
+<para><programlisting filename=".sh"><codeline><highlight class="normal">git<sp/>clone<sp/>https://github.com/veysiadn/ecat_control_ws</highlight></codeline>
 <codeline><highlight class="normal">source<sp/>/opt/ros/foxy/setup.bash</highlight></codeline>
 <codeline><highlight class="normal">colcon<sp/>build<sp/>--symlink<sp/>install</highlight></codeline>
+<codeline><highlight class="normal">sudo<sp/>-s</highlight></codeline>
+<codeline><highlight class="normal">source<sp/>/opt/ros/foxy/setup.bash</highlight></codeline>
 <codeline><highlight class="normal">.<sp/>install/setup.bash</highlight></codeline>
 <codeline><highlight class="normal">ros2<sp/>launch<sp/>launch_all_nodes.py</highlight></codeline>
 </programlisting> </para>

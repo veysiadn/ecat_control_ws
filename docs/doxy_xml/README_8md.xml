@@ -43,12 +43,13 @@
 <codeline><highlight class="normal">##<sp/>Building<sp/>and<sp/>running</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal">```sh</highlight></codeline>
-<codeline><highlight class="normal">git<sp/>clone<sp/>https://github.com/veysiadn/control_ui_ws</highlight></codeline>
-<codeline><highlight class="normal">sudo<sp/>-s</highlight></codeline>
-<codeline><highlight class="normal">source<sp/>/opt/ros/foxy/setup.bash</highlight></codeline>
-<codeline><highlight class="normal">colcon<sp/>build<sp/>--symlink<sp/>install</highlight></codeline>
-<codeline><highlight class="normal">.<sp/>install/setup.bash</highlight></codeline>
-<codeline><highlight class="normal">ros2<sp/>launch<sp/>launch_all_nodes.py</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>git<sp/>clone<sp/>https://github.com/veysiadn/ecat_control_ws</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>source<sp/>/opt/ros/foxy/setup.bash</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>colcon<sp/>build<sp/>--symlink<sp/>install</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>sudo<sp/>-s</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>source<sp/>/opt/ros/foxy/setup.bash</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>.<sp/>install/setup.bash</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ros2<sp/>launch<sp/>launch_all_nodes.py</highlight></codeline>
 <codeline><highlight class="normal">```</highlight></codeline>
 <codeline></codeline>
     </programlisting>

@@ -34,11 +34,12 @@
 ## Building and running
   
 ```sh
-git clone https://github.com/veysiadn/control_ui_ws
-sudo -s
-source /opt/ros/foxy/setup.bash
-colcon build --symlink install
-. install/setup.bash
-ros2 launch launch_all_nodes.py
+  git clone https://github.com/veysiadn/ecat_control_ws
+  source /opt/ros/foxy/setup.bash
+  colcon build --symlink install
+  sudo -s
+  source /opt/ros/foxy/setup.bash
+  . install/setup.bash
+  ros2 launch launch_all_nodes.py
 ```
 

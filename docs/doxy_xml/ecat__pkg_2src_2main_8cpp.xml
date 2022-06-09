@@ -1,0 +1,379 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="ecat__pkg_2src_2main_8cpp" kind="file" language="C++">
+    <compoundname>main.cpp</compoundname>
+    <includes local="yes">rclcpp/rclcpp.hpp</includes>
+    <includes refid="ecat__node_8hpp" local="yes">ecat_node.hpp</includes>
+    <includes refid="ecat__lifecycle_8hpp" local="yes">ecat_lifecycle.hpp</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>ecat_definitions.hpp</label>
+        <link refid="ecat__definitions_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ecat_globals.hpp</label>
+        <link refid="ecat__globals_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>ecat_lifecycle.hpp</label>
+        <link refid="ecat__lifecycle_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ecat_node.hpp</label>
+        <link refid="ecat__node_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>ecat_slave.hpp</label>
+        <link refid="ecat__slave_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>object_dictionary.hpp</label>
+        <link refid="object__dictionary_8hpp"/>
+      </node>
+      <node id="30">
+        <label>timing.hpp</label>
+        <link refid="ecat__pkg_2include_2ecat__pkg_2timing_8hpp"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/ecat_pkg/src/main.cpp</label>
+        <link refid="ecat__pkg_2src_2main_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>chrono</label>
+      </node>
+      <node id="34">
+        <label>cstdint</label>
+      </node>
+      <node id="7">
+        <label>cstring</label>
+      </node>
+      <node id="35">
+        <label>ctime</label>
+      </node>
+      <node id="41">
+        <label>ecat_msgs/msg/data_received.hpp</label>
+      </node>
+      <node id="42">
+        <label>ecat_msgs/msg/data_sent.hpp</label>
+      </node>
+      <node id="40">
+        <label>ecat_msgs/msg/gui_button_data.hpp</label>
+      </node>
+      <node id="25">
+        <label>ecrt.h</label>
+      </node>
+      <node id="11">
+        <label>errno.h</label>
+      </node>
+      <node id="37">
+        <label>fstream</label>
+      </node>
+      <node id="32">
+        <label>functional</label>
+      </node>
+      <node id="6">
+        <label>iostream</label>
+      </node>
+      <node id="8">
+        <label>limits.h</label>
+      </node>
+      <node id="21">
+        <label>malloc.h</label>
+      </node>
+      <node id="24">
+        <label>memory</label>
+      </node>
+      <node id="10">
+        <label>pthread.h</label>
+      </node>
+      <node id="36">
+        <label>ratio</label>
+      </node>
+      <node id="2">
+        <label>rclcpp/rclcpp.hpp</label>
+      </node>
+      <node id="44">
+        <label>rclcpp/strategies/allocator_memory_strategy.hpp</label>
+      </node>
+      <node id="43">
+        <label>rclcpp/strategies/message_pool_memory_strategy.hpp</label>
+      </node>
+      <node id="38">
+        <label>rclcpp_lifecycle/lifecycle_node.hpp</label>
+      </node>
+      <node id="39">
+        <label>rclcpp_lifecycle/lifecycle_publisher.hpp</label>
+      </node>
+      <node id="45">
+        <label>rttest/rttest.h</label>
+      </node>
+      <node id="22">
+        <label>sched.h</label>
+      </node>
+      <node id="28">
+        <label>sensor_msgs/msg/joy.hpp</label>
+      </node>
+      <node id="12">
+        <label>signal.h</label>
+      </node>
+      <node id="13">
+        <label>stdio.h</label>
+      </node>
+      <node id="9">
+        <label>stdlib.h</label>
+      </node>
+      <node id="33">
+        <label>string</label>
+      </node>
+      <node id="14">
+        <label>string.h</label>
+      </node>
+      <node id="20">
+        <label>sys/mman.h</label>
+      </node>
+      <node id="15">
+        <label>sys/resource.h</label>
+      </node>
+      <node id="16">
+        <label>sys/time.h</label>
+      </node>
+      <node id="17">
+        <label>sys/types.h</label>
+      </node>
+      <node id="19">
+        <label>time.h</label>
+      </node>
+      <node id="46">
+        <label>tlsf_cpp/tlsf.hpp</label>
+      </node>
+      <node id="18">
+        <label>unistd.h</label>
+      </node>
+      <node id="31">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="ecat__pkg_2src_2main_8cpp_1aa823abaa3c85d090c2334e2f56728f89" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classEthercatLifeCycleNode_1_1EthercatLifeCycle" kindref="compound">EthercatLifeCycleNode::EthercatLifeCycle</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;EthercatLifeCycleNode::EthercatLifeCycle&gt; ecat_lifecycle_node</definition>
+        <argsstring></argsstring>
+        <name>ecat_lifecycle_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/src/main.cpp" line="7" column="17" bodyfile="src/ecat_pkg/src/main.cpp" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="ecat__pkg_2src_2main_8cpp_1adfe90e1a94b18921c8a8ec76d94edbd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void signalHandler</definition>
+        <argsstring>(int)</argsstring>
+        <name>signalHandler</name>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/src/main.cpp" line="9" column="6" bodyfile="src/ecat_pkg/src/main.cpp" bodystart="9" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="ecat__pkg_2src_2main_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, char **argv)</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/src/main.cpp" line="16" column="5" bodyfile="src/ecat_pkg/src/main.cpp" bodystart="16" bodyend="58"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/****************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rclcpp/rclcpp.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/****************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ecat__node_8hpp" kindref="compound">ecat_node.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/****************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ecat__lifecycle_8hpp" kindref="compound">ecat_lifecycle.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">std::shared_ptr&lt;EthercatLifeCycleNode::EthercatLifeCycle&gt;<sp/><ref refid="ecat__pkg_2src_2main_8cpp_1aa823abaa3c85d090c2334e2f56728f89" kindref="member">ecat_lifecycle_node</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ecat__pkg_2src_2main_8cpp_1adfe90e1a94b18921c8a8ec76d94edbd4" kindref="member">signalHandler</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*signum*/</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//sig<sp/>=<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>usleep(1e6);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ecat__pkg_2src_2main_8cpp_1aa823abaa3c85d090c2334e2f56728f89" kindref="member">ecat_lifecycle_node</ref>-&gt;shutdown();</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="ecat__pkg_2src_2main_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kindref="member">main</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**argv)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>CKim<sp/>-<sp/>Configure<sp/>stdout<sp/>sream<sp/>buffer.<sp/>_IONBF<sp/>means<sp/>no<sp/>buffering.<sp/>Each<sp/>I/O<sp/>operation<sp/>is<sp/>written<sp/>as<sp/>soon<sp/>as<sp/>possible.<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>setvbuf(stdout,<sp/>NULL,<sp/>_IONBF,<sp/>BUFSIZ);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>CKim<sp/>-<sp/>Associate<sp/>&apos;signalHandler&apos;<sp/>function<sp/>with<sp/>interrupt<sp/>signal<sp/>(Ctrl+C<sp/>key)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>signal(SIGINT,<ref refid="ecat__pkg_2src_2main_8cpp_1adfe90e1a94b18921c8a8ec76d94edbd4" kindref="member">signalHandler</ref>);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>CKim<sp/>-<sp/>Init<sp/>ROS2<sp/>node.<sp/>rclcpp<sp/>stands<sp/>for<sp/>ROS<sp/>Client<sp/>Library<sp/>for<sp/>CPP.<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>rclcpp<sp/>provides<sp/>the<sp/>standard<sp/>C++<sp/>API<sp/>for<sp/>interacting<sp/>with<sp/>ROS<sp/>2.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>rclcpp::init(argc,<sp/>argv);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>CKim<sp/>-<sp/>Prepare<sp/>memory<sp/>for<sp/>real<sp/>time<sp/>performance<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>https://design.ros2.org/articles/realtime_background.html</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>CKim<sp/>-<sp/>Lock<sp/>this<sp/>processe&apos;s<sp/>memory.<sp/>Necessary<sp/>for<sp/>real<sp/>time<sp/>performance....</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mlockall(MCL_CURRENT<sp/>|<sp/>MCL_FUTURE)<sp/>==<sp/>-1)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__),<sp/></highlight><highlight class="stringliteral">&quot;Mlockall<sp/>failed,<sp/>check<sp/>if<sp/>you<sp/>have<sp/>sudo<sp/>authority.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Turn<sp/>off<sp/>malloc<sp/>trimming.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>mallopt(M_TRIM_THRESHOLD,<sp/>-1);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Turn<sp/>off<sp/>mmap<sp/>usage.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>mallopt(M_MMAP_MAX,<sp/>0);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>CKim<sp/>-<sp/>Initialize<sp/>and<sp/>launch<sp/>EthercatLifeCycleNode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ecat__pkg_2src_2main_8cpp_1aa823abaa3c85d090c2334e2f56728f89" kindref="member">ecat_lifecycle_node</ref><sp/>=<sp/>std::make_shared&lt;EthercatLifeCycleNode::EthercatLifeCycle&gt;();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>rclcpp::spin(<ref refid="ecat__pkg_2src_2main_8cpp_1aa823abaa3c85d090c2334e2f56728f89" kindref="member">ecat_lifecycle_node</ref>-&gt;get_node_base_interface());</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>rclcpp::executors::MultiThreadedExecutor<sp/>exe;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>exe.add_node(<ref refid="ecat__pkg_2src_2main_8cpp_1aa823abaa3c85d090c2334e2f56728f89" kindref="member">ecat_lifecycle_node</ref>-&gt;get_node_base_interface());</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>exe.spin();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>CKim<sp/>-<sp/>Terminate<sp/>node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>rclcpp::shutdown();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/ecat_pkg/src/main.cpp"/>
+  </compounddef>
+</doxygen>

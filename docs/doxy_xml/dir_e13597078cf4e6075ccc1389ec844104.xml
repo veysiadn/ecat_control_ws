@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="dir_e13597078cf4e6075ccc1389ec844104" kind="dir">
+    <compoundname>src/ecat_pkg/include</compoundname>
+    <innerdir refid="dir_1ddb388387a7a32e5e04c01fabcf41c5">src/ecat_pkg/include/ecat_pkg</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/ecat_pkg/include/"/>
+  </compounddef>
+</doxygen>

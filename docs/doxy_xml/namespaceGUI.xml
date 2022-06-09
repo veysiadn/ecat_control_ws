@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="namespaceGUI" kind="namespace" language="C++">
+    <compoundname>GUI</compoundname>
+    <innerclass refid="classGUI_1_1GuiNode" prot="public">GUI::GuiNode</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="67" column="1"/>
+  </compounddef>
+</doxygen>

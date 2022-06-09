@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="structSdoRequest" kind="struct" language="C++" prot="public">
+    <compoundname>SdoRequest</compoundname>
+    <includes refid="ecat__definitions_8hpp" local="no">ecat_definitions.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structSdoRequest_1abcf34d501299d1cc084a7a8518a21073" prot="public" static="no" mutable="no">
+        <type>ec_sdo_request_t *</type>
+        <definition>ec_sdo_request_t* SdoRequest::com_status</definition>
+        <argsstring></argsstring>
+        <name>com_status</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="297" column="24" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="297" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSdoRequest_1ad97da82215d3e92f200d8b7e6e90fb28" prot="public" static="no" mutable="no">
+        <type>ec_sdo_request_t *</type>
+        <definition>ec_sdo_request_t* SdoRequest::target_pos</definition>
+        <argsstring></argsstring>
+        <name>target_pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="298" column="24" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="298" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSdoRequest_1a52b3a4a3733d2d9b34169f5b2aa20fab" prot="public" static="no" mutable="no">
+        <type>ec_sdo_request_t *</type>
+        <definition>ec_sdo_request_t* SdoRequest::target_vel</definition>
+        <argsstring></argsstring>
+        <name>target_vel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="299" column="24" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="299" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSdoRequest_1a03c8b8195779d713529f51d166d48cbb" prot="public" static="no" mutable="no">
+        <type>ec_sdo_request_t *</type>
+        <definition>ec_sdo_request_t* SdoRequest::target_tor</definition>
+        <argsstring></argsstring>
+        <name>target_tor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="300" column="24" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="300" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSdoRequest_1a355f0b0cae97920c81e2ab08d4cf8214" prot="public" static="no" mutable="no">
+        <type>ec_sdo_request_t *</type>
+        <definition>ec_sdo_request_t* SdoRequest::max_tor</definition>
+        <argsstring></argsstring>
+        <name>max_tor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="301" column="24" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="301" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSdoRequest_1a8a0ff046a33729998cae1abf15e65a32" prot="public" static="no" mutable="no">
+        <type>ec_sdo_request_t *</type>
+        <definition>ec_sdo_request_t* SdoRequest::control_word</definition>
+        <argsstring></argsstring>
+        <name>control_word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="302" column="24" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="302" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSdoRequest_1ac5c970d683bcba8f2bd21ed26c516336" prot="public" static="no" mutable="no">
+        <type>ec_sdo_request_t *</type>
+        <definition>ec_sdo_request_t* SdoRequest::op_mode</definition>
+        <argsstring></argsstring>
+        <name>op_mode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="303" column="24" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSdoRequest_1aa63b06a6f3421ca768e4922663d038fd" prot="public" static="no" mutable="no">
+        <type>ec_sdo_request_t *</type>
+        <definition>ec_sdo_request_t* SdoRequest::vel_offset</definition>
+        <argsstring></argsstring>
+        <name>vel_offset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="304" column="24" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="304" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSdoRequest_1ae2bb13b42d4997353ebf4e27eb2392f6" prot="public" static="no" mutable="no">
+        <type>ec_sdo_request_t *</type>
+        <definition>ec_sdo_request_t* SdoRequest::tor_offset</definition>
+        <argsstring></argsstring>
+        <name>tor_offset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="305" column="24" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="305" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSdoRequest_1ac8ba08056afc90749ad1a4443ffbba3f" prot="public" static="no" mutable="no">
+        <type>ec_sdo_request_t *</type>
+        <definition>ec_sdo_request_t* SdoRequest::actual_pos</definition>
+        <argsstring></argsstring>
+        <name>actual_pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="307" column="24" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="307" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSdoRequest_1adca067548473ae0cea2dfcb8bde55aca" prot="public" static="no" mutable="no">
+        <type>ec_sdo_request_t *</type>
+        <definition>ec_sdo_request_t* SdoRequest::actual_vel</definition>
+        <argsstring></argsstring>
+        <name>actual_vel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="308" column="24" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="308" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSdoRequest_1a3b2b38e84dd401588fa12d5fe0d804a3" prot="public" static="no" mutable="no">
+        <type>ec_sdo_request_t *</type>
+        <definition>ec_sdo_request_t* SdoRequest::actual_cur</definition>
+        <argsstring></argsstring>
+        <name>actual_cur</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="309" column="24" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="309" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSdoRequest_1a267a75ca3d57b5bce8f7f021a12b251a" prot="public" static="no" mutable="no">
+        <type>ec_sdo_request_t *</type>
+        <definition>ec_sdo_request_t* SdoRequest::actual_tor</definition>
+        <argsstring></argsstring>
+        <name>actual_tor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="310" column="24" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSdoRequest_1ad324b1260cacd0165fb12f55967ceed2" prot="public" static="no" mutable="no">
+        <type>ec_sdo_request_t *</type>
+        <definition>ec_sdo_request_t* SdoRequest::status_word</definition>
+        <argsstring></argsstring>
+        <name>status_word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="311" column="24" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="311" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSdoRequest_1a9b7aa63404a6d52165d3b5db1ee9215f" prot="public" static="no" mutable="no">
+        <type>ec_sdo_request_t *</type>
+        <definition>ec_sdo_request_t* SdoRequest::op_mode_display</definition>
+        <argsstring></argsstring>
+        <name>op_mode_display</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="312" column="24" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="312" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSdoRequest_1afd4e974353c84ba79db3300760be3273" prot="public" static="no" mutable="no">
+        <type>ec_sdo_request_t *</type>
+        <definition>ec_sdo_request_t* SdoRequest::left_limit_switch_val</definition>
+        <argsstring></argsstring>
+        <name>left_limit_switch_val</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="313" column="24" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSdoRequest_1a209217af965a21b435519d13d26dee98" prot="public" static="no" mutable="no">
+        <type>ec_sdo_request_t *</type>
+        <definition>ec_sdo_request_t* SdoRequest::right_limit_switch_val</definition>
+        <argsstring></argsstring>
+        <name>right_limit_switch_val</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="314" column="24" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="314" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSdoRequest_1ac7327f0818d1fcbc903c883217d7b66c" prot="public" static="no" mutable="no">
+        <type>ec_sdo_request_t *</type>
+        <definition>ec_sdo_request_t* SdoRequest::emergency_switch_val</definition>
+        <argsstring></argsstring>
+        <name>emergency_switch_val</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="315" column="24" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="315" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>EtherCAT SDO request structure for configuration phase. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="295" column="1" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="296" bodyend="316"/>
+    <listofallmembers>
+      <member refid="structSdoRequest_1a3b2b38e84dd401588fa12d5fe0d804a3" prot="public" virt="non-virtual"><scope>SdoRequest</scope><name>actual_cur</name></member>
+      <member refid="structSdoRequest_1ac8ba08056afc90749ad1a4443ffbba3f" prot="public" virt="non-virtual"><scope>SdoRequest</scope><name>actual_pos</name></member>
+      <member refid="structSdoRequest_1a267a75ca3d57b5bce8f7f021a12b251a" prot="public" virt="non-virtual"><scope>SdoRequest</scope><name>actual_tor</name></member>
+      <member refid="structSdoRequest_1adca067548473ae0cea2dfcb8bde55aca" prot="public" virt="non-virtual"><scope>SdoRequest</scope><name>actual_vel</name></member>
+      <member refid="structSdoRequest_1abcf34d501299d1cc084a7a8518a21073" prot="public" virt="non-virtual"><scope>SdoRequest</scope><name>com_status</name></member>
+      <member refid="structSdoRequest_1a8a0ff046a33729998cae1abf15e65a32" prot="public" virt="non-virtual"><scope>SdoRequest</scope><name>control_word</name></member>
+      <member refid="structSdoRequest_1ac7327f0818d1fcbc903c883217d7b66c" prot="public" virt="non-virtual"><scope>SdoRequest</scope><name>emergency_switch_val</name></member>
+      <member refid="structSdoRequest_1afd4e974353c84ba79db3300760be3273" prot="public" virt="non-virtual"><scope>SdoRequest</scope><name>left_limit_switch_val</name></member>
+      <member refid="structSdoRequest_1a355f0b0cae97920c81e2ab08d4cf8214" prot="public" virt="non-virtual"><scope>SdoRequest</scope><name>max_tor</name></member>
+      <member refid="structSdoRequest_1ac5c970d683bcba8f2bd21ed26c516336" prot="public" virt="non-virtual"><scope>SdoRequest</scope><name>op_mode</name></member>
+      <member refid="structSdoRequest_1a9b7aa63404a6d52165d3b5db1ee9215f" prot="public" virt="non-virtual"><scope>SdoRequest</scope><name>op_mode_display</name></member>
+      <member refid="structSdoRequest_1a209217af965a21b435519d13d26dee98" prot="public" virt="non-virtual"><scope>SdoRequest</scope><name>right_limit_switch_val</name></member>
+      <member refid="structSdoRequest_1ad324b1260cacd0165fb12f55967ceed2" prot="public" virt="non-virtual"><scope>SdoRequest</scope><name>status_word</name></member>
+      <member refid="structSdoRequest_1ad97da82215d3e92f200d8b7e6e90fb28" prot="public" virt="non-virtual"><scope>SdoRequest</scope><name>target_pos</name></member>
+      <member refid="structSdoRequest_1a03c8b8195779d713529f51d166d48cbb" prot="public" virt="non-virtual"><scope>SdoRequest</scope><name>target_tor</name></member>
+      <member refid="structSdoRequest_1a52b3a4a3733d2d9b34169f5b2aa20fab" prot="public" virt="non-virtual"><scope>SdoRequest</scope><name>target_vel</name></member>
+      <member refid="structSdoRequest_1ae2bb13b42d4997353ebf4e27eb2392f6" prot="public" virt="non-virtual"><scope>SdoRequest</scope><name>tor_offset</name></member>
+      <member refid="structSdoRequest_1aa63b06a6f3421ca768e4922663d038fd" prot="public" virt="non-virtual"><scope>SdoRequest</scope><name>vel_offset</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

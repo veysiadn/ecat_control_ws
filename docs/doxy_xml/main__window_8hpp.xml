@@ -1,0 +1,420 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="main__window_8hpp" kind="file" language="C++">
+    <compoundname>main_window.hpp</compoundname>
+    <includes local="no">chrono</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">iostream</includes>
+    <includes local="yes">rclcpp/rclcpp.hpp</includes>
+    <includes refid="gui__node_8hpp" local="yes">gui_node.hpp</includes>
+    <includes refid="video__capture_8hpp" local="yes">video_capture.hpp</includes>
+    <includes refid="gui__globals_8hpp" local="yes">gui_globals.hpp</includes>
+    <includes local="yes">ui_mainwindow.h</includes>
+    <includes local="no">QMainWindow</includes>
+    <includes local="no">QApplication</includes>
+    <includes local="no">QStandardItemModel</includes>
+    <includes local="no">QTableView</includes>
+    <includes local="no">QHeaderView</includes>
+    <includes local="no">QString</includes>
+    <includes local="no">QTextStream</includes>
+    <includes local="no">QTimer</includes>
+    <includedby refid="gui__pkg_2src_2main_8cpp" local="yes">src/gui_pkg/src/main.cpp</includedby>
+    <includedby refid="main__window_8cpp" local="yes">src/gui_pkg/src/main_window.cpp</includedby>
+    <incdepgraph>
+      <node id="20">
+        <label>gui_globals.hpp</label>
+        <link refid="gui__globals_8hpp"/>
+      </node>
+      <node id="6">
+        <label>gui_node.hpp</label>
+        <link refid="gui__node_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/gui_pkg/include/gui_pkg/main_window.hpp</label>
+        <link refid="main__window_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>timing.hpp</label>
+        <link refid="gui__pkg_2include_2gui__pkg_2timing_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>video_capture.hpp</label>
+        <link refid="video__capture_8hpp"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>QApplication</label>
+      </node>
+      <node id="34">
+        <label>QHeaderView</label>
+      </node>
+      <node id="23">
+        <label>QImage</label>
+      </node>
+      <node id="30">
+        <label>QMainWindow</label>
+      </node>
+      <node id="22">
+        <label>QPixmap</label>
+      </node>
+      <node id="32">
+        <label>QStandardItemModel</label>
+      </node>
+      <node id="35">
+        <label>QString</label>
+      </node>
+      <node id="33">
+        <label>QTableView</label>
+      </node>
+      <node id="36">
+        <label>QTextStream</label>
+      </node>
+      <node id="24">
+        <label>QThread</label>
+      </node>
+      <node id="37">
+        <label>QTimer</label>
+      </node>
+      <node id="2">
+        <label>chrono</label>
+      </node>
+      <node id="15">
+        <label>cstdint</label>
+      </node>
+      <node id="16">
+        <label>ctime</label>
+      </node>
+      <node id="8">
+        <label>ecat_msgs/msg/data_received.hpp</label>
+      </node>
+      <node id="9">
+        <label>ecat_msgs/msg/data_sent.hpp</label>
+      </node>
+      <node id="10">
+        <label>ecat_msgs/msg/gui_button_data.hpp</label>
+      </node>
+      <node id="18">
+        <label>fstream</label>
+      </node>
+      <node id="13">
+        <label>functional</label>
+      </node>
+      <node id="4">
+        <label>iostream</label>
+      </node>
+      <node id="3">
+        <label>memory</label>
+      </node>
+      <node id="28">
+        <label>opencv2/core/core.hpp</label>
+      </node>
+      <node id="26">
+        <label>opencv2/highgui/highgui.hpp</label>
+      </node>
+      <node id="27">
+        <label>opencv2/imgproc.hpp</label>
+      </node>
+      <node id="25">
+        <label>opencv2/opencv.hpp</label>
+      </node>
+      <node id="17">
+        <label>ratio</label>
+      </node>
+      <node id="5">
+        <label>rclcpp/rclcpp.hpp</label>
+      </node>
+      <node id="7">
+        <label>sensor_msgs/msg/joy.hpp</label>
+      </node>
+      <node id="11">
+        <label>std_msgs/msg/u_int16.hpp</label>
+      </node>
+      <node id="14">
+        <label>string</label>
+      </node>
+      <node id="29">
+        <label>ui_mainwindow.h</label>
+      </node>
+      <node id="12">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>src/gui_pkg/include/gui_pkg/main_window.hpp</label>
+        <link refid="main__window_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/gui_pkg/src/main.cpp</label>
+        <link refid="gui__pkg_2src_2main_8cpp"/>
+      </node>
+      <node id="3">
+        <label>src/gui_pkg/src/main_window.cpp</label>
+        <link refid="main__window_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classMainWindow" prot="public">MainWindow</innerclass>
+    <innernamespace refid="namespaceUi">Ui</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/******************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/>$Id$</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/>Copyright<sp/>(C)<sp/>2021<sp/>Veysi<sp/>ADIN,<sp/>UST<sp/>KIST</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>IgH<sp/>EtherCAT<sp/>master<sp/>userspace<sp/>program<sp/>in<sp/>the<sp/>ROS2<sp/>environment.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/>The<sp/>IgH<sp/>EtherCAT<sp/>master<sp/>userspace<sp/>program<sp/>in<sp/>the<sp/>ROS2<sp/>environment<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>version<sp/>2</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/>of<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/>The<sp/>IgH<sp/>EtherCAT<sp/>master<sp/>userspace<sp/>program<sp/>in<sp/>the<sp/>ROS2<sp/>environment<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/>it<sp/>will<sp/>be<sp/>useful,<sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/>warranty<sp/>of<sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/><sp/>along<sp/>with<sp/>the<sp/>IgH<sp/>EtherCAT<sp/>master<sp/>userspace<sp/>program<sp/>in<sp/>the<sp/>ROS<sp/>environment.<sp/>If<sp/>not,<sp/>see</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/><sp/>&lt;http://www.gnu.org/licenses/&gt;.</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/><sp/>---</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/><sp/>The<sp/>license<sp/>mentioned<sp/>above<sp/>concerns<sp/>the<sp/>source<sp/>code<sp/>only.<sp/>Using<sp/>the</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/><sp/>EtherCAT<sp/>technology<sp/>and<sp/>brand<sp/>is<sp/>only<sp/>permitted<sp/>in<sp/>compliance<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/><sp/>industrial<sp/>property<sp/>and<sp/>similar<sp/>rights<sp/>of<sp/>Beckhoff<sp/>Automation<sp/>GmbH.</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/><sp/>Contact<sp/>information:<sp/>veysi.adin@kist.re.kr</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*****************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">/*****************************************************************************</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>\file<sp/><sp/>main_window.hpp</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*<sp/>\brief<sp/>MainWindow<sp/>implementation<sp/>to<sp/>show<sp/>slave<sp/>status<sp/>and<sp/>controller<sp/>commands</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>and<sp/>endoscope<sp/>camera<sp/>view<sp/>in<sp/>GUI<sp/>in<sp/>ROS2.</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>All<sp/>GUI<sp/>functionality<sp/>and<sp/>updating<sp/>GUI<sp/>handled<sp/>by<sp/>this<sp/>MainWindow<sp/>class.</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//CPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;chrono&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//ROS2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rclcpp/rclcpp.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//GUI_Node<sp/>Headers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gui__node_8hpp" kindref="compound">gui_node.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="video__capture_8hpp" kindref="compound">video_capture.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gui__globals_8hpp" kindref="compound">gui_globals.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//<sp/>QT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ui_mainwindow.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMainWindow&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QApplication&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QStandardItemModel&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QTableView&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QHeaderView&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QString&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QTextStream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QTimer&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceGUI" kindref="compound">GUI</ref>;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceUi" kindref="compound">Ui</ref><sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classMainWindow" kindref="compound">MainWindow</ref>;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68" refid="classMainWindow" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classMainWindow" kindref="compound">MainWindow</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QMainWindow<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classMainWindow_1ae2ddc67ba27a37bd8566220c08dbefd2" kindref="member">MainWindow</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**<sp/>argv,<sp/>QWidget<sp/>*parent<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classMainWindow_1ae98d00a93bc118200eeef9f9bba1dba7" kindref="member">~MainWindow</ref>();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1a154d7ce1f55e8aa59a1a26923dade1bd" kindref="member">UpdateGUI</ref>();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1ac111e0466ffe817e13f8fc460980eb40" kindref="member">ResetControlButtonValues</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>&amp;button_val);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1ac3b6249ea5ac431732f413f915deb625" kindref="member">on_b_enable_cyclic_pos_clicked</ref>();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1aef346507ba7d119bc19648354d84b3c6" kindref="member">on_b_enable_cylic_vel_clicked</ref>();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1a683f079e077349dde8e1c689a773fb3b" kindref="member">on_b_enable_vel_clicked</ref>();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1a789e8a2f15413559170b15da9d005d55" kindref="member">on_b_enable_pos_clicked</ref>();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1a170ab939e9e2ede6fedf80989659518c" kindref="member">on_b_init_ecat_clicked</ref>();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1ab56f617ffcf96ac8585b9fc1750ddd7e" kindref="member">on_b_reinit_ecat_clicked</ref>();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1a31975bbde4372d0c04878cf2bf90cc98" kindref="member">on_b_enable_drives_clicked</ref>();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1a9b62e44d6320c9e4e2639295f62852c2" kindref="member">on_b_disable_drives_clicked</ref>();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1a0eedabc30d1edaf26afb4f107362f935" kindref="member">on_b_enter_cyclic_pdo_clicked</ref>();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1ac05686310c38502b89f53b81d84a07b1" kindref="member">on_b_stop_cyclic_pdo_clicked</ref>();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1a058948e174c64546a8298b33023790f2" kindref="member">on_b_emergency_mode_clicked</ref>();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1a5b1d835c15a1effaf79b388b1e20f268" kindref="member">on_b_send_clicked</ref>();</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1a7e5ea9c0a6e400ec59e1467bf128d2d0" kindref="member">rosSpinThread</ref>();</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1a81106fa4074753c9f3f44433925dfbb3" kindref="member">ShowAllMotorStatus</ref>();</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1ac6b58c3f8db6fb9fc2d4626413587d68" kindref="member">ShowComStatus</ref>();</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1a26b90b4b64b9504e2a7323e736626642" kindref="member">ShowEmergencyStatus</ref>();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classMainWindow_1a70637fbde6b63b5a29f69f7e915054e2" kindref="member">GetReadableStatusWord</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1a263819c4964451f170471ab5b0f7769c" kindref="member">CallUnconfiguredStateUI</ref>();</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1afb2eb25211ad30dd58dcc1f1c96e82be" kindref="member">CallInactiveStateUI</ref>();</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1a489cb62ba348e0689f6d0d49b65b2a0b" kindref="member">CallActiveStateUI</ref>();</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1ad1e2479bbaab8fc9c5dee9c95e72100f" kindref="member">SetDisabledStyleSheet</ref>(QPushButton<sp/>*button);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1a8104971d8ae3e717196c0b1ecb3aad38" kindref="member">SetEnabledStyleSheetSDO</ref>(QPushButton<sp/>*button);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1a417c3e9096cabf3e7b54efd6d8983eb5" kindref="member">SetEnabledStyleSheetPDO</ref>(QPushButton<sp/>*button);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1ad089c525f40b13a176246174744e4266" kindref="member">ShowOperationMode</ref>();</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classMainWindow_1a82066d3dda0ac56577f54a7818c45b23" kindref="member">GetDriveErrorMessage</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">&amp;<sp/>err_code);</highlight></codeline>
+<codeline lineno="161" refid="classMainWindow_1a35466a70ed47252a0191168126a352a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Ui::MainWindow<sp/>*<ref refid="classMainWindow_1a35466a70ed47252a0191168126a352a5" kindref="member">ui</ref>;</highlight></codeline>
+<codeline lineno="162" refid="classMainWindow_1a641f8c24c72931a0e774025e33b71987" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1a641f8c24c72931a0e774025e33b71987" kindref="member">argc_</ref>;</highlight></codeline>
+<codeline lineno="163" refid="classMainWindow_1aeaf74f00fe0680c71919c4904ac69bad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**<sp/><ref refid="classMainWindow_1aeaf74f00fe0680c71919c4904ac69bad" kindref="member">argv_</ref>;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classMainWindow_1a5d84e290c6ccc6d95c36d85ddad8ffce" kindref="member">GetDriveStates</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;<sp/>statusWord);</highlight></codeline>
+<codeline lineno="169" refid="classMainWindow_1ad8b6b03bd0dde96193232f0cbf7ed580" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="classMainWindow_1ad8b6b03bd0dde96193232f0cbf7ed580" kindref="member">blue_style_sheet_</ref><sp/>=</highlight><highlight class="stringliteral">&quot;QPushButton:pressed<sp/>{background-color:<sp/>rgb(5,<sp/>153,<sp/>44);}&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;QPushButton<sp/>{color:<sp/>rgb(255,<sp/>255,<sp/>255);&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;selection-background-color:<sp/>rgb(238,<sp/>238,<sp/>236);&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;selection-color:<sp/>rgb(238,<sp/>238,<sp/>236);&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;background-color:<sp/>rgb(19,<sp/>61,<sp/>128);&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;alternate-background-color:<sp/>rgb(0,<sp/>0,<sp/>0);&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;font:<sp/>bold<sp/>75<sp/>16pt<sp/>\&quot;Noto<sp/>Sans\&quot;;}&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="176" refid="classMainWindow_1a5c6b36e9507e175ec2a0dfa081c5c7b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="classMainWindow_1a5c6b36e9507e175ec2a0dfa081c5c7b7" kindref="member">sdo_style_sheet_</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;QPushButton:pressed<sp/>{background-color:<sp/>rgb(5,<sp/>153,<sp/>44);}&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;QPushButton<sp/>{color:<sp/>rgb(255,<sp/>255,<sp/>255);&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;background-color:<sp/>rgb(252,<sp/>119,<sp/>3);&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;font:<sp/>bold<sp/>75<sp/>15pt<sp/>\&quot;Noto<sp/>Sans\&quot;;}&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="180" refid="classMainWindow_1a30bd56293e6556868d0c4aa1ebcbb37f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="classMainWindow_1a30bd56293e6556868d0c4aa1ebcbb37f" kindref="member">red_style_sheet</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;QPushButton:pressed<sp/>{background-color:<sp/>rgb(252,<sp/>186,<sp/>3);}&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;QPushButton<sp/>{color:<sp/>rgb(255,<sp/>255,<sp/>255);&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;background-color:<sp/>rgb(252,<sp/>0,<sp/>0);&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;font:<sp/>bold<sp/>75<sp/>15pt<sp/>\&quot;Noto<sp/>Sans\&quot;;}&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="184" refid="classMainWindow_1abd16d3dc5ac42f7ee311732452568d01" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QTimer<sp/><ref refid="classMainWindow_1abd16d3dc5ac42f7ee311732452568d01" kindref="member">my_timer</ref>;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>To<sp/>get<sp/>data<sp/>from<sp/>gui_node_<sp/>.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186" refid="classMainWindow_1a4d0be713b3887132ae20938817a6116f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;GuiNode&gt;<sp/><ref refid="classMainWindow_1a4d0be713b3887132ae20938817a6116f" kindref="member">gui_node_</ref>;</highlight></codeline>
+<codeline lineno="187" refid="classMainWindow_1a70848fd0e676cb8bfa6f2a70d2ef75a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classVideoCapture" kindref="compound">VideoCapture</ref>*<sp/><ref refid="classMainWindow_1a70848fd0e676cb8bfa6f2a70d2ef75a5" kindref="member">opencv_video_cap</ref>;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Thread<sp/>for<sp/>ROS2<sp/>spinning.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189" refid="classMainWindow_1a3db7bc81842485486803124fdf8c3d06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::thread<sp/><ref refid="classMainWindow_1a3db7bc81842485486803124fdf8c3d06" kindref="member">ros_spin_thread_</ref>;</highlight></codeline>
+<codeline lineno="190" refid="classMainWindow_1a012418c2fea515e723f683d01febfadd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="classMainWindow_1a012418c2fea515e723f683d01febfadd" kindref="member">em_state_</ref>=0;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+    </programlisting>
+    <location file="src/gui_pkg/include/gui_pkg/main_window.hpp"/>
+  </compounddef>
+</doxygen>

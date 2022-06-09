@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="namespacelifecycle__pub__sub__launch" kind="namespace" language="Python">
+    <compoundname>lifecycle_pub_sub_launch</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacelifecycle__pub__sub__launch_1a8b4d6d0f3667ccdaff7656db750da02a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def lifecycle_pub_sub_launch.main</definition>
+        <argsstring>(argv=sys.argv[1:])</argsstring>
+        <name>main</name>
+        <param>
+          <type>argv</type>
+          <defname>argv</defname>
+          <defval>sys.argv[1:]</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Run lifecycle nodes via launch.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/launch/LaunchExample/lifecycle_pub_sub_launch.py" line="33" column="1" bodyfile="src/ecat_pkg/launch/LaunchExample/lifecycle_pub_sub_launch.py" bodystart="33" bodyend="100"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/ecat_pkg/launch/LaunchExample/lifecycle_pub_sub_launch.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

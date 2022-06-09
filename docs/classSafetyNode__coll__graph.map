@@ -1,0 +1,5 @@
+<map id="SafetyNode" name="SafetyNode">
+<area shape="rect" id="node1" title=" " alt="" coords="62,95,153,121"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,100,32"/>
+<area shape="rect" id="node3" href="$classController.html" title="Opens, reads from and publishes joystick events." alt="" coords="125,5,202,32"/>
+</map>

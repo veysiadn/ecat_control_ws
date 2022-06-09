@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="gui__pkg_2CMakeLists_8txt" kind="file" language="C++">
+    <compoundname>CMakeLists.txt</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="gui__pkg_2CMakeLists_8txt_1ae63cc5854ecdd1c87eb8ce252bc11a46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cmake_minimum_required</definition>
+        <argsstring>(VERSION 3.5) project(gui_pkg) if(NOT CMAKE_C_STANDARD) set(CMAKE_C_STANDARD 99) endif() if(NOT CMAKE_CXX_STANDARD) set(CMAKE_CXX_STANDARD 14) endif() if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES &quot;Clang&quot;) add_compile_options(-Wall -Wextra -Wpedantic) endif() find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED) find_package(ament_cmake REQUIRED) find_package(rclcpp REQUIRED) find_package(ecat_msgs REQUIRED) find_package(sensor_msgs REQUIRED) find_package(std_msgs REQUIRED) find_package(cv_bridge REQUIRED) set(CMAKE_INCLUDE_CURRENT_DIR ON) file(GLOB UIS RELATIVE $</argsstring>
+        <name>cmake_minimum_required</name>
+        <param>
+          <type>VERSION 3.</type>
+          <declname>5</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/CMakeLists.txt" line="5" column="1" bodyfile="src/gui_pkg/CMakeLists.txt" bodystart="5" bodyend="54"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">##############################################################################</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>PROJECT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">##############################################################################</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><ref refid="controller_2CMakeLists_8txt_1ad1bf69fd353850593e105f63289c8339" kindref="member">cmake_minimum_required</ref>(VERSION<sp/>3.5)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">project(gui_pkg)</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">##############################################################################</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>CMAKE<sp/>|<sp/>As<sp/>found<sp/>in<sp/>ROS2<sp/>dashing<sp/>distribution</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">##############################################################################</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>Default<sp/>to<sp/>C99</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(NOT<sp/>CMAKE_C_STANDARD)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><ref refid="ecat__pkg_2CMakeLists_8txt_1a2e9817741974886b30eed9cfea09cd06" kindref="member">set</ref>(CMAKE_C_STANDARD<sp/>99)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">endif()</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>Default<sp/>to<sp/>C++14</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(NOT<sp/>CMAKE_CXX_STANDARD)</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><ref refid="ecat__pkg_2CMakeLists_8txt_1a2e9817741974886b30eed9cfea09cd06" kindref="member">set</ref>(CMAKE_CXX_STANDARD<sp/>14)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">endif()</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">if(CMAKE_COMPILER_IS_GNUCXX<sp/>OR<sp/>CMAKE_CXX_COMPILER_ID<sp/>MATCHES<sp/>&quot;Clang&quot;)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>add_compile_options(-Wall<sp/>-Wextra<sp/>-Wpedantic)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">endif()</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">##############################################################################</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>DEPENDENCIES<sp/>|<sp/>Add<sp/>package<sp/>dependencies<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">##############################################################################</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>Find<sp/>QT<sp/>dependencies</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#<sp/>For<sp/>QWidgets<sp/>application<sp/>add<sp/>--&gt;<sp/>Core<sp/>Gui<sp/>Widgets</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#<sp/>For<sp/>QML<sp/>application<sp/>add<sp/>--&gt;<sp/>Core<sp/>Gui<sp/>Quick</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#Example<sp/>for<sp/>QWidget</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">find_package(Qt5<sp/>COMPONENTS<sp/>Core<sp/>Gui<sp/>Widgets<sp/>REQUIRED)<sp/></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>Find<sp/>ROS2<sp/>dependencies</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal">find_package(ament_cmake<sp/>REQUIRED)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">find_package(rclcpp<sp/>REQUIRED)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">##<sp/>This<sp/>is<sp/>for<sp/>custom<sp/>message<sp/>content<sp/>from<sp/>ecat<sp/>and<sp/>gui<sp/>node.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">find_package(ecat_msgs<sp/>REQUIRED)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">##<sp/>This<sp/>is<sp/>for<sp/>joystick/Controller_node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">find_package(sensor_msgs<sp/>REQUIRED)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">find_package(std_msgs<sp/>REQUIRED)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">##<sp/>This<sp/>package<sp/>required<sp/>for<sp/>opencv<sp/>library</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">find_package(cv_bridge<sp/>REQUIRED)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">##############################################################################</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>QT5<sp/>-<sp/>FILES<sp/>PATH<sp/>|<sp/>AUTO<sp/>SET<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">##############################################################################</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><ref refid="ecat__pkg_2CMakeLists_8txt_1a2e9817741974886b30eed9cfea09cd06" kindref="member">set</ref>(CMAKE_INCLUDE_CURRENT_DIR<sp/>ON)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal">file(GLOB<sp/>UIS<sp/>RELATIVE<sp/>${CMAKE_CURRENT_SOURCE_DIR}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>ui</highlight><highlight class="comment">/*.ui</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/><sp/>)</highlight></codeline>
+<codeline lineno="57"><highlight class="comment">file(GLOB<sp/>RESOURCES<sp/>RELATIVE<sp/>${CMAKE_CURRENT_SOURCE_DIR}</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/>resources/*.qrc</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/>)</highlight></codeline>
+<codeline lineno="60"><highlight class="comment">file(GLOB_RECURSE<sp/>MOC_HEADERS<sp/>RELATIVE<sp/>${CMAKE_CURRENT_SOURCE_DIR}<sp/>FOLLOW_SYMLINKS</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/><sp/>include/${PROJECT_NAME}/*.h<sp/>*.hpp</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/><sp/>)</highlight></codeline>
+<codeline lineno="63"><highlight class="comment">file(GLOB_RECURSE<sp/>SOURCES<sp/>RELATIVE<sp/>${CMAKE_CURRENT_SOURCE_DIR}<sp/>FOLLOW_SYMLINKS</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/><sp/>src/*.cpp</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/><sp/>)</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"></highlight></codeline>
+<codeline lineno="67"><highlight class="comment">QT5_ADD_RESOURCES(QT_RESOURCES<sp/>${RESOURCES})</highlight></codeline>
+<codeline lineno="68"><highlight class="comment">QT5_WRAP_UI(QT_UIS<sp/>${UIS})</highlight></codeline>
+<codeline lineno="69"><highlight class="comment">QT5_WRAP_CPP(QT_HEADERS<sp/>${MOC_HEADERS})</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/><sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="comment"></highlight></codeline>
+<codeline lineno="72"><highlight class="comment">##############################################################################</highlight></codeline>
+<codeline lineno="73"><highlight class="comment">#<sp/>COMPILE<sp/>|<sp/>Add<sp/>ament_target<sp/>dependencies<sp/>here<sp/>|<sp/>Add<sp/>target<sp/>link<sp/>libraries</highlight></codeline>
+<codeline lineno="74"><highlight class="comment">##############################################################################</highlight></codeline>
+<codeline lineno="75"><highlight class="comment">set(node_name<sp/>&quot;gui_node&quot;)</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"></highlight></codeline>
+<codeline lineno="77"><highlight class="comment">##<sp/>Add<sp/>executables</highlight></codeline>
+<codeline lineno="78"><highlight class="comment">add_executable(${node_name}</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/><sp/>${SOURCES}<sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/><sp/>${QT_RESOURCES}</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/><sp/>${QT_UIS}</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/><sp/>${QT_HEADERS}</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/><sp/>)</highlight></codeline>
+<codeline lineno="84"><highlight class="comment">include_directories(</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/><sp/><sp/><sp/>${cv_bridge_INCLUDE_DIRS}</highlight></codeline>
+<codeline lineno="86"><highlight class="comment">)</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"></highlight></codeline>
+<codeline lineno="88"><highlight class="comment">ament_target_dependencies(${node_name}</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/><sp/>rclcpp</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/>sensor_msgs</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/>ecat_msgs</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/>std_msgs</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/><sp/>cv_bridge</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/><sp/>)</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"></highlight></codeline>
+<codeline lineno="96"><highlight class="comment">#In<sp/>case<sp/>of<sp/>QML,<sp/>replace<sp/>Widgets<sp/>with<sp/>Quick</highlight></codeline>
+<codeline lineno="97"><highlight class="comment">target_link_libraries(${node_name}</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/><sp/>Qt5::Widgets</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/>Qt5::Core</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/><sp/>Qt5::Gui</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/><sp/>${cv_bridge_LIBRARIES}</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/><sp/>)</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"></highlight></codeline>
+<codeline lineno="104"><highlight class="comment">##<sp/>Install<sp/>executable</highlight></codeline>
+<codeline lineno="105"><highlight class="comment">install(TARGETS<sp/>${node_name}<sp/>DESTINATION<sp/>lib/${PROJECT_NAME})</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"></highlight></codeline>
+<codeline lineno="107"><highlight class="comment">ament_package()</highlight></codeline>
+    </programlisting>
+    <location file="src/gui_pkg/CMakeLists.txt"/>
+  </compounddef>
+</doxygen>

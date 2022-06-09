@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="dir_ae28881369d45bc0b6e8368dbee24965" kind="dir">
+    <compoundname>src/input_pkg/include/input_pkg</compoundname>
+    <innerfile refid="hapticNode_8hpp">hapticNode.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/input_pkg/include/input_pkg/"/>
+  </compounddef>
+</doxygen>

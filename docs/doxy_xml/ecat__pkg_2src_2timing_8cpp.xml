@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="ecat__pkg_2src_2timing_8cpp" kind="file" language="C++">
+    <compoundname>timing.cpp</compoundname>
+    <includes local="yes">timing.hpp</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/ecat_pkg/src/timing.cpp</label>
+        <link refid="ecat__pkg_2src_2timing_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>timing.hpp</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;timing.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTiming_1a5877895aa80d11fc63230de0c5eeb5da" kindref="member">Timing::GetTime</ref>()</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classTiming_1a30f27ff190a0d252979d908c3a7bab74" kindref="member">timer_start_</ref><sp/>=<sp/>std::chrono::high_resolution_clock::now();</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTiming_1a0e717201b291932881ce40f46f1157ec" kindref="member">Timing::MeasureTimeDifference</ref>()</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classTiming_1a76aba029eb6348e6f9fd92ab821d2e81" kindref="member">time_span</ref><sp/>=<sp/>std::chrono::duration_cast&lt;std::chrono::microseconds&gt;(<ref refid="classTiming_1a30f27ff190a0d252979d908c3a7bab74" kindref="member">timer_start_</ref><sp/>-<sp/><ref refid="classTiming_1aad16cc4aa56eb8531f1c62742ef638f3" kindref="member">last_start_time_</ref>);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classTiming_1a6ac15cb456f4fd635a3bbeed43dbdd8e" kindref="member">timing_info_</ref>.insert(<ref refid="classTiming_1a6ac15cb456f4fd635a3bbeed43dbdd8e" kindref="member">timing_info_</ref>.begin(),<sp/><ref refid="classTiming_1a76aba029eb6348e6f9fd92ab821d2e81" kindref="member">time_span</ref>.count());</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classTiming_1aad16cc4aa56eb8531f1c62742ef638f3" kindref="member">last_start_time_</ref><sp/>=<sp/><ref refid="classTiming_1a30f27ff190a0d252979d908c3a7bab74" kindref="member">timer_start_</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classTiming_1a5eb0575d415b5646a81c802b87fe67c6" kindref="member">counter_</ref>++;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTiming_1abca929bf96a9035cdae89d6ac1c18509" kindref="member">Timing::OutInfoToFile</ref>()</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>std::ofstream<sp/>outFile(</highlight><highlight class="stringliteral">&quot;loop_timing_info.txt&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;e<sp/>:<sp/><ref refid="classTiming_1a6ac15cb456f4fd635a3bbeed43dbdd8e" kindref="member">timing_info_</ref>)<sp/>outFile<sp/>&lt;&lt;<sp/>e<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/ecat_pkg/src/timing.cpp"/>
+  </compounddef>
+</doxygen>

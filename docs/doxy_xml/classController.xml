@@ -1,0 +1,489 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classController" kind="struct" language="C++" prot="public">
+    <compoundname>Controller</compoundname>
+    <includes refid="ecat__definitions_8hpp" local="no">ecat_definitions.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classController_1ab7b6b0bc77a4663f831fb178a7809503" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Controller::open_</definition>
+        <argsstring></argsstring>
+        <name>open_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/controller/src/joy_node_linux.cpp" line="54" column="8" bodyfile="src/controller/src/joy_node_linux.cpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1acae097f8b09be11cf90e7d9c06197c86" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Controller::sticky_buttons_</definition>
+        <argsstring></argsstring>
+        <name>sticky_buttons_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/controller/src/joy_node_linux.cpp" line="55" column="8" bodyfile="src/controller/src/joy_node_linux.cpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1aa04fed8e92f18ed3a0e300205a17da72" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Controller::default_trig_val_</definition>
+        <argsstring></argsstring>
+        <name>default_trig_val_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/controller/src/joy_node_linux.cpp" line="56" column="8" bodyfile="src/controller/src/joy_node_linux.cpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1af77e52ad5ee2a4845708ee0078ff57aa" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Controller::joy_dev_</definition>
+        <argsstring></argsstring>
+        <name>joy_dev_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/controller/src/joy_node_linux.cpp" line="57" column="15" bodyfile="src/controller/src/joy_node_linux.cpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1a149527fe9a7812f70a2b333f7d3dda9b" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Controller::joy_dev_name_</definition>
+        <argsstring></argsstring>
+        <name>joy_dev_name_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/controller/src/joy_node_linux.cpp" line="58" column="15" bodyfile="src/controller/src/joy_node_linux.cpp" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1aa6c693873757fb991274c5abf2ebac15" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Controller::deadzone_</definition>
+        <argsstring></argsstring>
+        <name>deadzone_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/controller/src/joy_node_linux.cpp" line="59" column="10" bodyfile="src/controller/src/joy_node_linux.cpp" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1a358e2ef57f61decb162889510e34f2ed" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Controller::autorepeat_rate_</definition>
+        <argsstring></argsstring>
+        <name>autorepeat_rate_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/controller/src/joy_node_linux.cpp" line="60" column="10" bodyfile="src/controller/src/joy_node_linux.cpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1a4f675391f5742ab81426d704ce3e033f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Controller::coalesce_interval_</definition>
+        <argsstring></argsstring>
+        <name>coalesce_interval_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/controller/src/joy_node_linux.cpp" line="61" column="10" bodyfile="src/controller/src/joy_node_linux.cpp" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1a05cc7d634a0eb444cbe3b0dc2aa3cdce" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Controller::event_count_</definition>
+        <argsstring></argsstring>
+        <name>event_count_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/controller/src/joy_node_linux.cpp" line="63" column="7" bodyfile="src/controller/src/joy_node_linux.cpp" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1af975a10298f007d51d3dfcca85c252de" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Controller::pub_count_</definition>
+        <argsstring></argsstring>
+        <name>pub_count_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/controller/src/joy_node_linux.cpp" line="64" column="7" bodyfile="src/controller/src/joy_node_linux.cpp" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1a4eafefa76ef07cf463037b8b8209a9a4" prot="private" static="no" mutable="no">
+        <type>rclcpp::Publisher&lt; sensor_msgs::msg::Joy &gt;::SharedPtr</type>
+        <definition>rclcpp::Publisher&lt;sensor_msgs::msg::Joy&gt;::SharedPtr Controller::pub_</definition>
+        <argsstring></argsstring>
+        <name>pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/controller/src/joy_node_linux.cpp" line="65" column="33" bodyfile="src/controller/src/joy_node_linux.cpp" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1a06a56596f8231bdaae280466b01b4f83" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Controller::lastDiagTime_</definition>
+        <argsstring></argsstring>
+        <name>lastDiagTime_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/controller/src/joy_node_linux.cpp" line="66" column="10" bodyfile="src/controller/src/joy_node_linux.cpp" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classController_1af8e29e6b38ab7740566e703237c79654" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Controller::left_x_axis_</definition>
+        <argsstring></argsstring>
+        <name>left_x_axis_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="121" column="11" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1a23d43716969133c3a84aefc223235bba" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Controller::left_y_axis_</definition>
+        <argsstring></argsstring>
+        <name>left_y_axis_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="122" column="11" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1a4491f31970440809252f792325f3332c" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Controller::right_x_axis_</definition>
+        <argsstring></argsstring>
+        <name>right_x_axis_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="123" column="11" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1a48605a75d1e18d653d428aa12f267cf7" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Controller::right_y_axis_</definition>
+        <argsstring></argsstring>
+        <name>right_y_axis_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="124" column="11" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1a21b2cc61fc8759e3612edf6cb7659844" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Controller::blue_button_</definition>
+        <argsstring></argsstring>
+        <name>blue_button_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="125" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1af4090cca658badffa788cc347c0d8976" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Controller::green_button_</definition>
+        <argsstring></argsstring>
+        <name>green_button_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="126" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1aedf7f3ad3fc4cf9587eb814939f2fe1e" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Controller::red_button_</definition>
+        <argsstring></argsstring>
+        <name>red_button_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="127" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1ae17bf9a44fae3b631880fb01f790dda8" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Controller::yellow_button_</definition>
+        <argsstring></argsstring>
+        <name>yellow_button_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="128" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1afc07641196aa5459f44ccc52e896df2e" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Controller::left_r_button_</definition>
+        <argsstring></argsstring>
+        <name>left_r_button_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="129" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1ab8b2eb8470d7ef53fa8d46876d229b8b" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Controller::left_l_button_</definition>
+        <argsstring></argsstring>
+        <name>left_l_button_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="130" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1a2ef1067504a96ac17b88fa903e60e27d" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Controller::left_u_button_</definition>
+        <argsstring></argsstring>
+        <name>left_u_button_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="131" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1a45cde5bec749e075351dcb620ee2508a" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Controller::left_d_button_</definition>
+        <argsstring></argsstring>
+        <name>left_d_button_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="132" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1a08305d57bdb81da6a151bef723ae8a3e" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Controller::left_rb_button_</definition>
+        <argsstring></argsstring>
+        <name>left_rb_button_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="133" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1a156db40170025123bf4a71c89e872dd0" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Controller::right_rb_button_</definition>
+        <argsstring></argsstring>
+        <name>right_rb_button_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="134" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1ac70c2cb907d0a24b1773269558d2cf5a" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Controller::left_start_button_</definition>
+        <argsstring></argsstring>
+        <name>left_start_button_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="135" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1a9695b16477597d0b1009839cb97856d7" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Controller::right_start_button_</definition>
+        <argsstring></argsstring>
+        <name>right_start_button_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="136" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classController_1a2295a00cf96f532ab8d11777e12ad16c" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Controller::xbox_button_</definition>
+        <argsstring></argsstring>
+        <name>xbox_button_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="137" column="13" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classController_1acfc3737a49027159c6f7cbbef861b212" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string Controller::get_dev_by_joy_name</definition>
+        <argsstring>(const std::string &amp;joy_name, rclcpp::Logger logger)</argsstring>
+        <name>get_dev_by_joy_name</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>joy_name</declname>
+        </param>
+        <param>
+          <type>rclcpp::Logger</type>
+          <declname>logger</declname>
+        </param>
+        <briefdescription>
+<para>Returns the device path of the first joystick that matches joy_name. If no match is found, an empty string is returned. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/controller/src/joy_node_linux.cpp" line="71" column="15" bodyfile="src/controller/src/joy_node_linux.cpp" bodystart="71" bodyend="117"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classController_1a95c56822d667e94b031451729ce069a9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Controller::Controller</definition>
+        <argsstring>()</argsstring>
+        <name>Controller</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/controller/src/joy_node_linux.cpp" line="120" column="3" bodyfile="src/controller/src/joy_node_linux.cpp" bodystart="120" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classController_1af947edd39192c4bf792137836069756a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Controller::main</definition>
+        <argsstring>(int argc, char **argv)</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+<para>Opens joystick port, reads from port and publishes while node is active. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/controller/src/joy_node_linux.cpp" line="124" column="7" bodyfile="src/controller/src/joy_node_linux.cpp" bodystart="124" bodyend="449"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Opens, reads from and publishes joystick events. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/controller/src/joy_node_linux.cpp" line="51" column="1" bodyfile="src/controller/src/joy_node_linux.cpp" bodystart="52" bodyend="450"/>
+    <listofallmembers>
+      <member refid="classController_1a358e2ef57f61decb162889510e34f2ed" prot="private" virt="non-virtual"><scope>Controller</scope><name>autorepeat_rate_</name></member>
+      <member refid="classController_1a21b2cc61fc8759e3612edf6cb7659844" prot="public" virt="non-virtual"><scope>Controller</scope><name>blue_button_</name></member>
+      <member refid="classController_1a4f675391f5742ab81426d704ce3e033f" prot="private" virt="non-virtual"><scope>Controller</scope><name>coalesce_interval_</name></member>
+      <member refid="classController_1a95c56822d667e94b031451729ce069a9" prot="public" virt="non-virtual"><scope>Controller</scope><name>Controller</name></member>
+      <member refid="classController_1aa6c693873757fb991274c5abf2ebac15" prot="private" virt="non-virtual"><scope>Controller</scope><name>deadzone_</name></member>
+      <member refid="classController_1aa04fed8e92f18ed3a0e300205a17da72" prot="private" virt="non-virtual"><scope>Controller</scope><name>default_trig_val_</name></member>
+      <member refid="classController_1a05cc7d634a0eb444cbe3b0dc2aa3cdce" prot="private" virt="non-virtual"><scope>Controller</scope><name>event_count_</name></member>
+      <member refid="classController_1acfc3737a49027159c6f7cbbef861b212" prot="private" virt="non-virtual"><scope>Controller</scope><name>get_dev_by_joy_name</name></member>
+      <member refid="classController_1af4090cca658badffa788cc347c0d8976" prot="public" virt="non-virtual"><scope>Controller</scope><name>green_button_</name></member>
+      <member refid="classController_1af77e52ad5ee2a4845708ee0078ff57aa" prot="private" virt="non-virtual"><scope>Controller</scope><name>joy_dev_</name></member>
+      <member refid="classController_1a149527fe9a7812f70a2b333f7d3dda9b" prot="private" virt="non-virtual"><scope>Controller</scope><name>joy_dev_name_</name></member>
+      <member refid="classController_1a06a56596f8231bdaae280466b01b4f83" prot="private" virt="non-virtual"><scope>Controller</scope><name>lastDiagTime_</name></member>
+      <member refid="classController_1a45cde5bec749e075351dcb620ee2508a" prot="public" virt="non-virtual"><scope>Controller</scope><name>left_d_button_</name></member>
+      <member refid="classController_1ab8b2eb8470d7ef53fa8d46876d229b8b" prot="public" virt="non-virtual"><scope>Controller</scope><name>left_l_button_</name></member>
+      <member refid="classController_1afc07641196aa5459f44ccc52e896df2e" prot="public" virt="non-virtual"><scope>Controller</scope><name>left_r_button_</name></member>
+      <member refid="classController_1a08305d57bdb81da6a151bef723ae8a3e" prot="public" virt="non-virtual"><scope>Controller</scope><name>left_rb_button_</name></member>
+      <member refid="classController_1ac70c2cb907d0a24b1773269558d2cf5a" prot="public" virt="non-virtual"><scope>Controller</scope><name>left_start_button_</name></member>
+      <member refid="classController_1a2ef1067504a96ac17b88fa903e60e27d" prot="public" virt="non-virtual"><scope>Controller</scope><name>left_u_button_</name></member>
+      <member refid="classController_1af8e29e6b38ab7740566e703237c79654" prot="public" virt="non-virtual"><scope>Controller</scope><name>left_x_axis_</name></member>
+      <member refid="classController_1a23d43716969133c3a84aefc223235bba" prot="public" virt="non-virtual"><scope>Controller</scope><name>left_y_axis_</name></member>
+      <member refid="classController_1af947edd39192c4bf792137836069756a" prot="public" virt="non-virtual"><scope>Controller</scope><name>main</name></member>
+      <member refid="classController_1ab7b6b0bc77a4663f831fb178a7809503" prot="private" virt="non-virtual"><scope>Controller</scope><name>open_</name></member>
+      <member refid="classController_1a4eafefa76ef07cf463037b8b8209a9a4" prot="private" virt="non-virtual"><scope>Controller</scope><name>pub_</name></member>
+      <member refid="classController_1af975a10298f007d51d3dfcca85c252de" prot="private" virt="non-virtual"><scope>Controller</scope><name>pub_count_</name></member>
+      <member refid="classController_1aedf7f3ad3fc4cf9587eb814939f2fe1e" prot="public" virt="non-virtual"><scope>Controller</scope><name>red_button_</name></member>
+      <member refid="classController_1a156db40170025123bf4a71c89e872dd0" prot="public" virt="non-virtual"><scope>Controller</scope><name>right_rb_button_</name></member>
+      <member refid="classController_1a9695b16477597d0b1009839cb97856d7" prot="public" virt="non-virtual"><scope>Controller</scope><name>right_start_button_</name></member>
+      <member refid="classController_1a4491f31970440809252f792325f3332c" prot="public" virt="non-virtual"><scope>Controller</scope><name>right_x_axis_</name></member>
+      <member refid="classController_1a48605a75d1e18d653d428aa12f267cf7" prot="public" virt="non-virtual"><scope>Controller</scope><name>right_y_axis_</name></member>
+      <member refid="classController_1acae097f8b09be11cf90e7d9c06197c86" prot="private" virt="non-virtual"><scope>Controller</scope><name>sticky_buttons_</name></member>
+      <member refid="classController_1a2295a00cf96f532ab8d11777e12ad16c" prot="public" virt="non-virtual"><scope>Controller</scope><name>xbox_button_</name></member>
+      <member refid="classController_1ae17bf9a44fae3b631880fb01f790dda8" prot="public" virt="non-virtual"><scope>Controller</scope><name>yellow_button_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

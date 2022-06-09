@@ -1,0 +1,312 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classSafetyNode" kind="class" language="C++" prot="public">
+    <compoundname>SafetyNode</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">rclcpp::Node</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classSafetyNode_1a5532f3816bd196ced9de231b3df4a17b" prot="public" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; sensor_msgs::msg::Joy &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;sensor_msgs::msg::Joy&gt;::SharedPtr SafetyNode::joystick_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>joystick_subscriber_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="22" column="41" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSafetyNode_1add79790a628392c99133a596df4eb458" prot="public" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; ecat_msgs::msg::GuiButtonData &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;ecat_msgs::msg::GuiButtonData&gt;::SharedPtr SafetyNode::gui_button_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>gui_button_subscriber_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="23" column="36" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSafetyNode_1a1d5900bde952a9babd670c2f384278df" prot="public" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; ecat_msgs::msg::DataReceived &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;ecat_msgs::msg::DataReceived&gt;::SharedPtr SafetyNode::lifecycle_node_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>lifecycle_node_subscriber_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="24" column="36" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSafetyNode_1a81f33bbc3cf476f67bf8b68f54b9d3a7" prot="public" static="no" mutable="no">
+        <type>rclcpp::Publisher&lt; std_msgs::msg::UInt16 &gt;::SharedPtr</type>
+        <definition>rclcpp::Publisher&lt;std_msgs::msg::UInt16&gt;::SharedPtr SafetyNode::safety_state_publisher_</definition>
+        <argsstring></argsstring>
+        <name>safety_state_publisher_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="26" column="34" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSafetyNode_1ac7d3f21660608df7643b058c4e76e5ed" prot="public" static="no" mutable="no">
+        <type>ecat_msgs::msg::DataReceived</type>
+        <definition>ecat_msgs::msg::DataReceived SafetyNode::lifecycle_node_data_</definition>
+        <argsstring></argsstring>
+        <name>lifecycle_node_data_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="27" column="32" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSafetyNode_1a9c249f357feffc4c6fc5ff2ad7826a3b" prot="public" static="no" mutable="no">
+        <type><ref refid="classController" kindref="compound">Controller</ref></type>
+        <definition>Controller SafetyNode::controller_</definition>
+        <argsstring></argsstring>
+        <name>controller_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="28" column="14" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSafetyNode_1abd46448512fd6bc54b6f28ae02fdeb94" prot="public" static="no" mutable="no">
+        <type>std_msgs::msg::UInt16</type>
+        <definition>std_msgs::msg::UInt16 SafetyNode::safety_state_msg_</definition>
+        <argsstring></argsstring>
+        <name>safety_state_msg_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="29" column="25" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classSafetyNode_1ac84b90290107bf6cbceef3fb5f3368eb" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; rclcpp::Client&lt; lifecycle_msgs::srv::GetState &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;rclcpp::Client&lt;lifecycle_msgs::srv::GetState&gt; &gt; SafetyNode::client_get_state_</definition>
+        <argsstring></argsstring>
+        <name>client_get_state_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="290" column="19" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="290" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSafetyNode_1a8bfafeed901f7601e58959c89c5ddbef" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; rclcpp::Client&lt; lifecycle_msgs::srv::ChangeState &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;rclcpp::Client&lt;lifecycle_msgs::srv::ChangeState&gt; &gt; SafetyNode::client_change_state_</definition>
+        <argsstring></argsstring>
+        <name>client_change_state_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="291" column="19" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="291" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classSafetyNode_1a25ba9ef6a6264bdbce9cb0e2c206b0f9" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SafetyNode::SafetyNode</definition>
+        <argsstring>(const std::string &amp;node_name)</argsstring>
+        <name>SafetyNode</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>node_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Subscribtion for control node. Subscribtion for slave feedback values acquired from connected slaves.</para>
+        </inbodydescription>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="5" column="12" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="5" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classSafetyNode_1a46a6805575045e55abee6da1f7c5c1a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void SafetyNode::HandleGuiNodeCallbacks</definition>
+        <argsstring>(const ecat_msgs::msg::GuiButtonData::SharedPtr msg)</argsstring>
+        <name>HandleGuiNodeCallbacks</name>
+        <param>
+          <type>const ecat_msgs::msg::GuiButtonData::SharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="31" column="3" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="31" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classSafetyNode_1ab9728a04827bf37f3d99aa860c46d26f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void SafetyNode::HandleLifecycleNodeCallbacks</definition>
+        <argsstring>(const ecat_msgs::msg::DataReceived::SharedPtr msg)</argsstring>
+        <name>HandleLifecycleNodeCallbacks</name>
+        <param>
+          <type>const ecat_msgs::msg::DataReceived::SharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="121" column="3" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="121" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classSafetyNode_1ad7fcd00b7ad571292585ba0f925c71e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void SafetyNode::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="132" column="3" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="132" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classSafetyNode_1ae1c6ef70c5513ece38b38599885370a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int SafetyNode::get_state</definition>
+        <argsstring>()</argsstring>
+        <name>get_state</name>
+        <briefdescription>
+<para>Requests the current state of the node. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>In this function, we send a service request asking for the current state of the node ecat_node. If it does return within the given time_out, we return the current state of the node, if not, we return an unknown state. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>time_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Duration in seconds specifying how long we wait for a response before returning unknown state </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="153" column="3" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="153" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="classSafetyNode_1ad5a78fd32388d7ee72f8567d7e157adc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SafetyNode::change_state</definition>
+        <argsstring>(std::uint8_t transition)</argsstring>
+        <name>change_state</name>
+        <param>
+          <type>std::uint8_t</type>
+          <declname>transition</declname>
+        </param>
+        <briefdescription>
+<para>Invokes a transition. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>We send a Service request and indicate that we want to invoke transition with the id &quot;transition&quot;. By default, these transitions are<itemizedlist>
+<listitem><para>configure</para>
+</listitem><listitem><para>activate</para>
+</listitem><listitem><para>cleanup</para>
+</listitem><listitem><para>shutdown <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>transition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id specifying which transition to invoke </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>time_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Duration in seconds specifying how long we wait for a response before returning unknown state </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="249" column="3" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="249" bodyend="287"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>SafetyNode</label>
+        <link refid="classSafetyNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>rclcpp::Node</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Controller</label>
+        <link refid="classController"/>
+      </node>
+      <node id="1">
+        <label>SafetyNode</label>
+        <link refid="classSafetyNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>controller_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>rclcpp::Node</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/safety_pkg/src/safety_node.cpp" line="2" column="1" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="3" bodyend="292"/>
+    <listofallmembers>
+      <member refid="classSafetyNode_1ad5a78fd32388d7ee72f8567d7e157adc" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>change_state</name></member>
+      <member refid="classSafetyNode_1a8bfafeed901f7601e58959c89c5ddbef" prot="private" virt="non-virtual"><scope>SafetyNode</scope><name>client_change_state_</name></member>
+      <member refid="classSafetyNode_1ac84b90290107bf6cbceef3fb5f3368eb" prot="private" virt="non-virtual"><scope>SafetyNode</scope><name>client_get_state_</name></member>
+      <member refid="classSafetyNode_1a9c249f357feffc4c6fc5ff2ad7826a3b" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>controller_</name></member>
+      <member refid="classSafetyNode_1ae1c6ef70c5513ece38b38599885370a8" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>get_state</name></member>
+      <member refid="classSafetyNode_1add79790a628392c99133a596df4eb458" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>gui_button_subscriber_</name></member>
+      <member refid="classSafetyNode_1a46a6805575045e55abee6da1f7c5c1a7" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>HandleGuiNodeCallbacks</name></member>
+      <member refid="classSafetyNode_1ab9728a04827bf37f3d99aa860c46d26f" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>HandleLifecycleNodeCallbacks</name></member>
+      <member refid="classSafetyNode_1ad7fcd00b7ad571292585ba0f925c71e7" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>init</name></member>
+      <member refid="classSafetyNode_1a5532f3816bd196ced9de231b3df4a17b" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>joystick_subscriber_</name></member>
+      <member refid="classSafetyNode_1ac7d3f21660608df7643b058c4e76e5ed" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>lifecycle_node_data_</name></member>
+      <member refid="classSafetyNode_1a1d5900bde952a9babd670c2f384278df" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>lifecycle_node_subscriber_</name></member>
+      <member refid="classSafetyNode_1abd46448512fd6bc54b6f28ae02fdeb94" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>safety_state_msg_</name></member>
+      <member refid="classSafetyNode_1a81f33bbc3cf476f67bf8b68f54b9d3a7" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>safety_state_publisher_</name></member>
+      <member refid="classSafetyNode_1a25ba9ef6a6264bdbce9cb0e2c206b0f9" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>SafetyNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

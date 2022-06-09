@@ -1,0 +1,385 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classGUI_1_1GuiNode" kind="class" language="C++" prot="public">
+    <compoundname>GUI::GuiNode</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">rclcpp::Node</basecompoundref>
+    <includes refid="gui__node_8hpp" local="no">gui_node.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classGUI_1_1GuiNode_1a2088bd1f9691f85ca00f52ddf3c2ce9a" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; ecat_msgs::msg::DataReceived &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;ecat_msgs::msg::DataReceived&gt;::SharedPtr GUI::GuiNode::slave_feedback_</definition>
+        <argsstring></argsstring>
+        <name>slave_feedback_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>ROS2 subscriptions. Acquired feedback information from connected slaves </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="116" column="42" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGUI_1_1GuiNode_1abf1caf97a94659045c927db80791a380" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; ecat_msgs::msg::DataSent &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;ecat_msgs::msg::DataSent&gt;::SharedPtr GUI::GuiNode::master_commands_</definition>
+        <argsstring></argsstring>
+        <name>master_commands_</name>
+        <briefdescription>
+<para>Subscribed to commands that&apos;s being sent by ecat_master. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="119" column="42" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGUI_1_1GuiNode_1a0d8c7deb8ea9697735e630aa83f02f81" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; sensor_msgs::msg::Joy &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;sensor_msgs::msg::Joy&gt;::SharedPtr GUI::GuiNode::controller_commands_</definition>
+        <argsstring></argsstring>
+        <name>controller_commands_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="121" column="43" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGUI_1_1GuiNode_1a66440eb057ca59acb3576141b38ef116" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; std_msgs::msg::UInt16 &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;std_msgs::msg::UInt16&gt;::SharedPtr GUI::GuiNode::safety_info_subscriber_</definition>
+        <argsstring></argsstring>
+        <name>safety_info_subscriber_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="123" column="43" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGUI_1_1GuiNode_1a847bb4ebc91435e0716106b192aee148" prot="private" static="no" mutable="no">
+        <type>rclcpp::TimerBase::SharedPtr</type>
+        <definition>rclcpp::TimerBase::SharedPtr GUI::GuiNode::timer_</definition>
+        <argsstring></argsstring>
+        <name>timer_</name>
+        <briefdescription>
+<para>Timer for timer callbacks, publishing will be done in certain interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="126" column="38" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGUI_1_1GuiNode_1a2fd7f6c041cd0d2cc22763098618b180" prot="private" static="no" mutable="no">
+        <type>rclcpp::Publisher&lt; ecat_msgs::msg::GuiButtonData &gt;::SharedPtr</type>
+        <definition>rclcpp::Publisher&lt;ecat_msgs::msg::GuiButtonData&gt;::SharedPtr GUI::GuiNode::gui_publisher_</definition>
+        <argsstring></argsstring>
+        <name>gui_publisher_</name>
+        <briefdescription>
+<para>Gui publisher, which contains clicked button information. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="129" column="39" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structReceivedData" kindref="compound">ReceivedData</ref> &gt;</type>
+        <definition>std::vector&lt;ReceivedData&gt; GUI::GuiNode::received_data_</definition>
+        <argsstring></argsstring>
+        <name>received_data_</name>
+        <briefdescription>
+<para>Received data structure to store all subscribed data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="136" column="22" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGUI_1_1GuiNode_1a625aa899ac48e4549c7f5fd0399181d7" prot="public" static="no" mutable="no">
+        <type>ecat_msgs::msg::GuiButtonData</type>
+        <definition>ecat_msgs::msg::GuiButtonData GUI::GuiNode::ui_control_buttons_</definition>
+        <argsstring></argsstring>
+        <name>ui_control_buttons_</name>
+        <briefdescription>
+<para><ref refid="namespaceGUI" kindref="compound">GUI</ref> button value to publish emergency button state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="138" column="40" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGUI_1_1GuiNode_1a238617e7511d538648ec8f3c5f09ddd8" prot="public" static="no" mutable="no">
+        <type>std_msgs::msg::UInt16</type>
+        <definition>std_msgs::msg::UInt16 GUI::GuiNode::safety_info_</definition>
+        <argsstring></argsstring>
+        <name>safety_info_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="139" column="32" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGUI_1_1GuiNode_1a9e0e5d2cd3d41f0b11bad899eb13e2b1" prot="public" static="no" mutable="no">
+        <type><ref refid="classTiming" kindref="compound">Timing</ref></type>
+        <definition>Timing GUI::GuiNode::time_info_</definition>
+        <argsstring></argsstring>
+        <name>time_info_</name>
+        <briefdescription>
+<para>For time measurements. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="141" column="17" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGUI_1_1GuiNode_1a6987206057a2586f5fa17ed6206b5703" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GUI::GuiNode::current_lifecycle_state</definition>
+        <argsstring></argsstring>
+        <name>current_lifecycle_state</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="142" column="18" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classGUI_1_1GuiNode_1aa378c566c59d220011f3c37df69f47c5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GuiNode::timer_callback</definition>
+        <argsstring>()</argsstring>
+        <name>timer_callback</name>
+        <briefdescription>
+<para>Publishes gui button value in specified interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="82" column="12" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="42" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classGUI_1_1GuiNode_1a8c671d0d93d0c61da722666d7b01230f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GuiNode::HandleControllerCallbacks</definition>
+        <argsstring>(const sensor_msgs::msg::Joy::SharedPtr msg)</argsstring>
+        <name>HandleControllerCallbacks</name>
+        <param>
+          <type>const sensor_msgs::msg::Joy::SharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Function will be used for subscribtion callbacks from controller node for <ref refid="classController" kindref="compound">Controller</ref> topic. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>controller command structure published by controller node. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="90" column="14" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="49" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classGUI_1_1GuiNode_1a692f44e42736bb1e31f435024cfdc4f9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GuiNode::HandleMasterCommandCallbacks</definition>
+        <argsstring>(const ecat_msgs::msg::DataSent::SharedPtr msg)</argsstring>
+        <name>HandleMasterCommandCallbacks</name>
+        <param>
+          <type>const ecat_msgs::msg::DataSent::SharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Function will be used for subscribtion callbacks from EthercatLifecycle node for Master_Commands topic. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Master commands structure published by EthercatLifecycle node </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="98" column="14" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="58" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classGUI_1_1GuiNode_1a7bbe29f0fba8cede61e3587adfdc56cb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GuiNode::HandleSlaveFeedbackCallbacks</definition>
+        <argsstring>(const ecat_msgs::msg::DataReceived::SharedPtr msg)</argsstring>
+        <name>HandleSlaveFeedbackCallbacks</name>
+        <param>
+          <type>const ecat_msgs::msg::DataReceived::SharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Function will be used for subscribtion callbacks from EthercatLifecycle node for Master_Commands topic. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Slave feedback structure published by EthercatLifecycle node </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Servo Drive feedbacks</para>
+<para>Costum slave feedbacks.</para>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="106" column="14" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="69" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classGUI_1_1GuiNode_1aafb5c384ff383686a052111e49e8999b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GuiNode::ResetContolButtonValues</definition>
+        <argsstring>()</argsstring>
+        <name>ResetContolButtonValues</name>
+        <briefdescription>
+<para>Resets control button values coming from control UI. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="110" column="14" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="90" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classGUI_1_1GuiNode_1af39cdf44be5d28d4e43c30691fcc594b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GUI::GuiNode::HandleSafetyNodeCallback</definition>
+        <argsstring>(const std_msgs::msg::UInt16::SharedPtr msg)</argsstring>
+        <name>HandleSafetyNodeCallback</name>
+        <param>
+          <type>const std_msgs::msg::UInt16::SharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="112" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classGUI_1_1GuiNode_1a8c7fc35c758517e35c82b262ca1a0cce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GuiNode::GuiNode</definition>
+        <argsstring>()</argsstring>
+        <name>GuiNode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Subscribtion for control node.</para>
+<para>Subscribtion for slave feedback values acquired from connected slaves.</para>
+<para>Subscribtions for master commands to slaves.</para>
+<para>Gui button value publisher</para>
+<para>Timer callback set to 33HZ.</para>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="132" column="10" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="7" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classGUI_1_1GuiNode_1a988fcbb2f9503d2f7a28fb657b95d97d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>GuiNode::~GuiNode</definition>
+        <argsstring>()</argsstring>
+        <name>~GuiNode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="133" column="18" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="37" bodyend="40"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This node will be responsible from all <ref refid="namespaceGUI" kindref="compound">GUI</ref> interaction and visualization of feedback information acquired via EtherCAT communication. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GUI::GuiNode</label>
+        <link refid="classGUI_1_1GuiNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>rclcpp::Node</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GUI::GuiNode</label>
+        <link refid="classGUI_1_1GuiNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>time_info_</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Timing</label>
+        <link refid="classTiming"/>
+      </node>
+      <node id="2">
+        <label>rclcpp::Node</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="74" column="2" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="75" bodyend="143"/>
+    <listofallmembers>
+      <member refid="classGUI_1_1GuiNode_1a0d8c7deb8ea9697735e630aa83f02f81" prot="private" virt="non-virtual"><scope>GUI::GuiNode</scope><name>controller_commands_</name></member>
+      <member refid="classGUI_1_1GuiNode_1a6987206057a2586f5fa17ed6206b5703" prot="public" virt="non-virtual"><scope>GUI::GuiNode</scope><name>current_lifecycle_state</name></member>
+      <member refid="classGUI_1_1GuiNode_1a2fd7f6c041cd0d2cc22763098618b180" prot="private" virt="non-virtual"><scope>GUI::GuiNode</scope><name>gui_publisher_</name></member>
+      <member refid="classGUI_1_1GuiNode_1a8c7fc35c758517e35c82b262ca1a0cce" prot="public" virt="non-virtual"><scope>GUI::GuiNode</scope><name>GuiNode</name></member>
+      <member refid="classGUI_1_1GuiNode_1a8c671d0d93d0c61da722666d7b01230f" prot="private" virt="non-virtual"><scope>GUI::GuiNode</scope><name>HandleControllerCallbacks</name></member>
+      <member refid="classGUI_1_1GuiNode_1a692f44e42736bb1e31f435024cfdc4f9" prot="private" virt="non-virtual"><scope>GUI::GuiNode</scope><name>HandleMasterCommandCallbacks</name></member>
+      <member refid="classGUI_1_1GuiNode_1af39cdf44be5d28d4e43c30691fcc594b" prot="private" virt="non-virtual"><scope>GUI::GuiNode</scope><name>HandleSafetyNodeCallback</name></member>
+      <member refid="classGUI_1_1GuiNode_1a7bbe29f0fba8cede61e3587adfdc56cb" prot="private" virt="non-virtual"><scope>GUI::GuiNode</scope><name>HandleSlaveFeedbackCallbacks</name></member>
+      <member refid="classGUI_1_1GuiNode_1abf1caf97a94659045c927db80791a380" prot="private" virt="non-virtual"><scope>GUI::GuiNode</scope><name>master_commands_</name></member>
+      <member refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" prot="public" virt="non-virtual"><scope>GUI::GuiNode</scope><name>received_data_</name></member>
+      <member refid="classGUI_1_1GuiNode_1aafb5c384ff383686a052111e49e8999b" prot="private" virt="non-virtual"><scope>GUI::GuiNode</scope><name>ResetContolButtonValues</name></member>
+      <member refid="classGUI_1_1GuiNode_1a238617e7511d538648ec8f3c5f09ddd8" prot="public" virt="non-virtual"><scope>GUI::GuiNode</scope><name>safety_info_</name></member>
+      <member refid="classGUI_1_1GuiNode_1a66440eb057ca59acb3576141b38ef116" prot="private" virt="non-virtual"><scope>GUI::GuiNode</scope><name>safety_info_subscriber_</name></member>
+      <member refid="classGUI_1_1GuiNode_1a2088bd1f9691f85ca00f52ddf3c2ce9a" prot="private" virt="non-virtual"><scope>GUI::GuiNode</scope><name>slave_feedback_</name></member>
+      <member refid="classGUI_1_1GuiNode_1a9e0e5d2cd3d41f0b11bad899eb13e2b1" prot="public" virt="non-virtual"><scope>GUI::GuiNode</scope><name>time_info_</name></member>
+      <member refid="classGUI_1_1GuiNode_1a847bb4ebc91435e0716106b192aee148" prot="private" virt="non-virtual"><scope>GUI::GuiNode</scope><name>timer_</name></member>
+      <member refid="classGUI_1_1GuiNode_1aa378c566c59d220011f3c37df69f47c5" prot="private" virt="non-virtual"><scope>GUI::GuiNode</scope><name>timer_callback</name></member>
+      <member refid="classGUI_1_1GuiNode_1a625aa899ac48e4549c7f5fd0399181d7" prot="public" virt="non-virtual"><scope>GUI::GuiNode</scope><name>ui_control_buttons_</name></member>
+      <member refid="classGUI_1_1GuiNode_1a988fcbb2f9503d2f7a28fb657b95d97d" prot="public" virt="virtual"><scope>GUI::GuiNode</scope><name>~GuiNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

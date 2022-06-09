@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="structHomingParam" kind="struct" language="C++" prot="public">
+    <compoundname>HomingParam</compoundname>
+    <includes refid="ecat__definitions_8hpp" local="no">ecat_definitions.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structHomingParam_1abc0feea7ba94caf1db6e10ec06d79f2b" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t HomingParam::max_fol_err</definition>
+        <argsstring></argsstring>
+        <name>max_fol_err</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="400" column="9" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="400" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHomingParam_1a48616625df71fd01cd4be2139b938e79" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t HomingParam::max_profile_vel</definition>
+        <argsstring></argsstring>
+        <name>max_profile_vel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="401" column="9" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="401" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHomingParam_1a887e63ebd531ebced48fb2f74326c726" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t HomingParam::quick_stop_dec</definition>
+        <argsstring></argsstring>
+        <name>quick_stop_dec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="402" column="9" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="402" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHomingParam_1a2057d1f3d1840af2fe39e25345d0da72" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t HomingParam::speed_for_switch_search</definition>
+        <argsstring></argsstring>
+        <name>speed_for_switch_search</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="403" column="9" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="403" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHomingParam_1ad31cac6c7692107df40469f3ae2b7370" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t HomingParam::speed_for_zero_search</definition>
+        <argsstring></argsstring>
+        <name>speed_for_zero_search</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="404" column="9" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="404" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHomingParam_1a9e971cf8fbc36593528189c664a0f0eb" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t HomingParam::homing_acc</definition>
+        <argsstring></argsstring>
+        <name>homing_acc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="405" column="9" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="405" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHomingParam_1aa882eb093eb65f7d30976fbb1c761dc2" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t HomingParam::curr_threshold_homing</definition>
+        <argsstring></argsstring>
+        <name>curr_threshold_homing</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="407" column="9" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="407" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHomingParam_1a4b529e1ff01a93d2e64dda04908aa449" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t HomingParam::home_offset</definition>
+        <argsstring></argsstring>
+        <name>home_offset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="409" column="8" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="409" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHomingParam_1a78a0209212385df219c3e14c8ced924b" prot="public" static="no" mutable="no">
+        <type>int8_t</type>
+        <definition>int8_t HomingParam::homing_method</definition>
+        <argsstring></argsstring>
+        <name>homing_method</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="410" column="7" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="410" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Parameters that should be specified in homing mode. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="398" column="1" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="399" bodyend="411"/>
+    <listofallmembers>
+      <member refid="structHomingParam_1aa882eb093eb65f7d30976fbb1c761dc2" prot="public" virt="non-virtual"><scope>HomingParam</scope><name>curr_threshold_homing</name></member>
+      <member refid="structHomingParam_1a4b529e1ff01a93d2e64dda04908aa449" prot="public" virt="non-virtual"><scope>HomingParam</scope><name>home_offset</name></member>
+      <member refid="structHomingParam_1a9e971cf8fbc36593528189c664a0f0eb" prot="public" virt="non-virtual"><scope>HomingParam</scope><name>homing_acc</name></member>
+      <member refid="structHomingParam_1a78a0209212385df219c3e14c8ced924b" prot="public" virt="non-virtual"><scope>HomingParam</scope><name>homing_method</name></member>
+      <member refid="structHomingParam_1abc0feea7ba94caf1db6e10ec06d79f2b" prot="public" virt="non-virtual"><scope>HomingParam</scope><name>max_fol_err</name></member>
+      <member refid="structHomingParam_1a48616625df71fd01cd4be2139b938e79" prot="public" virt="non-virtual"><scope>HomingParam</scope><name>max_profile_vel</name></member>
+      <member refid="structHomingParam_1a887e63ebd531ebced48fb2f74326c726" prot="public" virt="non-virtual"><scope>HomingParam</scope><name>quick_stop_dec</name></member>
+      <member refid="structHomingParam_1a2057d1f3d1840af2fe39e25345d0da72" prot="public" virt="non-virtual"><scope>HomingParam</scope><name>speed_for_switch_search</name></member>
+      <member refid="structHomingParam_1ad31cac6c7692107df40469f3ae2b7370" prot="public" virt="non-virtual"><scope>HomingParam</scope><name>speed_for_zero_search</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

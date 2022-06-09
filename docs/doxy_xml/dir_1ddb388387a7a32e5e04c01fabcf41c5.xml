@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="dir_1ddb388387a7a32e5e04c01fabcf41c5" kind="dir">
+    <compoundname>src/ecat_pkg/include/ecat_pkg</compoundname>
+    <innerfile refid="ecat__definitions_8hpp">ecat_definitions.hpp</innerfile>
+    <innerfile refid="ecat__globals_8hpp">ecat_globals.hpp</innerfile>
+    <innerfile refid="ecat__lifecycle_8hpp">ecat_lifecycle.hpp</innerfile>
+    <innerfile refid="ecat__node_8hpp">ecat_node.hpp</innerfile>
+    <innerfile refid="ecat__slave_8hpp">ecat_slave.hpp</innerfile>
+    <innerfile refid="object__dictionary_8hpp">object_dictionary.hpp</innerfile>
+    <innerfile refid="ecat__pkg_2include_2ecat__pkg_2timing_8hpp">timing.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/ecat_pkg/include/ecat_pkg/"/>
+  </compounddef>
+</doxygen>

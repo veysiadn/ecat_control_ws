@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="namespacepubsubexample" kind="namespace" language="Python">
+    <compoundname>pubsubexample</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacepubsubexample_1a6e4acd06d9d359d871fe5dcffa10f3a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def pubsubexample.main</definition>
+        <argsstring>(argv=sys.argv[1:])</argsstring>
+        <name>main</name>
+        <param>
+          <type>argv</type>
+          <defname>argv</defname>
+          <defval>sys.argv[1:]</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Main.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/launch/pubsubexample.py" line="37" column="1" bodyfile="src/ecat_pkg/launch/pubsubexample.py" bodystart="37" bodyend="106"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/ecat_pkg/launch/pubsubexample.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

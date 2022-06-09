@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="hapticNode_8hpp" kind="file" language="C++">
+    <compoundname>hapticNode.hpp</compoundname>
+    <includes local="no">SDL2/SDL.h</includes>
+    <includes local="no">future</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">string</includes>
+    <includes local="no">thread</includes>
+    <includes local="no">rclcpp/rclcpp.hpp</includes>
+    <includes local="yes">ecat_msgs/msg/haptic_cmd.hpp</includes>
+    <includedby refid="hapticNode_8cpp" local="yes">src/input_pkg/src/hapticNode.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/input_pkg/include/input_pkg/hapticNode.hpp</label>
+        <link refid="hapticNode_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="8">
+        <label>ecat_msgs/msg/haptic_cmd.hpp</label>
+      </node>
+      <node id="3">
+        <label>future</label>
+      </node>
+      <node id="4">
+        <label>memory</label>
+      </node>
+      <node id="7">
+        <label>rclcpp/rclcpp.hpp</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="6">
+        <label>thread</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>src/input_pkg/include/input_pkg/hapticNode.hpp</label>
+        <link refid="hapticNode_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/input_pkg/src/hapticNode.cpp</label>
+        <link refid="hapticNode_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classHapticNode" prot="public">HapticNode</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>---------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Ckim<sp/>-<sp/>Haptic<sp/>Device<sp/>Node<sp/>(client)<sp/>for<sp/>ROS2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Connects<sp/>to<sp/>haptic<sp/>device<sp/>PC<sp/>(master)<sp/>by<sp/>TCP/IP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>reads<sp/>incoming<sp/>data<sp/>and<sp/>publishes<sp/>HapticCmd</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Based<sp/>on<sp/>ROS2<sp/>joystick<sp/>node<sp/>code<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>https://github.com/ros-drivers/joystick_drivers/tree/ros2/joy</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>---------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>HAPTICNODE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HAPTICNODE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CKim<sp/>-<sp/>SDL<sp/>=<sp/>Simple<sp/>DirectMedia<sp/>Layer<sp/>is<sp/>cross-platform<sp/>development<sp/>library<sp/>designed<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>to<sp/>provide<sp/>low<sp/>level<sp/>access<sp/>to<sp/>audio,<sp/>keyboard,<sp/>mouse,<sp/>joystick,<sp/>and<sp/>graphics<sp/>hardware<sp/>via</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/>OpenGL<sp/>and<sp/>Direct3D.<sp/><sp/>Used<sp/>for<sp/>joystickinput<sp/>processing<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CKim<sp/>-<sp/>C++<sp/><sp/>headers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;future&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;thread&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;rclcpp/rclcpp.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ecat_msgs/msg/haptic_cmd.hpp&quot;</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>CKim<sp/>-<sp/>Header<sp/>for<sp/>custom<sp/>message</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="classHapticNode" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classHapticNode" kindref="compound">HapticNode</ref><sp/>final<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>rclcpp::Node<sp/><sp/></highlight><highlight class="comment">//<sp/>keyword<sp/>&apos;final&apos;<sp/>prevents<sp/>further<sp/>inheritance</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>CKim<sp/>-<sp/>Keyword<sp/>&apos;explicit&apos;<sp/>restricts<sp/>implicit<sp/>conversion</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classHapticNode_1a7c88a59333ed4ef72cc153bf956a35bc" kindref="member">HapticNode</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>argv[]);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>CKim<sp/>-<sp/>Restrict<sp/>copy<sp/>constructors<sp/>and<sp/>assignment<sp/>operator<sp/>=</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>keyword<sp/>&apos;delete&apos;<sp/>tells<sp/>these<sp/>functions<sp/>will<sp/>not<sp/>be<sp/>implemented.<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="classHapticNode_1aeda8b38814fa9c906bf680f502d9b848" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classHapticNode_1aeda8b38814fa9c906bf680f502d9b848" kindref="member">HapticNode</ref>(<ref refid="classHapticNode" kindref="compound">HapticNode</ref><sp/>&amp;&amp;<sp/>c)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36" refid="classHapticNode_1ae9af5f1fbd09ec9ccf0e0d7a16c1790f" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classHapticNode" kindref="compound">HapticNode</ref><sp/>&amp;<sp/><ref refid="classHapticNode_1ae9af5f1fbd09ec9ccf0e0d7a16c1790f" kindref="member">operator=</ref>(<ref refid="classHapticNode" kindref="compound">HapticNode</ref><sp/>&amp;&amp;<sp/>c)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37" refid="classHapticNode_1a9ca1281b7cec0b02220a0812235ed55c" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classHapticNode_1a9ca1281b7cec0b02220a0812235ed55c" kindref="member">HapticNode</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classHapticNode" kindref="compound">HapticNode</ref><sp/>&amp;<sp/>c)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="38" refid="classHapticNode_1a065d38b29f309a170a843d09dd4b491f" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classHapticNode" kindref="compound">HapticNode</ref><sp/>&amp;<sp/><ref refid="classHapticNode_1a065d38b29f309a170a843d09dd4b491f" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classHapticNode" kindref="compound">HapticNode</ref><sp/>&amp;<sp/>c)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>CKim<sp/>-<sp/>Keyword<sp/>&apos;override&apos;<sp/>tell<sp/>compiler<sp/>that<sp/>this<sp/>inherited<sp/>function<sp/>must<sp/>be<sp/>implemented</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><ref refid="classHapticNode_1a44380fb90f8c55f35d06f391acb410e3" kindref="member">~HapticNode</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classHapticNode_1a468dc1c2e491c3f8a6013ae641e77832" kindref="member">commThread</ref>();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>CKim<sp/>-<sp/>C++<sp/>standard<sp/>thread,<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>std::future/shared_future<sp/>and<sp/>promise<sp/>provides<sp/>a<sp/>mechanism<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>control<sp/>therad....</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="classHapticNode_1a684ca1834830027f30a05b9809af1551" refkind="member"><highlight class="normal"><sp/><sp/>std::thread<sp/><ref refid="classHapticNode_1a684ca1834830027f30a05b9809af1551" kindref="member">comm_thread_</ref>;</highlight></codeline>
+<codeline lineno="50" refid="classHapticNode_1aed4068cefac2b574be853e1cf9572a18" refkind="member"><highlight class="normal"><sp/><sp/>std::shared_future&lt;void&gt;<sp/><ref refid="classHapticNode_1aed4068cefac2b574be853e1cf9572a18" kindref="member">future_</ref>;</highlight></codeline>
+<codeline lineno="51" refid="classHapticNode_1a57e6292d41b4fbfa4160d328c91cea3a" refkind="member"><highlight class="normal"><sp/><sp/>std::promise&lt;void&gt;<sp/><ref refid="classHapticNode_1a57e6292d41b4fbfa4160d328c91cea3a" kindref="member">exit_signal_</ref>;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="classHapticNode_1ab9c8435b606aa914cfee677624b46579" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="classHapticNode_1ab9c8435b606aa914cfee677624b46579" kindref="member">m_IP</ref>;</highlight></codeline>
+<codeline lineno="54" refid="classHapticNode_1a43ee95dc228f1d7bd021870b44249687" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="classHapticNode_1a43ee95dc228f1d7bd021870b44249687" kindref="member">m_Port</ref>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>CKim<sp/>-<sp/>Publisher</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="classHapticNode_1ac6e51c4350e57c6fa887c7d0feb07a11" refkind="member"><highlight class="normal"><sp/><sp/>rclcpp::Publisher&lt;ecat_msgs::msg::HapticCmd&gt;::SharedPtr<sp/><ref refid="classHapticNode_1ac6e51c4350e57c6fa887c7d0feb07a11" kindref="member">haptic_publisher_</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>CKim<sp/>-<sp/>Published<sp/>message</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="classHapticNode_1abafd596ed63850ed26bd82f6fa7da3ba" refkind="member"><highlight class="normal"><sp/><sp/>ecat_msgs::msg::HapticCmd<sp/><ref refid="classHapticNode_1abafd596ed63850ed26bd82f6fa7da3ba" kindref="member">hapticMsg</ref>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>rclcpp::Publisher&lt;sensor_msgs::msg::Joy&gt;::SharedPtr<sp/>pub_;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>rclcpp::Subscription&lt;sensor_msgs::msg::JoyFeedback&gt;::SharedPtr<sp/>feedback_sub_;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>sensor_msgs::msg::Joy<sp/>joy_msg_;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>JOY__JOY_HPP_</highlight></codeline>
+    </programlisting>
+    <location file="src/input_pkg/include/input_pkg/hapticNode.hpp"/>
+  </compounddef>
+</doxygen>

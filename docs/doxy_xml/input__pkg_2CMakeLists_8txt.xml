@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="input__pkg_2CMakeLists_8txt" kind="file" language="C++">
+    <compoundname>CMakeLists.txt</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="input__pkg_2CMakeLists_8txt_1a97600d4bbf09916b9863e6b35fc77241" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cmake_minimum_required</definition>
+        <argsstring>(VERSION 3.5) project(input_pkg) if(NOT CMAKE_C_STANDARD) set(CMAKE_C_STANDARD 99) endif() if(NOT CMAKE_CXX_STANDARD) set(CMAKE_CXX_STANDARD 14) endif() if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES &quot;Clang&quot;) add_compile_options(-Wall -Wextra -Wpedantic) endif() find_package(ament_cmake REQUIRED) find_package(rclcpp REQUIRED) find_package(std_msgs REQUIRED) find_package(sensor_msgs REQUIRED) find_package(ecat_msgs REQUIRED) include_directories(&quot;include/input_pkg/&quot;) add_executable(hapticNode src/hapticNode.cpp) ament_target_dependencies(hapticNode rclcpp std_msgs sensor_msgs ecat_msgs) install(TARGETS hapticNode DESTINATION lib/$</argsstring>
+        <name>cmake_minimum_required</name>
+        <param>
+          <type>VERSION 3.</type>
+          <declname>5</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/input_pkg/CMakeLists.txt" line="1" column="1" bodyfile="src/input_pkg/CMakeLists.txt" bodystart="1" bodyend="65"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"><ref refid="controller_2CMakeLists_8txt_1ad1bf69fd353850593e105f63289c8339" kindref="member">cmake_minimum_required</ref>(VERSION<sp/>3.5)</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">project(input_pkg)</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>Default<sp/>to<sp/>C99</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(NOT<sp/>CMAKE_C_STANDARD)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><ref refid="ecat__pkg_2CMakeLists_8txt_1a2e9817741974886b30eed9cfea09cd06" kindref="member">set</ref>(CMAKE_C_STANDARD<sp/>99)</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">endif()</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>Default<sp/>to<sp/>C++14</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(NOT<sp/>CMAKE_CXX_STANDARD)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><ref refid="ecat__pkg_2CMakeLists_8txt_1a2e9817741974886b30eed9cfea09cd06" kindref="member">set</ref>(CMAKE_CXX_STANDARD<sp/>14)</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">endif()</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">if(CMAKE_COMPILER_IS_GNUCXX<sp/>OR<sp/>CMAKE_CXX_COMPILER_ID<sp/>MATCHES<sp/>&quot;Clang&quot;)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>add_compile_options(-Wall<sp/>-Wextra<sp/>-Wpedantic)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">endif()</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>**********************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>CKim<sp/>-<sp/>Dependencies<sp/>(headers<sp/>and<sp/>lib<sp/>files)<sp/>should<sp/>be<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>added<sp/>here.<sp/>It<sp/>can<sp/>be<sp/>conveniently<sp/>set<sp/>by<sp/>using<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CMake&apos;s<sp/>find_package<sp/>macro<sp/>or<sp/>include_directories</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>and<sp/>link_directories</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>find<sp/>dependencies</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>uncomment<sp/>the<sp/>following<sp/>section<sp/>in<sp/>order<sp/>to<sp/>fill<sp/>in</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>further<sp/>dependencies<sp/>manually.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>find_package(&lt;dependency&gt;<sp/>REQUIRED)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>CKim<sp/>-<sp/>Basic<sp/>dependency<sp/>for<sp/>using<sp/>rclcpp,<sp/>standard<sp/>message,<sp/>and<sp/>joystick</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal">find_package(ament_cmake<sp/>REQUIRED)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">find_package(rclcpp<sp/>REQUIRED)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">find_package(std_msgs<sp/>REQUIRED)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">find_package(sensor_msgs<sp/>REQUIRED)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">find_package(ecat_msgs<sp/>REQUIRED)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#find_package(dynamixel_sdk<sp/>REQUIRED)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>find_package(sdl2_vendor<sp/>REQUIRED)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>find_package(sdl2_custom<sp/>REQUIRED)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>CKim<sp/>-<sp/>Dependency<sp/>for<sp/>node<sp/>generated<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#find_package(input_pkg<sp/>REQUIRED)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">include_directories(</highlight><highlight class="stringliteral">&quot;include/input_pkg/&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>link_directories(&quot;${CMAKE_BINARY_DIR}/my_lib/install/usr/local/lib&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>**********************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>**********************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>CKim<sp/>-<sp/>Custom<sp/>messages</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>Add<sp/>this<sp/>package<sp/>for<sp/>process<sp/>msg<sp/>and<sp/>srv<sp/>files</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#find_package(rosidl_default_generators<sp/>REQUIRED)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#rosidl_generate_interfaces(${PROJECT_NAME}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>&quot;msg/HapticCmd.msg&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>&quot;srv/AddThreeInts.srv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>**********************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>**********************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>CKim<sp/>-<sp/>Files<sp/>to<sp/>be<sp/>compiled<sp/>and<sp/>built</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">add_executable(hapticNode<sp/>src/hapticNode.cpp)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">ament_target_dependencies(hapticNode<sp/>rclcpp<sp/>std_msgs<sp/>sensor_msgs<sp/>ecat_msgs)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>**********************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>**********************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>CKim<sp/>-<sp/>Installation<sp/>of<sp/>built<sp/>node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">install(TARGETS</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>hapticNode</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>DESTINATION<sp/>lib/${PROJECT_NAME})</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">#<sp/>**********************************************</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">target_include_directories(hapticNode<sp/>PUBLIC</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>$&lt;BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/<ref refid="controller_2CMakeLists_8txt_1ad9a9e945c10fdf0c9b1dadd2f594291f" kindref="member">include</ref>&gt;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>$&lt;INSTALL_INTERFACE:include&gt;)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(BUILD_TESTING)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>find_package(ament_lint_auto<sp/>REQUIRED)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="preprocessor">#<sp/>the<sp/>following<sp/>line<sp/>skips<sp/>the<sp/>linter<sp/>which<sp/>checks<sp/>for<sp/>copyrights</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#<sp/>uncomment<sp/>the<sp/>line<sp/>when<sp/>a<sp/>copyright<sp/>and<sp/>license<sp/>is<sp/>not<sp/>present<sp/>in<sp/>all<sp/>source<sp/>files</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#set(ament_cmake_copyright_FOUND<sp/>TRUE)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#<sp/>the<sp/>following<sp/>line<sp/>skips<sp/>cpplint<sp/>(only<sp/>works<sp/>in<sp/>a<sp/>git<sp/>repo)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#<sp/>uncomment<sp/>the<sp/>line<sp/>when<sp/>this<sp/>package<sp/>is<sp/>not<sp/>in<sp/>a<sp/>git<sp/>repo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#set(ament_cmake_cpplint_FOUND<sp/>TRUE)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>ament_lint_auto_find_test_dependencies()</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">endif()</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal">ament_package()</highlight></codeline>
+    </programlisting>
+    <location file="src/input_pkg/CMakeLists.txt"/>
+  </compounddef>
+</doxygen>

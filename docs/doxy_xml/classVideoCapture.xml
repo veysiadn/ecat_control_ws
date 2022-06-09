@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classVideoCapture" kind="class" language="C++" prot="public">
+    <compoundname>VideoCapture</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QThread</basecompoundref>
+    <includes refid="video__capture_8hpp" local="no">video_capture.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classVideoCapture_1a26abea177d7bb42a8be557c31e6af6a8" prot="private" static="no" mutable="no">
+        <type>QPixmap</type>
+        <definition>QPixmap VideoCapture::pixmap_cap</definition>
+        <argsstring></argsstring>
+        <name>pixmap_cap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/video_capture.hpp" line="73" column="13" bodyfile="src/gui_pkg/include/gui_pkg/video_capture.hpp" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVideoCapture_1ad7e4bd3b6701101854543da3ce395ac6" prot="private" static="no" mutable="no">
+        <type>cv::Mat</type>
+        <definition>cv::Mat VideoCapture::frame_cap</definition>
+        <argsstring></argsstring>
+        <name>frame_cap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/video_capture.hpp" line="74" column="13" bodyfile="src/gui_pkg/include/gui_pkg/video_capture.hpp" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVideoCapture_1ae05ab150ec60856c798cad097621f244" prot="private" static="no" mutable="no">
+        <type>cv::VideoCapture</type>
+        <definition>cv::VideoCapture VideoCapture::video_cap</definition>
+        <argsstring></argsstring>
+        <name>video_cap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/video_capture.hpp" line="75" column="22" bodyfile="src/gui_pkg/include/gui_pkg/video_capture.hpp" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVideoCapture_1a9bd97daedba6d42b480faade04b3e06b" prot="private" static="no" mutable="no">
+        <type>unsigned long</type>
+        <definition>unsigned long VideoCapture::frame_rate</definition>
+        <argsstring></argsstring>
+        <name>frame_rate</name>
+        <initializer>= 30</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/video_capture.hpp" line="77" column="19" bodyfile="src/gui_pkg/include/gui_pkg/video_capture.hpp" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVideoCapture_1a112ef5073674467b47adc3f97704cb32" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t VideoCapture::cam_id</definition>
+        <argsstring></argsstring>
+        <name>cam_id</name>
+        <initializer>= <ref refid="gui__globals_8hpp_1a1014738a6cd53047136514ced82de7b0" kindref="member">ID_CAMERA</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/video_capture.hpp" line="78" column="13" bodyfile="src/gui_pkg/include/gui_pkg/video_capture.hpp" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classVideoCapture_1ab7ca174b155d6f85212232f62bfa7537" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VideoCapture::VideoCapture</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>VideoCapture</name>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/video_capture.hpp" line="64" column="5" bodyfile="src/gui_pkg/src/video_capture.cpp" bodystart="4" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classVideoCapture_1a40d0a95efe6459b3e292e0e354d9b3c8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QPixmap</type>
+        <definition>QPixmap VideoCapture::pixmap</definition>
+        <argsstring>() const</argsstring>
+        <name>pixmap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/video_capture.hpp" line="65" column="13" bodyfile="src/gui_pkg/include/gui_pkg/video_capture.hpp" bodystart="65" bodyend="65"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="classVideoCapture_1af97dc7c07779d2d618a72787f4305cf8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VideoCapture::NewPixmapCapture</definition>
+        <argsstring>()</argsstring>
+        <name>NewPixmapCapture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/video_capture.hpp" line="68" column="10"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classVideoCapture_1a5823b23c4670f2abfdfa523b17adbeca" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VideoCapture::run</definition>
+        <argsstring>() override</argsstring>
+        <name>run</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/video_capture.hpp" line="70" column="10" bodyfile="src/gui_pkg/src/video_capture.cpp" bodystart="11" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classVideoCapture_1a97fc96e7b4aca0ee7cd2256ae4174d83" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QImage</type>
+        <definition>QImage VideoCapture::cvMatToQImage</definition>
+        <argsstring>(const cv::Mat &amp;inMat)</argsstring>
+        <name>cvMatToQImage</name>
+        <param>
+          <type>const cv::Mat &amp;</type>
+          <declname>inMat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/video_capture.hpp" line="80" column="12" bodyfile="src/gui_pkg/src/video_capture.cpp" bodystart="35" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classVideoCapture_1a3e439afbb57883262644b4853251f862" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QPixmap</type>
+        <definition>QPixmap VideoCapture::cvMatToQPixmap</definition>
+        <argsstring>(const cv::Mat &amp;inMat)</argsstring>
+        <name>cvMatToQPixmap</name>
+        <param>
+          <type>const cv::Mat &amp;</type>
+          <declname>inMat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/video_capture.hpp" line="81" column="13" bodyfile="src/gui_pkg/src/video_capture.cpp" bodystart="102" bodyend="105"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Camera ID will be your camera&apos;s device ID. If you don&apos;t have any camera attached to usb default ID will be 0. If you&apos;re sure about camera ID, open terminal and type $ sudo apt-get install v4l-utils $ v4l2-ctl <ndash/>list-devices You can take your camera by taking the last digit in /dev/videoX X will be your device ID. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QThread</label>
+      </node>
+      <node id="1">
+        <label>VideoCapture</label>
+        <link refid="classVideoCapture"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QThread</label>
+      </node>
+      <node id="1">
+        <label>VideoCapture</label>
+        <link refid="classVideoCapture"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui_pkg/include/gui_pkg/video_capture.hpp" line="60" column="1" bodyfile="src/gui_pkg/include/gui_pkg/video_capture.hpp" bodystart="61" bodyend="82"/>
+    <listofallmembers>
+      <member refid="classVideoCapture_1a112ef5073674467b47adc3f97704cb32" prot="private" virt="non-virtual"><scope>VideoCapture</scope><name>cam_id</name></member>
+      <member refid="classVideoCapture_1a97fc96e7b4aca0ee7cd2256ae4174d83" prot="private" virt="non-virtual"><scope>VideoCapture</scope><name>cvMatToQImage</name></member>
+      <member refid="classVideoCapture_1a3e439afbb57883262644b4853251f862" prot="private" virt="non-virtual"><scope>VideoCapture</scope><name>cvMatToQPixmap</name></member>
+      <member refid="classVideoCapture_1ad7e4bd3b6701101854543da3ce395ac6" prot="private" virt="non-virtual"><scope>VideoCapture</scope><name>frame_cap</name></member>
+      <member refid="classVideoCapture_1a9bd97daedba6d42b480faade04b3e06b" prot="private" virt="non-virtual"><scope>VideoCapture</scope><name>frame_rate</name></member>
+      <member refid="classVideoCapture_1af97dc7c07779d2d618a72787f4305cf8" prot="public" virt="non-virtual"><scope>VideoCapture</scope><name>NewPixmapCapture</name></member>
+      <member refid="classVideoCapture_1a40d0a95efe6459b3e292e0e354d9b3c8" prot="public" virt="non-virtual"><scope>VideoCapture</scope><name>pixmap</name></member>
+      <member refid="classVideoCapture_1a26abea177d7bb42a8be557c31e6af6a8" prot="private" virt="non-virtual"><scope>VideoCapture</scope><name>pixmap_cap</name></member>
+      <member refid="classVideoCapture_1a5823b23c4670f2abfdfa523b17adbeca" prot="protected" virt="non-virtual"><scope>VideoCapture</scope><name>run</name></member>
+      <member refid="classVideoCapture_1ae05ab150ec60856c798cad097621f244" prot="private" virt="non-virtual"><scope>VideoCapture</scope><name>video_cap</name></member>
+      <member refid="classVideoCapture_1ab7ca174b155d6f85212232f62bfa7537" prot="public" virt="non-virtual"><scope>VideoCapture</scope><name>VideoCapture</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

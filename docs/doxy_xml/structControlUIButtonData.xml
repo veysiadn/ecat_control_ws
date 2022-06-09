@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="structControlUIButtonData" kind="struct" language="C++" prot="public">
+    <compoundname>ControlUIButtonData</compoundname>
+    <includes refid="gui__globals_8hpp" local="no">gui_globals.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structControlUIButtonData_1a159f79d8922c840e127589b55bdd49e8" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t ControlUIButtonData::b_init_ecat</definition>
+        <argsstring></argsstring>
+        <name>b_init_ecat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="81" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structControlUIButtonData_1ad997dd1579d5ddba6b1732b245c78df0" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t ControlUIButtonData::b_reinit_ecat</definition>
+        <argsstring></argsstring>
+        <name>b_reinit_ecat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="82" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structControlUIButtonData_1a6ea3c9660676c76b0a177782bcd1bc4f" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t ControlUIButtonData::b_stop_cyclic_pdo</definition>
+        <argsstring></argsstring>
+        <name>b_stop_cyclic_pdo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="83" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structControlUIButtonData_1a281503d032887eb113403dfaa4be413f" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t ControlUIButtonData::b_enable_drives</definition>
+        <argsstring></argsstring>
+        <name>b_enable_drives</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="84" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structControlUIButtonData_1a1f6ee7050766572eeea63b77b59d5ae1" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t ControlUIButtonData::b_disable_drives</definition>
+        <argsstring></argsstring>
+        <name>b_disable_drives</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="85" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structControlUIButtonData_1a7927fc4aa1b1e66deb628cfba4f84aac" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t ControlUIButtonData::b_enable_cyclic_pos</definition>
+        <argsstring></argsstring>
+        <name>b_enable_cyclic_pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="86" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structControlUIButtonData_1a9da7551ad6af62ad9419593ad1916e11" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t ControlUIButtonData::b_enable_cyclic_vel</definition>
+        <argsstring></argsstring>
+        <name>b_enable_cyclic_vel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="87" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structControlUIButtonData_1a1b1c2a7d44a1e1ba5fea472cbbb8f611" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t ControlUIButtonData::b_enable_vel</definition>
+        <argsstring></argsstring>
+        <name>b_enable_vel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="88" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structControlUIButtonData_1a41a30954171b8f5acfa3f04cba81c9aa" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t ControlUIButtonData::b_enable_pos</definition>
+        <argsstring></argsstring>
+        <name>b_enable_pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="89" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structControlUIButtonData_1a8f0892ccf5398525440cfe46e80db953" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t ControlUIButtonData::b_enter_cyclic_pdo</definition>
+        <argsstring></argsstring>
+        <name>b_enter_cyclic_pdo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="90" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structControlUIButtonData_1a9a37a98efc39c42870246421a83b7f95" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t ControlUIButtonData::b_emergency_mode</definition>
+        <argsstring></argsstring>
+        <name>b_emergency_mode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="91" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structControlUIButtonData_1a16f408c268b53db43e393dd8cc27c22f" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t ControlUIButtonData::b_send</definition>
+        <argsstring></argsstring>
+        <name>b_send</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="92" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structControlUIButtonData_1a8c1b8287572701d04f32f04b0f5b722d" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t ControlUIButtonData::l_target_val</definition>
+        <argsstring></argsstring>
+        <name>l_target_val</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="93" column="14" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="80" column="1" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="80" bodyend="94"/>
+    <listofallmembers>
+      <member refid="structControlUIButtonData_1a1f6ee7050766572eeea63b77b59d5ae1" prot="public" virt="non-virtual"><scope>ControlUIButtonData</scope><name>b_disable_drives</name></member>
+      <member refid="structControlUIButtonData_1a9a37a98efc39c42870246421a83b7f95" prot="public" virt="non-virtual"><scope>ControlUIButtonData</scope><name>b_emergency_mode</name></member>
+      <member refid="structControlUIButtonData_1a7927fc4aa1b1e66deb628cfba4f84aac" prot="public" virt="non-virtual"><scope>ControlUIButtonData</scope><name>b_enable_cyclic_pos</name></member>
+      <member refid="structControlUIButtonData_1a9da7551ad6af62ad9419593ad1916e11" prot="public" virt="non-virtual"><scope>ControlUIButtonData</scope><name>b_enable_cyclic_vel</name></member>
+      <member refid="structControlUIButtonData_1a281503d032887eb113403dfaa4be413f" prot="public" virt="non-virtual"><scope>ControlUIButtonData</scope><name>b_enable_drives</name></member>
+      <member refid="structControlUIButtonData_1a41a30954171b8f5acfa3f04cba81c9aa" prot="public" virt="non-virtual"><scope>ControlUIButtonData</scope><name>b_enable_pos</name></member>
+      <member refid="structControlUIButtonData_1a1b1c2a7d44a1e1ba5fea472cbbb8f611" prot="public" virt="non-virtual"><scope>ControlUIButtonData</scope><name>b_enable_vel</name></member>
+      <member refid="structControlUIButtonData_1a8f0892ccf5398525440cfe46e80db953" prot="public" virt="non-virtual"><scope>ControlUIButtonData</scope><name>b_enter_cyclic_pdo</name></member>
+      <member refid="structControlUIButtonData_1a159f79d8922c840e127589b55bdd49e8" prot="public" virt="non-virtual"><scope>ControlUIButtonData</scope><name>b_init_ecat</name></member>
+      <member refid="structControlUIButtonData_1ad997dd1579d5ddba6b1732b245c78df0" prot="public" virt="non-virtual"><scope>ControlUIButtonData</scope><name>b_reinit_ecat</name></member>
+      <member refid="structControlUIButtonData_1a16f408c268b53db43e393dd8cc27c22f" prot="public" virt="non-virtual"><scope>ControlUIButtonData</scope><name>b_send</name></member>
+      <member refid="structControlUIButtonData_1a6ea3c9660676c76b0a177782bcd1bc4f" prot="public" virt="non-virtual"><scope>ControlUIButtonData</scope><name>b_stop_cyclic_pdo</name></member>
+      <member refid="structControlUIButtonData_1a8c1b8287572701d04f32f04b0f5b722d" prot="public" virt="non-virtual"><scope>ControlUIButtonData</scope><name>l_target_val</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

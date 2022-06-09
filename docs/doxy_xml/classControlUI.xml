@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classControlUI" kind="class" language="C++" prot="public">
+    <compoundname>ControlUI</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
+    <includes refid="controlui_8hpp" local="no">controlui.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classControlUI_1ad236121ee522c3acd7c0184bb5b5d98f" prot="private" static="no" mutable="no">
+        <type>Ui::ControlUI *</type>
+        <definition>Ui::ControlUI* ControlUI::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/controlui.hpp" line="43" column="19" bodyfile="src/gui_pkg/include/gui_pkg/controlui.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classControlUI_1ab848a6aae0d9a53ed40c73b31057e512" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ControlUI::ControlUI</definition>
+        <argsstring>(QWidget *parent=nullptr)</argsstring>
+        <name>ControlUI</name>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/controlui.hpp" line="15" column="14" bodyfile="src/gui_pkg/src/controlui.cpp" bodystart="4" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classControlUI_1a65f2e6bca109cef29ba350ba2a1580f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ControlUI::~ControlUI</definition>
+        <argsstring>()</argsstring>
+        <name>~ControlUI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/controlui.hpp" line="16" column="5" bodyfile="src/gui_pkg/src/controlui.cpp" bodystart="11" bodyend="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classControlUI_1ac0bc7c69bbf530993e389683849de789" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlUI::on_b_init_ecat_clicked</definition>
+        <argsstring>()</argsstring>
+        <name>on_b_init_ecat_clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/controlui.hpp" line="20" column="10" bodyfile="src/gui_pkg/src/controlui.cpp" bodystart="16" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="slot" id="classControlUI_1a6dfe6cfad33afd90749942879f73c096" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlUI::on_b_reinit_ecat_clicked</definition>
+        <argsstring>()</argsstring>
+        <name>on_b_reinit_ecat_clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/controlui.hpp" line="22" column="10" bodyfile="src/gui_pkg/src/controlui.cpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="slot" id="classControlUI_1a38cb1a412dc23d5de671fb5ddf8d3284" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlUI::on_b_enable_motor_clicked</definition>
+        <argsstring>()</argsstring>
+        <name>on_b_enable_motor_clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/controlui.hpp" line="24" column="10" bodyfile="src/gui_pkg/src/controlui.cpp" bodystart="26" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="slot" id="classControlUI_1a14824c73b16fd7052003bbc16f1bfc3e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlUI::on_b_disable_motor_clicked</definition>
+        <argsstring>()</argsstring>
+        <name>on_b_disable_motor_clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/controlui.hpp" line="26" column="10" bodyfile="src/gui_pkg/src/controlui.cpp" bodystart="31" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="slot" id="classControlUI_1a2835e64552d0c75659a7b30e8616da5b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlUI::on_b_enable_cyclic_pos_clicked</definition>
+        <argsstring>()</argsstring>
+        <name>on_b_enable_cyclic_pos_clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/controlui.hpp" line="28" column="10" bodyfile="src/gui_pkg/src/controlui.cpp" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="slot" id="classControlUI_1ac5086c08afb3d9e94916c1fcc0f8ac03" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlUI::on_b_enable_cylic_vel_clicked</definition>
+        <argsstring>()</argsstring>
+        <name>on_b_enable_cylic_vel_clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/controlui.hpp" line="30" column="10" bodyfile="src/gui_pkg/src/controlui.cpp" bodystart="41" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="slot" id="classControlUI_1a53fce049541f1b8928c291dc0b973375" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlUI::on_b_enable_vel_clicked</definition>
+        <argsstring>()</argsstring>
+        <name>on_b_enable_vel_clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/controlui.hpp" line="32" column="10" bodyfile="src/gui_pkg/src/controlui.cpp" bodystart="46" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="slot" id="classControlUI_1a077266a285b67090e4d77a03941ff81a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlUI::on_b_enable_pos_clicked</definition>
+        <argsstring>()</argsstring>
+        <name>on_b_enable_pos_clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/controlui.hpp" line="34" column="10" bodyfile="src/gui_pkg/src/controlui.cpp" bodystart="51" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="slot" id="classControlUI_1a6a52498be8c92662029dbb030d2ca1bc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlUI::on_b_enter_cyclic_pdo_clicked</definition>
+        <argsstring>()</argsstring>
+        <name>on_b_enter_cyclic_pdo_clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/controlui.hpp" line="36" column="10" bodyfile="src/gui_pkg/src/controlui.cpp" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="slot" id="classControlUI_1a4454e3121b715ec5ad0d438b07140451" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlUI::on_b_emergency_mode_clicked</definition>
+        <argsstring>()</argsstring>
+        <name>on_b_emergency_mode_clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/controlui.hpp" line="38" column="10" bodyfile="src/gui_pkg/src/controlui.cpp" bodystart="61" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="slot" id="classControlUI_1a575af17c5689188be0c227209509f990" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlUI::on_b_send_clicked</definition>
+        <argsstring>()</argsstring>
+        <name>on_b_send_clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/controlui.hpp" line="40" column="10" bodyfile="src/gui_pkg/src/controlui.cpp" bodystart="66" bodyend="69"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ControlUI</label>
+        <link refid="classControlUI"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QMainWindow</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ControlUI</label>
+        <link refid="classControlUI"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QMainWindow</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui_pkg/include/gui_pkg/controlui.hpp" line="10" column="1" bodyfile="src/gui_pkg/include/gui_pkg/controlui.hpp" bodystart="11" bodyend="44"/>
+    <listofallmembers>
+      <member refid="classControlUI_1ab848a6aae0d9a53ed40c73b31057e512" prot="public" virt="non-virtual"><scope>ControlUI</scope><name>ControlUI</name></member>
+      <member refid="classControlUI_1a14824c73b16fd7052003bbc16f1bfc3e" prot="private" virt="non-virtual"><scope>ControlUI</scope><name>on_b_disable_motor_clicked</name></member>
+      <member refid="classControlUI_1a4454e3121b715ec5ad0d438b07140451" prot="private" virt="non-virtual"><scope>ControlUI</scope><name>on_b_emergency_mode_clicked</name></member>
+      <member refid="classControlUI_1a2835e64552d0c75659a7b30e8616da5b" prot="private" virt="non-virtual"><scope>ControlUI</scope><name>on_b_enable_cyclic_pos_clicked</name></member>
+      <member refid="classControlUI_1ac5086c08afb3d9e94916c1fcc0f8ac03" prot="private" virt="non-virtual"><scope>ControlUI</scope><name>on_b_enable_cylic_vel_clicked</name></member>
+      <member refid="classControlUI_1a38cb1a412dc23d5de671fb5ddf8d3284" prot="private" virt="non-virtual"><scope>ControlUI</scope><name>on_b_enable_motor_clicked</name></member>
+      <member refid="classControlUI_1a077266a285b67090e4d77a03941ff81a" prot="private" virt="non-virtual"><scope>ControlUI</scope><name>on_b_enable_pos_clicked</name></member>
+      <member refid="classControlUI_1a53fce049541f1b8928c291dc0b973375" prot="private" virt="non-virtual"><scope>ControlUI</scope><name>on_b_enable_vel_clicked</name></member>
+      <member refid="classControlUI_1a6a52498be8c92662029dbb030d2ca1bc" prot="private" virt="non-virtual"><scope>ControlUI</scope><name>on_b_enter_cyclic_pdo_clicked</name></member>
+      <member refid="classControlUI_1ac0bc7c69bbf530993e389683849de789" prot="private" virt="non-virtual"><scope>ControlUI</scope><name>on_b_init_ecat_clicked</name></member>
+      <member refid="classControlUI_1a6dfe6cfad33afd90749942879f73c096" prot="private" virt="non-virtual"><scope>ControlUI</scope><name>on_b_reinit_ecat_clicked</name></member>
+      <member refid="classControlUI_1a575af17c5689188be0c227209509f990" prot="private" virt="non-virtual"><scope>ControlUI</scope><name>on_b_send_clicked</name></member>
+      <member refid="classControlUI_1ad236121ee522c3acd7c0184bb5b5d98f" prot="private" virt="non-virtual"><scope>ControlUI</scope><name>ui</name></member>
+      <member refid="classControlUI_1a65f2e6bca109cef29ba350ba2a1580f9" prot="public" virt="non-virtual"><scope>ControlUI</scope><name>~ControlUI</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

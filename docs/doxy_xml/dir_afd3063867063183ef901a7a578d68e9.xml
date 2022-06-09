@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="dir_afd3063867063183ef901a7a578d68e9" kind="dir">
+    <compoundname>src/ecat_pkg/launch/LaunchExample</compoundname>
+    <innerfile refid="lifecycle__pub__sub__launch_8py">lifecycle_pub_sub_launch.py</innerfile>
+    <innerfile refid="LaunchExample_2pub__sub__launch_8py">pub_sub_launch.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/ecat_pkg/launch/LaunchExample/"/>
+  </compounddef>
+</doxygen>

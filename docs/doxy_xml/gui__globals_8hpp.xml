@@ -1,0 +1,1426 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="gui__globals_8hpp" kind="file" language="C++">
+    <compoundname>gui_globals.hpp</compoundname>
+    <includedby refid="gui__node_8hpp" local="yes">src/gui_pkg/include/gui_pkg/gui_node.hpp</includedby>
+    <includedby refid="main__window_8hpp" local="yes">src/gui_pkg/include/gui_pkg/main_window.hpp</includedby>
+    <includedby refid="video__capture_8hpp" local="yes">src/gui_pkg/include/gui_pkg/video_capture.hpp</includedby>
+    <invincdepgraph>
+      <node id="8">
+        <label>src/gui_pkg/include/gui_pkg/endoscope_viewer.hpp</label>
+        <link refid="endoscope__viewer_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/gui_pkg/include/gui_pkg/gui_globals.hpp</label>
+        <link refid="gui__globals_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/gui_pkg/include/gui_pkg/gui_node.hpp</label>
+        <link refid="gui__node_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/gui_pkg/include/gui_pkg/main_window.hpp</label>
+        <link refid="main__window_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>src/gui_pkg/include/gui_pkg/video_capture.hpp</label>
+        <link refid="video__capture_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>src/gui_pkg/src/endoscope_viewer.cpp</label>
+        <link refid="endoscope__viewer_8cpp"/>
+      </node>
+      <node id="6">
+        <label>src/gui_pkg/src/gui_node.cpp</label>
+        <link refid="gui__node_8cpp"/>
+      </node>
+      <node id="4">
+        <label>src/gui_pkg/src/main.cpp</label>
+        <link refid="gui__pkg_2src_2main_8cpp"/>
+      </node>
+      <node id="5">
+        <label>src/gui_pkg/src/main_window.cpp</label>
+        <link refid="main__window_8cpp"/>
+      </node>
+      <node id="10">
+        <label>src/gui_pkg/src/video_capture.cpp</label>
+        <link refid="video__capture_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structReceivedData" prot="public">ReceivedData</innerclass>
+    <innerclass refid="structControlUIButtonData" prot="public">ControlUIButtonData</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="gui__globals_8hpp_1abcd0af621da2a1f852fb466fcb225fe1" prot="public" static="no">
+        <name>NUM_OF_SERVO_DRIVES</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="3" column="9" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gui__globals_8hpp_1a1014738a6cd53047136514ced82de7b0" prot="public" static="no">
+        <name>ID_CAMERA</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="4" column="9" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gui__globals_8hpp_1a3e343f521bdee99c94f22627c930d24d" prot="public" static="no">
+        <name>TEST_BIT</name>
+        <param><defname>NUM</defname></param>
+        <param><defname>N</defname></param>
+        <initializer>((NUM &amp;  (1 &lt;&lt; N))&gt;&gt;N)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="7" column="9" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gui__globals_8hpp_1a11c01176d68fc4cd05ed423d922eca26" prot="public" static="no">
+        <name>SET_BIT</name>
+        <param><defname>NUM</defname></param>
+        <param><defname>N</defname></param>
+        <initializer>(NUM |  (1 &lt;&lt; N))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="8" column="9" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gui__globals_8hpp_1a4f447e47949e3f87b24ffd1039e07be1" prot="public" static="no">
+        <name>RESET_BIT</name>
+        <param><defname>NUM</defname></param>
+        <param><defname>N</defname></param>
+        <initializer>(NUM &amp; ~(1 &lt;&lt; N))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="9" column="9" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gui__globals_8hpp_1a79387c4437b10720436d6d6ab8f17311" prot="public" static="no">
+        <name>SM_COMM_RESET</name>
+        <initializer>0x81</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="96" column="9" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gui__globals_8hpp_1a560d3d1a5d98131f995f14022b89065e" prot="public" static="no">
+        <name>SM_FULL_RESET</name>
+        <initializer>0x82</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="97" column="9" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gui__globals_8hpp_1a0151dbb41c760a19abbe63baa11a2ab7" prot="public" static="no">
+        <name>SM_START</name>
+        <initializer>0x01</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="98" column="9" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gui__globals_8hpp_1ad65751bc944de3d8a311d3c4b67e3902" prot="public" static="no">
+        <name>SM_GO_READY_TO_SWITCH_ON</name>
+        <initializer>0x06</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="99" column="9" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gui__globals_8hpp_1a31d0ed64eb662ab9189ad53d0684efad" prot="public" static="no">
+        <name>SM_GO_SWITCH_ON</name>
+        <initializer>0x07</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="100" column="9" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gui__globals_8hpp_1a106be1a156a40681180306c587d2f6f2" prot="public" static="no">
+        <name>SM_GO_ENABLE</name>
+        <initializer>0X0F</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="101" column="9" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gui__globals_8hpp_1a67a844adb1df22f93037703a7aae4af6" prot="public" static="no">
+        <name>SM_GO_SWITCH_ON_DISABLE</name>
+        <initializer>0x00</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="102" column="9" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gui__globals_8hpp_1a9250a46e089de909358597e6075e4580" prot="public" static="no">
+        <name>SM_RUN</name>
+        <initializer>0x1F</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="103" column="9" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gui__globals_8hpp_1a789a1d3357f273990a249fcb757c41b0" prot="public" static="no">
+        <name>SM_EXPEDITE</name>
+        <initializer>0x3F</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="104" column="9" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gui__globals_8hpp_1ab7adcfce5cab981c20d9074db1a40dfe" prot="public" static="no">
+        <name>SM_QUICKSTOP</name>
+        <initializer>0x02</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="105" column="9" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gui__globals_8hpp_1aa5373bcec0b512425ecff493e17fb2a9" prot="public" static="no">
+        <name>SM_RELATIVE_</name>
+        <initializer>0X7F</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="106" column="9" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7" prot="public" static="no" strong="no">
+        <type></type>
+        <name>MotorStates</name>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7aefe8b16564c493d6aba4e1761d28fb6e" prot="public">
+          <name>kReadyToSwitchOn</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a1aec86a3bb84af0dc09dfba27134d870" prot="public">
+          <name>kSwitchedOn</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a830836c1b6166075e14d3cde3ba188bc" prot="public">
+          <name>kOperationEnabled</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a17586673585e43ca084718a6a193c61d" prot="public">
+          <name>kFault</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a94491568dfbb921ec2bc5e0b90bfdf51" prot="public">
+          <name>kVoltageEnabled</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a9ebe2d45f83dd0328a95f91b5f7f3197" prot="public">
+          <name>kQuickStop</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a69fef3d95dbc631270c0a449c873b1f9" prot="public">
+          <name>kSwitchOnDisabled</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a017887ee6e6d711cdb453f275fd971dc" prot="public">
+          <name>kWarning</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7af34e262497cefee9f006225d255f0b02" prot="public">
+          <name>kRemote</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a2f6d5acfbeb8936f56c1a86dd1827dfb" prot="public">
+          <name>kTargetReached</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7af6a3169aef150c63a68dc2206278bb11" prot="public">
+          <name>kInternalLimitActivate</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7aefe8b16564c493d6aba4e1761d28fb6e" prot="public">
+          <name>kReadyToSwitchOn</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a1aec86a3bb84af0dc09dfba27134d870" prot="public">
+          <name>kSwitchedOn</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a830836c1b6166075e14d3cde3ba188bc" prot="public">
+          <name>kOperationEnabled</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a17586673585e43ca084718a6a193c61d" prot="public">
+          <name>kFault</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a94491568dfbb921ec2bc5e0b90bfdf51" prot="public">
+          <name>kVoltageEnabled</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a9ebe2d45f83dd0328a95f91b5f7f3197" prot="public">
+          <name>kQuickStop</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a69fef3d95dbc631270c0a449c873b1f9" prot="public">
+          <name>kSwitchOnDisabled</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a017887ee6e6d711cdb453f275fd971dc" prot="public">
+          <name>kWarning</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7af34e262497cefee9f006225d255f0b02" prot="public">
+          <name>kRemote</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a2f6d5acfbeb8936f56c1a86dd1827dfb" prot="public">
+          <name>kTargetReached</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7af6a3169aef150c63a68dc2206278bb11" prot="public">
+          <name>kInternalLimitActivate</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="12" column="1" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="12" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="enum" id="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34" prot="public" static="no" strong="no">
+        <type></type>
+        <name>LifeCycleStates</name>
+        <enumvalue id="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34ae0b771369dfb01dcddb2c023a9c1f89b" prot="public">
+          <name>kInitialized</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34a0d8a083216a21de9b9e4aa973eaa6054" prot="public">
+          <name>kUnconfigured</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34ab1df3ce3210909025bec699a0ebe10e5" prot="public">
+          <name>kInactive</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34ab6a8784b4cf96692e0d71d19c44ce732" prot="public">
+          <name>kActive</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34a58748d5f89bdcf8de8dbaf3304bc651c" prot="public">
+          <name>kFinalized</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34a43a736e8410f7f4b6cda49ee54e845c4" prot="public">
+          <name>kConfiguring</name>
+          <initializer>= 10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34ab333470372060ef5f030cc34123a706e" prot="public">
+          <name>kCleaningUp</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34a6bd968912a244d1eaf5edaa3dfe372e0" prot="public">
+          <name>kShuttingDown</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34a517eb424d6d407f6969d37b7a2493008" prot="public">
+          <name>kActivating</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34aceea6f4c5b66edd5029dc0078df5dbcf" prot="public">
+          <name>kDeactivating</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34a1e8ac11ccb19182d987625d9beeacbcc" prot="public">
+          <name>kErrorProcessing</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="27" column="1" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="27" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="enum" id="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68af" prot="public" static="no" strong="no">
+        <type></type>
+        <name>OpMode</name>
+        <enumvalue id="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afad52f0058d24f3e3fec39d4502604a22e" prot="public">
+          <name>kProfilePosition</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa5d2b33d7161a77fdc97acfdc4de48a03" prot="public">
+          <name>kProfileVelocity</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa3e1069b7c47950dd03ed7eb55f6421d2" prot="public">
+          <name>kProfileTorque</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa90b00776b82cbe0b451a0a9c46e68945" prot="public">
+          <name>kHoming</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa7a6bd1ac4ba0aab0998cbccaded2ca27" prot="public">
+          <name>kInterpolatedPosition</name>
+          <initializer>= 7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa1566565deaca1a00f9046cea18ccf5de" prot="public">
+          <name>kCSPosition</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afab7ddf4a5dec8aca3035989b429490bc4" prot="public">
+          <name>kCSVelocity</name>
+          <initializer>= 9</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa32c69215479b5f329044f8c79a74e1a4" prot="public">
+          <name>kCSTorque</name>
+          <initializer>= 10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afad52f0058d24f3e3fec39d4502604a22e" prot="public">
+          <name>kProfilePosition</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa5d2b33d7161a77fdc97acfdc4de48a03" prot="public">
+          <name>kProfileVelocity</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa3e1069b7c47950dd03ed7eb55f6421d2" prot="public">
+          <name>kProfileTorque</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa90b00776b82cbe0b451a0a9c46e68945" prot="public">
+          <name>kHoming</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa7a6bd1ac4ba0aab0998cbccaded2ca27" prot="public">
+          <name>kInterpolatedPosition</name>
+          <initializer>= 7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa1566565deaca1a00f9046cea18ccf5de" prot="public">
+          <name>kCSPosition</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afab7ddf4a5dec8aca3035989b429490bc4" prot="public">
+          <name>kCSVelocity</name>
+          <initializer>= 9</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa32c69215479b5f329044f8c79a74e1a4" prot="public">
+          <name>kCSTorque</name>
+          <initializer>= 10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="68" column="1" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="69" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="enum" id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352" prot="public" static="no" strong="no">
+        <type></type>
+        <name>CiA402ErrorType</name>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352abf350750d0d4fabd8954c0f1e9bbae94" prot="public">
+          <name>NO_ERROR</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a9bcb544a32281727d57f35dec7d49e78" prot="public">
+          <name>GENERIC_ERROR</name>
+          <initializer>= 0x1000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ac2d2d74368bed88ae4617b7eeb9d18b5" prot="public">
+          <name>GENERIC_INIT_ERROR</name>
+          <initializer>= 0x1080</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aa92cbf5cd466db7f5c41a5959f209ce6" prot="public">
+          <name>GENERIC_INIT_ERROR_1</name>
+          <initializer>= 0x1081</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ab4756b29189241c173fbf97c6bf0c2c9" prot="public">
+          <name>GENERIC_INIT_ERROR_2</name>
+          <initializer>= 0x1082</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a993234cfb6c40315cba3ad917037f3bf" prot="public">
+          <name>GENERIC_INIT_ERROR_3</name>
+          <initializer>= 0x1083</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a496d94c101319df710427ba3def5d85e" prot="public">
+          <name>GENERIC_INIT_ERROR_4</name>
+          <initializer>= 0x1084</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a57f92d5c84f99221fbb39c867884defa" prot="public">
+          <name>GENERIC_INIT_ERROR_5</name>
+          <initializer>= 0x1085</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a3670b91721ad58cef03b0351078a0272" prot="public">
+          <name>GENERIC_INIT_ERROR_6</name>
+          <initializer>= 0x1086</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a09c0d7caa45fde43df2b2e9fcc0cb2e1" prot="public">
+          <name>GENERIC_INIT_ERROR_7</name>
+          <initializer>= 0x1087</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a6ef33b130501be19c8c0b31d284be837" prot="public">
+          <name>GENERIC_INIT_ERROR_8</name>
+          <initializer>= 0x1088</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a73b5d4b9fbb9db0fc597bccf1ed0f3eb" prot="public">
+          <name>FIRMWARE_INCOMPATIBLITY_ERROR</name>
+          <initializer>= 0x1090</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a920c7f729c170f66d23171faa6ab98a5" prot="public">
+          <name>OVER_CURRENT_ERROR</name>
+          <initializer>= 0x2310</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a6ae4a1e15b464e1d1470b3e866c150f6" prot="public">
+          <name>POWER_STAGE_PROTECTION_ERROR</name>
+          <initializer>= 0x2320</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a638b59942aaf9bec4aaa9580c3edc8e8" prot="public">
+          <name>OVER_VOLTAGE_ERROR</name>
+          <initializer>= 0x3210</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a4e80575925053a375109066c6c08b7b6" prot="public">
+          <name>UNDER_VOLTAGE_ERROR</name>
+          <initializer>= 0x3220</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a241ff6419d9082a0b91205b30ad752ee" prot="public">
+          <name>THERMAL_OVERLOAD_ERROR</name>
+          <initializer>= 0x4210</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a6093baf40fce18f3929c687dbb191a93" prot="public">
+          <name>THERMAL_MOTOR_OVERLOAD_ERRROR</name>
+          <initializer>= 0x4380</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352af222afd036ad548f510f85ecb6b115d1" prot="public">
+          <name>LOGIC_SUPPLY_TOO_LOW_ERROR</name>
+          <initializer>= 0x5113</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aab6c7d6ce3a56b8623715c466a8c6133" prot="public">
+          <name>HARDWARE_DEFECT_ERROR</name>
+          <initializer>= 0x5280</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a6450e53101b312a440411ba9f80229a2" prot="public">
+          <name>HARDWARE_INCOMPATIBLITY_ERROR</name>
+          <initializer>= 0x5281</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a28a3763240d6c1ba52bf1f13b8a348db" prot="public">
+          <name>HARDWARE_ERROR</name>
+          <initializer>= 0x5480</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352adf33309cdf451cccf4535535c90fd769" prot="public">
+          <name>HARDWARE_ERROR_1</name>
+          <initializer>= 0x5481</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a3fc207987acf9602a03ab24467710051" prot="public">
+          <name>HARDWARE_ERROR_2</name>
+          <initializer>= 0x5482</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a65dbd6ef294771dc8be5b538978d4857" prot="public">
+          <name>HARDWARE_ERROR_3</name>
+          <initializer>= 0x5483</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a0d1a81acf0546a8fa99f6b465c38e654" prot="public">
+          <name>SIGN_OF_LIFE_ERROR</name>
+          <initializer>= 0x6080</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a8e86f8369bb9e63c090b461af52826d9" prot="public">
+          <name>EXTENSION_1_WATCHDOG_ERROR</name>
+          <initializer>= 0x6081</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a91584d1394caf9a72c6e096413ab1083" prot="public">
+          <name>INTERNAL_SOFTWARE_ERROR</name>
+          <initializer>= 0x6180</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a6f23e564970c94f7878e05832d8b419f" prot="public">
+          <name>SOFTWARE_PARAMETER_ERROR</name>
+          <initializer>= 0x6320</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a2df60635227442a284f44961609460a1" prot="public">
+          <name>PERSISTENT_PARAMETER_CORRUPT_ERROR</name>
+          <initializer>= 0x6380</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a43e2b6703966bace1a00ae501793a40b" prot="public">
+          <name>POSITION_SENSOR_ERROR</name>
+          <initializer>= 0x7320</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ab728302f99ed7717ceaf3862eaf4acf5" prot="public">
+          <name>POSITION_SENSOR_BREACH_ERROR</name>
+          <initializer>= 0x7380</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a03ab1c1e4f1e4e011a61c420ce516ced" prot="public">
+          <name>POSITION_SENSOR_RESOLUTION_ERROR</name>
+          <initializer>= 0x7381</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a2b4da4bf429b5046c3aecd39fc5bb469" prot="public">
+          <name>POSITION_SENSOR_INDEX_ERROR</name>
+          <initializer>= 0x7382</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aaec0121115a14ece6c9376a94f7a2776" prot="public">
+          <name>HALL_SENSOR_ERROR</name>
+          <initializer>= 0x7388</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ae3b86fae0e6c86123675f68d46e4fe31" prot="public">
+          <name>HALL_SENSOR_NOT_FOUND_ERROR</name>
+          <initializer>=  0x7389</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a7160a0bb29391901b1d6bc79a52006e5" prot="public">
+          <name>HALL_ANGLE_DETECTION_ERROR</name>
+          <initializer>= 0x738A</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ac50afb20a243079863f374602f0790d0" prot="public">
+          <name>SSI_SENSOR_ERROR</name>
+          <initializer>= 0x738C</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aba91bf7b588016cd7f8935c94520ef8c" prot="public">
+          <name>SSI_SENSOR_FRAME_ERROR</name>
+          <initializer>= 0x738D</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ab2f224364cbf9bf4c34de82b780e7124" prot="public">
+          <name>MISSING_MAIN_SENSOR_ERROR</name>
+          <initializer>= 0x7390</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a68f2253adaba115be7510843916d5987" prot="public">
+          <name>MISSING_COMMUTATION_SENSOR_ERROR</name>
+          <initializer>= 0x7391</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a8adcd6c7353d63ec4b4f5b02da1b78f6" prot="public">
+          <name>MAIN_SENSOR_DIRECTION_ERROR</name>
+          <initializer>= 0x7392</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a3e646299177739be870587dd26fb4449" prot="public">
+          <name>ETHERCAT_COMMUNCATION_ERROR</name>
+          <initializer>= 0x8180</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a0e1d401bb43ef2f3fb0537a3e92777b1" prot="public">
+          <name>ETHERCAT_INITIALIZATION_ERROR</name>
+          <initializer>= 0x8181</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a5787a843f41d962dc7a1dd3e0e29b9b9" prot="public">
+          <name>ETHERCAT_RX_QUEUE_OVERFLOW_ERROR</name>
+          <initializer>= 0x8182</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a62621707bb450d9ef1333b9d34f8e4d7" prot="public">
+          <name>ETHERCAT_COMMUNICATION_ERROR_INTERNAL</name>
+          <initializer>= 0x8183</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ab287f60a01e231a9835b65e36f19dc9a" prot="public">
+          <name>ETHERCAT_COMMUNICATION_CYCLE_TIME_ERROR</name>
+          <initializer>= 0x8184</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a89496de2ff5668bba197b17d1265e68a" prot="public">
+          <name>ETHERCAT_PDO_COMMUNICATION_ERROR</name>
+          <initializer>= 0x8280</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a3e33298d2f3f249892149b45a37fa21c" prot="public">
+          <name>ETHERCAT_SDO_COMMUNICATION_ERROR</name>
+          <initializer>= 0x8281</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ad853c51c0c284231f7a3b7640763f058" prot="public">
+          <name>FOLLOWING_ERROR</name>
+          <initializer>= 0x8611</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a9eff61773ede66fc0bd352b5cb2232fd" prot="public">
+          <name>NEGATIVE_LIMIT_SWITCH_ERROR</name>
+          <initializer>= 0x8A80</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352af73ea06674326cf4cf6f009b4433303f" prot="public">
+          <name>POSITIVE_LIMIT_SWITCH_ERROR</name>
+          <initializer>= 0x8A81</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352af260c595c2467ea09bf41a056465ce92" prot="public">
+          <name>SOFTWARE_POSITION_LIMIT_ERROR</name>
+          <initializer>= 0x8A82</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a2e7e1c2aa3c38ce104ed58305bc4709c" prot="public">
+          <name>STO_ERROR</name>
+          <initializer>= 0x8A88</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a95c290dab1387a00b7709c90bf9d5211" prot="public">
+          <name>SYSTEM_OVERLOADED_ERROR</name>
+          <initializer>= 0xFF01</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aa928f088a63439a983a24e6fc32abe11" prot="public">
+          <name>WATCHDOG_ERROR</name>
+          <initializer>= 0xFF02</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ad0c4bae294584ea1089132e6816985e9" prot="public">
+          <name>SYSTEM_PEAK_OVERLOADED_ERROR</name>
+          <initializer>= 0XFF0B</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aa84bf76ec8d7e71c18ed9251715223c8" prot="public">
+          <name>CONTROLLER_GAIN_ERROR</name>
+          <initializer>= 0xFF10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a7bb37bac681759563109152b8476c455" prot="public">
+          <name>AUTO_TUNING_INDENTIFICATION_ERROR</name>
+          <initializer>= 0xFF11</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a38c17361cdf6da6e22bdabbe0d7f9c31" prot="public">
+          <name>AUTO_TUNING_CURRENT_LIMIT_ERROR</name>
+          <initializer>= 0xFF12</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a9d81758f5580a0da99991e364cc97d9a" prot="public">
+          <name>AUTO_TUNING_IDENTIFICATION_CURRENT_ERROR</name>
+          <initializer>= 0xFF13</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ac98b43977b9987c6be2f4849fe8e31fd" prot="public">
+          <name>AUTO_TUNING_DATA_SAMPLING_ERROR</name>
+          <initializer>= 0xFF14</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aae3beda3de633a31cacc16c59dfa28dd" prot="public">
+          <name>AUTO_TUNING_SAMPLE_MISMATCH_ERROR</name>
+          <initializer>= 0xFF15</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352adb7292fd052d572d1d6fe74c913f92cd" prot="public">
+          <name>AUTO_TUNING_PARAMETER_ERROR</name>
+          <initializer>= 0xFF16</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352afa51ee5b1a389f23127bb8216527f2a0" prot="public">
+          <name>AUTO_TUNING_AMPLITUDE_MISMATCH_ERROR</name>
+          <initializer>= 0xFF17</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a900a5aea55f8709365aa34845ab7928f" prot="public">
+          <name>AUTO_TUNING_TIMEOUT_ERROR</name>
+          <initializer>= 0xFF19</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a0dc973299e422964a7d28df45bcea368" prot="public">
+          <name>AUTO_TUNING_STAND_STILL_ERROR</name>
+          <initializer>= 0xFF20</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a2648c7eac32fc72400a8bc81aae25735" prot="public">
+          <name>AUTO_TUNING_TORQUE_INVALID_ERROR</name>
+          <initializer>= 0xFF21</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a9e6807a6a9f42998e9297651bd7b1b58" prot="public">
+          <name>AUTO_TUNING_MAX_SYSTEM_SPEED_ERROR</name>
+          <initializer>= 0XFF22</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ad51a1fdf30d1d4585ac7aaeababe6cff" prot="public">
+          <name>AUTO_TUNING_MOTOR_CONNECTION_ERROR</name>
+          <initializer>= 0xFF23</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ad23483ebf23a1a36fb77843475a6bcc7" prot="public">
+          <name>AUTO_TUNING_SENSOR_SIGNAL_ERROR</name>
+          <initializer>= 0XFF24</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="109" column="1" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="110" bodyend="182"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3" refid="gui__globals_8hpp_1abcd0af621da2a1f852fb466fcb225fe1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NUM_OF_SERVO_DRIVES<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="gui__globals_8hpp_1a1014738a6cd53047136514ced82de7b0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ID_CAMERA<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="gui__globals_8hpp_1a3e343f521bdee99c94f22627c930d24d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TEST_BIT(NUM,N)<sp/><sp/><sp/><sp/>((NUM<sp/>&amp;<sp/><sp/>(1<sp/>&lt;&lt;<sp/>N))&gt;&gt;N)<sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>specific<sp/>bit<sp/>in<sp/>the<sp/>data.<sp/>0<sp/>or<sp/>1.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="gui__globals_8hpp_1a11c01176d68fc4cd05ed423d922eca26" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SET_BIT(NUM,N)<sp/><sp/><sp/><sp/><sp/><sp/>(NUM<sp/>|<sp/><sp/>(1<sp/>&lt;&lt;<sp/>N))<sp/><sp/></highlight><highlight class="comment">//<sp/>Set(1)<sp/>specific<sp/>bit<sp/>in<sp/>the<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="gui__globals_8hpp_1a4f447e47949e3f87b24ffd1039e07be1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RESET_BIT(NUM,N)<sp/><sp/><sp/><sp/>(NUM<sp/>&amp;<sp/>~(1<sp/>&lt;&lt;<sp/>N))<sp/><sp/></highlight><highlight class="comment">//<sp/>Reset(0)<sp/>specific<sp/>bit<sp/>in<sp/>the<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="ecat__definitions_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7" kindref="member">MotorStates</ref>{</highlight></codeline>
+<codeline lineno="13" refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7aefe8b16564c493d6aba4e1761d28fb6e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7aefe8b16564c493d6aba4e1761d28fb6e" kindref="member">kReadyToSwitchOn</ref><sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="14" refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a1aec86a3bb84af0dc09dfba27134d870" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a1aec86a3bb84af0dc09dfba27134d870" kindref="member">kSwitchedOn</ref>,</highlight></codeline>
+<codeline lineno="15" refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a830836c1b6166075e14d3cde3ba188bc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a830836c1b6166075e14d3cde3ba188bc" kindref="member">kOperationEnabled</ref>,</highlight></codeline>
+<codeline lineno="16" refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a17586673585e43ca084718a6a193c61d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a17586673585e43ca084718a6a193c61d" kindref="member">kFault</ref>,</highlight></codeline>
+<codeline lineno="17" refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a94491568dfbb921ec2bc5e0b90bfdf51" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a94491568dfbb921ec2bc5e0b90bfdf51" kindref="member">kVoltageEnabled</ref>,</highlight></codeline>
+<codeline lineno="18" refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a9ebe2d45f83dd0328a95f91b5f7f3197" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a9ebe2d45f83dd0328a95f91b5f7f3197" kindref="member">kQuickStop</ref>,</highlight></codeline>
+<codeline lineno="19" refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a69fef3d95dbc631270c0a449c873b1f9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a69fef3d95dbc631270c0a449c873b1f9" kindref="member">kSwitchOnDisabled</ref>,</highlight></codeline>
+<codeline lineno="20" refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a017887ee6e6d711cdb453f275fd971dc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a017887ee6e6d711cdb453f275fd971dc" kindref="member">kWarning</ref>,</highlight></codeline>
+<codeline lineno="21" refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7af34e262497cefee9f006225d255f0b02" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7af34e262497cefee9f006225d255f0b02" kindref="member">kRemote</ref>,</highlight></codeline>
+<codeline lineno="22" refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a2f6d5acfbeb8936f56c1a86dd1827dfb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a2f6d5acfbeb8936f56c1a86dd1827dfb" kindref="member">kTargetReached</ref>,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7af6a3169aef150c63a68dc2206278bb11" kindref="member">kInternalLimitActivate</ref></highlight></codeline>
+<codeline lineno="24" refid="gui__globals_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7af6a3169aef150c63a68dc2206278bb11" refkind="member"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34" kindref="member">LifeCycleStates</ref>{</highlight></codeline>
+<codeline lineno="28" refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34ae0b771369dfb01dcddb2c023a9c1f89b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34ae0b771369dfb01dcddb2c023a9c1f89b" kindref="member">kInitialized</ref>,</highlight></codeline>
+<codeline lineno="29" refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34a0d8a083216a21de9b9e4aa973eaa6054" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34a0d8a083216a21de9b9e4aa973eaa6054" kindref="member">kUnconfigured</ref>,</highlight></codeline>
+<codeline lineno="30" refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34ab1df3ce3210909025bec699a0ebe10e5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34ab1df3ce3210909025bec699a0ebe10e5" kindref="member">kInactive</ref>,</highlight></codeline>
+<codeline lineno="31" refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34ab6a8784b4cf96692e0d71d19c44ce732" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34ab6a8784b4cf96692e0d71d19c44ce732" kindref="member">kActive</ref>,</highlight></codeline>
+<codeline lineno="32" refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34a58748d5f89bdcf8de8dbaf3304bc651c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34a58748d5f89bdcf8de8dbaf3304bc651c" kindref="member">kFinalized</ref>,</highlight></codeline>
+<codeline lineno="33" refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34a43a736e8410f7f4b6cda49ee54e845c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34a43a736e8410f7f4b6cda49ee54e845c4" kindref="member">kConfiguring</ref><sp/>=<sp/>10,</highlight></codeline>
+<codeline lineno="34" refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34ab333470372060ef5f030cc34123a706e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34ab333470372060ef5f030cc34123a706e" kindref="member">kCleaningUp</ref>,<sp/></highlight></codeline>
+<codeline lineno="35" refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34a6bd968912a244d1eaf5edaa3dfe372e0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34a6bd968912a244d1eaf5edaa3dfe372e0" kindref="member">kShuttingDown</ref>,</highlight></codeline>
+<codeline lineno="36" refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34a517eb424d6d407f6969d37b7a2493008" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34a517eb424d6d407f6969d37b7a2493008" kindref="member">kActivating</ref>,</highlight></codeline>
+<codeline lineno="37" refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34aceea6f4c5b66edd5029dc0078df5dbcf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34aceea6f4c5b66edd5029dc0078df5dbcf" kindref="member">kDeactivating</ref>,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34a1e8ac11ccb19182d987625d9beeacbcc" kindref="member">kErrorProcessing</ref></highlight></codeline>
+<codeline lineno="39" refid="gui__globals_8hpp_1ae244c86447fc8505a577e48f17fb9b34a1e8ac11ccb19182d987625d9beeacbcc" refkind="member"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structReceivedData" kindref="compound">ReceivedData</ref></highlight></codeline>
+<codeline lineno="43"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/><sp/><sp/><ref refid="structReceivedData_1afff99790265b4a2f4d67ae70a0dc17ce" kindref="member">target_pos</ref><sp/>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/><sp/><sp/><ref refid="structReceivedData_1a2ab83acfaad70e3d4a1f1393a4ee708f" kindref="member">target_vel</ref><sp/>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/><sp/><sp/><ref refid="structReceivedData_1a3fc68c33af6351193d225cdf062f8227" kindref="member">target_tor</ref><sp/>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/><sp/><sp/><ref refid="structReceivedData_1a4015807759d6e67ef30820d1c0f6d02f" kindref="member">max_tor</ref><sp/>;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><ref refid="structReceivedData_1a1699392bb03d114ab5a0c7e9250c8d32" kindref="member">control_word</ref><sp/>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/><sp/><sp/><ref refid="structReceivedData_1ac5c4a47a3cfcf5b1bd6a3014afdb958a" kindref="member">vel_offset</ref><sp/>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/><sp/><sp/><ref refid="structReceivedData_1a4a23d372f63980ad2e07bcbf3cd3181e" kindref="member">tor_offset</ref><sp/>;</highlight></codeline>
+<codeline lineno="51" refid="structReceivedData_1ad1caccbf23e15c9282079e6d0123965f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><ref refid="structReceivedData_1ad1caccbf23e15c9282079e6d0123965f" kindref="member">error_code</ref><sp/>;<sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/><sp/><ref refid="structReceivedData_1a256a4ccad5573ed0d9a4c8add634b86e" kindref="member">actual_pos</ref><sp/>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/><sp/><ref refid="structReceivedData_1abcbbbeec0786dd863007f3b29d37633a" kindref="member">actual_vel</ref><sp/>;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/><sp/><ref refid="structReceivedData_1a9cc287786c97420c997b43ec051e0749" kindref="member">actual_cur</ref><sp/>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/><sp/><ref refid="structReceivedData_1ab300dfb5692a9b757908d5d779a8b5b5" kindref="member">actual_tor</ref><sp/>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="structReceivedData_1a149b41071f2011b95143e2e6003ef251" kindref="member">status_word</ref><sp/>;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>int8_t<sp/><sp/><sp/><ref refid="structReceivedData_1a25c4e0bcf00afa5883e2c0978cc861b6" kindref="member">op_mode_display</ref><sp/>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><ref refid="structReceivedData_1a04019bdb0f44e77381bffe9adf25e1fe" kindref="member">left_limit_switch_val</ref><sp/>;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><ref refid="structReceivedData_1a233c9141d68048d21b26e10a11036e26" kindref="member">right_limit_switch_val</ref><sp/>;</highlight></codeline>
+<codeline lineno="60" refid="structReceivedData_1a4f26602ace4259763df1030b19b6d64f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/><sp/><ref refid="structReceivedData_1a4f26602ace4259763df1030b19b6d64f" kindref="member">right_x_axis</ref>;</highlight></codeline>
+<codeline lineno="61" refid="structReceivedData_1a2af989aebb271f62b967408aa869bc01" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/><sp/><ref refid="structReceivedData_1a2af989aebb271f62b967408aa869bc01" kindref="member">left_x_axis</ref>;</highlight></codeline>
+<codeline lineno="62" refid="structReceivedData_1abe986d947a31ea05be50bdf96814e59e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><ref refid="structReceivedData_1abe986d947a31ea05be50bdf96814e59e" kindref="member">p_emergency_switch_val</ref>;</highlight></codeline>
+<codeline lineno="63" refid="structReceivedData_1a3afcc288ec8cf840cc34b4426c42a54f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><ref refid="structReceivedData_1a3afcc288ec8cf840cc34b4426c42a54f" kindref="member">com_status</ref>;</highlight></codeline>
+<codeline lineno="64" refid="structReceivedData_1ae27cd80acb1039ffe05a6d02dbb33f8f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><ref refid="structReceivedData_1ae27cd80acb1039ffe05a6d02dbb33f8f" kindref="member">slave_com_status</ref>;</highlight></codeline>
+<codeline lineno="65" refid="structReceivedData_1acdb3787a6b0dc60745069f93d3b2c5ec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><ref refid="structReceivedData_1acdb3787a6b0dc60745069f93d3b2c5ec" kindref="member">current_lifecycle_state</ref>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68af" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="70" refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afad52f0058d24f3e3fec39d4502604a22e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afad52f0058d24f3e3fec39d4502604a22e" kindref="member">kProfilePosition</ref><sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="71" refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa5d2b33d7161a77fdc97acfdc4de48a03" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa5d2b33d7161a77fdc97acfdc4de48a03" kindref="member">kProfileVelocity</ref><sp/>=<sp/>3,</highlight></codeline>
+<codeline lineno="72" refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa3e1069b7c47950dd03ed7eb55f6421d2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa3e1069b7c47950dd03ed7eb55f6421d2" kindref="member">kProfileTorque</ref><sp/><sp/><sp/>=<sp/>4,</highlight></codeline>
+<codeline lineno="73" refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa90b00776b82cbe0b451a0a9c46e68945" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa90b00776b82cbe0b451a0a9c46e68945" kindref="member">kHoming</ref><sp/>=<sp/>6,</highlight></codeline>
+<codeline lineno="74" refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa7a6bd1ac4ba0aab0998cbccaded2ca27" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa7a6bd1ac4ba0aab0998cbccaded2ca27" kindref="member">kInterpolatedPosition</ref><sp/>=<sp/>7,</highlight></codeline>
+<codeline lineno="75" refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa1566565deaca1a00f9046cea18ccf5de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa1566565deaca1a00f9046cea18ccf5de" kindref="member">kCSPosition</ref><sp/>=<sp/>8,</highlight></codeline>
+<codeline lineno="76" refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afab7ddf4a5dec8aca3035989b429490bc4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afab7ddf4a5dec8aca3035989b429490bc4" kindref="member">kCSVelocity</ref><sp/>=<sp/>9,</highlight></codeline>
+<codeline lineno="77" refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa32c69215479b5f329044f8c79a74e1a4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa32c69215479b5f329044f8c79a74e1a4" kindref="member">kCSTorque</ref><sp/>=<sp/>10,</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}<sp/><ref refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68af" kindref="member">OpMode</ref><sp/>;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="structControlUIButtonData" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structControlUIButtonData" kindref="compound">ControlUIButtonData</ref>{</highlight></codeline>
+<codeline lineno="81" refid="structControlUIButtonData_1a159f79d8922c840e127589b55bdd49e8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structControlUIButtonData_1a159f79d8922c840e127589b55bdd49e8" kindref="member">b_init_ecat</ref>;</highlight></codeline>
+<codeline lineno="82" refid="structControlUIButtonData_1ad997dd1579d5ddba6b1732b245c78df0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structControlUIButtonData_1ad997dd1579d5ddba6b1732b245c78df0" kindref="member">b_reinit_ecat</ref>;</highlight></codeline>
+<codeline lineno="83" refid="structControlUIButtonData_1a6ea3c9660676c76b0a177782bcd1bc4f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structControlUIButtonData_1a6ea3c9660676c76b0a177782bcd1bc4f" kindref="member">b_stop_cyclic_pdo</ref><sp/>;<sp/></highlight></codeline>
+<codeline lineno="84" refid="structControlUIButtonData_1a281503d032887eb113403dfaa4be413f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structControlUIButtonData_1a281503d032887eb113403dfaa4be413f" kindref="member">b_enable_drives</ref>;</highlight></codeline>
+<codeline lineno="85" refid="structControlUIButtonData_1a1f6ee7050766572eeea63b77b59d5ae1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structControlUIButtonData_1a1f6ee7050766572eeea63b77b59d5ae1" kindref="member">b_disable_drives</ref>;</highlight></codeline>
+<codeline lineno="86" refid="structControlUIButtonData_1a7927fc4aa1b1e66deb628cfba4f84aac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structControlUIButtonData_1a7927fc4aa1b1e66deb628cfba4f84aac" kindref="member">b_enable_cyclic_pos</ref>;</highlight></codeline>
+<codeline lineno="87" refid="structControlUIButtonData_1a9da7551ad6af62ad9419593ad1916e11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structControlUIButtonData_1a9da7551ad6af62ad9419593ad1916e11" kindref="member">b_enable_cyclic_vel</ref>;</highlight></codeline>
+<codeline lineno="88" refid="structControlUIButtonData_1a1b1c2a7d44a1e1ba5fea472cbbb8f611" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structControlUIButtonData_1a1b1c2a7d44a1e1ba5fea472cbbb8f611" kindref="member">b_enable_vel</ref>;</highlight></codeline>
+<codeline lineno="89" refid="structControlUIButtonData_1a41a30954171b8f5acfa3f04cba81c9aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structControlUIButtonData_1a41a30954171b8f5acfa3f04cba81c9aa" kindref="member">b_enable_pos</ref>;</highlight></codeline>
+<codeline lineno="90" refid="structControlUIButtonData_1a8f0892ccf5398525440cfe46e80db953" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structControlUIButtonData_1a8f0892ccf5398525440cfe46e80db953" kindref="member">b_enter_cyclic_pdo</ref>;</highlight></codeline>
+<codeline lineno="91" refid="structControlUIButtonData_1a9a37a98efc39c42870246421a83b7f95" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structControlUIButtonData_1a9a37a98efc39c42870246421a83b7f95" kindref="member">b_emergency_mode</ref>;</highlight></codeline>
+<codeline lineno="92" refid="structControlUIButtonData_1a16f408c268b53db43e393dd8cc27c22f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structControlUIButtonData_1a16f408c268b53db43e393dd8cc27c22f" kindref="member">b_send</ref>;</highlight></codeline>
+<codeline lineno="93" refid="structControlUIButtonData_1a8c1b8287572701d04f32f04b0f5b722d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="structControlUIButtonData_1a8c1b8287572701d04f32f04b0f5b722d" kindref="member">l_target_val</ref>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="gui__globals_8hpp_1a79387c4437b10720436d6d6ab8f17311" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SM_COMM_RESET<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x81</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="gui__globals_8hpp_1a560d3d1a5d98131f995f14022b89065e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SM_FULL_RESET<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x82</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98" refid="gui__globals_8hpp_1a0151dbb41c760a19abbe63baa11a2ab7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SM_START<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x01</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="gui__globals_8hpp_1ad65751bc944de3d8a311d3c4b67e3902" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SM_GO_READY_TO_SWITCH_ON<sp/><sp/><sp/><sp/>0x06</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="gui__globals_8hpp_1a31d0ed64eb662ab9189ad53d0684efad" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SM_GO_SWITCH_ON<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x07</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101" refid="gui__globals_8hpp_1a106be1a156a40681180306c587d2f6f2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SM_GO_ENABLE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0X0F</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="gui__globals_8hpp_1a67a844adb1df22f93037703a7aae4af6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SM_GO_SWITCH_ON_DISABLE<sp/><sp/><sp/><sp/><sp/>0x00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103" refid="gui__globals_8hpp_1a9250a46e089de909358597e6075e4580" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SM_RUN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x1F</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104" refid="gui__globals_8hpp_1a789a1d3357f273990a249fcb757c41b0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SM_EXPEDITE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x3F<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//like<sp/>run,<sp/>but<sp/>dont<sp/>finish<sp/>actual<sp/>position<sp/>profile</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="gui__globals_8hpp_1ab7adcfce5cab981c20d9074db1a40dfe" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SM_QUICKSTOP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x02</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="gui__globals_8hpp_1aa5373bcec0b512425ecff493e17fb2a9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SM_RELATIVE_<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0X7F</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352" kindref="member">CiA402ErrorType</ref></highlight></codeline>
+<codeline lineno="110"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="111" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352abf350750d0d4fabd8954c0f1e9bbae94" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352abf350750d0d4fabd8954c0f1e9bbae94" kindref="member">NO_ERROR</ref><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="112" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a9bcb544a32281727d57f35dec7d49e78" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a9bcb544a32281727d57f35dec7d49e78" kindref="member">GENERIC_ERROR</ref><sp/>=<sp/>0x1000,</highlight></codeline>
+<codeline lineno="113" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ac2d2d74368bed88ae4617b7eeb9d18b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ac2d2d74368bed88ae4617b7eeb9d18b5" kindref="member">GENERIC_INIT_ERROR</ref><sp/>=<sp/>0x1080,</highlight></codeline>
+<codeline lineno="114" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aa92cbf5cd466db7f5c41a5959f209ce6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aa92cbf5cd466db7f5c41a5959f209ce6" kindref="member">GENERIC_INIT_ERROR_1</ref><sp/>=<sp/>0x1081,</highlight></codeline>
+<codeline lineno="115" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ab4756b29189241c173fbf97c6bf0c2c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ab4756b29189241c173fbf97c6bf0c2c9" kindref="member">GENERIC_INIT_ERROR_2</ref><sp/>=<sp/>0x1082,</highlight></codeline>
+<codeline lineno="116" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a993234cfb6c40315cba3ad917037f3bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a993234cfb6c40315cba3ad917037f3bf" kindref="member">GENERIC_INIT_ERROR_3</ref><sp/>=<sp/>0x1083,</highlight></codeline>
+<codeline lineno="117" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a496d94c101319df710427ba3def5d85e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a496d94c101319df710427ba3def5d85e" kindref="member">GENERIC_INIT_ERROR_4</ref><sp/>=<sp/>0x1084,</highlight></codeline>
+<codeline lineno="118" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a57f92d5c84f99221fbb39c867884defa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a57f92d5c84f99221fbb39c867884defa" kindref="member">GENERIC_INIT_ERROR_5</ref><sp/>=<sp/>0x1085,</highlight></codeline>
+<codeline lineno="119" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a3670b91721ad58cef03b0351078a0272" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a3670b91721ad58cef03b0351078a0272" kindref="member">GENERIC_INIT_ERROR_6</ref><sp/>=<sp/>0x1086,</highlight></codeline>
+<codeline lineno="120" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a09c0d7caa45fde43df2b2e9fcc0cb2e1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a09c0d7caa45fde43df2b2e9fcc0cb2e1" kindref="member">GENERIC_INIT_ERROR_7</ref><sp/>=<sp/>0x1087,</highlight></codeline>
+<codeline lineno="121" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a6ef33b130501be19c8c0b31d284be837" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a6ef33b130501be19c8c0b31d284be837" kindref="member">GENERIC_INIT_ERROR_8</ref><sp/>=<sp/>0x1088,</highlight></codeline>
+<codeline lineno="122" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a73b5d4b9fbb9db0fc597bccf1ed0f3eb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a73b5d4b9fbb9db0fc597bccf1ed0f3eb" kindref="member">FIRMWARE_INCOMPATIBLITY_ERROR</ref><sp/>=<sp/>0x1090,</highlight></codeline>
+<codeline lineno="123" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a920c7f729c170f66d23171faa6ab98a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a920c7f729c170f66d23171faa6ab98a5" kindref="member">OVER_CURRENT_ERROR</ref><sp/>=<sp/>0x2310,</highlight></codeline>
+<codeline lineno="124" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a6ae4a1e15b464e1d1470b3e866c150f6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a6ae4a1e15b464e1d1470b3e866c150f6" kindref="member">POWER_STAGE_PROTECTION_ERROR</ref><sp/>=<sp/>0x2320,</highlight></codeline>
+<codeline lineno="125" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a638b59942aaf9bec4aaa9580c3edc8e8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a638b59942aaf9bec4aaa9580c3edc8e8" kindref="member">OVER_VOLTAGE_ERROR</ref><sp/>=<sp/>0x3210,</highlight></codeline>
+<codeline lineno="126" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a4e80575925053a375109066c6c08b7b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a4e80575925053a375109066c6c08b7b6" kindref="member">UNDER_VOLTAGE_ERROR</ref><sp/>=<sp/>0x3220,</highlight></codeline>
+<codeline lineno="127" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a241ff6419d9082a0b91205b30ad752ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a241ff6419d9082a0b91205b30ad752ee" kindref="member">THERMAL_OVERLOAD_ERROR</ref><sp/>=<sp/>0x4210,</highlight></codeline>
+<codeline lineno="128" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a6093baf40fce18f3929c687dbb191a93" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a6093baf40fce18f3929c687dbb191a93" kindref="member">THERMAL_MOTOR_OVERLOAD_ERRROR</ref><sp/>=<sp/>0x4380,</highlight></codeline>
+<codeline lineno="129" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352af222afd036ad548f510f85ecb6b115d1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352af222afd036ad548f510f85ecb6b115d1" kindref="member">LOGIC_SUPPLY_TOO_LOW_ERROR</ref><sp/>=<sp/>0x5113,</highlight></codeline>
+<codeline lineno="130" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aab6c7d6ce3a56b8623715c466a8c6133" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aab6c7d6ce3a56b8623715c466a8c6133" kindref="member">HARDWARE_DEFECT_ERROR</ref><sp/>=<sp/>0x5280,</highlight></codeline>
+<codeline lineno="131" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a6450e53101b312a440411ba9f80229a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a6450e53101b312a440411ba9f80229a2" kindref="member">HARDWARE_INCOMPATIBLITY_ERROR</ref><sp/>=<sp/>0x5281,</highlight></codeline>
+<codeline lineno="132" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a28a3763240d6c1ba52bf1f13b8a348db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a28a3763240d6c1ba52bf1f13b8a348db" kindref="member">HARDWARE_ERROR</ref><sp/>=<sp/>0x5480,</highlight></codeline>
+<codeline lineno="133" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352adf33309cdf451cccf4535535c90fd769" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352adf33309cdf451cccf4535535c90fd769" kindref="member">HARDWARE_ERROR_1</ref><sp/>=<sp/>0x5481,</highlight></codeline>
+<codeline lineno="134" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a3fc207987acf9602a03ab24467710051" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a3fc207987acf9602a03ab24467710051" kindref="member">HARDWARE_ERROR_2</ref><sp/>=<sp/>0x5482,</highlight></codeline>
+<codeline lineno="135" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a65dbd6ef294771dc8be5b538978d4857" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a65dbd6ef294771dc8be5b538978d4857" kindref="member">HARDWARE_ERROR_3</ref><sp/>=<sp/>0x5483,</highlight></codeline>
+<codeline lineno="136" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a0d1a81acf0546a8fa99f6b465c38e654" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a0d1a81acf0546a8fa99f6b465c38e654" kindref="member">SIGN_OF_LIFE_ERROR</ref><sp/>=<sp/>0x6080,</highlight></codeline>
+<codeline lineno="137" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a8e86f8369bb9e63c090b461af52826d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a8e86f8369bb9e63c090b461af52826d9" kindref="member">EXTENSION_1_WATCHDOG_ERROR</ref><sp/>=<sp/>0x6081,</highlight></codeline>
+<codeline lineno="138" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a91584d1394caf9a72c6e096413ab1083" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a91584d1394caf9a72c6e096413ab1083" kindref="member">INTERNAL_SOFTWARE_ERROR</ref><sp/>=<sp/>0x6180,</highlight></codeline>
+<codeline lineno="139" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a6f23e564970c94f7878e05832d8b419f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a6f23e564970c94f7878e05832d8b419f" kindref="member">SOFTWARE_PARAMETER_ERROR</ref><sp/>=<sp/>0x6320,</highlight></codeline>
+<codeline lineno="140" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a2df60635227442a284f44961609460a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a2df60635227442a284f44961609460a1" kindref="member">PERSISTENT_PARAMETER_CORRUPT_ERROR</ref><sp/>=<sp/>0x6380,</highlight></codeline>
+<codeline lineno="141" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a43e2b6703966bace1a00ae501793a40b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a43e2b6703966bace1a00ae501793a40b" kindref="member">POSITION_SENSOR_ERROR</ref><sp/>=<sp/>0x7320,</highlight></codeline>
+<codeline lineno="142" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ab728302f99ed7717ceaf3862eaf4acf5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ab728302f99ed7717ceaf3862eaf4acf5" kindref="member">POSITION_SENSOR_BREACH_ERROR</ref><sp/>=<sp/>0x7380,</highlight></codeline>
+<codeline lineno="143" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a03ab1c1e4f1e4e011a61c420ce516ced" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a03ab1c1e4f1e4e011a61c420ce516ced" kindref="member">POSITION_SENSOR_RESOLUTION_ERROR</ref><sp/><sp/>=<sp/>0x7381,</highlight></codeline>
+<codeline lineno="144" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a2b4da4bf429b5046c3aecd39fc5bb469" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a2b4da4bf429b5046c3aecd39fc5bb469" kindref="member">POSITION_SENSOR_INDEX_ERROR</ref><sp/>=<sp/>0x7382,</highlight></codeline>
+<codeline lineno="145" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aaec0121115a14ece6c9376a94f7a2776" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aaec0121115a14ece6c9376a94f7a2776" kindref="member">HALL_SENSOR_ERROR</ref><sp/>=<sp/>0x7388,</highlight></codeline>
+<codeline lineno="146" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ae3b86fae0e6c86123675f68d46e4fe31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ae3b86fae0e6c86123675f68d46e4fe31" kindref="member">HALL_SENSOR_NOT_FOUND_ERROR</ref><sp/>=<sp/><sp/>0x7389,</highlight></codeline>
+<codeline lineno="147" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a7160a0bb29391901b1d6bc79a52006e5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a7160a0bb29391901b1d6bc79a52006e5" kindref="member">HALL_ANGLE_DETECTION_ERROR</ref><sp/>=<sp/>0x738A,</highlight></codeline>
+<codeline lineno="148" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ac50afb20a243079863f374602f0790d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ac50afb20a243079863f374602f0790d0" kindref="member">SSI_SENSOR_ERROR</ref><sp/>=<sp/>0x738C,</highlight></codeline>
+<codeline lineno="149" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aba91bf7b588016cd7f8935c94520ef8c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aba91bf7b588016cd7f8935c94520ef8c" kindref="member">SSI_SENSOR_FRAME_ERROR</ref><sp/>=<sp/>0x738D,</highlight></codeline>
+<codeline lineno="150" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ab2f224364cbf9bf4c34de82b780e7124" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ab2f224364cbf9bf4c34de82b780e7124" kindref="member">MISSING_MAIN_SENSOR_ERROR</ref><sp/>=<sp/>0x7390,</highlight></codeline>
+<codeline lineno="151" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a68f2253adaba115be7510843916d5987" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a68f2253adaba115be7510843916d5987" kindref="member">MISSING_COMMUTATION_SENSOR_ERROR</ref><sp/>=<sp/>0x7391,<sp/></highlight></codeline>
+<codeline lineno="152" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a8adcd6c7353d63ec4b4f5b02da1b78f6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a8adcd6c7353d63ec4b4f5b02da1b78f6" kindref="member">MAIN_SENSOR_DIRECTION_ERROR</ref><sp/>=<sp/>0x7392,</highlight></codeline>
+<codeline lineno="153" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a3e646299177739be870587dd26fb4449" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a3e646299177739be870587dd26fb4449" kindref="member">ETHERCAT_COMMUNCATION_ERROR</ref><sp/>=<sp/>0x8180,</highlight></codeline>
+<codeline lineno="154" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a0e1d401bb43ef2f3fb0537a3e92777b1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a0e1d401bb43ef2f3fb0537a3e92777b1" kindref="member">ETHERCAT_INITIALIZATION_ERROR</ref><sp/>=<sp/>0x8181,</highlight></codeline>
+<codeline lineno="155" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a5787a843f41d962dc7a1dd3e0e29b9b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a5787a843f41d962dc7a1dd3e0e29b9b9" kindref="member">ETHERCAT_RX_QUEUE_OVERFLOW_ERROR</ref><sp/>=<sp/>0x8182,</highlight></codeline>
+<codeline lineno="156" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a62621707bb450d9ef1333b9d34f8e4d7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a62621707bb450d9ef1333b9d34f8e4d7" kindref="member">ETHERCAT_COMMUNICATION_ERROR_INTERNAL</ref><sp/><sp/>=<sp/>0x8183,</highlight></codeline>
+<codeline lineno="157" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ab287f60a01e231a9835b65e36f19dc9a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ab287f60a01e231a9835b65e36f19dc9a" kindref="member">ETHERCAT_COMMUNICATION_CYCLE_TIME_ERROR</ref><sp/>=<sp/>0x8184,</highlight></codeline>
+<codeline lineno="158" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a89496de2ff5668bba197b17d1265e68a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a89496de2ff5668bba197b17d1265e68a" kindref="member">ETHERCAT_PDO_COMMUNICATION_ERROR</ref><sp/>=<sp/>0x8280,</highlight></codeline>
+<codeline lineno="159" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a3e33298d2f3f249892149b45a37fa21c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a3e33298d2f3f249892149b45a37fa21c" kindref="member">ETHERCAT_SDO_COMMUNICATION_ERROR</ref><sp/>=<sp/>0x8281,</highlight></codeline>
+<codeline lineno="160" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ad853c51c0c284231f7a3b7640763f058" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ad853c51c0c284231f7a3b7640763f058" kindref="member">FOLLOWING_ERROR</ref><sp/>=<sp/>0x8611,</highlight></codeline>
+<codeline lineno="161" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a9eff61773ede66fc0bd352b5cb2232fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a9eff61773ede66fc0bd352b5cb2232fd" kindref="member">NEGATIVE_LIMIT_SWITCH_ERROR</ref><sp/>=<sp/>0x8A80,</highlight></codeline>
+<codeline lineno="162" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352af73ea06674326cf4cf6f009b4433303f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352af73ea06674326cf4cf6f009b4433303f" kindref="member">POSITIVE_LIMIT_SWITCH_ERROR</ref><sp/>=<sp/>0x8A81,</highlight></codeline>
+<codeline lineno="163" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352af260c595c2467ea09bf41a056465ce92" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352af260c595c2467ea09bf41a056465ce92" kindref="member">SOFTWARE_POSITION_LIMIT_ERROR</ref><sp/>=<sp/>0x8A82,</highlight></codeline>
+<codeline lineno="164" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a2e7e1c2aa3c38ce104ed58305bc4709c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a2e7e1c2aa3c38ce104ed58305bc4709c" kindref="member">STO_ERROR</ref><sp/>=<sp/>0x8A88,</highlight></codeline>
+<codeline lineno="165" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a95c290dab1387a00b7709c90bf9d5211" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a95c290dab1387a00b7709c90bf9d5211" kindref="member">SYSTEM_OVERLOADED_ERROR</ref><sp/>=<sp/>0xFF01,</highlight></codeline>
+<codeline lineno="166" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aa928f088a63439a983a24e6fc32abe11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aa928f088a63439a983a24e6fc32abe11" kindref="member">WATCHDOG_ERROR</ref><sp/>=<sp/>0xFF02,</highlight></codeline>
+<codeline lineno="167" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ad0c4bae294584ea1089132e6816985e9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ad0c4bae294584ea1089132e6816985e9" kindref="member">SYSTEM_PEAK_OVERLOADED_ERROR</ref><sp/>=<sp/>0XFF0B,</highlight></codeline>
+<codeline lineno="168" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aa84bf76ec8d7e71c18ed9251715223c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aa84bf76ec8d7e71c18ed9251715223c8" kindref="member">CONTROLLER_GAIN_ERROR</ref><sp/>=<sp/>0xFF10,</highlight></codeline>
+<codeline lineno="169" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a7bb37bac681759563109152b8476c455" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a7bb37bac681759563109152b8476c455" kindref="member">AUTO_TUNING_INDENTIFICATION_ERROR</ref><sp/>=<sp/>0xFF11,</highlight></codeline>
+<codeline lineno="170" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a38c17361cdf6da6e22bdabbe0d7f9c31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a38c17361cdf6da6e22bdabbe0d7f9c31" kindref="member">AUTO_TUNING_CURRENT_LIMIT_ERROR</ref><sp/>=<sp/>0xFF12,</highlight></codeline>
+<codeline lineno="171" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a9d81758f5580a0da99991e364cc97d9a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a9d81758f5580a0da99991e364cc97d9a" kindref="member">AUTO_TUNING_IDENTIFICATION_CURRENT_ERROR</ref><sp/>=<sp/>0xFF13,</highlight></codeline>
+<codeline lineno="172" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ac98b43977b9987c6be2f4849fe8e31fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ac98b43977b9987c6be2f4849fe8e31fd" kindref="member">AUTO_TUNING_DATA_SAMPLING_ERROR</ref><sp/><sp/>=<sp/>0xFF14,</highlight></codeline>
+<codeline lineno="173" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aae3beda3de633a31cacc16c59dfa28dd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352aae3beda3de633a31cacc16c59dfa28dd" kindref="member">AUTO_TUNING_SAMPLE_MISMATCH_ERROR</ref><sp/>=<sp/>0xFF15,</highlight></codeline>
+<codeline lineno="174" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352adb7292fd052d572d1d6fe74c913f92cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352adb7292fd052d572d1d6fe74c913f92cd" kindref="member">AUTO_TUNING_PARAMETER_ERROR</ref><sp/>=<sp/>0xFF16,</highlight></codeline>
+<codeline lineno="175" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352afa51ee5b1a389f23127bb8216527f2a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352afa51ee5b1a389f23127bb8216527f2a0" kindref="member">AUTO_TUNING_AMPLITUDE_MISMATCH_ERROR</ref><sp/>=<sp/>0xFF17,</highlight></codeline>
+<codeline lineno="176" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a900a5aea55f8709365aa34845ab7928f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a900a5aea55f8709365aa34845ab7928f" kindref="member">AUTO_TUNING_TIMEOUT_ERROR</ref><sp/>=<sp/>0xFF19,</highlight></codeline>
+<codeline lineno="177" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a0dc973299e422964a7d28df45bcea368" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a0dc973299e422964a7d28df45bcea368" kindref="member">AUTO_TUNING_STAND_STILL_ERROR</ref><sp/>=<sp/>0xFF20,</highlight></codeline>
+<codeline lineno="178" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a2648c7eac32fc72400a8bc81aae25735" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a2648c7eac32fc72400a8bc81aae25735" kindref="member">AUTO_TUNING_TORQUE_INVALID_ERROR</ref><sp/>=<sp/>0xFF21,</highlight></codeline>
+<codeline lineno="179" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a9e6807a6a9f42998e9297651bd7b1b58" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a9e6807a6a9f42998e9297651bd7b1b58" kindref="member">AUTO_TUNING_MAX_SYSTEM_SPEED_ERROR</ref><sp/>=<sp/>0XFF22,</highlight></codeline>
+<codeline lineno="180" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ad51a1fdf30d1d4585ac7aaeababe6cff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ad51a1fdf30d1d4585ac7aaeababe6cff" kindref="member">AUTO_TUNING_MOTOR_CONNECTION_ERROR</ref><sp/>=<sp/>0xFF23,</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ad23483ebf23a1a36fb77843475a6bcc7" kindref="member">AUTO_TUNING_SENSOR_SIGNAL_ERROR</ref><sp/>=<sp/>0XFF24</highlight></codeline>
+<codeline lineno="182" refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ad23483ebf23a1a36fb77843475a6bcc7" refkind="member"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp"/>
+  </compounddef>
+</doxygen>

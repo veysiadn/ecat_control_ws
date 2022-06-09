@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="dir_675f4537d6e4af31cfc867aad29c483f" kind="dir">
+    <compoundname>src/safety_pkg/include/safety_pkg</compoundname>
+    <innerfile refid="safety__node_8hpp">safety_node.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/safety_pkg/include/safety_pkg/"/>
+  </compounddef>
+</doxygen>

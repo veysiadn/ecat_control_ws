@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>src</compoundname>
+    <innerdir refid="dir_41ef5d8a90b9cc03a02949a5c062e6f0">src/controller</innerdir>
+    <innerdir refid="dir_620320258e45fc0c4377bdb2534829a3">src/ecat_msgs</innerdir>
+    <innerdir refid="dir_6ed40f2d31a14c8f080c4f6acbbad9fa">src/ecat_pkg</innerdir>
+    <innerdir refid="dir_a8d7c3dfc6a2d1ab1ed6aadf73452078">src/gui_pkg</innerdir>
+    <innerdir refid="dir_86ae27c4297ac583bcdd036becb19fdf">src/input_pkg</innerdir>
+    <innerdir refid="dir_2d5e762472730a416a9d6417e2041833">src/safety_pkg</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/"/>
+  </compounddef>
+</doxygen>

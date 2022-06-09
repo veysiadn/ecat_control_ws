@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="gui__node_8cpp" kind="file" language="C++">
+    <compoundname>gui_node.cpp</compoundname>
+    <includes refid="gui__node_8hpp" local="yes">../include/gui_pkg/gui_node.hpp</includes>
+    <incdepgraph>
+      <node id="20">
+        <label>gui_globals.hpp</label>
+        <link refid="gui__globals_8hpp"/>
+      </node>
+      <node id="2">
+        <label>../include/gui_pkg/gui_node.hpp</label>
+        <link refid="gui__node_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>timing.hpp</label>
+        <link refid="gui__pkg_2include_2gui__pkg_2timing_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/gui_pkg/src/gui_node.cpp</label>
+        <link refid="gui__node_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>chrono</label>
+      </node>
+      <node id="14">
+        <label>cstdint</label>
+      </node>
+      <node id="15">
+        <label>ctime</label>
+      </node>
+      <node id="5">
+        <label>ecat_msgs/msg/data_received.hpp</label>
+      </node>
+      <node id="6">
+        <label>ecat_msgs/msg/data_sent.hpp</label>
+      </node>
+      <node id="7">
+        <label>ecat_msgs/msg/gui_button_data.hpp</label>
+      </node>
+      <node id="17">
+        <label>fstream</label>
+      </node>
+      <node id="12">
+        <label>functional</label>
+      </node>
+      <node id="19">
+        <label>iostream</label>
+      </node>
+      <node id="11">
+        <label>memory</label>
+      </node>
+      <node id="16">
+        <label>ratio</label>
+      </node>
+      <node id="3">
+        <label>rclcpp/rclcpp.hpp</label>
+      </node>
+      <node id="4">
+        <label>sensor_msgs/msg/joy.hpp</label>
+      </node>
+      <node id="8">
+        <label>std_msgs/msg/u_int16.hpp</label>
+      </node>
+      <node id="13">
+        <label>string</label>
+      </node>
+      <node id="9">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;../include/gui_pkg/gui_node.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std::chrono_literals;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceGUI" kindref="compound">GUI</ref>;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/>GuiNode::GuiNode()<sp/>:<sp/>Node(</highlight><highlight class="stringliteral">&quot;gui_node&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>received_data_.resize(<ref refid="gui__globals_8hpp_1abcd0af621da2a1f852fb466fcb225fe1" kindref="member">NUM_OF_SERVO_DRIVES</ref>);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>ui_control_buttons_.spn_target_values.resize(<ref refid="gui__globals_8hpp_1abcd0af621da2a1f852fb466fcb225fe1" kindref="member">NUM_OF_SERVO_DRIVES</ref>);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="gui__globals_8hpp_1abcd0af621da2a1f852fb466fcb225fe1" kindref="member">NUM_OF_SERVO_DRIVES</ref>;<sp/>i++)</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui_control_buttons_.spn_target_values[i]<sp/>=<sp/>0<sp/>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>received_data_[i].p_emergency_switch_val<sp/>=<sp/>1<sp/>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>ResetContolButtonValues();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>qos<sp/>=<sp/>rclcpp::QoS(rclcpp::KeepLast(1));</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>qos.best_effort();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>controller_commands_=<sp/>this-&gt;create_subscription&lt;sensor_msgs::msg::Joy&gt;(</highlight><highlight class="stringliteral">&quot;Controller&quot;</highlight><highlight class="normal">,<sp/>qos,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::bind(&amp;GuiNode::HandleControllerCallbacks,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>std::placeholders::_1));</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>slave_feedback_<sp/>=<sp/>this-&gt;create_subscription&lt;ecat_msgs::msg::DataReceived&gt;(</highlight><highlight class="stringliteral">&quot;Slave_Feedback&quot;</highlight><highlight class="normal">,<sp/>qos,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::bind(&amp;GuiNode::HandleSlaveFeedbackCallbacks,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>std::placeholders::_1));</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>master_commands_<sp/>=<sp/>this-&gt;create_subscription&lt;ecat_msgs::msg::DataSent&gt;(</highlight><highlight class="stringliteral">&quot;Master_Commands&quot;</highlight><highlight class="normal">,<sp/>qos,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::bind(&amp;GuiNode::HandleMasterCommandCallbacks,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>std::placeholders::_1));</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>gui_publisher_<sp/>=<sp/>create_publisher&lt;ecat_msgs::msg::GuiButtonData&gt;(</highlight><highlight class="stringliteral">&quot;gui_buttons&quot;</highlight><highlight class="normal">,<sp/>qos);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>timer_<sp/>=<sp/>this-&gt;create_wall_timer(30ms,std::bind(&amp;GuiNode::timer_callback,</highlight><highlight class="keyword">this</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>GuiNode::~GuiNode()</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>rclcpp::shutdown();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGUI_1_1GuiNode_1aa378c566c59d220011f3c37df69f47c5" kindref="member">GuiNode::timer_callback</ref>()</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1a625aa899ac48e4549c7f5fd0399181d7" kindref="member">ui_control_buttons_</ref>.header.stamp<sp/>=<sp/>this-&gt;now();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1a2fd7f6c041cd0d2cc22763098618b180" kindref="member">gui_publisher_</ref>-&gt;publish(<ref refid="classGUI_1_1GuiNode_1a625aa899ac48e4549c7f5fd0399181d7" kindref="member">ui_control_buttons_</ref>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1aafb5c384ff383686a052111e49e8999b" kindref="member">ResetContolButtonValues</ref>();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGUI_1_1GuiNode_1a8c671d0d93d0c61da722666d7b01230f" kindref="member">GuiNode::HandleControllerCallbacks</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>sensor_msgs::msg::Joy::SharedPtr<sp/>msg)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i<sp/>&lt;<sp/><ref refid="gui__globals_8hpp_1abcd0af621da2a1f852fb466fcb225fe1" kindref="member">NUM_OF_SERVO_DRIVES</ref><sp/>;<sp/>i++){</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" kindref="member">received_data_</ref>[i].right_x_axis<sp/>=<sp/>msg-&gt;axes[3];</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" kindref="member">received_data_</ref>[i].left_x_axis<sp/>=<sp/><sp/>msg-&gt;axes[0];</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>emit<sp/>UpdateParameters(0);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGUI_1_1GuiNode_1a692f44e42736bb1e31f435024cfdc4f9" kindref="member">GuiNode::HandleMasterCommandCallbacks</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ecat_msgs::msg::DataSent::SharedPtr<sp/>msg)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i<sp/>&lt;<sp/><ref refid="gui__globals_8hpp_1abcd0af621da2a1f852fb466fcb225fe1" kindref="member">NUM_OF_SERVO_DRIVES</ref><sp/>;<sp/>i++){</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" kindref="member">received_data_</ref>[i].target_pos<sp/><sp/><sp/>=<sp/><sp/>msg-&gt;target_pos[i];</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" kindref="member">received_data_</ref>[i].target_vel<sp/><sp/><sp/>=<sp/><sp/>msg-&gt;target_vel[i];</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" kindref="member">received_data_</ref>[i].target_tor<sp/><sp/><sp/>=<sp/><sp/>msg-&gt;target_tor[i];</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" kindref="member">received_data_</ref>[i].control_word<sp/>=<sp/><sp/>msg-&gt;control_word[i];</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGUI_1_1GuiNode_1a7bbe29f0fba8cede61e3587adfdc56cb" kindref="member">GuiNode::HandleSlaveFeedbackCallbacks</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ecat_msgs::msg::DataReceived::SharedPtr<sp/>msg)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i<sp/>&lt;<sp/><ref refid="gui__globals_8hpp_1abcd0af621da2a1f852fb466fcb225fe1" kindref="member">NUM_OF_SERVO_DRIVES</ref><sp/>;<sp/>i++){</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" kindref="member">received_data_</ref>[i].actual_pos<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/>msg-&gt;actual_pos[i];</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" kindref="member">received_data_</ref>[i].actual_vel<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/>msg-&gt;actual_vel[i];</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" kindref="member">received_data_</ref>[i].actual_tor<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/>msg-&gt;actual_tor[i];</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" kindref="member">received_data_</ref>[i].status_word<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/>msg-&gt;status_word[i];</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" kindref="member">received_data_</ref>[i].slave_com_status<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/>msg-&gt;slave_com_status[i];</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" kindref="member">received_data_</ref>[i].com_status<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/>msg-&gt;com_status;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" kindref="member">received_data_</ref>[i].op_mode_display<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/>msg-&gt;op_mode_display[i];<sp/></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1a6987206057a2586f5fa17ed6206b5703" kindref="member">current_lifecycle_state</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/>msg-&gt;current_lifecycle_state;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" kindref="member">received_data_</ref>[i].error_code<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/>msg-&gt;error_code[i];</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" kindref="member">received_data_</ref>[i].left_limit_switch_val<sp/><sp/><sp/>=<sp/><sp/>msg-&gt;left_limit_switch_val;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" kindref="member">received_data_</ref>[i].right_limit_switch_val<sp/><sp/>=<sp/><sp/>msg-&gt;right_limit_switch_val;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" kindref="member">received_data_</ref>[i].p_emergency_switch_val<sp/><sp/>=<sp/><sp/>msg-&gt;emergency_switch_val;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGUI_1_1GuiNode_1aafb5c384ff383686a052111e49e8999b" kindref="member">GuiNode::ResetContolButtonValues</ref>()</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1a625aa899ac48e4549c7f5fd0399181d7" kindref="member">ui_control_buttons_</ref>.b_init_ecat<sp/>=<sp/>0<sp/>;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1a625aa899ac48e4549c7f5fd0399181d7" kindref="member">ui_control_buttons_</ref>.b_reinit_ecat<sp/>=<sp/>0<sp/>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1a625aa899ac48e4549c7f5fd0399181d7" kindref="member">ui_control_buttons_</ref>.b_enable_drives<sp/>=<sp/>0<sp/>;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1a625aa899ac48e4549c7f5fd0399181d7" kindref="member">ui_control_buttons_</ref>.b_disable_drives<sp/>=<sp/>0<sp/>;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1a625aa899ac48e4549c7f5fd0399181d7" kindref="member">ui_control_buttons_</ref>.b_enable_cyclic_pos<sp/>=<sp/>0<sp/>;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1a625aa899ac48e4549c7f5fd0399181d7" kindref="member">ui_control_buttons_</ref>.b_enable_cyclic_vel<sp/>=<sp/>0<sp/>;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1a625aa899ac48e4549c7f5fd0399181d7" kindref="member">ui_control_buttons_</ref>.b_enable_vel<sp/>=<sp/>0<sp/>;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1a625aa899ac48e4549c7f5fd0399181d7" kindref="member">ui_control_buttons_</ref>.b_enable_pos<sp/>=<sp/>0<sp/>;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1a625aa899ac48e4549c7f5fd0399181d7" kindref="member">ui_control_buttons_</ref>.b_enter_cyclic_pdo<sp/>=<sp/>0<sp/>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1a625aa899ac48e4549c7f5fd0399181d7" kindref="member">ui_control_buttons_</ref>.b_emergency_mode<sp/>=<sp/>0<sp/>;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1a625aa899ac48e4549c7f5fd0399181d7" kindref="member">ui_control_buttons_</ref>.b_send<sp/>=<sp/>0<sp/>;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1GuiNode_1a625aa899ac48e4549c7f5fd0399181d7" kindref="member">ui_control_buttons_</ref>.b_stop_cyclic_pdo<sp/>=<sp/>0<sp/>;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/gui_pkg/src/gui_node.cpp"/>
+  </compounddef>
+</doxygen>

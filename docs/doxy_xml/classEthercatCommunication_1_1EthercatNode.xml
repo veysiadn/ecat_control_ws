@@ -1,0 +1,1512 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classEthercatCommunication_1_1EthercatNode" kind="class" language="C++" prot="public">
+    <compoundname>EthercatCommunication::EthercatNode</compoundname>
+    <includes refid="ecat__node_8hpp" local="no">ecat_node.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classEthercatCommunication_1_1EthercatNode_1adca54bebbcfe48cb57edca8de6c3d084" prot="public" static="no" mutable="no">
+        <type><ref refid="classEthercatSlave" kindref="compound">EthercatSlave</ref></type>
+        <definition>EthercatSlave EthercatCommunication::EthercatNode::slaves_[NUM_OF_SLAVES]</definition>
+        <argsstring>[NUM_OF_SLAVES]</argsstring>
+        <name>slaves_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="57" column="23" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEthercatCommunication_1_1EthercatNode_1ac857915bce2d3fef8fdf7711f4d584f4" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structSdoRequest" kindref="compound">SdoRequest</ref> &gt;</type>
+        <definition>std::vector&lt;SdoRequest&gt; EthercatCommunication::EthercatNode::request_sdos_</definition>
+        <argsstring></argsstring>
+        <name>request_sdos_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="58" column="21" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classEthercatCommunication_1_1EthercatNode_1a3f8dd08c4b1cf9e455a60b8b5ae04cfb" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int EthercatCommunication::EthercatNode::fd</definition>
+        <argsstring></argsstring>
+        <name>fd</name>
+        <briefdescription>
+<para>File descriptor to open and wake master from CLI. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="401" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" bodystart="401" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a020b9007aa6e51112c09f3342dc5bc8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EthercatNode::EthercatNode</definition>
+        <argsstring>()</argsstring>
+        <name>EthercatNode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="55" column="13" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="15" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a0535214bb0696de6537beafdc39c6207" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EthercatNode::~EthercatNode</definition>
+        <argsstring>()</argsstring>
+        <name>~EthercatNode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="56" column="13" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a44858407cdf70da448d663df9af054f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::ConfigureMaster</definition>
+        <argsstring>()</argsstring>
+        <name>ConfigureMaster</name>
+        <briefdescription>
+<para>Requests master instance and creates a domain for a master. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Keep in mind that created master and domain are global variables. </para>
+</simplesect>
+<simplesect kind="return"><para>0 if succesful otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="64" column="14" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="25" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1addf743b2ca64c1692e8d12f0045cde1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EthercatCommunication::EthercatNode::DefineDefaultSlaves</definition>
+        <argsstring>()</argsstring>
+        <name>DefineDefaultSlaves</name>
+        <briefdescription>
+<para>Defines default connected slaves based on number of slaves. Specifies its position, vendor id , product code etc. Default connected slaves considered implementation specific. In our case it will be 3 motors and one EasyCAT slave. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="71" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1ad9c38c7d21f5c644634e647c7a9f42ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EthercatNode::SetCustomSlave</definition>
+        <argsstring>(EthercatSlave c_slave, int position)</argsstring>
+        <name>SetCustomSlave</name>
+        <param>
+          <type><ref refid="classEthercatSlave" kindref="compound">EthercatSlave</ref></type>
+          <declname>c_slave</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+<para>Passes your defined slave to <ref refid="classEthercatCommunication_1_1EthercatNode" kindref="compound">EthercatNode</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c_slave</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>first create your own <ref refid="classEthercatSlave" kindref="compound">EthercatSlave</ref> instance and modify it then pass it to configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>specify the physical connection position for your custom configured slave. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="78" column="14" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="666" bodyend="669"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a473246ebddb4b4d9c4e72434a563f0e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::ConfigureSlaves</definition>
+        <argsstring>()</argsstring>
+        <name>ConfigureSlaves</name>
+        <briefdescription>
+<para>Obtains slave configuration for all slaves w.r.t master. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 if successfull, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="83" column="14" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="51" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a7b60a300f70876769da887921932301f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::SetProfilePositionParameters</definition>
+        <argsstring>(ProfilePosParam &amp;P, int position)</argsstring>
+        <name>SetProfilePositionParameters</name>
+        <param>
+          <type><ref refid="structProfilePosParam" kindref="compound">ProfilePosParam</ref> &amp;</type>
+          <declname>P</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+<para>Set mode to ProfilePositionMode with specified parameters for servo drive on that position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>P</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Profile position parameter structure specified by user. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Slave position </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if successfull, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="91" column="14" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="278" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a67e154560b31cebc27431efc46d56b83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::SetProfilePositionParametersAll</definition>
+        <argsstring>(ProfilePosParam &amp;P)</argsstring>
+        <name>SetProfilePositionParametersAll</name>
+        <param>
+          <type><ref refid="structProfilePosParam" kindref="compound">ProfilePosParam</ref> &amp;</type>
+          <declname>P</declname>
+        </param>
+        <briefdescription>
+<para>Set the mode to ProfilePositionMode with specified Parameters for all servo drives on the bus. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>P</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Profile position parameter structure specified by user. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if succesful, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="98" column="13" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="318" bodyend="358"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a1ce7e6a7f9f707ff6d8feb8b79078219" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::SetProfileVelocityParameters</definition>
+        <argsstring>(ProfileVelocityParam &amp;P, int position)</argsstring>
+        <name>SetProfileVelocityParameters</name>
+        <param>
+          <type><ref refid="structProfileVelocityParam" kindref="compound">ProfileVelocityParam</ref> &amp;</type>
+          <declname>P</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+<para>Set mode to ProfileVelocityMode with specified parameters for servo drive on that position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>P</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Profile velocity parameter structure specified by user. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Slave position </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if succesful, -1 otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="106" column="13" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="360" bodyend="393"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1ac0f1d24eb783d34c604f7a91ff5ba45c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::SetProfileVelocityParametersAll</definition>
+        <argsstring>(ProfileVelocityParam &amp;P)</argsstring>
+        <name>SetProfileVelocityParametersAll</name>
+        <param>
+          <type><ref refid="structProfileVelocityParam" kindref="compound">ProfileVelocityParam</ref> &amp;</type>
+          <declname>P</declname>
+        </param>
+        <briefdescription>
+<para>Set mode to ProfileVelocityMode with specified parameters for all servo drives on the bus. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>P</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Profile velocity parameter structure specified by user. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if successfull, -1 otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="114" column="13" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="395" bodyend="430"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a3dd07ec5620f136505a3a41154557898" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::SetCyclicSyncPositionModeParameters</definition>
+        <argsstring>(CSPositionModeParam &amp;P, int position)</argsstring>
+        <name>SetCyclicSyncPositionModeParameters</name>
+        <param>
+          <type><ref refid="structCSPositionModeParam" kindref="compound">CSPositionModeParam</ref> &amp;</type>
+          <declname>P</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+<para>Set the Cyclic Sync Position Mode Parameters for slave in specified physical position w.r.t. master. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>P</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cyclic Sync. Position Mode Parameters. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Physical position of slave to be configured </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if sucessfull, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="122" column="13" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="432" bodyend="470"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1aa9d52ad13b5ecc696e6ab0441573cde4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::SetCyclicSyncPositionModeParametersAll</definition>
+        <argsstring>(CSPositionModeParam &amp;P)</argsstring>
+        <name>SetCyclicSyncPositionModeParametersAll</name>
+        <param>
+          <type><ref refid="structCSPositionModeParam" kindref="compound">CSPositionModeParam</ref> &amp;</type>
+          <declname>P</declname>
+        </param>
+        <briefdescription>
+<para>Sets the Cyclic Synchronous Position Mode Parameters for all connected motor driver slaves. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 if sucessful, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="128" column="13" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="472" bodyend="512"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a6a89e6d94328c23f8b19167412932c30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::SetCyclicSyncVelocityModeParameters</definition>
+        <argsstring>(CSVelocityModeParam &amp;P, int position)</argsstring>
+        <name>SetCyclicSyncVelocityModeParameters</name>
+        <param>
+          <type><ref refid="structCSVelocityModeParam" kindref="compound">CSVelocityModeParam</ref> &amp;</type>
+          <declname>P</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+<para>Set the Cyclic Sync Velocity Mode Parameters for slave in specified physical position w.r.t. master. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>P</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cyclic Sync. Velocity Mode Parameters. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Physical position of slave to be configured </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if sucessfull, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="137" column="13" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="514" bodyend="546"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1adad463c8f6c2c4e2fb61805cfa4d5d3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::SetCyclicSyncVelocityModeParametersAll</definition>
+        <argsstring>(CSVelocityModeParam &amp;P)</argsstring>
+        <name>SetCyclicSyncVelocityModeParametersAll</name>
+        <param>
+          <type><ref refid="structCSVelocityModeParam" kindref="compound">CSVelocityModeParam</ref> &amp;</type>
+          <declname>P</declname>
+        </param>
+        <briefdescription>
+<para>Sets the Cyclic Synchronous Velocity Mode Parameters for all connected motor driver slaves. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 if sucessful, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="143" column="13" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="570" bodyend="604"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a3cd4836ae50c1a998e412b98aecdce77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::SetCyclicSyncTorqueModeParameters</definition>
+        <argsstring>(CSTorqueModeParam &amp;P, int position)</argsstring>
+        <name>SetCyclicSyncTorqueModeParameters</name>
+        <param>
+          <type><ref refid="structCSTorqueModeParam" kindref="compound">CSTorqueModeParam</ref> &amp;</type>
+          <declname>P</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+<para>Set the Cyclic Sync Torque Mode Parameters for slave in specified physical position w.r.t. master. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>P</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cyclic Sync. Torque Mode Parameters. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Physical position of slave to be configured </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if sucessfull, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="152" column="13" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="549" bodyend="567"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1ab1e699e13c478bb3ef5f73a0ba029b21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::SetCyclicSyncTorqueModeParametersAll</definition>
+        <argsstring>(CSTorqueModeParam &amp;P)</argsstring>
+        <name>SetCyclicSyncTorqueModeParametersAll</name>
+        <param>
+          <type><ref refid="structCSTorqueModeParam" kindref="compound">CSTorqueModeParam</ref> &amp;</type>
+          <declname>P</declname>
+        </param>
+        <briefdescription>
+<para>Sets the Cyclic Synchronous Torque Mode Parameters for all connected motor driver slaves. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 if sucessful, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="159" column="13" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="606" bodyend="626"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1ac2e8eb99d8fc6afac635cb236f090942" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::MapDefaultSdos</definition>
+        <argsstring>()</argsstring>
+        <name>MapDefaultSdos</name>
+        <briefdescription>
+<para>Maps default SDOs which can be found. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="structSdoRequest" kindref="compound">SdoRequest</ref> struct.</para>
+</simplesect>
+<simplesect kind="return"><para>0 if successfull, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="165" column="13" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="1012" bodyend="1076"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a2eefc79d0eda991d04050516890801c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::MapDefaultPdos</definition>
+        <argsstring>()</argsstring>
+        <name>MapDefaultPdos</name>
+        <briefdescription>
+<para>Maps default PDOs for the application. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This method is specific to our implementation. However you can modify it to suit your needs. If you have different topology or different servo drives use <ref refid="classEthercatCommunication_1_1EthercatNode_1a659bf253ebf3a927ec6fb3519eb0bbfe" kindref="member">MapCustomPdos()</ref> function or modify this function based on your needs. </para>
+</simplesect>
+<simplesect kind="return"><para>0 if successfull, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>This part is specific for our Custom EASYCAT slave configuration To create your custom slave and variables you can add variables to <simplesect kind="see"><para><ref refid="structOffsetPDO" kindref="compound">OffsetPDO</ref> struct. Also you have add your variables to received data structure, you may have to create your custom msg files as well.</para>
+</simplesect>
+</para>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="173" column="13" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="67" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a659bf253ebf3a927ec6fb3519eb0bbfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::MapCustomPdos</definition>
+        <argsstring>(EthercatSlave c_slave, int position)</argsstring>
+        <name>MapCustomPdos</name>
+        <param>
+          <type><ref refid="classEthercatSlave" kindref="compound">EthercatSlave</ref></type>
+          <declname>c_slave</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+<para>Map Custom PDO based on your PDO mappings. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>You have to specify slave syncs and slave pdo registers before using function </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c_slave</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classEthercatSlave" kindref="compound">EthercatSlave</ref> instance </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Physical position of your slave w.r.t master </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if successfull, -1 otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="181" column="13" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="671" bodyend="685"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a57ca95ffa0562dc7c34705a0514d6ea2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EthercatNode::ConfigDcSyncDefault</definition>
+        <argsstring>()</argsstring>
+        <name>ConfigDcSyncDefault</name>
+        <briefdescription>
+<para>Configures DC sync for our default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="186" column="14" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="246" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a5bb6c912a9fe73dc73a6cf216177e886" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EthercatNode::ConfigDcSync</definition>
+        <argsstring>(uint16_t assign_activate, int position)</argsstring>
+        <name>ConfigDcSync</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>assign_activate</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+<para>Configures DC synchronization for specified slave position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>assign_activate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Activating DC synchronization for slave. 0x300 for Elmo | and same for EasyCAT </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Assign activate parameters specified in slaves ESI file</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="196" column="14" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="687" bodyend="690"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a78c55e7bee137dcee3fb65d2954171fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EthercatNode::CheckSlaveConfigurationState</definition>
+        <argsstring>()</argsstring>
+        <name>CheckSlaveConfigurationState</name>
+        <briefdescription>
+<para>This function will check slave&apos;s application layer states. (INIT/PREOP/SAFEOP/OP) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="200" column="14" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="692" bodyend="699"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1af64a25729064c533ee955e0b461ddcca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::CheckMasterState</definition>
+        <argsstring>()</argsstring>
+        <name>CheckMasterState</name>
+        <briefdescription>
+<para>This function will check master&apos;s state, in terms of number of responding slaves and their application layer states. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 if succesful, otherwise -1 </para>
+</simplesect>
+<simplesect kind="see"><para>ec_master_state_t structure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="207" column="14" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="701" bodyend="724"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1af76be6b843886442b2d4d7b94be9374f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EthercatNode::CheckMasterDomainState</definition>
+        <argsstring>()</argsstring>
+        <name>CheckMasterDomainState</name>
+        <briefdescription>
+<para>Reads the state of a domain. Stores the domain state in the given state structure. Using this method, the process data exchange can be monitored in realtime. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="213" column="14" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="726" bodyend="738"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1aa0d2eae2b57c39c827a882699c705325" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::ActivateMaster</definition>
+        <argsstring>()</argsstring>
+        <name>ActivateMaster</name>
+        <briefdescription>
+<para>Activates master, after this function call realtime operation can start. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>Before activating master all configuration should be done </para>
+</simplesect>
+<simplesect kind="warning"><para>After calling this function you have to register domain(s) and start realtime task. </para>
+</simplesect>
+<simplesect kind="return"><para>0 if succesful, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="220" column="14" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="256" bodyend="263"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a5ced6bccaa5b3cf141a39b26782bdb2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::RegisterDomain</definition>
+        <argsstring>()</argsstring>
+        <name>RegisterDomain</name>
+        <briefdescription>
+<para>Registers domain for each slave. This method has to be called after ecrt_master_activate() to get the mapped domain process data memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 if succeful , otherwise -1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="226" column="14" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="265" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a373f1966b60a63d9f54db94c05326931" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::WaitForOperationalMode</definition>
+        <argsstring>()</argsstring>
+        <name>WaitForOperationalMode</name>
+        <briefdescription>
+<para>Puts all slave to operational mode. User must call this before entering real-time operation. Reason for this function is that, master and slave has to do several exchange before becoming operational. So this function does exchange between master and slaves for up to 10 sec, could finish earlier. If timeout occurs it will return -1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 if successfull, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="234" column="14" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="628" bodyend="664"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a4455e0ba8abeedb96055615eb5a37f68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::OpenEthercatMaster</definition>
+        <argsstring>()</argsstring>
+        <name>OpenEthercatMaster</name>
+        <briefdescription>
+<para>Opens EtherCAT master via command line tool if it&apos;s not already on. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 if successfull, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="241" column="13" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="767" bodyend="785"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a284ff9ea43d86a07c696833a9ffc11fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::GetNumberOfConnectedSlaves</definition>
+        <argsstring>()</argsstring>
+        <name>GetNumberOfConnectedSlaves</name>
+        <briefdescription>
+<para>Get the Number Of physically Connected Slaves to the bus.And checks if specified NUM_OF_SLAVES is correct. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 if NUM_OF_SLAVES setting is correct, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="247" column="13" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="740" bodyend="753"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1ab39e88b76a081092bb0627a05cc5815a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EthercatNode::GetAllSlaveInformation</definition>
+        <argsstring>()</argsstring>
+        <name>GetAllSlaveInformation</name>
+        <briefdescription>
+<para>Get the information of physically connected slaves to the master. This function will return connected slave&apos;s vendor id, product code. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="252" column="14" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="44" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1afa5b462e02be78bbf21e76732f1cc316" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EthercatNode::DeactivateCommunication</definition>
+        <argsstring>()</argsstring>
+        <name>DeactivateCommunication</name>
+        <briefdescription>
+<para>Deactivates master, and it is used to stop cyclic PDO exchange. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>That calling this function means that your PDO exchange will stop. </para>
+</simplesect>
+<simplesect kind="note"><para>Additionally all pointers created by requesting master are freed with this function./ If you want to resume your communication, you&apos;ll have to do the configuration again. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="260" column="14" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="755" bodyend="760"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1ac3a61d761598ce347570b9b4e9d31cac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EthercatNode::ReleaseMaster</definition>
+        <argsstring>()</argsstring>
+        <name>ReleaseMaster</name>
+        <briefdescription>
+<para>Deactivates and releases master shouldn&apos;t be called in real-time. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="264" column="14" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="762" bodyend="765"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1ace130837f0f23861d07f2d252960cac8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::ShutDownEthercatMaster</definition>
+        <argsstring>()</argsstring>
+        <name>ShutDownEthercatMaster</name>
+        <briefdescription>
+<para>Shutdowns EtherCAT master via command line tool if it&apos;s not already off. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 if successfull, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="270" column="13" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="787" bodyend="804"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a80f4194504ed97c5be4db8063baeb9e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EthercatNode::RestartEthercatMaster</definition>
+        <argsstring>()</argsstring>
+        <name>RestartEthercatMaster</name>
+        <briefdescription>
+<para>Restarts Ethercat master via command line tool. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 if successfull, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="276" column="13" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="806" bodyend="819"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1ac661a944107b07129210d26d21416123" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EthercatNode::WriteSDO</definition>
+        <argsstring>(ec_sdo_request_t *req, int32_t data, int size)</argsstring>
+        <name>WriteSDO</name>
+        <param>
+          <type>ec_sdo_request_t *</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Writes SDO in real-time context. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>req</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="283" column="14" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="1078" bodyend="1102"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1ae274cf7e06ae641a2ecbc5a281f405b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t EthercatNode::ReadSDO</definition>
+        <argsstring>(ec_sdo_request_t *req, uint16_t &amp;status_word)</argsstring>
+        <name>ReadSDO</name>
+        <param>
+          <type>ec_sdo_request_t *</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>uint16_t &amp;</type>
+          <declname>status_word</declname>
+        </param>
+        <briefdescription>
+<para>Reads SDO in real-time context by creating read request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>req</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="289" column="18" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="1104" bodyend="1122"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a1f7376d64fdedc17bb57026667724de6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t EthercatNode::SdoRead</definition>
+        <argsstring>(SDO_data &amp;pack)</argsstring>
+        <name>SdoRead</name>
+        <param>
+          <type><ref refid="structSDO__data" kindref="compound">SDO_data</ref> &amp;</type>
+          <declname>pack</declname>
+        </param>
+        <briefdescription>
+<para>This function reads data from specified index and subindex via SDO, returned data will be stored in pack.data which needs to be casted to correct data type afterwards. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para>@SDO_data struct </para>
+</simplesect>
+<simplesect kind="note"><para>This is a blocking function, until response has been received.Don&apos;t use it in real-time context!!.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="structSDO__data" kindref="compound">SDO_data</ref> struct which contains; index,subindex,data size, and data that will be used to store read data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if successfull, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="299" column="16" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="821" bodyend="830"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1aa283009eb0ebda0048593757f1ee5d57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t EthercatNode::SdoWrite</definition>
+        <argsstring>(SDO_data &amp;pack)</argsstring>
+        <name>SdoWrite</name>
+        <param>
+          <type><ref refid="structSDO__data" kindref="compound">SDO_data</ref> &amp;</type>
+          <declname>pack</declname>
+        </param>
+        <briefdescription>
+<para>This function writes data to specified index and subindex via SDO. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para>@SDO_data struct </para>
+</simplesect>
+<simplesect kind="note"><para>This is a blocking function, until response has been received.Don&apos;t use it in real-time context!!.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="structSDO__data" kindref="compound">SDO_data</ref> struct which contains; index,subindex,data size and data to be written. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if successfull, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="309" column="16" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="832" bodyend="841"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a95f9649157c8f05a088f6d3f0d3eb8b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t EthercatNode::ReadStatusWordViaSDO</definition>
+        <argsstring>(int index)</argsstring>
+        <name>ReadStatusWordViaSDO</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Get the Status Word from CiA402 slaves in specified index via SDO communication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>slave index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>status word </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="316" column="18" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="843" bodyend="857"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1aee2182955c56a328b4bc3557da0b241d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t EthercatNode::WriteControlWordViaSDO</definition>
+        <argsstring>(int index, uint16_t control_word)</argsstring>
+        <name>WriteControlWordViaSDO</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>control_word</declname>
+        </param>
+        <briefdescription>
+<para>Writes control word to slave in specified index via SDO. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>slave index,</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>control_word</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>control word to be written </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if successfull otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="323" column="17" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="859" bodyend="872"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a75ed37db8d0babb28d6663c98e481ebf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t EthercatNode::WriteOpModeViaSDO</definition>
+        <argsstring>(int index, uint8_t op_mode)</argsstring>
+        <name>WriteOpModeViaSDO</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>op_mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="331" column="17" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="890" bodyend="903"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a71a40d9f2d6e04719526a917b5cc4e36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t EthercatNode::ReadOpModeViaSDO</definition>
+        <argsstring>(int index)</argsstring>
+        <name>ReadOpModeViaSDO</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Reads current operational mode from slave in specified index via SDO. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>slave index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>status word of selected slave. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="338" column="17" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="874" bodyend="888"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a104cc05c97548da1f57b83f352ae29be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32_t</type>
+        <definition>int32_t EthercatNode::ReadActualVelocityViaSDO</definition>
+        <argsstring>(int index)</argsstring>
+        <name>ReadActualVelocityViaSDO</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Reads actual velocity value from slave in specified index via SDO. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>slave index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>actual velocity value of selected slave. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="345" column="17" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="905" bodyend="919"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1aec542d65642f1afad2a1a8d2a3295607" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t EthercatNode::WriteTargetVelocityViaSDO</definition>
+        <argsstring>(int index, int32_t target_vel)</argsstring>
+        <name>WriteTargetVelocityViaSDO</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>target_vel</declname>
+        </param>
+        <briefdescription>
+<para>Writes target velocity value via SDO to slave in specified index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>slave index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>target_vel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desired target velocity val. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if successfull, othewise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="353" column="17" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="921" bodyend="937"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1ab32ea9f0bf5ba8733b16683ccdaaa21b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32_t</type>
+        <definition>int32_t EthercatNode::ReadActualPositionViaSDO</definition>
+        <argsstring>(int index)</argsstring>
+        <name>ReadActualPositionViaSDO</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Read actual position from slave in specified index via SDO. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>slave index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>actual position of selected slave. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="360" column="17" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="939" bodyend="953"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a105870eb7f04330b80711020c53878d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t EthercatNode::WriteTargetPositionViaSDO</definition>
+        <argsstring>(int index, int32_t target_pos)</argsstring>
+        <name>WriteTargetPositionViaSDO</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>target_pos</declname>
+        </param>
+        <briefdescription>
+<para>Writes target position value via SDO to slave in specified index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>slave index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>target_pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desired target position value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if successfull, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="368" column="17" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="955" bodyend="976"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1aa32def67e03f79421e2f80f5be11c2e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t EthercatNode::ReadActualTorqueViaSDO</definition>
+        <argsstring>(int index)</argsstring>
+        <name>ReadActualTorqueViaSDO</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Read actual torque value from slave in specified index via SDO. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint16_t </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="375" column="17" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="978" bodyend="992"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a846a11fce10f7235bc509d6f40382d7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t EthercatNode::WriteTargetTorqueViaSDO</definition>
+        <argsstring>(int index, uint16_t target_tor)</argsstring>
+        <name>WriteTargetTorqueViaSDO</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>target_tor</declname>
+        </param>
+        <briefdescription>
+<para>Writes target torque value to slave in specified index via SDO. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>slave index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>target_tor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desired target torque value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if successfull, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="383" column="17" bodyfile="src/ecat_pkg/src/ecat_node.cpp" bodystart="994" bodyend="1010"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1a63fca6e4c0f884ab2b81cff39f135d2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t EthercatCommunication::EthercatNode::EnableDrivesViaSDO</definition>
+        <argsstring>(int index)</argsstring>
+        <name>EnableDrivesViaSDO</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Enable CiA402 supported motor drives in specified index via SDO. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>slave index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if successfull, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="390" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classEthercatCommunication_1_1EthercatNode_1abd7ce9efe22243192e35960f5f4f5d27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t EthercatCommunication::EthercatNode::DisableDrivesViaSDO</definition>
+        <argsstring>(int index)</argsstring>
+        <name>DisableDrivesViaSDO</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Disable CiA402 supported motor drives in specified index via SDO. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>slave index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if successfull, otherwise -1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="397" column="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>EthercatCommunication::EthercatNode</label>
+        <link refid="classEthercatCommunication_1_1EthercatNode"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>slaves_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>EthercatSlave</label>
+        <link refid="classEthercatSlave"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>offset_</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>data_</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>velocity_param_</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>position_param_</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>homing_param_</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>HomingParam</label>
+        <link refid="structHomingParam"/>
+      </node>
+      <node id="3">
+        <label>OffsetPDO</label>
+        <link refid="structOffsetPDO"/>
+      </node>
+      <node id="6">
+        <label>ProfilePosParam</label>
+        <link refid="structProfilePosParam"/>
+      </node>
+      <node id="5">
+        <label>ProfileVelocityParam</label>
+        <link refid="structProfileVelocityParam"/>
+      </node>
+      <node id="4">
+        <label>ReceivedData</label>
+        <link refid="structReceivedData"/>
+      </node>
+    </collaborationgraph>
+    <location file="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" line="52" column="5" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_node.hpp" bodystart="53" bodyend="403"/>
+    <listofallmembers>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1aa0d2eae2b57c39c827a882699c705325" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>ActivateMaster</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1af76be6b843886442b2d4d7b94be9374f" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>CheckMasterDomainState</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1af64a25729064c533ee955e0b461ddcca" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>CheckMasterState</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a78c55e7bee137dcee3fb65d2954171fb" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>CheckSlaveConfigurationState</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a5bb6c912a9fe73dc73a6cf216177e886" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>ConfigDcSync</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a57ca95ffa0562dc7c34705a0514d6ea2" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>ConfigDcSyncDefault</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a44858407cdf70da448d663df9af054f1" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>ConfigureMaster</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a473246ebddb4b4d9c4e72434a563f0e2" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>ConfigureSlaves</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1afa5b462e02be78bbf21e76732f1cc316" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>DeactivateCommunication</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1addf743b2ca64c1692e8d12f0045cde1d" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>DefineDefaultSlaves</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1abd7ce9efe22243192e35960f5f4f5d27" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>DisableDrivesViaSDO</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a63fca6e4c0f884ab2b81cff39f135d2e" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>EnableDrivesViaSDO</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a020b9007aa6e51112c09f3342dc5bc8d" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>EthercatNode</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a3f8dd08c4b1cf9e455a60b8b5ae04cfb" prot="private" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>fd</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1ab39e88b76a081092bb0627a05cc5815a" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>GetAllSlaveInformation</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a284ff9ea43d86a07c696833a9ffc11fe" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>GetNumberOfConnectedSlaves</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a659bf253ebf3a927ec6fb3519eb0bbfe" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>MapCustomPdos</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a2eefc79d0eda991d04050516890801c9" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>MapDefaultPdos</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1ac2e8eb99d8fc6afac635cb236f090942" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>MapDefaultSdos</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a4455e0ba8abeedb96055615eb5a37f68" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>OpenEthercatMaster</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1ab32ea9f0bf5ba8733b16683ccdaaa21b" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>ReadActualPositionViaSDO</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1aa32def67e03f79421e2f80f5be11c2e9" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>ReadActualTorqueViaSDO</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a104cc05c97548da1f57b83f352ae29be" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>ReadActualVelocityViaSDO</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a71a40d9f2d6e04719526a917b5cc4e36" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>ReadOpModeViaSDO</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1ae274cf7e06ae641a2ecbc5a281f405b6" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>ReadSDO</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a95f9649157c8f05a088f6d3f0d3eb8b3" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>ReadStatusWordViaSDO</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a5ced6bccaa5b3cf141a39b26782bdb2e" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>RegisterDomain</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1ac3a61d761598ce347570b9b4e9d31cac" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>ReleaseMaster</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1ac857915bce2d3fef8fdf7711f4d584f4" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>request_sdos_</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a80f4194504ed97c5be4db8063baeb9e6" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>RestartEthercatMaster</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a1f7376d64fdedc17bb57026667724de6" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>SdoRead</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1aa283009eb0ebda0048593757f1ee5d57" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>SdoWrite</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1ad9c38c7d21f5c644634e647c7a9f42ab" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>SetCustomSlave</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a3dd07ec5620f136505a3a41154557898" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>SetCyclicSyncPositionModeParameters</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1aa9d52ad13b5ecc696e6ab0441573cde4" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>SetCyclicSyncPositionModeParametersAll</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a3cd4836ae50c1a998e412b98aecdce77" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>SetCyclicSyncTorqueModeParameters</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1ab1e699e13c478bb3ef5f73a0ba029b21" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>SetCyclicSyncTorqueModeParametersAll</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a6a89e6d94328c23f8b19167412932c30" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>SetCyclicSyncVelocityModeParameters</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1adad463c8f6c2c4e2fb61805cfa4d5d3e" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>SetCyclicSyncVelocityModeParametersAll</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a7b60a300f70876769da887921932301f" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>SetProfilePositionParameters</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a67e154560b31cebc27431efc46d56b83" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>SetProfilePositionParametersAll</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a1ce7e6a7f9f707ff6d8feb8b79078219" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>SetProfileVelocityParameters</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1ac0f1d24eb783d34c604f7a91ff5ba45c" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>SetProfileVelocityParametersAll</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1ace130837f0f23861d07f2d252960cac8" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>ShutDownEthercatMaster</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1adca54bebbcfe48cb57edca8de6c3d084" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>slaves_</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a373f1966b60a63d9f54db94c05326931" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>WaitForOperationalMode</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1aee2182955c56a328b4bc3557da0b241d" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>WriteControlWordViaSDO</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a75ed37db8d0babb28d6663c98e481ebf" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>WriteOpModeViaSDO</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1ac661a944107b07129210d26d21416123" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>WriteSDO</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a105870eb7f04330b80711020c53878d6" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>WriteTargetPositionViaSDO</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a846a11fce10f7235bc509d6f40382d7a" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>WriteTargetTorqueViaSDO</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1aec542d65642f1afad2a1a8d2a3295607" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>WriteTargetVelocityViaSDO</name></member>
+      <member refid="classEthercatCommunication_1_1EthercatNode_1a0535214bb0696de6537beafdc39c6207" prot="public" virt="non-virtual"><scope>EthercatCommunication::EthercatNode</scope><name>~EthercatNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

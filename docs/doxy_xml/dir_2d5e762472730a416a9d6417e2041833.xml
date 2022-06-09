@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="dir_2d5e762472730a416a9d6417e2041833" kind="dir">
+    <compoundname>src/safety_pkg</compoundname>
+    <innerdir refid="dir_95e41177299382f82581ff6a0fdbe1b7">src/safety_pkg/include</innerdir>
+    <innerdir refid="dir_b3c8cf0a1583fdca019efa4931c113bd">src/safety_pkg/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/safety_pkg/"/>
+  </compounddef>
+</doxygen>

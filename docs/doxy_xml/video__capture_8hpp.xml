@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="video__capture_8hpp" kind="file" language="C++">
+    <compoundname>video_capture.hpp</compoundname>
+    <includes local="no">QPixmap</includes>
+    <includes local="no">QImage</includes>
+    <includes local="no">QThread</includes>
+    <includes local="no">opencv2/opencv.hpp</includes>
+    <includes local="yes">opencv2/highgui/highgui.hpp</includes>
+    <includes local="no">opencv2/imgproc.hpp</includes>
+    <includes local="no">opencv2/core/core.hpp</includes>
+    <includes refid="gui__globals_8hpp" local="yes">gui_globals.hpp</includes>
+    <includedby refid="endoscope__viewer_8hpp" local="yes">src/gui_pkg/include/gui_pkg/endoscope_viewer.hpp</includedby>
+    <includedby refid="main__window_8hpp" local="yes">src/gui_pkg/include/gui_pkg/main_window.hpp</includedby>
+    <includedby refid="video__capture_8cpp" local="yes">src/gui_pkg/src/video_capture.cpp</includedby>
+    <incdepgraph>
+      <node id="9">
+        <label>gui_globals.hpp</label>
+        <link refid="gui__globals_8hpp"/>
+      </node>
+      <node id="1">
+        <label>src/gui_pkg/include/gui_pkg/video_capture.hpp</label>
+        <link refid="video__capture_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QImage</label>
+      </node>
+      <node id="2">
+        <label>QPixmap</label>
+      </node>
+      <node id="4">
+        <label>QThread</label>
+      </node>
+      <node id="8">
+        <label>opencv2/core/core.hpp</label>
+      </node>
+      <node id="6">
+        <label>opencv2/highgui/highgui.hpp</label>
+      </node>
+      <node id="7">
+        <label>opencv2/imgproc.hpp</label>
+      </node>
+      <node id="5">
+        <label>opencv2/opencv.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/gui_pkg/include/gui_pkg/endoscope_viewer.hpp</label>
+        <link refid="endoscope__viewer_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>src/gui_pkg/include/gui_pkg/main_window.hpp</label>
+        <link refid="main__window_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/gui_pkg/include/gui_pkg/video_capture.hpp</label>
+        <link refid="video__capture_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/gui_pkg/src/endoscope_viewer.cpp</label>
+        <link refid="endoscope__viewer_8cpp"/>
+      </node>
+      <node id="4">
+        <label>src/gui_pkg/src/main.cpp</label>
+        <link refid="gui__pkg_2src_2main_8cpp"/>
+      </node>
+      <node id="6">
+        <label>src/gui_pkg/src/main_window.cpp</label>
+        <link refid="main__window_8cpp"/>
+      </node>
+      <node id="7">
+        <label>src/gui_pkg/src/video_capture.cpp</label>
+        <link refid="video__capture_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classVideoCapture" prot="public">VideoCapture</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/******************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/>$Id$</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/>Copyright<sp/>(C)<sp/>2021<sp/>Veysi<sp/>ADIN,<sp/>UST<sp/>KIST</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>IgH<sp/>EtherCAT<sp/>master<sp/>userspace<sp/>program<sp/>in<sp/>the<sp/>ROS2<sp/>environment.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/>The<sp/>IgH<sp/>EtherCAT<sp/>master<sp/>userspace<sp/>program<sp/>in<sp/>the<sp/>ROS2<sp/>environment<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>version<sp/>2</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/>of<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/>The<sp/>IgH<sp/>EtherCAT<sp/>master<sp/>userspace<sp/>program<sp/>in<sp/>the<sp/>ROS2<sp/>environment<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/>it<sp/>will<sp/>be<sp/>useful,<sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/>warranty<sp/>of<sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/><sp/>along<sp/>with<sp/>the<sp/>IgH<sp/>EtherCAT<sp/>master<sp/>userspace<sp/>program<sp/>in<sp/>the<sp/>ROS<sp/>environment.<sp/>If<sp/>not,<sp/>see</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/><sp/>&lt;http://www.gnu.org/licenses/&gt;.</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/><sp/>---</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/><sp/>The<sp/>license<sp/>mentioned<sp/>above<sp/>concerns<sp/>the<sp/>source<sp/>code<sp/>only.<sp/>Using<sp/>the</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/><sp/>EtherCAT<sp/>technology<sp/>and<sp/>brand<sp/>is<sp/>only<sp/>permitted<sp/>in<sp/>compliance<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/><sp/>industrial<sp/>property<sp/>and<sp/>similar<sp/>rights<sp/>of<sp/>Beckhoff<sp/>Automation<sp/>GmbH.</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/><sp/>Contact<sp/>information:<sp/>veysi.adin@kist.re.kr</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*****************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">/*****************************************************************************</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>\file<sp/><sp/>video_capture.hpp</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*<sp/>\brief<sp/>Class<sp/>header<sp/>for<sp/>video<sp/>capture<sp/>from<sp/>endoscope<sp/>camera<sp/>by<sp/>using<sp/>OpenCV<sp/>to<sp/>show<sp/>in<sp/>GUI</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>VIDEO_CAPTURE_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VIDEO_CAPTURE_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//<sp/>QT<sp/>headers<sp/>for<sp/>image<sp/>and<sp/>reading<sp/>thread.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QPixmap&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QImage&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QThread&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>OpenCV<sp/>headers<sp/>for<sp/>camera<sp/>capture.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;opencv2/opencv.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;opencv2/highgui/highgui.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;opencv2/imgproc.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;opencv2/core/core.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gui__globals_8hpp" kindref="compound">gui_globals.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="classVideoCapture" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classVideoCapture" kindref="compound">VideoCapture</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QThread</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classVideoCapture_1ab7ca174b155d6f85212232f62bfa7537" kindref="member">VideoCapture</ref>(QObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="65" refid="classVideoCapture_1a40d0a95efe6459b3e292e0e354d9b3c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QPixmap<sp/><ref refid="classVideoCapture_1a40d0a95efe6459b3e292e0e354d9b3c8" kindref="member">pixmap</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classVideoCapture_1a26abea177d7bb42a8be557c31e6af6a8" kindref="member">pixmap_cap</ref>;}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">signals:</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//capture<sp/>a<sp/>frame</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="classVideoCapture_1af97dc7c07779d2d618a72787f4305cf8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classVideoCapture_1af97dc7c07779d2d618a72787f4305cf8" kindref="member">NewPixmapCapture</ref>();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classVideoCapture_1a5823b23c4670f2abfdfa523b17adbeca" kindref="member">run</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="classVideoCapture_1a26abea177d7bb42a8be557c31e6af6a8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QPixmap<sp/><ref refid="classVideoCapture_1a26abea177d7bb42a8be557c31e6af6a8" kindref="member">pixmap_cap</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Qt<sp/>image</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="classVideoCapture_1ad7e4bd3b6701101854543da3ce395ac6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>cv::Mat<sp/><ref refid="classVideoCapture_1ad7e4bd3b6701101854543da3ce395ac6" kindref="member">frame_cap</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//OpenCV<sp/>image</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="classVideoCapture_1ae05ab150ec60856c798cad097621f244" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>cv::VideoCapture<sp/><ref refid="classVideoCapture_1ae05ab150ec60856c798cad097621f244" kindref="member">video_cap</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//video<sp/>capture</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="classVideoCapture_1a9bd97daedba6d42b480faade04b3e06b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="classVideoCapture_1a9bd97daedba6d42b480faade04b3e06b" kindref="member">frame_rate</ref><sp/>=<sp/>30;</highlight></codeline>
+<codeline lineno="78" refid="classVideoCapture_1a112ef5073674467b47adc3f97704cb32" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="classVideoCapture_1a112ef5073674467b47adc3f97704cb32" kindref="member">cam_id</ref><sp/><sp/>=<sp/><ref refid="gui__globals_8hpp_1a1014738a6cd53047136514ced82de7b0" kindref="member">ID_CAMERA</ref><sp/>;<sp/></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Convert<sp/>opencv<sp/>readings<sp/>to<sp/>QImage<sp/>&amp;&amp;<sp/>QPixmap<sp/>format</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>QImage<sp/><ref refid="classVideoCapture_1a97fc96e7b4aca0ee7cd2256ae4174d83" kindref="member">cvMatToQImage</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>cv::Mat<sp/>&amp;inMat);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>QPixmap<sp/><ref refid="classVideoCapture_1a3e439afbb57883262644b4853251f862" kindref="member">cvMatToQPixmap</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>cv::Mat<sp/>&amp;inMat<sp/>);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>MYVIDEOCAPTURE_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/gui_pkg/include/gui_pkg/video_capture.hpp"/>
+  </compounddef>
+</doxygen>

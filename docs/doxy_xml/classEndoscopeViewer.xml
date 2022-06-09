@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classEndoscopeViewer" kind="class" language="C++" prot="public">
+    <compoundname>EndoscopeViewer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
+    <includes refid="endoscope__viewer_8hpp" local="no">endoscope_viewer.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classEndoscopeViewer_1ae6ea5d5cec08f886403fbfc08146e85d" prot="private" static="no" mutable="no">
+        <type>Ui::EndoscopeViewer *</type>
+        <definition>Ui::EndoscopeViewer* EndoscopeViewer::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/endoscope_viewer.hpp" line="32" column="25" bodyfile="src/gui_pkg/include/gui_pkg/endoscope_viewer.hpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEndoscopeViewer_1a1ac9a153f3216709b36655c3dff23313" prot="private" static="no" mutable="no">
+        <type><ref refid="classVideoCapture" kindref="compound">VideoCapture</ref> *</type>
+        <definition>VideoCapture* EndoscopeViewer::opencv_video_cap_</definition>
+        <argsstring></argsstring>
+        <name>opencv_video_cap_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/endoscope_viewer.hpp" line="33" column="18" bodyfile="src/gui_pkg/include/gui_pkg/endoscope_viewer.hpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classEndoscopeViewer_1a65ab72004400cd0da30bf63bb48a8599" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EndoscopeViewer::EndoscopeViewer</definition>
+        <argsstring>(QWidget *parent=nullptr)</argsstring>
+        <name>EndoscopeViewer</name>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/endoscope_viewer.hpp" line="20" column="14" bodyfile="src/gui_pkg/src/endoscope_viewer.cpp" bodystart="3" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classEndoscopeViewer_1a0154ae0826881618be8ae4fcfeb74780" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EndoscopeViewer::~EndoscopeViewer</definition>
+        <argsstring>()</argsstring>
+        <name>~EndoscopeViewer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/endoscope_viewer.hpp" line="21" column="5" bodyfile="src/gui_pkg/src/endoscope_viewer.cpp" bodystart="16" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classEndoscopeViewer_1a4637b0581afc5a9a5b7003d2816c8a75" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EndoscopeViewer::on_b_start_capture_clicked</definition>
+        <argsstring>()</argsstring>
+        <name>on_b_start_capture_clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/endoscope_viewer.hpp" line="25" column="10" bodyfile="src/gui_pkg/src/endoscope_viewer.cpp" bodystart="21" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="slot" id="classEndoscopeViewer_1a7ad65c748013f846aa0250adca1928c4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EndoscopeViewer::on_b_stop_capture_clicked</definition>
+        <argsstring>()</argsstring>
+        <name>on_b_stop_capture_clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/endoscope_viewer.hpp" line="27" column="10" bodyfile="src/gui_pkg/src/endoscope_viewer.cpp" bodystart="27" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="slot" id="classEndoscopeViewer_1a47cd1463ed68ac87c47421a8071e4f29" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EndoscopeViewer::on_b_exit_clicked</definition>
+        <argsstring>()</argsstring>
+        <name>on_b_exit_clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/endoscope_viewer.hpp" line="29" column="10" bodyfile="src/gui_pkg/src/endoscope_viewer.cpp" bodystart="34" bodyend="40"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>EndoscopeViewer</label>
+        <link refid="classEndoscopeViewer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QMainWindow</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>EndoscopeViewer</label>
+        <link refid="classEndoscopeViewer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>opencv_video_cap_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QMainWindow</label>
+      </node>
+      <node id="4">
+        <label>QThread</label>
+      </node>
+      <node id="3">
+        <label>VideoCapture</label>
+        <link refid="classVideoCapture"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui_pkg/include/gui_pkg/endoscope_viewer.hpp" line="15" column="1" bodyfile="src/gui_pkg/include/gui_pkg/endoscope_viewer.hpp" bodystart="16" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classEndoscopeViewer_1a65ab72004400cd0da30bf63bb48a8599" prot="public" virt="non-virtual"><scope>EndoscopeViewer</scope><name>EndoscopeViewer</name></member>
+      <member refid="classEndoscopeViewer_1a47cd1463ed68ac87c47421a8071e4f29" prot="private" virt="non-virtual"><scope>EndoscopeViewer</scope><name>on_b_exit_clicked</name></member>
+      <member refid="classEndoscopeViewer_1a4637b0581afc5a9a5b7003d2816c8a75" prot="private" virt="non-virtual"><scope>EndoscopeViewer</scope><name>on_b_start_capture_clicked</name></member>
+      <member refid="classEndoscopeViewer_1a7ad65c748013f846aa0250adca1928c4" prot="private" virt="non-virtual"><scope>EndoscopeViewer</scope><name>on_b_stop_capture_clicked</name></member>
+      <member refid="classEndoscopeViewer_1a1ac9a153f3216709b36655c3dff23313" prot="private" virt="non-virtual"><scope>EndoscopeViewer</scope><name>opencv_video_cap_</name></member>
+      <member refid="classEndoscopeViewer_1ae6ea5d5cec08f886403fbfc08146e85d" prot="private" virt="non-virtual"><scope>EndoscopeViewer</scope><name>ui</name></member>
+      <member refid="classEndoscopeViewer_1a0154ae0826881618be8ae4fcfeb74780" prot="public" virt="non-virtual"><scope>EndoscopeViewer</scope><name>~EndoscopeViewer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

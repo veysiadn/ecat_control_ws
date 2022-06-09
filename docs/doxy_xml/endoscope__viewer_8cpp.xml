@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="endoscope__viewer_8cpp" kind="file" language="C++">
+    <compoundname>endoscope_viewer.cpp</compoundname>
+    <includes refid="endoscope__viewer_8hpp" local="yes">../include/gui_pkg/endoscope_viewer.hpp</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>../include/gui_pkg/endoscope_viewer.hpp</label>
+        <link refid="endoscope__viewer_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>gui_globals.hpp</label>
+        <link refid="gui__globals_8hpp"/>
+      </node>
+      <node id="7">
+        <label>video_capture.hpp</label>
+        <link refid="video__capture_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/gui_pkg/src/endoscope_viewer.cpp</label>
+        <link refid="endoscope__viewer_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>QApplication</label>
+      </node>
+      <node id="9">
+        <label>QImage</label>
+      </node>
+      <node id="3">
+        <label>QMainWindow</label>
+      </node>
+      <node id="8">
+        <label>QPixmap</label>
+      </node>
+      <node id="10">
+        <label>QThread</label>
+      </node>
+      <node id="6">
+        <label>Qt</label>
+      </node>
+      <node id="14">
+        <label>opencv2/core/core.hpp</label>
+      </node>
+      <node id="12">
+        <label>opencv2/highgui/highgui.hpp</label>
+      </node>
+      <node id="13">
+        <label>opencv2/imgproc.hpp</label>
+      </node>
+      <node id="11">
+        <label>opencv2/opencv.hpp</label>
+      </node>
+      <node id="4">
+        <label>ui_endoscope_viewer.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;../include/gui_pkg/endoscope_viewer.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"><ref refid="classEndoscopeViewer_1a65ab72004400cd0da30bf63bb48a8599" kindref="member">EndoscopeViewer::EndoscopeViewer</ref>(QWidget<sp/>*parent)<sp/>:</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/>QMainWindow(parent),</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/>ui(new<sp/><ref refid="namespaceUi" kindref="compound">Ui</ref>::<ref refid="classEndoscopeViewer" kindref="compound">EndoscopeViewer</ref>)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;setupUi(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>opencv_video_cap_<sp/>=<sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classVideoCapture" kindref="compound">VideoCapture</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(opencv_video_cap_,<sp/>&amp;<ref refid="classVideoCapture_1af97dc7c07779d2d618a72787f4305cf8" kindref="member">VideoCapture::NewPixmapCapture</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[&amp;]()</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;image_frame-&gt;setPixmap(opencv_video_cap_-&gt;pixmap().scaled(1280,720,Qt::KeepAspectRatioByExpanding));</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><ref refid="classEndoscopeViewer_1a0154ae0826881618be8ae4fcfeb74780" kindref="member">EndoscopeViewer::~EndoscopeViewer</ref>()</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="classEndoscopeViewer_1ae6ea5d5cec08f886403fbfc08146e85d" kindref="member">ui</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classEndoscopeViewer_1a4637b0581afc5a9a5b7003d2816c8a75" kindref="member">EndoscopeViewer::on_b_start_capture_clicked</ref>()</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classEndoscopeViewer_1a1ac9a153f3216709b36655c3dff23313" kindref="member">opencv_video_cap_</ref>-&gt;start(QThread::NormalPriority);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classEndoscopeViewer_1a7ad65c748013f846aa0250adca1928c4" kindref="member">EndoscopeViewer::on_b_stop_capture_clicked</ref>()</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classEndoscopeViewer_1a1ac9a153f3216709b36655c3dff23313" kindref="member">opencv_video_cap_</ref>-&gt;isRunning()){</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classEndoscopeViewer_1a1ac9a153f3216709b36655c3dff23313" kindref="member">opencv_video_cap_</ref>-&gt;requestInterruption();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classEndoscopeViewer_1a47cd1463ed68ac87c47421a8071e4f29" kindref="member">EndoscopeViewer::on_b_exit_clicked</ref>()</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classEndoscopeViewer_1a1ac9a153f3216709b36655c3dff23313" kindref="member">opencv_video_cap_</ref>-&gt;isRunning()){</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classEndoscopeViewer_1a1ac9a153f3216709b36655c3dff23313" kindref="member">opencv_video_cap_</ref>-&gt;requestInterruption();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>EndoscopeViewer::close();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/gui_pkg/src/endoscope_viewer.cpp"/>
+  </compounddef>
+</doxygen>

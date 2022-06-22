@@ -14,11 +14,11 @@
 
 Published and subscribed topics for each node are shown in figure below,
 
-![Nodes Published and Subscribed Topics](https://github.com/veysiadn/ecat_control_ws/blob/master/docs/img/node_pu_sub_topics.jpg)
+![Nodes Published and Subscribed Topics](https://raw.githubusercontent.com/veysiadn/ecat_control_ws/master/docs/img/node_pu_sub_topics.jpg)
 
  and the contents of the topics are shown in figure below.
   
-![Topics and contained messages](https://github.com/veysiadn/ecat_control_ws/blob/master/docs/img/topic_msgs.jpg)
+![Topics and contained messages](https://raw.githubusercontent.com/veysiadn/ecat_control_ws/master/docs/img/topic_msgs.jpg)
 
 Note that published topic messages can be changed by changing msg file contents in case custom message is required.
 

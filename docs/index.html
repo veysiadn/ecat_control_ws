@@ -94,10 +94,12 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <p ><b>• <a class="el" href="namespaceGUI.html">GUI</a> node:</b> Consists of camera viewer and slave feedback visualizers such as motor state, communication state, and emergency button state. Publishes under /gui_buttons data consists of soft button events, subscribes to /master_ commands, and /slave_feedback, and /safety info topics to give visual feedback to the user. The current version of the <a class="el" href="namespaceGUI.html">GUI</a> node is shown in Figure 25. Control user interface buttons activated based on lifecycle node state.</p>
 <p ><b>• Safety node:</b> Subscribes to all published topics and checks the consistency in the system, decides about the state of the system. System-related safety information is checked every cycle. Manages lifecycle node and state transitions are triggered from this node.</p>
 <p >Published and subscribed topics for each node are shown in figure below,</p>
-<p ><img src="https://github.com/veysiadn/ecat_control_ws/blob/master/docs/img/node_pu_sub_topics.jpg" alt="Nodes Published and Subscribed Topics" class="inline"/></p>
+<a ><img src="https://raw.githubusercontent.com/veysiadn/ecat_control_ws/master/docs/img/node_pu_sub_topics.jpg" alt="Nodes, Published and Subscribed Topics" /></a>
 <p >and the contents of the topics are shown in figure below.</p>
-<p ><img src="https://github.com/veysiadn/ecat_control_ws/blob/master/docs/img/topic_msgs.jpg" alt="Topics and contained messages" class="inline"/></p>
+<a ><img src="https://raw.githubusercontent.com/veysiadn/ecat_control_ws/master/docs/img/topic_msgs.jpg" alt="Topics and contained messages"/></a>
 <p >Note that published topic messages can be changed by changing msg file contents in case custom message is required.</p>
+
+
 <h3><a class="anchor" id="autotoc_md1"></a>
 Please check guides, links and documentations before installation, or using this control framework.</h3>
 <h1><a class="anchor" id="autotoc_md2"></a>

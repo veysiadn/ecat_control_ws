@@ -14,11 +14,11 @@
 
 Published and subscribed topics for each node are shown in figure below,
 
-![Nodes Published and Subscribed Topics](docs/img/node_pu_sub_topics.jpg)
+![Nodes Published and Subscribed Topics](https://github.com/veysiadn/ecat_control_ws/blob/master/docs/img/node_pu_sub_topics.jpg)
 
  and the contents of the topics are shown in figure below.
   
-![Topics and contained messages](docs/img/topic_msgs.jpg)
+![Topics and contained messages](https://github.com/veysiadn/ecat_control_ws/blob/master/docs/img/topic_msgs.jpg)
 
 Note that published topic messages can be changed by changing msg file contents in case custom message is required.
 
@@ -53,7 +53,7 @@ Note that published topic messages can be changed by changing msg file contents 
 ```
 Note that, before running, you might need to change lauch_all_nodes.py file, to isolate specific CPU core in your system.
 #### Running
-```
+```sh
   sudo -s
   source /opt/ros/foxy/setup.bash
   . install/setup.bash

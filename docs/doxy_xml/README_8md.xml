@@ -23,11 +23,11 @@
 <codeline></codeline>
 <codeline><highlight class="normal">Published<sp/>and<sp/>subscribed<sp/>topics<sp/>for<sp/>each<sp/>node<sp/>are<sp/>shown<sp/>in<sp/>figure<sp/>below,</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">![Nodes<sp/>Published<sp/>and<sp/>Subscribed<sp/>Topics](docs/img/node_pu_sub_topics.jpg)</highlight></codeline>
+<codeline><highlight class="normal">![Nodes<sp/>Published<sp/>and<sp/>Subscribed<sp/>Topics](https://github.com/veysiadn/ecat_control_ws/blob/master/docs/img/node_pu_sub_topics.jpg)</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal"><sp/>and<sp/>the<sp/>contents<sp/>of<sp/>the<sp/>topics<sp/>are<sp/>shown<sp/>in<sp/>figure<sp/>below.</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal">![Topics<sp/>and<sp/>contained<sp/>messages](docs/img/topic_msgs.jpg)</highlight></codeline>
+<codeline><highlight class="normal">![Topics<sp/>and<sp/>contained<sp/>messages](https://github.com/veysiadn/ecat_control_ws/blob/master/docs/img/topic_msgs.jpg)</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Note<sp/>that<sp/>published<sp/>topic<sp/>messages<sp/>can<sp/>be<sp/>changed<sp/>by<sp/>changing<sp/>msg<sp/>file<sp/>contents<sp/>in<sp/>case<sp/>custom<sp/>message<sp/>is<sp/>required.</highlight></codeline>
 <codeline></codeline>
@@ -62,7 +62,7 @@
 <codeline><highlight class="normal">```</highlight></codeline>
 <codeline><highlight class="normal">Note<sp/>that,<sp/>before<sp/>running,<sp/>you<sp/>might<sp/>need<sp/>to<sp/>change<sp/>lauch_all_nodes.py<sp/>file,<sp/>to<sp/>isolate<sp/>specific<sp/>CPU<sp/>core<sp/>in<sp/>your<sp/>system.</highlight></codeline>
 <codeline><highlight class="normal">####<sp/>Running</highlight></codeline>
-<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">```sh</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>sudo<sp/>-s</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>source<sp/>/opt/ros/foxy/setup.bash</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>.<sp/>install/setup.bash</highlight></codeline>

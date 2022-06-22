@@ -7,12 +7,21 @@
     </briefdescription>
     <detaileddescription>
 <para><anchor id="index_1md_README"/> This repository contains ROS2 and EtherCAT based control framework for our spine surgery robot project, but this implementation can be used with any robotic system with small modifications.Contains EtherCAT real-time thread with priority of 98. Software consists of four components (ROS2 nodes) :</para>
-<para>• EtherCAT node : Responsible for EtherCAT communication between master and slaves and publishes acquired feedback from slaves under /slavefeedback topicname in 1 kHz frequency. Additionally, subscribes to/mastercommands topic published from control node and sends control commands to slaves via EtherCATcommunication.</para>
-<para>• Control node : Kinematic calculations will be done in this node. This node subscribes /slavefeedback topic published from EtherCAT node and publishes control commands under /mastercommands topic.Currently this node retrieves button and joystick data from Xbox <ref refid="classController" kindref="compound">Controller</ref> via USB communication.</para>
-<para>• <ref refid="namespaceGUI" kindref="compound">GUI</ref> node : Consist of camera viewer and slave feedback visualizers such as motor state, communication state, emergency button state. Publishes under /guidata consists of soft emergency button events, subscribes to /mastercommands and /slavefeedback topics to give visual feedback to user</para>
-<para>• Surgical Tool Node : Contains Dynamixel SDK for RS485 communication with Dynamixel motors.</para>
-<para>Please check guides, links and documentations before installation, or using this control framework.</para>
-<sect1 id="index_1autotoc_md1">
+<para><bold>• EtherCAT node:</bold> Responsible for EtherCAT communication between master and slaves and publishes acquired feedback from slaves under /slave_feedback topic name in 1 kHz frequency. Additionally, subscribes to /controller topic, published from the control input node, / gui_buttons topic published from the <ref refid="namespaceGUI" kindref="compound">GUI</ref> node, and /safety_info topic published from the safety node. Calculates target values for each motor and sends control commands to slaves via EtherCAT communication and publishes those values under the /master_commands topic.</para>
+<para><bold>• Control node:</bold> Acquires input data from the input device and in the current setup input device is the Xbox controller. Therefore, it gets axis data and button data from the Xbox controller and publishes it under the /controller topic. Additionally, this node subscribes to the /slave_feedback topic published from the EtherCAT node.</para>
+<para><bold>• <ref refid="namespaceGUI" kindref="compound">GUI</ref> node:</bold> Consists of camera viewer and slave feedback visualizers such as motor state, communication state, and emergency button state. Publishes under /gui_buttons data consists of soft button events, subscribes to /master_ commands, and /slave_feedback, and /safety info topics to give visual feedback to the user. The current version of the <ref refid="namespaceGUI" kindref="compound">GUI</ref> node is shown in Figure 25. Control user interface buttons activated based on lifecycle node state.</para>
+<para><bold>• Safety node:</bold> Subscribes to all published topics and checks the consistency in the system, decides about the state of the system. System-related safety information is checked every cycle. Manages lifecycle node and state transitions are triggered from this node.</para>
+<para>Published and subscribed topics for each node are shown in figure below,</para>
+<para><image type="html" name="docs/img/node_pu_sub_topics.jpg" alt="Nodes Published and Subscribed Topics" inline="yes"></image>
+</para>
+<para>and the contents of the topics are shown in figure below.</para>
+<para><image type="html" name="docs/img/topic_msgs.jpg" alt="Topics and contained messages" inline="yes"></image>
+</para>
+<para>Note that published topic messages can be changed by changing msg file contents in case custom message is required.</para>
+<sect3 id="index_1autotoc_md1">
+<title>Please check guides, links and documentations before installation, or using this control framework.</title>
+</sect3>
+<sect1 id="index_1autotoc_md2">
 <title>Guides</title>
 <para><itemizedlist>
 <listitem><para><ulink url="https://docs.ros.org/en/foxy/index.html">ROS2</ulink></para>
@@ -28,26 +37,34 @@
 </listitem></itemizedlist>
 </para>
 </sect1>
-<sect1 id="index_1autotoc_md2">
+<sect1 id="index_1autotoc_md3">
 <title>Prerequisites</title>
 <para><itemizedlist>
-<listitem><para><ulink url="https://github.com/veysiadn/IgHEtherCATImplementation">RT_Preempt Linux and IgH EtherCAT Implementation</ulink></para>
+<listitem><para><ulink url="https://github.com/veysiadn/IgHEtherCATImplementation">IgH EtherCAT</ulink></para>
+</listitem><listitem><para><ulink url="https://github.com/veysiadn/RT_PREEMPT_INSTALL">RT_Preempt Linux</ulink></para>
 </listitem><listitem><para>If you want to use <ulink url="https://github.com/veysiadn/xenomai-install">Xenomai-Instalattion</ulink></para>
 </listitem><listitem><para><ulink url="https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html">ROS2 Foxy Installation</ulink></para>
-</listitem><listitem><para><ulink url="https://github.com/ROBOTIS-GIT/DynamixelSDK">Dynamixel-SDK</ulink></para>
 </listitem></itemizedlist>
 </para>
 </sect1>
-<sect1 id="index_1autotoc_md3">
+<sect1 id="index_1autotoc_md4">
 <title>Building and running</title>
+<sect2 id="index_1autotoc_md5">
+<title>Building</title>
 <para><programlisting filename=".sh"><codeline><highlight class="normal">git<sp/>clone<sp/>https://github.com/veysiadn/ecat_control_ws</highlight></codeline>
 <codeline><highlight class="normal">source<sp/>/opt/ros/foxy/setup.bash</highlight></codeline>
-<codeline><highlight class="normal">colcon<sp/>build<sp/>--symlink<sp/>install</highlight></codeline>
-<codeline><highlight class="normal">sudo<sp/>-s</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>ecat_control_ws</highlight></codeline>
+<codeline><highlight class="normal">colcon<sp/>build<sp/>--symlink-install</highlight></codeline>
+</programlisting> Note that, before running, you might need to change lauch_all_nodes.py file, to isolate specific CPU core in your system. </para>
+<sect3 id="index_1autotoc_md6">
+<title>Running</title>
+<para><programlisting><codeline><highlight class="normal">sudo<sp/>-s</highlight></codeline>
 <codeline><highlight class="normal">source<sp/>/opt/ros/foxy/setup.bash</highlight></codeline>
 <codeline><highlight class="normal">.<sp/>install/setup.bash</highlight></codeline>
 <codeline><highlight class="normal">ros2<sp/>launch<sp/>launch_all_nodes.py</highlight></codeline>
 </programlisting> </para>
+</sect3>
+</sect2>
 </sect1>
     </detaileddescription>
     <location file="README.md"/>

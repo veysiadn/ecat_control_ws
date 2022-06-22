@@ -11,15 +11,27 @@
 <codeline></codeline>
 <codeline><highlight class="normal"><sp/><sp/>This<sp/>repository<sp/>contains<sp/>ROS2<sp/>and<sp/>EtherCAT<sp/>based<sp/>control<sp/>framework<sp/>for<sp/>our<sp/>spine<sp/>surgery<sp/>robot<sp/>project,<sp/>but<sp/>this<sp/>implementation<sp/>can<sp/>be<sp/>used<sp/>with<sp/>any<sp/>robotic<sp/>system<sp/>with<sp/>small<sp/>modifications.Contains<sp/>EtherCAT<sp/>real-time<sp/>thread<sp/>with<sp/>priority<sp/>of<sp/>98.<sp/>Software<sp/>consists<sp/>of<sp/>four<sp/>components<sp/>(ROS2<sp/>nodes)<sp/>:<sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>•<sp/>EtherCAT<sp/>node<sp/>:<sp/>Responsible<sp/>for<sp/>EtherCAT<sp/>communication<sp/>between<sp/>master<sp/>and<sp/>slaves<sp/>and<sp/>publishes<sp/>acquired<sp/>feedback<sp/>from<sp/>slaves<sp/>under<sp/>/slavefeedback<sp/>topicname<sp/>in<sp/>1<sp/>kHz<sp/>frequency.<sp/>Additionally,<sp/>subscribes<sp/>to/mastercommands<sp/>topic<sp/>published<sp/>from<sp/>control<sp/>node<sp/>and<sp/>sends<sp/>control<sp/>commands<sp/>to<sp/>slaves<sp/>via<sp/>EtherCATcommunication.</highlight></codeline>
+<codeline><highlight class="normal">**•<sp/>EtherCAT<sp/>node:**<sp/>Responsible<sp/>for<sp/>EtherCAT<sp/>communication<sp/>between<sp/>master<sp/>and<sp/>slaves<sp/>and<sp/>publishes<sp/>acquired<sp/>feedback<sp/>from<sp/>slaves<sp/>under<sp/>/slave_feedback<sp/>topic<sp/>name<sp/>in<sp/>1<sp/>kHz<sp/>frequency.<sp/>Additionally,<sp/>subscribes<sp/>to<sp/>/controller<sp/>topic,<sp/>published<sp/>from<sp/>the<sp/>control<sp/>input<sp/>node,<sp/>/<sp/>gui_buttons<sp/>topic<sp/>published<sp/>from<sp/>the<sp/>GUI<sp/>node,<sp/>and<sp/>/safety_info<sp/>topic<sp/>published<sp/>from<sp/>the<sp/>safety<sp/>node.<sp/>Calculates<sp/>target<sp/>values<sp/>for<sp/>each<sp/>motor<sp/>and<sp/>sends<sp/>control<sp/>commands<sp/>to<sp/>slaves<sp/>via<sp/>EtherCAT<sp/>communication<sp/>and<sp/>publishes<sp/>those<sp/>values<sp/>under<sp/>the<sp/>/master_commands<sp/>topic.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**•<sp/>Control<sp/>node:**<sp/>Acquires<sp/>input<sp/>data<sp/>from<sp/>the<sp/>input<sp/>device<sp/>and<sp/>in<sp/>the<sp/>current<sp/>setup<sp/>input<sp/>device<sp/>is<sp/>the<sp/>Xbox<sp/>controller.<sp/>Therefore,<sp/>it<sp/>gets<sp/>axis<sp/>data<sp/>and<sp/>button<sp/>data<sp/>from<sp/>the<sp/>Xbox<sp/>controller<sp/>and<sp/>publishes<sp/>it<sp/>under<sp/>the<sp/>/controller<sp/>topic.<sp/>Additionally,<sp/>this<sp/>node<sp/>subscribes<sp/>to<sp/>the<sp/>/slave_feedback<sp/>topic<sp/>published<sp/>from<sp/>the<sp/>EtherCAT<sp/>node.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**•<sp/>GUI<sp/>node:**<sp/>Consists<sp/>of<sp/>camera<sp/>viewer<sp/>and<sp/>slave<sp/>feedback<sp/>visualizers<sp/>such<sp/>as<sp/>motor<sp/>state,<sp/>communication<sp/>state,<sp/>and<sp/>emergency<sp/>button<sp/>state.<sp/>Publishes<sp/>under<sp/>/gui_buttons<sp/>data<sp/>consists<sp/>of<sp/>soft<sp/>button<sp/>events,<sp/>subscribes<sp/>to<sp/>/master_<sp/>commands,<sp/>and<sp/>/slave_feedback,<sp/>and<sp/>/safety<sp/>info<sp/>topics<sp/>to<sp/>give<sp/>visual<sp/>feedback<sp/>to<sp/>the<sp/>user.<sp/>The<sp/>current<sp/>version<sp/>of<sp/>the<sp/>GUI<sp/>node<sp/>is<sp/>shown<sp/>in<sp/>Figure<sp/>25.<sp/>Control<sp/>user<sp/>interface<sp/>buttons<sp/>activated<sp/>based<sp/>on<sp/>lifecycle<sp/>node<sp/>state.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**•<sp/>Safety<sp/>node:**<sp/>Subscribes<sp/>to<sp/>all<sp/>published<sp/>topics<sp/>and<sp/>checks<sp/>the<sp/>consistency<sp/>in<sp/>the<sp/>system,<sp/>decides<sp/>about<sp/>the<sp/>state<sp/>of<sp/>the<sp/>system.<sp/>System-related<sp/>safety<sp/>information<sp/>is<sp/>checked<sp/>every<sp/>cycle.<sp/>Manages<sp/>lifecycle<sp/>node<sp/>and<sp/>state<sp/>transitions<sp/>are<sp/>triggered<sp/>from<sp/>this<sp/>node.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Published<sp/>and<sp/>subscribed<sp/>topics<sp/>for<sp/>each<sp/>node<sp/>are<sp/>shown<sp/>in<sp/>figure<sp/>below,</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">![Nodes<sp/>Published<sp/>and<sp/>Subscribed<sp/>Topics](docs/img/node_pu_sub_topics.jpg)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/>and<sp/>the<sp/>contents<sp/>of<sp/>the<sp/>topics<sp/>are<sp/>shown<sp/>in<sp/>figure<sp/>below.</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>•<sp/>Control<sp/>node<sp/>:<sp/>Kinematic<sp/>calculations<sp/>will<sp/>be<sp/>done<sp/>in<sp/>this<sp/>node.<sp/>This<sp/>node<sp/>subscribes<sp/>/slavefeedback<sp/>topic<sp/>published<sp/>from<sp/>EtherCAT<sp/>node<sp/>and<sp/>publishes<sp/>control<sp/>commands<sp/>under<sp/>/mastercommands<sp/>topic.Currently<sp/>this<sp/>node<sp/>retrieves<sp/>button<sp/>and<sp/>joystick<sp/>data<sp/>from<sp/>Xbox<sp/>Controller<sp/>via<sp/>USB<sp/>communication.</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>•<sp/>GUI<sp/>node<sp/>:<sp/>Consist<sp/>of<sp/>camera<sp/>viewer<sp/>and<sp/>slave<sp/>feedback<sp/>visualizers<sp/>such<sp/>as<sp/>motor<sp/>state,<sp/>communication<sp/>state,<sp/>emergency<sp/>button<sp/>state.<sp/>Publishes<sp/>under<sp/>/guidata<sp/>consists<sp/>of<sp/>soft<sp/>emergency<sp/>button<sp/>events,<sp/>subscribes<sp/>to<sp/>/mastercommands<sp/>and<sp/>/slavefeedback<sp/>topics<sp/>to<sp/>give<sp/>visual<sp/>feedback<sp/>to<sp/>user</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/>•<sp/>Surgical<sp/>Tool<sp/>Node<sp/>:<sp/>Contains<sp/>Dynamixel<sp/>SDK<sp/>for<sp/>RS485<sp/>communication<sp/>with<sp/>Dynamixel<sp/>motors.</highlight></codeline>
-<codeline><highlight class="normal"><sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/>Please<sp/>check<sp/>guides,<sp/>links<sp/>and<sp/>documentations<sp/>before<sp/>installation,<sp/>or<sp/>using<sp/>this<sp/>control<sp/>framework.</highlight></codeline>
+<codeline><highlight class="normal">![Topics<sp/>and<sp/>contained<sp/>messages](docs/img/topic_msgs.jpg)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Note<sp/>that<sp/>published<sp/>topic<sp/>messages<sp/>can<sp/>be<sp/>changed<sp/>by<sp/>changing<sp/>msg<sp/>file<sp/>contents<sp/>in<sp/>case<sp/>custom<sp/>message<sp/>is<sp/>required.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Please<sp/>check<sp/>guides,<sp/>links<sp/>and<sp/>documentations<sp/>before<sp/>installation,<sp/>or<sp/>using<sp/>this<sp/>control<sp/>framework.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Guides</highlight></codeline>
 <codeline></codeline>
@@ -35,17 +47,22 @@
 <codeline><highlight class="normal">-<sp/>[Article<sp/>on<sp/>EtherCAT-RT<sp/>PREEMPT-<sp/>Xenomai](https://www.ripublication.com/ijaer17/ijaerv12n21_94.pdf)</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Prerequisites</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>[RT_Preempt<sp/>Linux<sp/>and<sp/>IgH<sp/>EtherCAT<sp/>Implementation](https://github.com/veysiadn/IgHEtherCATImplementation)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[IgH<sp/>EtherCAT](https://github.com/veysiadn/IgHEtherCATImplementation)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RT_Preempt<sp/>Linux](https://github.com/veysiadn/RT_PREEMPT_INSTALL)</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>If<sp/>you<sp/>want<sp/>to<sp/>use<sp/>[Xenomai-Instalattion](https://github.com/veysiadn/xenomai-install)</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>[ROS2<sp/>Foxy<sp/>Installation](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>[Dynamixel-SDK](https://github.com/ROBOTIS-GIT/DynamixelSDK)</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Building<sp/>and<sp/>running</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">###<sp/>Building<sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal">```sh</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>git<sp/>clone<sp/>https://github.com/veysiadn/ecat_control_ws</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>source<sp/>/opt/ros/foxy/setup.bash</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>colcon<sp/>build<sp/>--symlink<sp/>install</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>cd<sp/>ecat_control_ws</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>colcon<sp/>build<sp/>--symlink-install</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Note<sp/>that,<sp/>before<sp/>running,<sp/>you<sp/>might<sp/>need<sp/>to<sp/>change<sp/>lauch_all_nodes.py<sp/>file,<sp/>to<sp/>isolate<sp/>specific<sp/>CPU<sp/>core<sp/>in<sp/>your<sp/>system.</highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Running</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>sudo<sp/>-s</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>source<sp/>/opt/ros/foxy/setup.bash</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>.<sp/>install/setup.bash</highlight></codeline>

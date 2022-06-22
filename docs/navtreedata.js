@@ -26,9 +26,13 @@ var NAVTREE =
 [
   [ "EtherCAT Control Framework", "index.html", [
     [ "Welcome to Veysi ADIN & Chunwoo Kim's ROS2 EtherCAT package.", "index.html", [
-      [ "Guides", "index.html#autotoc_md1", null ],
-      [ "Prerequisites", "index.html#autotoc_md2", null ],
-      [ "Building and running", "index.html#autotoc_md3", null ]
+      [ "Guides", "index.html#autotoc_md2", null ],
+      [ "Prerequisites", "index.html#autotoc_md3", null ],
+      [ "Building and running", "index.html#autotoc_md4", [
+        [ "Building", "index.html#autotoc_md5", [
+          [ "Running", "index.html#autotoc_md6", null ]
+        ] ]
+      ] ]
     ] ],
     [ "Examples", "examples.html", null ],
     [ "Useful Resources", "resources.html", null ],
@@ -70,8 +74,8 @@ var NAVTREEINDEX =
 "classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#aadb5d2d00179549ea65186fd0ad12aae",
 "ecat__definitions_8hpp.html#a4af714f8363d6bd6ac4ac6fa39d0490b",
 "functions_x.html",
-"object__dictionary_8hpp.html#a16c92247906425e8c0722b363719e9fe",
-"structOffsetPDO.html#ae1bef0cbff32c077395e59137c8c802d"
+"object__dictionary_8hpp.html#a14d385654604fbf9449da426b3b24dbc",
+"structOffsetPDO.html#ad94b77fa0e48ed563b4757a1648f9481"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

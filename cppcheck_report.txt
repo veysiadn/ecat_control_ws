@@ -28,73 +28,73 @@ src/controller/src/joy_node_linux.cpp:120:3: warning: Member variable 'Controlle
 src/controller/src/joy_node_linux.cpp:71:15: performance:inconclusive: Technically the member function 'Controller::get_dev_by_joy_name' can be static (but you may consider moving to unnamed namespace). [functionStatic]
   std::string get_dev_by_joy_name(const std::string& joy_name, rclcpp::Logger logger)
               ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:1348:11: style: The scope of the variable 'm1_left' can be reduced. [variableScope]
+src/ecat_pkg/src/ecat_lifecycle.cpp:1352:11: style: The scope of the variable 'm1_left' can be reduced. [variableScope]
     float m1_left=0.0, m1_right=0.0, axis_m2=0.0, axis_m3=0.0;
           ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:1348:24: style: The scope of the variable 'm1_right' can be reduced. [variableScope]
+src/ecat_pkg/src/ecat_lifecycle.cpp:1352:24: style: The scope of the variable 'm1_right' can be reduced. [variableScope]
     float m1_left=0.0, m1_right=0.0, axis_m2=0.0, axis_m3=0.0;
                        ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:1348:38: style: The scope of the variable 'axis_m2' can be reduced. [variableScope]
+src/ecat_pkg/src/ecat_lifecycle.cpp:1352:38: style: The scope of the variable 'axis_m2' can be reduced. [variableScope]
     float m1_left=0.0, m1_right=0.0, axis_m2=0.0, axis_m3=0.0;
                                      ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:1348:51: style: The scope of the variable 'axis_m3' can be reduced. [variableScope]
+src/ecat_pkg/src/ecat_lifecycle.cpp:1352:51: style: The scope of the variable 'axis_m3' can be reduced. [variableScope]
     float m1_left=0.0, m1_right=0.0, axis_m2=0.0, axis_m3=0.0;
                                                   ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:538:25: warning:inconclusive: Found suspicious equality comparison. Did you intend to assign a value instead? [constStatement]
+src/ecat_pkg/src/ecat_lifecycle.cpp:542:25: warning:inconclusive: Found suspicious equality comparison. Did you intend to assign a value instead? [constStatement]
         g_kOperationMode==kProfileVelocity;
                         ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:501:18: style: Unused variable: max_fol_err [unusedVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:505:18: style: Unused variable: max_fol_err [unusedVariable]
         uint32_t max_fol_err ;
                  ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:512:18: style: Unused variable: max_fol_err [unusedVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:516:18: style: Unused variable: max_fol_err [unusedVariable]
         uint32_t max_fol_err ;
                  ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:589:28: style: Variable 'print_max_min' is assigned a value that is never used. [unreadVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:593:28: style: Variable 'print_max_min' is assigned a value that is never used. [unreadVariable]
     uint32_t print_max_min = measurement_time * 60000 ;
                            ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:590:24: style: Variable 'print_val' is assigned a value that is never used. [unreadVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:594:24: style: Variable 'print_val' is assigned a value that is never used. [unreadVariable]
     uint32_t print_val = 1e4;
                        ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:592:24: style: Variable 'status_var' is assigned a value that is never used. [unreadVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:596:24: style: Variable 'status_var' is assigned a value that is never used. [unreadVariable]
     int32_t status_var = 0;
                        ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:593:59: style: Variable 'publish_time_start' is assigned a value that is never used. [unreadVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:597:59: style: Variable 'publish_time_start' is assigned a value that is never used. [unreadVariable]
     struct timespec wake_up_time, time, publish_time_start={}, publish_time_end={};
                                                           ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:593:80: style: Variable 'publish_time_end' is assigned a value that is never used. [unreadVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:597:80: style: Variable 'publish_time_end' is assigned a value that is never used. [unreadVariable]
     struct timespec wake_up_time, time, publish_time_start={}, publish_time_end={};
                                                                                ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:1348:18: style: Variable 'm1_left' is assigned a value that is never used. [unreadVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:1352:18: style: Variable 'm1_left' is assigned a value that is never used. [unreadVariable]
     float m1_left=0.0, m1_right=0.0, axis_m2=0.0, axis_m3=0.0;
                  ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:1348:32: style: Variable 'm1_right' is assigned a value that is never used. [unreadVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:1352:32: style: Variable 'm1_right' is assigned a value that is never used. [unreadVariable]
     float m1_left=0.0, m1_right=0.0, axis_m2=0.0, axis_m3=0.0;
                                ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:1348:45: style: Variable 'axis_m2' is assigned a value that is never used. [unreadVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:1352:45: style: Variable 'axis_m2' is assigned a value that is never used. [unreadVariable]
     float m1_left=0.0, m1_right=0.0, axis_m2=0.0, axis_m3=0.0;
                                             ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:1348:58: style: Variable 'axis_m3' is assigned a value that is never used. [unreadVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:1352:58: style: Variable 'axis_m3' is assigned a value that is never used. [unreadVariable]
     float m1_left=0.0, m1_right=0.0, axis_m2=0.0, axis_m3=0.0;
                                                          ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:776:12: style: The if condition is the same as the previous if condition [duplicateCondition]
+src/ecat_pkg/src/ecat_lifecycle.cpp:780:12: style: The if condition is the same as the previous if condition [duplicateCondition]
         if(!begin)
            ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:770:12: note: First condition
+src/ecat_pkg/src/ecat_lifecycle.cpp:774:12: note: First condition
         if(!begin)
            ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:776:12: note: Second condition
+src/ecat_pkg/src/ecat_lifecycle.cpp:780:12: note: Second condition
         if(!begin)
            ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:596:28: style: Variable 'period_ns' is assigned a value that is never used. [unreadVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:600:28: style: Variable 'period_ns' is assigned a value that is never used. [unreadVariable]
         uint32_t period_ns = 0, exec_ns = 0, latency_ns = 0,
                            ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:596:41: style: Variable 'exec_ns' is assigned a value that is never used. [unreadVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:600:41: style: Variable 'exec_ns' is assigned a value that is never used. [unreadVariable]
         uint32_t period_ns = 0, exec_ns = 0, latency_ns = 0,
                                         ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:602:35: style: Variable 'publishing_time_ns' is assigned a value that is never used. [unreadVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:606:35: style: Variable 'publishing_time_ns' is assigned a value that is never used. [unreadVariable]
         int32_t publishing_time_ns=1e4, publish_time_max=0, publish_time_min=0xfffffff;
                                   ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:603:81: style: Variable 'old_latency' is assigned a value that is never used. [unreadVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:607:81: style: Variable 'old_latency' is assigned a value that is never used. [unreadVariable]
         int32_t jitter = 0 , jitter_min = 0xfffffff, jitter_max = 0, old_latency=0;
                                                                                 ^
 src/ecat_pkg/src/ecat_node.cpp:742:27: style: Variable 'g_master_domain_state' is reassigned a value before the old one has been used. [redundantAssignment]

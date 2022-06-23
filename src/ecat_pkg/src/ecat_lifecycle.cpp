@@ -3,7 +3,7 @@
 using namespace EthercatLifeCycleNode ; 
 
 EthercatLifeCycle::EthercatLifeCycle(): LifecycleNode("ecat_node",
-rclcpp::NodeOptions().use_intra_process_comms(false))
+rclcpp::NodeOptions().use_intra_process_comms(true))
 {
     ecat_node_= std::make_unique<EthercatNode>();
     received_data_.status_word.resize(g_kNumberOfServoDrivers);
@@ -18,9 +18,12 @@ rclcpp::NodeOptions().use_intra_process_comms(false))
     sent_data_.target_vel.resize(g_kNumberOfServoDrivers);
     sent_data_.target_tor.resize(g_kNumberOfServoDrivers);
     gui_buttons_status_.spn_target_values.resize(g_kNumberOfServoDrivers);
+
     received_data_.emergency_switch_val=1;
     measurement_time = this->declare_parameter("measure_time",std::int32_t(1));
+
     received_data_.current_lifecycle_state = PRIMARY_STATE_UNCONFIGURED ;
+
     auto qos = rclcpp::QoS( rclcpp::KeepLast(1));
     qos.best_effort();
     received_data_publisher_ = this->create_publisher<ecat_msgs::msg::DataReceived>("Slave_Feedback", qos);
@@ -29,6 +32,7 @@ rclcpp::NodeOptions().use_intra_process_comms(false))
     gui_subscriber_          = this->create_subscription<ecat_msgs::msg::GuiButtonData>(
     "gui_buttons", qos,std::bind(&EthercatLifeCycle::HandleGuiNodeCallbacks, 
     this, std::placeholders::_1));
+
     received_data_publisher_->on_activate();
 }
 
@@ -499,11 +503,11 @@ int EthercatLifeCycle::SetConfigurationParameters()
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Setting drives to Position mode...\n");
         ProfilePosParam P ;
         uint32_t max_fol_err ;
-        P.profile_vel = 450; //150 ;
-        P.profile_acc = 1e4;//1e4 ;
-        P.profile_dec = 1e4;//1e4 ;
-        P.max_profile_vel = 500; //100 ;
-        P.quick_stop_dec = 3e4;//3e4 ;
+        P.profile_vel = 450; 
+        P.profile_acc = 1e4;
+        P.profile_dec = 1e4;
+        P.max_profile_vel = 500;
+        P.quick_stop_dec = 3e4;
         P.motion_profile_type = 0 ;
         error = ecat_node_->SetProfilePositionParametersAll(P);
     }else if(g_kOperationMode==kCSPosition){

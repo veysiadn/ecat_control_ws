@@ -23,7 +23,7 @@ def generate_launch_description():
         executable = 'ecat_node',
         name = 'ecat_node',
         output = 'screen',
-        prefix = 'taskset -c 4,5',
+        prefix = 'taskset -c 2,3',
 		parameters=[{"measure_time": 180}]
     )
 
@@ -32,8 +32,7 @@ def generate_launch_description():
         pd_node,
         Node(package='controller', executable='joy_node', output='screen', parameters=[
             {"dev": "/dev/input/js0"}]),
-        Node(package='gui_pkg', executable='gui_node', output='screen',prefix = 'taskset -c 4,5'),
+        Node(package='gui_pkg', executable='gui_node', output='screen',prefix = 'taskset -c 2,3'),
         #Node(package='gui_pkg', executable='gui_node', output='screen',prefix='valgrind'),
-        #Node(package='tool_pkg', node_executable='surgicalToolNode', output='screen'),
-        Node(package='safety_pkg', executable='safety_node', output='screen',prefix = 'taskset -c 4,5'),
+        Node(package='safety_pkg', executable='safety_node', output='screen',prefix = 'taskset -c 2,3'),
         ])

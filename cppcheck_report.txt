@@ -211,43 +211,37 @@ src/gui_pkg/src/main_window.cpp:206:0: style: The function 'ResetControlButtonVa
 src/gui_pkg/src/main_window.cpp:120:0: style: The function 'on_b_disable_drives_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/controlui.cpp:31:0: style: The function 'on_b_disable_motor_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:157:0: style: The function 'on_b_emergency_mode_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/controlui.cpp:61:0: style: The function 'on_b_emergency_mode_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:64:0: style: The function 'on_b_enable_cyclic_pos_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/controlui.cpp:36:0: style: The function 'on_b_enable_cyclic_pos_clicked' is never used. [unusedFunction]
-
-^
-src/gui_pkg/src/controlui.cpp:41:0: style: The function 'on_b_enable_cylic_vel_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:71:0: style: The function 'on_b_enable_cylic_vel_clicked' is never used. [unusedFunction]
 
 ^
 src/gui_pkg/src/main_window.cpp:115:0: style: The function 'on_b_enable_drives_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/controlui.cpp:26:0: style: The function 'on_b_enable_motor_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:81:0: style: The function 'on_b_enable_pos_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/controlui.cpp:51:0: style: The function 'on_b_enable_pos_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:76:0: style: The function 'on_b_enable_vel_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/controlui.cpp:46:0: style: The function 'on_b_enable_vel_clicked' is never used. [unusedFunction]
-
-^
-src/gui_pkg/src/controlui.cpp:56:0: style: The function 'on_b_enter_cyclic_pdo_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:125:0: style: The function 'on_b_enter_cyclic_pdo_clicked' is never used. [unusedFunction]
 
 ^
 src/gui_pkg/src/endoscope_viewer.cpp:34:0: style: The function 'on_b_exit_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/controlui.cpp:16:0: style: The function 'on_b_init_ecat_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:86:0: style: The function 'on_b_init_ecat_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/controlui.cpp:21:0: style: The function 'on_b_reinit_ecat_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:99:0: style: The function 'on_b_reinit_ecat_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/controlui.cpp:66:0: style: The function 'on_b_send_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:188:0: style: The function 'on_b_send_clicked' is never used. [unusedFunction]
 
 ^
 src/gui_pkg/src/endoscope_viewer.cpp:21:0: style: The function 'on_b_start_capture_clicked' is never used. [unusedFunction]

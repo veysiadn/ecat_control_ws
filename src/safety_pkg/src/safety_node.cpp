@@ -1,4 +1,5 @@
 #include <safety_node.hpp>
+
 class SafetyNode : public rclcpp::Node
 {
 public:

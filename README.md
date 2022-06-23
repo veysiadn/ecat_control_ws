@@ -1,6 +1,6 @@
 ## Welcome to Veysi ADIN & Chunwoo Kim's ROS2 EtherCAT package.
 
-  This repository contains ROS2 and EtherCAT based control framework for our spine surgery robot project, but this implementation can be used with any robotic system with small modifications.Contains EtherCAT real-time thread with priority of 98. Software consists of four components (ROS2 nodes) : 
+  This repository contains ROS2 and EtherCAT based control framework for our spine surgery robot project, but this implementation can be used with any robotic system with small modifications. Contains EtherCAT real-time thread with priority of 98. Software consists of four components (ROS2 nodes) : 
   
 **• EtherCAT node:** Responsible for EtherCAT communication between master and slaves and publishes acquired feedback from slaves under /slave_feedback topic name in 1 kHz frequency. Additionally, subscribes to /controller topic, published from the control input node, / gui_buttons topic published from the GUI node, and /safety_info topic published from the safety node. Calculates target values for each motor and sends control commands to slaves via EtherCAT communication and publishes those values under the /master_commands topic. 
 
@@ -8,7 +8,7 @@
 **• Control node:** Acquires input data from the input device and in the current setup input device is the Xbox controller. Therefore, it gets axis data and button data from the Xbox controller and publishes it under the /controller topic. Additionally, this node subscribes to the /slave_feedback topic published from the EtherCAT node.
 
 
-**• GUI node:** Consists of camera viewer and slave feedback visualizers such as motor state, communication state, and emergency button state. Publishes under /gui_buttons data consists of soft button events, subscribes to /master_ commands, and /slave_feedback, and /safety info topics to give visual feedback to the user. The current version of the GUI node is shown in Figure 25. Control user interface buttons activated based on lifecycle node state.
+**• GUI node:** Consists of camera viewer and slave feedback visualizers such as motor state, communication state, and emergency button state. Publishes under /gui_buttons data consists of soft button events, subscribes to /master_ commands, and /slave_feedback, and /safety info topics to give visual feedback to the user. Control user interface buttons activated based on lifecycle node state.
 
 **• Safety node:** Subscribes to all published topics and checks the consistency in the system, decides about the state of the system. System-related safety information is checked every cycle. Manages lifecycle node and state transitions are triggered from this node.
 
@@ -59,4 +59,4 @@ Note that, before running, you might need to change lauch_all_nodes.py file, to 
   . install/setup.bash
   ros2 launch launch_all_nodes.py
 ```
-
+#### Note two launch file is provided, in launch_all_nodes.py files state transitions are requested by pressing buttons in GUI node and Safety Node changes state for the EtherCAT node. In other launch file, ethercat_nodes_launch.py file state transitions directly triggered in the file, and in the current version, it brings the EtherCAT node to the active state.

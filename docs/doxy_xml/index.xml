@@ -36,22 +36,6 @@
     <member refid="classController_1a95c56822d667e94b031451729ce069a9" kind="function"><name>Controller</name></member>
     <member refid="classController_1af947edd39192c4bf792137836069756a" kind="function"><name>main</name></member>
   </compound>
-  <compound refid="classControlUI" kind="class"><name>ControlUI</name>
-    <member refid="classControlUI_1ad236121ee522c3acd7c0184bb5b5d98f" kind="variable"><name>ui</name></member>
-    <member refid="classControlUI_1ab848a6aae0d9a53ed40c73b31057e512" kind="function"><name>ControlUI</name></member>
-    <member refid="classControlUI_1a65f2e6bca109cef29ba350ba2a1580f9" kind="function"><name>~ControlUI</name></member>
-    <member refid="classControlUI_1ac0bc7c69bbf530993e389683849de789" kind="slot"><name>on_b_init_ecat_clicked</name></member>
-    <member refid="classControlUI_1a6dfe6cfad33afd90749942879f73c096" kind="slot"><name>on_b_reinit_ecat_clicked</name></member>
-    <member refid="classControlUI_1a38cb1a412dc23d5de671fb5ddf8d3284" kind="slot"><name>on_b_enable_motor_clicked</name></member>
-    <member refid="classControlUI_1a14824c73b16fd7052003bbc16f1bfc3e" kind="slot"><name>on_b_disable_motor_clicked</name></member>
-    <member refid="classControlUI_1a2835e64552d0c75659a7b30e8616da5b" kind="slot"><name>on_b_enable_cyclic_pos_clicked</name></member>
-    <member refid="classControlUI_1ac5086c08afb3d9e94916c1fcc0f8ac03" kind="slot"><name>on_b_enable_cylic_vel_clicked</name></member>
-    <member refid="classControlUI_1a53fce049541f1b8928c291dc0b973375" kind="slot"><name>on_b_enable_vel_clicked</name></member>
-    <member refid="classControlUI_1a077266a285b67090e4d77a03941ff81a" kind="slot"><name>on_b_enable_pos_clicked</name></member>
-    <member refid="classControlUI_1a6a52498be8c92662029dbb030d2ca1bc" kind="slot"><name>on_b_enter_cyclic_pdo_clicked</name></member>
-    <member refid="classControlUI_1a4454e3121b715ec5ad0d438b07140451" kind="slot"><name>on_b_emergency_mode_clicked</name></member>
-    <member refid="classControlUI_1a575af17c5689188be0c227209509f990" kind="slot"><name>on_b_send_clicked</name></member>
-  </compound>
   <compound refid="structControlUIButtonData" kind="struct"><name>ControlUIButtonData</name>
     <member refid="structControlUIButtonData_1a159f79d8922c840e127589b55bdd49e8" kind="variable"><name>b_init_ecat</name></member>
     <member refid="structControlUIButtonData_1ad997dd1579d5ddba6b1732b245c78df0" kind="variable"><name>b_reinit_ecat</name></member>
@@ -947,8 +931,6 @@
   </compound>
   <compound refid="gui__pkg_2src_2timing_8cpp" kind="file"><name>timing.cpp</name>
   </compound>
-  <compound refid="controlui_8hpp" kind="file"><name>controlui.hpp</name>
-  </compound>
   <compound refid="endoscope__viewer_8hpp" kind="file"><name>endoscope_viewer.hpp</name>
   </compound>
   <compound refid="gui__globals_8hpp" kind="file"><name>gui_globals.hpp</name>
@@ -1098,8 +1080,6 @@
   <compound refid="main__window_8hpp" kind="file"><name>main_window.hpp</name>
   </compound>
   <compound refid="video__capture_8hpp" kind="file"><name>video_capture.hpp</name>
-  </compound>
-  <compound refid="controlui_8cpp" kind="file"><name>controlui.cpp</name>
   </compound>
   <compound refid="endoscope__viewer_8cpp" kind="file"><name>endoscope_viewer.cpp</name>
   </compound>

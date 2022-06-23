@@ -18,7 +18,6 @@ var hierarchy =
     [ "ProfilePosParam", "structProfilePosParam.html", null ],
     [ "ProfileVelocityParam", "structProfileVelocityParam.html", null ],
     [ "QMainWindow", null, [
-      [ "ControlUI", "classControlUI.html", null ],
       [ "EndoscopeViewer", "classEndoscopeViewer.html", null ],
       [ "MainWindow", "classMainWindow.html", null ]
     ] ],

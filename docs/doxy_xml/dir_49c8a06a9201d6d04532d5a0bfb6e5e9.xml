@@ -2,7 +2,6 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
   <compounddef id="dir_49c8a06a9201d6d04532d5a0bfb6e5e9" kind="dir">
     <compoundname>src/gui_pkg/include/gui_pkg</compoundname>
-    <innerfile refid="controlui_8hpp">controlui.hpp</innerfile>
     <innerfile refid="endoscope__viewer_8hpp">endoscope_viewer.hpp</innerfile>
     <innerfile refid="gui__globals_8hpp">gui_globals.hpp</innerfile>
     <innerfile refid="gui__node_8hpp">gui_node.hpp</innerfile>

@@ -1,8 +1,5 @@
 var dir_49c8a06a9201d6d04532d5a0bfb6e5e9 =
 [
-    [ "controlui.hpp", "controlui_8hpp.html", [
-      [ "ControlUI", "classControlUI.html", "classControlUI" ]
-    ] ],
     [ "endoscope_viewer.hpp", "endoscope__viewer_8hpp.html", [
       [ "EndoscopeViewer", "classEndoscopeViewer.html", "classEndoscopeViewer" ]
     ] ],

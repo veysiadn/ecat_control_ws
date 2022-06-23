@@ -1,7 +1,7 @@
 var searchData=
 [
   ['ui_0',['Ui',['../namespaceUi.html',1,'']]],
-  ['ui_1',['ui',['../classControlUI.html#ad236121ee522c3acd7c0184bb5b5d98f',1,'ControlUI::ui()'],['../classEndoscopeViewer.html#ae6ea5d5cec08f886403fbfc08146e85d',1,'EndoscopeViewer::ui()'],['../classMainWindow.html#a35466a70ed47252a0191168126a352a5',1,'MainWindow::ui()']]],
+  ['ui_1',['ui',['../classEndoscopeViewer.html#ae6ea5d5cec08f886403fbfc08146e85d',1,'EndoscopeViewer::ui()'],['../classMainWindow.html#a35466a70ed47252a0191168126a352a5',1,'MainWindow::ui()']]],
   ['ui_5fcontrol_5fbuttons_5f_2',['ui_control_buttons_',['../classGUI_1_1GuiNode.html#a625aa899ac48e4549c7f5fd0399181d7',1,'GUI::GuiNode']]],
   ['under_5fvoltage_5ferror_3',['UNDER_VOLTAGE_ERROR',['../ecat__definitions_8hpp.html#ab0df38968e4f03a3f1f6d6df0f31f45aa4e80575925053a375109066c6c08b7b6',1,'UNDER_VOLTAGE_ERROR():&#160;ecat_definitions.hpp'],['../gui__globals_8hpp.html#afeaa6acaf321700c18979784e52e5352a4e80575925053a375109066c6c08b7b6',1,'UNDER_VOLTAGE_ERROR():&#160;gui_globals.hpp']]],
   ['updatecontrolparameters_4',['UpdateControlParameters',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a2be95ab458e8e637e2a6f3b57b750886',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],

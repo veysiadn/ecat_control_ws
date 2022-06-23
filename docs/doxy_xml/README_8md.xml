@@ -23,11 +23,11 @@
 <codeline></codeline>
 <codeline><highlight class="normal">Published<sp/>and<sp/>subscribed<sp/>topics<sp/>for<sp/>each<sp/>node<sp/>are<sp/>shown<sp/>in<sp/>figure<sp/>below,</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">![Nodes<sp/>Published<sp/>and<sp/>Subscribed<sp/>Topics](https://github.com/veysiadn/ecat_control_ws/blob/master/docs/img/node_pu_sub_topics.jpg)</highlight></codeline>
+<codeline><highlight class="normal">![Nodes<sp/>Published<sp/>and<sp/>Subscribed<sp/>Topics](https://raw.githubusercontent.com/veysiadn/ecat_control_ws/master/docs/img/node_pu_sub_topics.jpg)</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal"><sp/>and<sp/>the<sp/>contents<sp/>of<sp/>the<sp/>topics<sp/>are<sp/>shown<sp/>in<sp/>figure<sp/>below.</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal">![Topics<sp/>and<sp/>contained<sp/>messages](https://github.com/veysiadn/ecat_control_ws/blob/master/docs/img/topic_msgs.jpg)</highlight></codeline>
+<codeline><highlight class="normal">![Topics<sp/>and<sp/>contained<sp/>messages](https://raw.githubusercontent.com/veysiadn/ecat_control_ws/master/docs/img/topic_msgs.jpg)</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Note<sp/>that<sp/>published<sp/>topic<sp/>messages<sp/>can<sp/>be<sp/>changed<sp/>by<sp/>changing<sp/>msg<sp/>file<sp/>contents<sp/>in<sp/>case<sp/>custom<sp/>message<sp/>is<sp/>required.</highlight></codeline>
 <codeline></codeline>

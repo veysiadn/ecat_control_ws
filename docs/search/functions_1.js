@@ -15,7 +15,6 @@ var searchData=
   ['configuremaster_12',['ConfigureMaster',['../classEthercatCommunication_1_1EthercatNode.html#a44858407cdf70da448d663df9af054f1',1,'EthercatCommunication::EthercatNode']]],
   ['configureslaves_13',['ConfigureSlaves',['../classEthercatCommunication_1_1EthercatNode.html#a473246ebddb4b4d9c4e72434a563f0e2',1,'EthercatCommunication::EthercatNode']]],
   ['controller_14',['Controller',['../classController.html#a95c56822d667e94b031451729ce069a9',1,'Controller']]],
-  ['controlui_15',['ControlUI',['../classControlUI.html#ab848a6aae0d9a53ed40c73b31057e512',1,'ControlUI']]],
-  ['cvmattoqimage_16',['cvMatToQImage',['../classVideoCapture.html#a97fc96e7b4aca0ee7cd2256ae4174d83',1,'VideoCapture']]],
-  ['cvmattoqpixmap_17',['cvMatToQPixmap',['../classVideoCapture.html#a3e439afbb57883262644b4853251f862',1,'VideoCapture']]]
+  ['cvmattoqimage_15',['cvMatToQImage',['../classVideoCapture.html#a97fc96e7b4aca0ee7cd2256ae4174d83',1,'VideoCapture']]],
+  ['cvmattoqpixmap_16',['cvMatToQPixmap',['../classVideoCapture.html#a3e439afbb57883262644b4853251f862',1,'VideoCapture']]]
 ];

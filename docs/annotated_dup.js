@@ -10,7 +10,6 @@ var annotated_dup =
       [ "GuiNode", "classGUI_1_1GuiNode.html", "classGUI_1_1GuiNode" ]
     ] ],
     [ "Controller", "classController.html", "classController" ],
-    [ "ControlUI", "classControlUI.html", "classControlUI" ],
     [ "ControlUIButtonData", "structControlUIButtonData.html", "structControlUIButtonData" ],
     [ "CSPositionModeParam", "structCSPositionModeParam.html", "structCSPositionModeParam" ],
     [ "CSTorqueModeParam", "structCSTorqueModeParam.html", "structCSTorqueModeParam" ],

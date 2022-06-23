@@ -30,7 +30,8 @@ var NAVTREE =
       [ "Prerequisites", "index.html#autotoc_md3", null ],
       [ "Building and running", "index.html#autotoc_md4", [
         [ "Building", "index.html#autotoc_md5", [
-          [ "Running", "index.html#autotoc_md6", null ]
+          [ "Running", "index.html#autotoc_md6", null ],
+          [ "Note two launch file is provided, in launch_all_nodes.py files state transitions are requested by pressing buttons in GUI node and Safety Node changes state for the EtherCAT node. In other launch file, ethercat_nodes_launch.py file state transitions directly triggered in the file, and in the current version, it brings the EtherCAT node to the active state.", "index.html#autotoc_md7", null ]
         ] ]
       ] ]
     ] ],
@@ -74,8 +75,8 @@ var NAVTREEINDEX =
 "classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#aadb5d2d00179549ea65186fd0ad12aae",
 "ecat__definitions_8hpp.html#a4af714f8363d6bd6ac4ac6fa39d0490b",
 "functions_x.html",
-"object__dictionary_8hpp.html#a14d385654604fbf9449da426b3b24dbc",
-"structOffsetPDO.html#ad94b77fa0e48ed563b4757a1648f9481"
+"object__dictionary_8hpp.html#a13a56fc1540690f677eb14ee4c95b9b7",
+"structOffsetPDO.html#ad170d2294efd553e8f5e690c394c96ab"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

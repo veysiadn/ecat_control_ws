@@ -6,10 +6,10 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><anchor id="index_1md_README"/> This repository contains ROS2 and EtherCAT based control framework for our spine surgery robot project, but this implementation can be used with any robotic system with small modifications.Contains EtherCAT real-time thread with priority of 98. Software consists of four components (ROS2 nodes) :</para>
+<para><anchor id="index_1md_README"/> This repository contains ROS2 and EtherCAT based control framework for our spine surgery robot project, but this implementation can be used with any robotic system with small modifications. Contains EtherCAT real-time thread with priority of 98. Software consists of four components (ROS2 nodes) :</para>
 <para><bold>• EtherCAT node:</bold> Responsible for EtherCAT communication between master and slaves and publishes acquired feedback from slaves under /slave_feedback topic name in 1 kHz frequency. Additionally, subscribes to /controller topic, published from the control input node, / gui_buttons topic published from the <ref refid="namespaceGUI" kindref="compound">GUI</ref> node, and /safety_info topic published from the safety node. Calculates target values for each motor and sends control commands to slaves via EtherCAT communication and publishes those values under the /master_commands topic.</para>
 <para><bold>• Control node:</bold> Acquires input data from the input device and in the current setup input device is the Xbox controller. Therefore, it gets axis data and button data from the Xbox controller and publishes it under the /controller topic. Additionally, this node subscribes to the /slave_feedback topic published from the EtherCAT node.</para>
-<para><bold>• <ref refid="namespaceGUI" kindref="compound">GUI</ref> node:</bold> Consists of camera viewer and slave feedback visualizers such as motor state, communication state, and emergency button state. Publishes under /gui_buttons data consists of soft button events, subscribes to /master_ commands, and /slave_feedback, and /safety info topics to give visual feedback to the user. The current version of the <ref refid="namespaceGUI" kindref="compound">GUI</ref> node is shown in Figure 25. Control user interface buttons activated based on lifecycle node state.</para>
+<para><bold>• <ref refid="namespaceGUI" kindref="compound">GUI</ref> node:</bold> Consists of camera viewer and slave feedback visualizers such as motor state, communication state, and emergency button state. Publishes under /gui_buttons data consists of soft button events, subscribes to /master_ commands, and /slave_feedback, and /safety info topics to give visual feedback to the user. Control user interface buttons activated based on lifecycle node state.</para>
 <para><bold>• Safety node:</bold> Subscribes to all published topics and checks the consistency in the system, decides about the state of the system. System-related safety information is checked every cycle. Manages lifecycle node and state transitions are triggered from this node.</para>
 <para>Published and subscribed topics for each node are shown in figure below,</para>
 <para><image type="html" name="https://raw.githubusercontent.com/veysiadn/ecat_control_ws/master/docs/img/node_pu_sub_topics.jpg" alt="Nodes Published and Subscribed Topics" inline="yes"></image>
@@ -63,6 +63,9 @@
 <codeline><highlight class="normal">.<sp/>install/setup.bash</highlight></codeline>
 <codeline><highlight class="normal">ros2<sp/>launch<sp/>launch_all_nodes.py</highlight></codeline>
 </programlisting> </para>
+</sect3>
+<sect3 id="index_1autotoc_md7">
+<title>Note two launch file is provided, in launch_all_nodes.py files state transitions are requested by pressing buttons in GUI node and Safety Node changes state for the EtherCAT node. In other launch file, ethercat_nodes_launch.py file state transitions directly triggered in the file, and in the current version, it brings the EtherCAT node to the active state.</title>
 </sect3>
 </sect2>
 </sect1>

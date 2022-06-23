@@ -18,9 +18,10 @@ public:
     lifecycle_node_subscriber_ = this->create_subscription<ecat_msgs::msg::DataReceived>(
     "Slave_Feedback",qos,std::bind(&SafetyNode::HandleLifecycleNodeCallbacks, this, std::placeholders::_1));
      safety_state_publisher_ = this->create_publisher<std_msgs::msg::UInt16>("safety_info",qos);
+     safety_state_msg_.data=kSafe;
   }
 
-  rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr      joystick_subscriber_;
+  rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr         joystick_subscriber_;
   rclcpp::Subscription<ecat_msgs::msg::GuiButtonData>::SharedPtr gui_button_subscriber_;
   rclcpp::Subscription<ecat_msgs::msg::DataReceived>::SharedPtr lifecycle_node_subscriber_;
 

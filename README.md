@@ -59,4 +59,4 @@ Note that, before running, you might need to change lauch_all_nodes.py file, to 
   . install/setup.bash
   ros2 launch launch_all_nodes.py
 ```
-#### Note two launch file is provided, in launch_all_nodes.py files state transitions are requested by pressing buttons in GUI node and Safety Node changes state for the EtherCAT node. In other launch file, ethercat_nodes_launch.py file state transitions directly triggered in the file, and in the current version, it brings the EtherCAT node to the active state.
+##### Note that, two launch files are provided. In launch_all_nodes.py file, state transitions are requested by pressing buttons in GUI node, and Safety Node changes state for the EtherCAT node. In other launch file, ethercat_nodes_launch.py file, state transitions directly triggered in the python script, and in the current version, it brings the EtherCAT node to the active state.

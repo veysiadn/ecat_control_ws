@@ -30,9 +30,8 @@
  *****************************************************************************/
 /*****************************************************************************
  * \file  safety_node.hpp
- * \brief Header file for the Safety Node which is a manager node for overall
- * communication.
- * 
+ * \brief Header file for the Safety Node which is a manager node for the 
+ * EtherCAT life cycle node.
  * This header file contains required include for lifecycle management and safety
  * state data structure.
  *******************************************************************************/

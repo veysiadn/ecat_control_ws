@@ -12,7 +12,8 @@
                 "src/gui_pkg/include/gui_pkg",
                 "src/ecat_pkg/include/ecat_pkg",
                 "install/ecat_msgs/include/",
-                "src/gui_pkg/include/gui_pkg"
+                "src/gui_pkg/include/gui_pkg",
+                "src/safety_pkg/include/safety_pkg"
             ],
             "name": "ROS",
             "configurationProvider": "go2sh.cmake-integration"

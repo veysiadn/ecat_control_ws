@@ -409,6 +409,8 @@
     <member refid="structReceivedData_1acdb3787a6b0dc60745069f93d3b2c5ec" kind="variable"><name>current_lifecycle_state</name></member>
   </compound>
   <compound refid="classSafetyNode" kind="class"><name>SafetyNode</name>
+    <member refid="classSafetyNode_1a7553c0b617bc664a2e8fe131460f9e96" kind="variable"><name>spin_thread_</name></member>
+    <member refid="classSafetyNode_1a2eabdf79bc1cae2f29e33d65d44cf6d4" kind="variable"><name>state_</name></member>
     <member refid="classSafetyNode_1a5532f3816bd196ced9de231b3df4a17b" kind="variable"><name>joystick_subscriber_</name></member>
     <member refid="classSafetyNode_1add79790a628392c99133a596df4eb458" kind="variable"><name>gui_button_subscriber_</name></member>
     <member refid="classSafetyNode_1a1d5900bde952a9babd670c2f384278df" kind="variable"><name>lifecycle_node_subscriber_</name></member>
@@ -419,6 +421,7 @@
     <member refid="classSafetyNode_1ac84b90290107bf6cbceef3fb5f3368eb" kind="variable"><name>client_get_state_</name></member>
     <member refid="classSafetyNode_1a8bfafeed901f7601e58959c89c5ddbef" kind="variable"><name>client_change_state_</name></member>
     <member refid="classSafetyNode_1a25ba9ef6a6264bdbce9cb0e2c206b0f9" kind="function"><name>SafetyNode</name></member>
+    <member refid="classSafetyNode_1af11237bde94c3e47c44073af3a821ba0" kind="function"><name>SpinThread</name></member>
     <member refid="classSafetyNode_1a46a6805575045e55abee6da1f7c5c1a7" kind="function"><name>HandleGuiNodeCallbacks</name></member>
     <member refid="classSafetyNode_1ab9728a04827bf37f3d99aa860c46d26f" kind="function"><name>HandleLifecycleNodeCallbacks</name></member>
     <member refid="classSafetyNode_1ad7fcd00b7ad571292585ba0f925c71e7" kind="function"><name>init</name></member>

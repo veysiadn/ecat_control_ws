@@ -360,13 +360,13 @@
 <codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="45"><highlight class="normal"></highlight></codeline>
 <codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>CKim<sp/>-<sp/>Initialize<sp/>and<sp/>launch<sp/>EthercatLifeCycleNode</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ecat__pkg_2src_2main_8cpp_1aa823abaa3c85d090c2334e2f56728f89" kindref="member">ecat_lifecycle_node</ref><sp/>=<sp/>std::make_shared&lt;EthercatLifeCycleNode::EthercatLifeCycle&gt;();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ecat__pkg_2src_2main_8cpp_1aa823abaa3c85d090c2334e2f56728f89" kindref="member">ecat_lifecycle_node</ref><sp/>=<sp/>std::make_unique&lt;EthercatLifeCycleNode::EthercatLifeCycle&gt;();</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>rclcpp::spin(<ref refid="ecat__pkg_2src_2main_8cpp_1aa823abaa3c85d090c2334e2f56728f89" kindref="member">ecat_lifecycle_node</ref>-&gt;get_node_base_interface());</highlight></codeline>
 <codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>rclcpp::executors::MultiThreadedExecutor<sp/>exe;</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>exe.add_node(<ref refid="ecat__pkg_2src_2main_8cpp_1aa823abaa3c85d090c2334e2f56728f89" kindref="member">ecat_lifecycle_node</ref>-&gt;get_node_base_interface());</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>rclcpp::executors::MultiThreadedExecutor<sp/>exe;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>exe.add_node(ecat_lifecycle_node-&gt;get_node_base_interface());</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="52"><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>exe.spin();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>exe.spin();</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="54"><highlight class="normal"></highlight></codeline>
 <codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>CKim<sp/>-<sp/>Terminate<sp/>node</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>rclcpp::shutdown();</highlight></codeline>

@@ -63,9 +63,9 @@
 <codeline><highlight class="normal">.<sp/>install/setup.bash</highlight></codeline>
 <codeline><highlight class="normal">ros2<sp/>launch<sp/>launch_all_nodes.py</highlight></codeline>
 </programlisting> </para>
-</sect3>
-<sect3 id="index_1autotoc_md7">
-<title>Note two launch file is provided, in launch_all_nodes.py files state transitions are requested by pressing buttons in GUI node and Safety Node changes state for the EtherCAT node. In other launch file, ethercat_nodes_launch.py file state transitions directly triggered in the file, and in the current version, it brings the EtherCAT node to the active state.</title>
+<sect4 id="index_1autotoc_md7">
+<title>Note that, two launch files are provided. In launch_all_nodes.py file, state transitions are requested by pressing buttons in GUI node, and Safety Node changes state for the EtherCAT node. In other launch file, ethercat_nodes_launch.py file, state transitions directly triggered in the python script, and in the current version, it brings the EtherCAT node to the active state.</title>
+</sect4>
 </sect3>
 </sect2>
 </sect1>

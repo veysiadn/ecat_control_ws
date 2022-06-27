@@ -181,9 +181,12 @@ src/gui_pkg/include/gui_pkg/timing.hpp:25:8: note: Technically the member functi
 src/input_pkg/src/hapticNode.cpp:134:18: portability: Casting between signed char * and double * which have an incompatible binary data representation. [invalidPointerCast]
    double* val = (double*) str2;
                  ^
-src/safety_pkg/src/safety_node.cpp:266:24: style: Variable 'future_result' is assigned a value that is never used. [unreadVariable]
+src/safety_pkg/src/safety_node.cpp:276:24: style: Variable 'future_result' is assigned a value that is never used. [unreadVariable]
     auto future_result = client_change_state_->async_send_request(request);
                        ^
+src/safety_pkg/src/safety_node.cpp:316:20: style: Variable 'safety_node' is assigned a value that is never used. [unreadVariable]
+  auto safety_node = std::make_shared<SafetyNode>("safety_node");
+                   ^
 src/controller/src/joy_node_linux.cpp:51:1: error: The one definition rule is violated, different classes/structs have the same name 'Controller' [ctuOneDefinitionRuleViolation]
 class Controller
 ^

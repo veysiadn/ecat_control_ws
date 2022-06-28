@@ -188,7 +188,7 @@ void MainWindow::on_b_emergency_mode_clicked()
 void MainWindow::on_b_send_clicked()
 {
     gui_node_->ui_control_buttons_.b_send = 1 ;
-    for(int i = 0 ; i < NUM_OF_SERVO_DRIVES; i++){
+    for(int i = 0 ; i < g_kNumberOfServoDrivers; i++){
         switch (i) {
             case 0:
                 gui_node_->ui_control_buttons_.spn_target_values[i] = static_cast<int> (ui->spn_target_val_1->value());
@@ -390,7 +390,7 @@ void MainWindow::ShowComStatus()
 void MainWindow::ShowAllMotorStatus()
 {
    QString  qstr;
-   for(int i = 0; i < NUM_OF_SERVO_DRIVES ;i++){
+   for(int i = 0; i < g_kNumberOfServoDrivers ;i++){
        switch (i) {
        case 0:
            QTextStream(&qstr) << gui_node_->received_data_[i].target_vel;
@@ -581,7 +581,8 @@ int MainWindow::GetDriveStates(const int & statusWord)
 void MainWindow::ShowOperationMode()
 {
     QString qstr;
-    for(int i = 0; i < NUM_OF_SERVO_DRIVES ; i++){
+    std::cout << "received op mode:"<<gui_node_->received_data_[0].op_mode_display << std::endl;
+    for(int i = 0; i < g_kNumberOfServoDrivers ; i++){
 
         switch (gui_node_->received_data_[i].op_mode_display)
         {

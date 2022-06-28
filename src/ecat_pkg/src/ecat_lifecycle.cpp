@@ -30,7 +30,7 @@ rclcpp::NodeOptions().use_intra_process_comms(true))
     joystick_subscriber_     = this->create_subscription<sensor_msgs::msg::Joy>("Controller", qos, 
                                 std::bind(&EthercatLifeCycle::HandleControlNodeCallbacks, this,std::placeholders::_1));
     gui_subscriber_          = this->create_subscription<ecat_msgs::msg::GuiButtonData>(
-    "gui_buttons", qos,std::bind(&EthercatLifeCycle::HandleGuiNodeCallbacks, 
+    "gui_buttons", 10,std::bind(&EthercatLifeCycle::HandleGuiNodeCallbacks, 
     this, std::placeholders::_1));
 
     received_data_publisher_->on_activate();

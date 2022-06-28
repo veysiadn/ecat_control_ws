@@ -44,10 +44,10 @@
 /****************************************************************************/
                 /// USER SHOULD DEFINE THIS AREAS ///
 /// Number of connected servo drives.                
-const uint32_t  g_kNumberOfServoDrivers = 3 ; 
+const uint32_t  g_kNumberOfServoDrivers = 1 ; 
 /// Select operation mode for motors, default: Profile Velocity.
 static int8_t   g_kOperationMode = kProfileVelocity ;  
-#define NUM_OF_SLAVES     3  /// Total number of connected slave to the bus.
+#define NUM_OF_SLAVES     1  /// Total number of connected slave to the bus.
 /// Set this to 1 if you have custom EtherCAT slave other than servo drive.
 /// @note  That if you have different custom slave than EasyCAT you have to modify PDO mapping by yourself.
 #define CUSTOM_SLAVE      0  

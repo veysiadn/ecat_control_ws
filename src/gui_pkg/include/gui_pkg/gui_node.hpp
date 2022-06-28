@@ -133,7 +133,8 @@ namespace GUI {
          virtual ~GuiNode();
      public:
          /// Received data structure to store all subscribed data.
-         std::vector<ReceivedData> received_data_;
+         ecat_msgs::msg::DataReceived slave_feedback_data_;
+         ecat_msgs::msg::DataSent master_command_data_;
          /// GUI button value to publish emergency button state.
          ecat_msgs::msg::GuiButtonData ui_control_buttons_;
          std_msgs::msg::UInt16 safety_info_;

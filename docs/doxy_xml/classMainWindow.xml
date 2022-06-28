@@ -218,7 +218,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="76" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="32" bodyend="41"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="76" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="44" bodyend="53"/>
       </memberdef>
       <memberdef kind="slot" id="classMainWindow_1ac111e0466ffe817e13f8fc460980eb40" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -235,7 +235,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="78" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="206" bodyend="221"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="78" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="218" bodyend="233"/>
       </memberdef>
       <memberdef kind="slot" id="classMainWindow_1ac3b6249ea5ac431732f413f915deb625" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -248,7 +248,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="80" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="64" bodyend="69"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="80" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="76" bodyend="81"/>
       </memberdef>
       <memberdef kind="slot" id="classMainWindow_1aef346507ba7d119bc19648354d84b3c6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -261,7 +261,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="82" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="71" bodyend="74"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="82" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="83" bodyend="86"/>
       </memberdef>
       <memberdef kind="slot" id="classMainWindow_1a683f079e077349dde8e1c689a773fb3b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -274,7 +274,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="84" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="76" bodyend="79"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="84" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="88" bodyend="91"/>
       </memberdef>
       <memberdef kind="slot" id="classMainWindow_1a789e8a2f15413559170b15da9d005d55" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -287,7 +287,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="86" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="81" bodyend="84"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="86" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="93" bodyend="96"/>
       </memberdef>
       <memberdef kind="slot" id="classMainWindow_1a170ab939e9e2ede6fedf80989659518c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -300,7 +300,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="88" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="86" bodyend="97"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="88" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="98" bodyend="109"/>
       </memberdef>
       <memberdef kind="slot" id="classMainWindow_1ab56f617ffcf96ac8585b9fc1750ddd7e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -313,7 +313,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="90" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="99" bodyend="113"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="90" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="111" bodyend="125"/>
       </memberdef>
       <memberdef kind="slot" id="classMainWindow_1a31975bbde4372d0c04878cf2bf90cc98" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -326,7 +326,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="92" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="115" bodyend="118"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="92" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="127" bodyend="130"/>
       </memberdef>
       <memberdef kind="slot" id="classMainWindow_1a9b62e44d6320c9e4e2639295f62852c2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -339,7 +339,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="94" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="120" bodyend="123"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="94" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="132" bodyend="135"/>
       </memberdef>
       <memberdef kind="slot" id="classMainWindow_1a0eedabc30d1edaf26afb4f107362f935" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -352,7 +352,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="96" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="125" bodyend="139"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="96" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="137" bodyend="151"/>
       </memberdef>
       <memberdef kind="slot" id="classMainWindow_1ac05686310c38502b89f53b81d84a07b1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -365,7 +365,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="98" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="141" bodyend="155"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="98" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="153" bodyend="167"/>
       </memberdef>
       <memberdef kind="slot" id="classMainWindow_1a058948e174c64546a8298b33023790f2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -378,7 +378,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="100" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="157" bodyend="186"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="100" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="169" bodyend="198"/>
       </memberdef>
       <memberdef kind="slot" id="classMainWindow_1a5b1d835c15a1effaf79b388b1e20f268" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -391,7 +391,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="102" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="188" bodyend="204"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="102" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="200" bodyend="216"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -407,7 +407,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="109" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="24" bodyend="30"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="109" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="24" bodyend="42"/>
       </memberdef>
       <memberdef kind="function" id="classMainWindow_1a81106fa4074753c9f3f44433925dfbb3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -421,7 +421,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="113" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="390" bodyend="542"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="113" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="402" bodyend="554"/>
       </memberdef>
       <memberdef kind="function" id="classMainWindow_1ac6b58c3f8db6fb9fc2d4626413587d68" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -435,7 +435,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="117" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="338" bodyend="388"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="117" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="350" bodyend="400"/>
       </memberdef>
       <memberdef kind="function" id="classMainWindow_1a26b90b4b64b9504e2a7323e736626642" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -449,7 +449,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="121" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="309" bodyend="336"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="121" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="321" bodyend="348"/>
       </memberdef>
       <memberdef kind="function" id="classMainWindow_1a70637fbde6b63b5a29f69f7e915054e2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -479,7 +479,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="127" column="13" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="624" bodyend="750"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="127" column="13" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="636" bodyend="762"/>
       </memberdef>
       <memberdef kind="function" id="classMainWindow_1a263819c4964451f170471ab5b0f7769c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -498,7 +498,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="133" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="223" bodyend="274"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="133" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="235" bodyend="286"/>
       </memberdef>
       <memberdef kind="function" id="classMainWindow_1afb2eb25211ad30dd58dcc1f1c96e82be" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -515,7 +515,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="140" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="276" bodyend="291"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="140" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="288" bodyend="303"/>
       </memberdef>
       <memberdef kind="function" id="classMainWindow_1a489cb62ba348e0689f6d0d49b65b2a0b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -532,7 +532,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="145" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="293" bodyend="307"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="145" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="305" bodyend="319"/>
       </memberdef>
       <memberdef kind="function" id="classMainWindow_1ad1e2479bbaab8fc9c5dee9c95e72100f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -550,7 +550,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="150" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="44" bodyend="50"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="150" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="56" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="classMainWindow_1a8104971d8ae3e717196c0b1ecb3aad38" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -568,7 +568,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="154" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="52" bodyend="56"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="154" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="64" bodyend="68"/>
       </memberdef>
       <memberdef kind="function" id="classMainWindow_1a417c3e9096cabf3e7b54efd6d8983eb5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -585,7 +585,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="156" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="58" bodyend="62"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="156" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="70" bodyend="74"/>
       </memberdef>
       <memberdef kind="function" id="classMainWindow_1ad089c525f40b13a176246174744e4266" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -598,7 +598,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="158" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="581" bodyend="622"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="158" column="10" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="593" bodyend="634"/>
       </memberdef>
       <memberdef kind="function" id="classMainWindow_1a82066d3dda0ac56577f54a7818c45b23" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -615,7 +615,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="160" column="13" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="752" bodyend="901"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="160" column="13" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="764" bodyend="913"/>
       </memberdef>
       <memberdef kind="function" id="classMainWindow_1a5d84e290c6ccc6d95c36d85ddad8ffce" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -633,7 +633,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="168" column="9" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="544" bodyend="579"/>
+        <location file="src/gui_pkg/include/gui_pkg/main_window.hpp" line="168" column="9" bodyfile="src/gui_pkg/src/main_window.cpp" bodystart="556" bodyend="591"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

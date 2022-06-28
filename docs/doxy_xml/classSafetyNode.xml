@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="src/safety_pkg/src/safety_node.cpp" line="24" column="15" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="24" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="classSafetyNode_1a2eabdf79bc1cae2f29e33d65d44cf6d4" prot="public" static="no" mutable="no">
-        <type>uint8_t</type>
-        <definition>uint8_t SafetyNode::state_</definition>
+      <memberdef kind="variable" id="classSafetyNode_1abe14e25adc5ba3566ef61b5c58c679f2" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t SafetyNode::state_</definition>
         <argsstring></argsstring>
         <name>state_</name>
         <initializer>= 0</initializer>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/safety_pkg/src/safety_node.cpp" line="25" column="11" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="25" bodyend="-1"/>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="25" column="12" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="25" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classSafetyNode_1a5532f3816bd196ced9de231b3df4a17b" prot="public" static="no" mutable="no">
         <type>rclcpp::Subscription&lt; sensor_msgs::msg::Joy &gt;::SharedPtr</type>
@@ -135,7 +135,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/safety_pkg/src/safety_node.cpp" line="302" column="19" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="302" bodyend="-1"/>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="305" column="19" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="305" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classSafetyNode_1a8bfafeed901f7601e58959c89c5ddbef" prot="private" static="no" mutable="no">
         <type>std::shared_ptr&lt; rclcpp::Client&lt; lifecycle_msgs::srv::ChangeState &gt; &gt;</type>
@@ -148,7 +148,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/safety_pkg/src/safety_node.cpp" line="303" column="19" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="303" bodyend="-1"/>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="306" column="19" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="306" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -181,7 +181,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/safety_pkg/src/safety_node.cpp" line="34" column="8" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="34" bodyend="40"/>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="35" column="8" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="35" bodyend="45"/>
       </memberdef>
       <memberdef kind="function" id="classSafetyNode_1a46a6805575045e55abee6da1f7c5c1a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -198,7 +198,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/safety_pkg/src/safety_node.cpp" line="42" column="3" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="42" bodyend="131"/>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="47" column="3" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="47" bodyend="134"/>
       </memberdef>
       <memberdef kind="function" id="classSafetyNode_1ab9728a04827bf37f3d99aa860c46d26f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -215,7 +215,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/safety_pkg/src/safety_node.cpp" line="134" column="3" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="134" bodyend="142"/>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="137" column="3" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="137" bodyend="145"/>
       </memberdef>
       <memberdef kind="function" id="classSafetyNode_1ad7fcd00b7ad571292585ba0f925c71e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -228,7 +228,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/safety_pkg/src/safety_node.cpp" line="145" column="3" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="145" bodyend="151"/>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="148" column="3" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="148" bodyend="154"/>
       </memberdef>
       <memberdef kind="function" id="classSafetyNode_1ae1c6ef70c5513ece38b38599885370a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>unsigned int</type>
@@ -252,7 +252,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/safety_pkg/src/safety_node.cpp" line="166" column="3" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="166" bodyend="241"/>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="169" column="3" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="169" bodyend="244"/>
       </memberdef>
       <memberdef kind="function" id="classSafetyNode_1ad5a78fd32388d7ee72f8567d7e157adc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -294,7 +294,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/safety_pkg/src/safety_node.cpp" line="261" column="3" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="261" bodyend="299"/>
+        <location file="src/safety_pkg/src/safety_node.cpp" line="264" column="3" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="264" bodyend="302"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -330,7 +330,7 @@
         <label>rclcpp::Node</label>
       </node>
     </collaborationgraph>
-    <location file="src/safety_pkg/src/safety_node.cpp" line="3" column="1" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="4" bodyend="304"/>
+    <location file="src/safety_pkg/src/safety_node.cpp" line="3" column="1" bodyfile="src/safety_pkg/src/safety_node.cpp" bodystart="4" bodyend="307"/>
     <listofallmembers>
       <member refid="classSafetyNode_1ad5a78fd32388d7ee72f8567d7e157adc" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>change_state</name></member>
       <member refid="classSafetyNode_1a8bfafeed901f7601e58959c89c5ddbef" prot="private" virt="non-virtual"><scope>SafetyNode</scope><name>client_change_state_</name></member>
@@ -349,7 +349,7 @@
       <member refid="classSafetyNode_1a25ba9ef6a6264bdbce9cb0e2c206b0f9" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>SafetyNode</name></member>
       <member refid="classSafetyNode_1a7553c0b617bc664a2e8fe131460f9e96" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>spin_thread_</name></member>
       <member refid="classSafetyNode_1af11237bde94c3e47c44073af3a821ba0" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>SpinThread</name></member>
-      <member refid="classSafetyNode_1a2eabdf79bc1cae2f29e33d65d44cf6d4" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>state_</name></member>
+      <member refid="classSafetyNode_1abe14e25adc5ba3566ef61b5c58c679f2" prot="public" virt="non-virtual"><scope>SafetyNode</scope><name>state_</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

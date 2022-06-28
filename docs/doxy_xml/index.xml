@@ -238,7 +238,8 @@
     <member refid="classGUI_1_1GuiNode_1a66440eb057ca59acb3576141b38ef116" kind="variable"><name>safety_info_subscriber_</name></member>
     <member refid="classGUI_1_1GuiNode_1a847bb4ebc91435e0716106b192aee148" kind="variable"><name>timer_</name></member>
     <member refid="classGUI_1_1GuiNode_1a2fd7f6c041cd0d2cc22763098618b180" kind="variable"><name>gui_publisher_</name></member>
-    <member refid="classGUI_1_1GuiNode_1af84f0316ff4fdc967f73b133fb3ab75a" kind="variable"><name>received_data_</name></member>
+    <member refid="classGUI_1_1GuiNode_1ae728886276966c267538da00c3d34523" kind="variable"><name>slave_feedback_data_</name></member>
+    <member refid="classGUI_1_1GuiNode_1af706443f1b729129daa680cea9711d54" kind="variable"><name>master_command_data_</name></member>
     <member refid="classGUI_1_1GuiNode_1a625aa899ac48e4549c7f5fd0399181d7" kind="variable"><name>ui_control_buttons_</name></member>
     <member refid="classGUI_1_1GuiNode_1a238617e7511d538648ec8f3c5f09ddd8" kind="variable"><name>safety_info_</name></member>
     <member refid="classGUI_1_1GuiNode_1a9e0e5d2cd3d41f0b11bad899eb13e2b1" kind="variable"><name>time_info_</name></member>
@@ -410,7 +411,7 @@
   </compound>
   <compound refid="classSafetyNode" kind="class"><name>SafetyNode</name>
     <member refid="classSafetyNode_1a7553c0b617bc664a2e8fe131460f9e96" kind="variable"><name>spin_thread_</name></member>
-    <member refid="classSafetyNode_1a2eabdf79bc1cae2f29e33d65d44cf6d4" kind="variable"><name>state_</name></member>
+    <member refid="classSafetyNode_1abe14e25adc5ba3566ef61b5c58c679f2" kind="variable"><name>state_</name></member>
     <member refid="classSafetyNode_1a5532f3816bd196ced9de231b3df4a17b" kind="variable"><name>joystick_subscriber_</name></member>
     <member refid="classSafetyNode_1add79790a628392c99133a596df4eb458" kind="variable"><name>gui_button_subscriber_</name></member>
     <member refid="classSafetyNode_1a1d5900bde952a9babd670c2f384278df" kind="variable"><name>lifecycle_node_subscriber_</name></member>
@@ -1077,6 +1078,7 @@
     <member refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352a9e6807a6a9f42998e9297651bd7b1b58" kind="enumvalue"><name>AUTO_TUNING_MAX_SYSTEM_SPEED_ERROR</name></member>
     <member refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ad51a1fdf30d1d4585ac7aaeababe6cff" kind="enumvalue"><name>AUTO_TUNING_MOTOR_CONNECTION_ERROR</name></member>
     <member refid="gui__globals_8hpp_1afeaa6acaf321700c18979784e52e5352ad23483ebf23a1a36fb77843475a6bcc7" kind="enumvalue"><name>AUTO_TUNING_SENSOR_SIGNAL_ERROR</name></member>
+    <member refid="gui__globals_8hpp_1a43873e365d1939ab6865a8bb8f679efc" kind="variable"><name>g_kNumberOfServoDrivers</name></member>
   </compound>
   <compound refid="gui__node_8hpp" kind="file"><name>gui_node.hpp</name>
   </compound>
@@ -1132,6 +1134,8 @@
     <member refid="safety__node_8hpp_1a8e07ddf5b5b0e71f767a82424f50286b" kind="function"><name>wait_for_result</name></member>
   </compound>
   <compound refid="safety__node_8cpp" kind="file"><name>safety_node.cpp</name>
+    <member refid="safety__node_8cpp_1acebbbee45f231d27a89c54be08651292" kind="function"><name>wake_executor</name></member>
+    <member refid="safety__node_8cpp_1a6579a5ef5a41f5b55603620f86b4155b" kind="function"><name>callee_script</name></member>
     <member refid="safety__node_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
   </compound>
   <compound refid="dir_41ef5d8a90b9cc03a02949a5c062e6f0" kind="dir"><name>src/controller</name>

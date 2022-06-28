@@ -486,7 +486,7 @@
 <codeline lineno="353"><highlight class="normal"></highlight></codeline>
 <codeline lineno="354"><highlight class="normal"><sp/><sp/>std::shared_future&lt;void&gt;<sp/>script<sp/>=<sp/>std::async(</highlight></codeline>
 <codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/>std::launch::async,</highlight></codeline>
-<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/>std::bind(callee_script,<sp/>lc_client));</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/>std::bind(<ref refid="safety__node_8cpp_1a6579a5ef5a41f5b55603620f86b4155b" kindref="member">callee_script</ref>,<sp/>lc_client));</highlight></codeline>
 <codeline lineno="357"><highlight class="normal"><sp/><sp/>exe.spin_until_future_complete(script);</highlight></codeline>
 <codeline lineno="358"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/>rclcpp::spin(lifecycle_manager);</highlight></codeline>

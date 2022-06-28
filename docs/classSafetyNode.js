@@ -17,5 +17,5 @@ var classSafetyNode =
     [ "safety_state_msg_", "classSafetyNode.html#abd46448512fd6bc54b6f28ae02fdeb94", null ],
     [ "safety_state_publisher_", "classSafetyNode.html#a81f33bbc3cf476f67bf8b68f54b9d3a7", null ],
     [ "spin_thread_", "classSafetyNode.html#a7553c0b617bc664a2e8fe131460f9e96", null ],
-    [ "state_", "classSafetyNode.html#a2eabdf79bc1cae2f29e33d65d44cf6d4", null ]
+    [ "state_", "classSafetyNode.html#abe14e25adc5ba3566ef61b5c58c679f2", null ]
 ];

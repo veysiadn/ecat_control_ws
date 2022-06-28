@@ -145,5 +145,6 @@ var gui__globals_8hpp =
       [ "kCSPosition", "gui__globals_8hpp.html#a56752d1aeb4bd4940e632396072d68afa1566565deaca1a00f9046cea18ccf5de", null ],
       [ "kCSVelocity", "gui__globals_8hpp.html#a56752d1aeb4bd4940e632396072d68afab7ddf4a5dec8aca3035989b429490bc4", null ],
       [ "kCSTorque", "gui__globals_8hpp.html#a56752d1aeb4bd4940e632396072d68afa32c69215479b5f329044f8c79a74e1a4", null ]
-    ] ]
+    ] ],
+    [ "g_kNumberOfServoDrivers", "gui__globals_8hpp.html#a43873e365d1939ab6865a8bb8f679efc", null ]
 ];

@@ -119,9 +119,11 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:af84f0316ff4fdc967f73b133fb3ab75a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structReceivedData.html">ReceivedData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGUI_1_1GuiNode.html#af84f0316ff4fdc967f73b133fb3ab75a">received_data_</a></td></tr>
-<tr class="memdesc:af84f0316ff4fdc967f73b133fb3ab75a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Received data structure to store all subscribed data.  <a href="classGUI_1_1GuiNode.html#af84f0316ff4fdc967f73b133fb3ab75a">More...</a><br /></td></tr>
-<tr class="separator:af84f0316ff4fdc967f73b133fb3ab75a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae728886276966c267538da00c3d34523"><td class="memItemLeft" align="right" valign="top">ecat_msgs::msg::DataReceived&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGUI_1_1GuiNode.html#ae728886276966c267538da00c3d34523">slave_feedback_data_</a></td></tr>
+<tr class="memdesc:ae728886276966c267538da00c3d34523"><td class="mdescLeft">&#160;</td><td class="mdescRight">Received data structure to store all subscribed data.  <a href="classGUI_1_1GuiNode.html#ae728886276966c267538da00c3d34523">More...</a><br /></td></tr>
+<tr class="separator:ae728886276966c267538da00c3d34523"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af706443f1b729129daa680cea9711d54"><td class="memItemLeft" align="right" valign="top">ecat_msgs::msg::DataSent&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGUI_1_1GuiNode.html#af706443f1b729129daa680cea9711d54">master_command_data_</a></td></tr>
+<tr class="separator:af706443f1b729129daa680cea9711d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a625aa899ac48e4549c7f5fd0399181d7"><td class="memItemLeft" align="right" valign="top">ecat_msgs::msg::GuiButtonData&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGUI_1_1GuiNode.html#a625aa899ac48e4549c7f5fd0399181d7">ui_control_buttons_</a></td></tr>
 <tr class="memdesc:a625aa899ac48e4549c7f5fd0399181d7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceGUI.html">GUI</a> button value to publish emergency button state.  <a href="classGUI_1_1GuiNode.html#a625aa899ac48e4549c7f5fd0399181d7">More...</a><br /></td></tr>
 <tr class="separator:a625aa899ac48e4549c7f5fd0399181d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -467,6 +469,20 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="af706443f1b729129daa680cea9711d54" name="af706443f1b729129daa680cea9711d54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af706443f1b729129daa680cea9711d54">&#9670;&nbsp;</a></span>master_command_data_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ecat_msgs::msg::DataSent GUI::GuiNode::master_command_data_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="abf1caf97a94659045c927db80791a380" name="abf1caf97a94659045c927db80791a380"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abf1caf97a94659045c927db80791a380">&#9670;&nbsp;</a></span>master_commands_</h2>
 
@@ -488,22 +504,6 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Subscribed to commands that's being sent by ecat_master. </p>
-
-</div>
-</div>
-<a id="af84f0316ff4fdc967f73b133fb3ab75a" name="af84f0316ff4fdc967f73b133fb3ab75a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af84f0316ff4fdc967f73b133fb3ab75a">&#9670;&nbsp;</a></span>received_data_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="structReceivedData.html">ReceivedData</a>&gt; GUI::GuiNode::received_data_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Received data structure to store all subscribed data. </p>
 
 </div>
 </div>
@@ -563,6 +563,22 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p >ROS2 subscriptions. Acquired feedback information from connected slaves </p>
+
+</div>
+</div>
+<a id="ae728886276966c267538da00c3d34523" name="ae728886276966c267538da00c3d34523"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae728886276966c267538da00c3d34523">&#9670;&nbsp;</a></span>slave_feedback_data_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ecat_msgs::msg::DataReceived GUI::GuiNode::slave_feedback_data_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Received data structure to store all subscribed data. </p>
 
 </div>
 </div>

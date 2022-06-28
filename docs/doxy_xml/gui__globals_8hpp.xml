@@ -76,7 +76,7 @@
       <sectiondef kind="define">
       <memberdef kind="define" id="gui__globals_8hpp_1abcd0af621da2a1f852fb466fcb225fe1" prot="public" static="no">
         <name>NUM_OF_SERVO_DRIVES</name>
-        <initializer>3</initializer>
+        <initializer>1</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -1233,6 +1233,22 @@
         <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="109" column="1" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="110" bodyend="182"/>
       </memberdef>
       </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="gui__globals_8hpp_1a43873e365d1939ab6865a8bb8f679efc" prot="public" static="no" mutable="no">
+        <type>const int32_t</type>
+        <definition>const int32_t g_kNumberOfServoDrivers</definition>
+        <argsstring></argsstring>
+        <name>g_kNumberOfServoDrivers</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="5" column="15" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
@@ -1240,9 +1256,9 @@
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3" refid="gui__globals_8hpp_1abcd0af621da2a1f852fb466fcb225fe1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NUM_OF_SERVO_DRIVES<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3" refid="gui__globals_8hpp_1abcd0af621da2a1f852fb466fcb225fe1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NUM_OF_SERVO_DRIVES<sp/>1</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4" refid="gui__globals_8hpp_1a1014738a6cd53047136514ced82de7b0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ID_CAMERA<sp/>0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="gui__globals_8hpp_1a43873e365d1939ab6865a8bb8f679efc" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int32_t<sp/><ref refid="gui__globals_8hpp_1a43873e365d1939ab6865a8bb8f679efc" kindref="member">g_kNumberOfServoDrivers</ref><sp/>=<sp/>1<sp/>;<sp/></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight></codeline>
 <codeline lineno="7" refid="gui__globals_8hpp_1a3e343f521bdee99c94f22627c930d24d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TEST_BIT(NUM,N)<sp/><sp/><sp/><sp/>((NUM<sp/>&amp;<sp/><sp/>(1<sp/>&lt;&lt;<sp/>N))&gt;&gt;N)<sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>specific<sp/>bit<sp/>in<sp/>the<sp/>data.<sp/>0<sp/>or<sp/>1.</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8" refid="gui__globals_8hpp_1a11c01176d68fc4cd05ed423d922eca26" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SET_BIT(NUM,N)<sp/><sp/><sp/><sp/><sp/><sp/>(NUM<sp/>|<sp/><sp/>(1<sp/>&lt;&lt;<sp/>N))<sp/><sp/></highlight><highlight class="comment">//<sp/>Set(1)<sp/>specific<sp/>bit<sp/>in<sp/>the<sp/>data.</highlight><highlight class="normal"></highlight></codeline>

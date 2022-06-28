@@ -9,7 +9,7 @@ var searchData=
   ['readopmodeviasdo_6',['ReadOpModeViaSDO',['../classEthercatCommunication_1_1EthercatNode.html#a71a40d9f2d6e04719526a917b5cc4e36',1,'EthercatCommunication::EthercatNode']]],
   ['readsdo_7',['ReadSDO',['../classEthercatCommunication_1_1EthercatNode.html#ae274cf7e06ae641a2ecbc5a281f405b6',1,'EthercatCommunication::EthercatNode']]],
   ['readstatuswordviasdo_8',['ReadStatusWordViaSDO',['../classEthercatCommunication_1_1EthercatNode.html#a95f9649157c8f05a088f6d3f0d3eb8b3',1,'EthercatCommunication::EthercatNode']]],
-  ['received_5fdata_5f_9',['received_data_',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a03f7cd39fe66c336e7ff5465792bdfe7',1,'EthercatLifeCycleNode::EthercatLifeCycle::received_data_()'],['../classGUI_1_1GuiNode.html#af84f0316ff4fdc967f73b133fb3ab75a',1,'GUI::GuiNode::received_data_()']]],
+  ['received_5fdata_5f_9',['received_data_',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a03f7cd39fe66c336e7ff5465792bdfe7',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
   ['received_5fdata_5fpublisher_5f_10',['received_data_publisher_',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a5b04ad15ed389f96ee8ccda5f2267e32',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
   ['receiveddata_11',['ReceivedData',['../structReceivedData.html',1,'']]],
   ['red_5fbutton_5f_12',['red_button_',['../classController.html#aedf7f3ad3fc4cf9587eb814939f2fe1e',1,'Controller']]],

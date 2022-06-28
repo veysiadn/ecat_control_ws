@@ -178,7 +178,7 @@
       <sectiondef kind="define">
       <memberdef kind="define" id="ecat__globals_8hpp_1a5d918ecbea3b854bbfe74765c9357be3" prot="public" static="no">
         <name>NUM_OF_SLAVES</name>
-        <initializer>3</initializer>
+        <initializer>1</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -329,7 +329,7 @@
         <definition>const uint32_t g_kNumberOfServoDrivers</definition>
         <argsstring></argsstring>
         <name>g_kNumberOfServoDrivers</name>
-        <initializer>= 3</initializer>
+        <initializer>= 1</initializer>
         <briefdescription>
 <para>Number of connected servo drives. <linebreak/>
  </para>
@@ -420,9 +420,9 @@
 <codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ecat__definitions_8hpp" kindref="compound">ecat_definitions.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="43"><highlight class="normal"></highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">/****************************************************************************/</highlight></codeline>
-<codeline lineno="47" refid="ecat__globals_8hpp_1aacc3c7aef173b1cde9377fb7f05c924d" refkind="member"><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/><sp/><ref refid="ecat__globals_8hpp_1aacc3c7aef173b1cde9377fb7f05c924d" kindref="member">g_kNumberOfServoDrivers</ref><sp/>=<sp/>3<sp/>;<sp/></highlight></codeline>
+<codeline lineno="47" refid="ecat__globals_8hpp_1aacc3c7aef173b1cde9377fb7f05c924d" refkind="member"><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/><sp/><ref refid="ecat__globals_8hpp_1aacc3c7aef173b1cde9377fb7f05c924d" kindref="member">g_kNumberOfServoDrivers</ref><sp/>=<sp/>1<sp/>;<sp/></highlight></codeline>
 <codeline lineno="49" refid="ecat__globals_8hpp_1a9f470379e6a057153b1386f8b94c7973" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>int8_t<sp/><sp/><sp/><ref refid="ecat__globals_8hpp_1a9f470379e6a057153b1386f8b94c7973" kindref="member">g_kOperationMode</ref><sp/>=<sp/><ref refid="ecat__definitions_8hpp_1a56752d1aeb4bd4940e632396072d68afa5d2b33d7161a77fdc97acfdc4de48a03" kindref="member">kProfileVelocity</ref><sp/>;<sp/><sp/></highlight></codeline>
-<codeline lineno="50" refid="ecat__globals_8hpp_1a5d918ecbea3b854bbfe74765c9357be3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NUM_OF_SLAVES<sp/><sp/><sp/><sp/><sp/>3<sp/><sp/></highlight></codeline>
+<codeline lineno="50" refid="ecat__globals_8hpp_1a5d918ecbea3b854bbfe74765c9357be3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NUM_OF_SLAVES<sp/><sp/><sp/><sp/><sp/>1<sp/><sp/></highlight></codeline>
 <codeline lineno="53" refid="ecat__globals_8hpp_1a1ef60d5687ea9337b2e3e040be43db07" refkind="member"><highlight class="preprocessor">#define<sp/>CUSTOM_SLAVE<sp/><sp/><sp/><sp/><sp/><sp/>0<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="54" refid="ecat__globals_8hpp_1a84142cd3e3bf14c4ecd4b6707a808c39" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FREQUENCY<sp/><sp/><sp/><sp/><sp/><sp/><sp/>1000<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="55" refid="ecat__globals_8hpp_1a68f5d933f0593175f4bd579e353d8f54" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEASURE_TIMING<sp/><sp/><sp/>1<sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>

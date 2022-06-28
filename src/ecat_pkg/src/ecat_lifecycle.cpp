@@ -770,19 +770,7 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
                     }
             }
 
-        #if MEASURE_TIMING
-        if(!begin)
-            clock_gettime(CLOCK_TO_USE, &publish_time_start);
-        #endif
-        
 
-        #if MEASURE_TIMING
-        if(!begin)
-        clock_gettime(CLOCK_TO_USE, &publish_time_end);
-        publishing_time_ns = DIFF_NS(publish_time_start,publish_time_end);
-        if(publishing_time_ns>publish_time_max) publish_time_max = publishing_time_ns;
-        if(publishing_time_ns<publish_time_min) publish_time_min = publishing_time_ns;
-        #endif
 
         #if MEASURE_TIMING
             // if you want to print timing stats
@@ -843,9 +831,19 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
         ReadFromSlaves();
 
         UpdateControlParameters();
-
+        #if MEASURE_TIMING
+            if(!begin)
+                clock_gettime(CLOCK_TO_USE, &publish_time_start);
+        #endif
+        
         PublishAllData();
-
+        #if MEASURE_TIMING
+            if(!begin)
+            clock_gettime(CLOCK_TO_USE, &publish_time_end);
+            publishing_time_ns = DIFF_NS(publish_time_start,publish_time_end);
+            if(publishing_time_ns>publish_time_max) publish_time_max = publishing_time_ns;
+            if(publishing_time_ns<publish_time_min) publish_time_min = publishing_time_ns;
+        #endif
         if(g_sync_ref_counter){
             g_sync_ref_counter--;
         }else{
@@ -951,9 +949,9 @@ void EthercatLifeCycle::WriteToSlavesVelocityMode()
 int EthercatLifeCycle::PublishAllData()
 {   
    // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Publishing all data....\n");
-    received_data_.header.stamp = this->now();
+    // received_data_.header.stamp = this->now();
     received_data_publisher_->publish(received_data_);
-    sent_data_.header.stamp  = this->now();
+    // sent_data_.header.stamp  = this->now();
     sent_data_publisher_->publish(sent_data_);
 }
 

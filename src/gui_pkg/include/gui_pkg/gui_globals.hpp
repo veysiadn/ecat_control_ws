@@ -2,7 +2,7 @@
 
 #define NUM_OF_SERVO_DRIVES 1
 #define ID_CAMERA 0
-const uint32_t g_kNumberOfServoDrivers = 1 ; 
+const int32_t g_kNumberOfServoDrivers = 1 ; 
 
 #define TEST_BIT(NUM,N)    ((NUM &  (1 << N))>>N)  // Check specific bit in the data. 0 or 1.
 #define SET_BIT(NUM,N)      (NUM |  (1 << N))  // Set(1) specific bit in the data.

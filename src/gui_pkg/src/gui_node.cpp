@@ -74,15 +74,15 @@
         slave_feedback_data_.actual_tor[i]              =  msg->actual_tor[i];
         slave_feedback_data_.status_word[i]             =  msg->status_word[i];
         slave_feedback_data_.slave_com_status[i]        =  msg->slave_com_status[i];
-        slave_feedback_data_.com_status                 =  msg->com_status;
         slave_feedback_data_.op_mode_display[i]         =  msg->op_mode_display[i]; 
-        slave_feedback_data_.current_lifecycle_state    =  msg->current_lifecycle_state;
         slave_feedback_data_.error_code[i]              =  msg->error_code[i];
-        /// Costum slave feedbacks.
-        slave_feedback_data_.left_limit_switch_val   =  msg->left_limit_switch_val;
-        slave_feedback_data_.right_limit_switch_val  =  msg->right_limit_switch_val;
-        slave_feedback_data_.emergency_switch_val    =  msg->emergency_switch_val;
     }
+    slave_feedback_data_.com_status                 =  msg->com_status;
+    slave_feedback_data_.current_lifecycle_state    =  msg->current_lifecycle_state;
+    /// Costum slave feedbacks.
+    slave_feedback_data_.left_limit_switch_val   =  msg->left_limit_switch_val;
+    slave_feedback_data_.right_limit_switch_val  =  msg->right_limit_switch_val;
+    slave_feedback_data_.emergency_switch_val    =  msg->emergency_switch_val;
   }
 
   void GuiNode::ResetContolButtonValues()

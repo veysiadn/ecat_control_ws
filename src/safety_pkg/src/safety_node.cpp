@@ -18,11 +18,11 @@ public:
     lifecycle_node_subscriber_ = this->create_subscription<ecat_msgs::msg::DataReceived>(
     "Slave_Feedback",qos,std::bind(&SafetyNode::HandleLifecycleNodeCallbacks, this, std::placeholders::_1));
      safety_state_publisher_ = this->create_publisher<std_msgs::msg::UInt16>("safety_info",10);
-     spin_thread_ = std::thread{std::bind(&SafetyNode::SpinThread, this)};
+    //  spin_thread_ = std::thread{std::bind(&SafetyNode::SpinThread, this)};
      safety_state_msg_.data=kSafe;
   }
   std::thread spin_thread_;
-  uint8_t state_ = 0 ;
+  uint32_t state_ = 0 ;
   rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr         joystick_subscriber_;
   rclcpp::Subscription<ecat_msgs::msg::GuiButtonData>::SharedPtr gui_button_subscriber_;
   rclcpp::Subscription<ecat_msgs::msg::DataReceived>::SharedPtr lifecycle_node_subscriber_;
@@ -31,23 +31,26 @@ public:
   ecat_msgs::msg::DataReceived lifecycle_node_data_ ; 
   Controller controller_ ; 
   std_msgs::msg::UInt16 safety_state_msg_ ;
+
   void SpinThread(){
-    auto task = std::async(std::launch::async, [this] {
-        std::this_thread::sleep_for(2s);
-        state_ = this->get_state();
+    while(true){
+      auto timer = this->create_wall_timer(1s, [this]() {
+        static auto task = std::async(std::launch::async, [this] {
+            std::this_thread::sleep_for(1s);
+            state_ = get_state();
+        });
     });
-    rclcpp::spin(this->get_node_base_interface());
+      rclcpp::spin(this->get_node_base_interface());
+    }
   }
   void 
   HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonData::SharedPtr msg)
   {
     // If state is unconfigured and buton_init_ecat trigger configuration transition.;
-
     if(state_==lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED){  
       if(msg->b_init_ecat > 0){
           std::this_thread::sleep_for(std::chrono::milliseconds(500));
           if (this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE)) {
-              this->get_state();
             return;
           }
       }
@@ -206,7 +209,7 @@ public:
     //     break;
     // };
     // return lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN;
-    if (!client_get_state_->wait_for_service(10s)) {
+    if (!client_get_state_->wait_for_service(5s)) {
       RCLCPP_ERROR(
         get_logger(),
         "Get State : Service %s is not available.",
@@ -219,7 +222,7 @@ public:
     auto future_result = client_get_state_->async_send_request(request);
     // Let's wait until we have the answer from the node.
     // If the request times out, we return an unknown state.
-    auto future_status = wait_for_result(future_result, 10s);
+    auto future_status = wait_for_result(future_result, 5s);
 
     if (future_status != std::future_status::ready) {
       RCLCPP_ERROR(
@@ -229,9 +232,9 @@ public:
 
     // We have an succesful answer. So let's print the current state.
     if (future_result.get()) {
-      RCLCPP_INFO(
-        get_logger(), "Get State : Node %s has current state %s.",
-        lifecycle_node, future_result.get()->current_state.label.c_str());
+      // RCLCPP_INFO(
+      //   get_logger(), "Get State : Node %s has current state %s.",
+      //   lifecycle_node, future_result.get()->current_state.label.c_str());
       return future_result.get()->current_state.id;
     } else {
       RCLCPP_ERROR(
@@ -303,7 +306,23 @@ private:
   std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> client_change_state_;
 };
 
-
+void
+wake_executor(std::shared_future<void> future, rclcpp::executors::SingleThreadedExecutor & exec)
+{
+  future.wait();
+  // Wake the executor when the script is done
+  // https://github.com/ros2/rclcpp/issues/1916
+  exec.cancel();
+}
+void
+callee_script(std::shared_ptr<SafetyNode> safety_node)
+{
+  rclcpp::WallRate time_to_sleep(1s);  // 10s
+  while(true){
+    safety_node->state_ = safety_node->get_state();
+    time_to_sleep.sleep();
+  }
+}
 int main(int argc, char ** argv)
 {
   // force flush of the stdout buffer.
@@ -315,7 +334,6 @@ int main(int argc, char ** argv)
 
   auto safety_node = std::make_shared<SafetyNode>("safety_node");
 
-
 #if 0
   rclcpp::executors::SingleThreadedExecutor exe;
   exe.add_node(lc_client);
@@ -325,14 +343,21 @@ int main(int argc, char ** argv)
     std::bind(callee_script, lc_client));
   exe.spin_until_future_complete(script);
 #else
-    // rclcpp::spin(safety_node->get_node_base_interface());
-    while (1)
-    {
-      std::this_thread::sleep_for(1s);
-    }
-    
+
+  rclcpp::executors::SingleThreadedExecutor exe;
+  exe.add_node(safety_node->get_node_base_interface());
+
+  std::shared_future<void> script = std::async(
+    std::launch::async,
+    std::bind(callee_script, safety_node));
+  auto wake_exec = std::async(
+    std::launch::async,
+    std::bind(wake_executor, script, std::ref(exe)));
+
+  exe.spin_until_future_complete(script);
+
 #endif 
-  // rclcpp::shutdown();
+  rclcpp::shutdown();
 
   return 0;
 }

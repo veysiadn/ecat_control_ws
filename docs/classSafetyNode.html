@@ -108,6 +108,8 @@ Collaboration diagram for SafetyNode:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a25ba9ef6a6264bdbce9cb0e2c206b0f9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSafetyNode.html#a25ba9ef6a6264bdbce9cb0e2c206b0f9">SafetyNode</a> (const std::string &amp;node_name)</td></tr>
 <tr class="separator:a25ba9ef6a6264bdbce9cb0e2c206b0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af11237bde94c3e47c44073af3a821ba0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSafetyNode.html#af11237bde94c3e47c44073af3a821ba0">SpinThread</a> ()</td></tr>
+<tr class="separator:af11237bde94c3e47c44073af3a821ba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46a6805575045e55abee6da1f7c5c1a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSafetyNode.html#a46a6805575045e55abee6da1f7c5c1a7">HandleGuiNodeCallbacks</a> (const ecat_msgs::msg::GuiButtonData::SharedPtr msg)</td></tr>
 <tr class="separator:a46a6805575045e55abee6da1f7c5c1a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9728a04827bf37f3d99aa860c46d26f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSafetyNode.html#ab9728a04827bf37f3d99aa860c46d26f">HandleLifecycleNodeCallbacks</a> (const ecat_msgs::msg::DataReceived::SharedPtr msg)</td></tr>
@@ -123,6 +125,10 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a7553c0b617bc664a2e8fe131460f9e96"><td class="memItemLeft" align="right" valign="top">std::thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSafetyNode.html#a7553c0b617bc664a2e8fe131460f9e96">spin_thread_</a></td></tr>
+<tr class="separator:a7553c0b617bc664a2e8fe131460f9e96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eabdf79bc1cae2f29e33d65d44cf6d4"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSafetyNode.html#a2eabdf79bc1cae2f29e33d65d44cf6d4">state_</a> = 0</td></tr>
+<tr class="separator:a2eabdf79bc1cae2f29e33d65d44cf6d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5532f3816bd196ced9de231b3df4a17b"><td class="memItemLeft" align="right" valign="top">rclcpp::Subscription&lt; sensor_msgs::msg::Joy &gt;::SharedPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSafetyNode.html#a5532f3816bd196ced9de231b3df4a17b">joystick_subscriber_</a></td></tr>
 <tr class="separator:a5532f3816bd196ced9de231b3df4a17b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add79790a628392c99133a596df4eb458"><td class="memItemLeft" align="right" valign="top">rclcpp::Subscription&lt; ecat_msgs::msg::GuiButtonData &gt;::SharedPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSafetyNode.html#add79790a628392c99133a596df4eb458">gui_button_subscriber_</a></td></tr>
@@ -325,6 +331,31 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="af11237bde94c3e47c44073af3a821ba0" name="af11237bde94c3e47c44073af3a821ba0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af11237bde94c3e47c44073af3a821ba0">&#9670;&nbsp;</a></span>SpinThread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SafetyNode::SpinThread </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a8bfafeed901f7601e58959c89c5ddbef" name="a8bfafeed901f7601e58959c89c5ddbef"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8bfafeed901f7601e58959c89c5ddbef">&#9670;&nbsp;</a></span>client_change_state_</h2>
@@ -462,6 +493,34 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">rclcpp::Publisher&lt;std_msgs::msg::UInt16&gt;::SharedPtr SafetyNode::safety_state_publisher_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7553c0b617bc664a2e8fe131460f9e96" name="a7553c0b617bc664a2e8fe131460f9e96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7553c0b617bc664a2e8fe131460f9e96">&#9670;&nbsp;</a></span>spin_thread_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::thread SafetyNode::spin_thread_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2eabdf79bc1cae2f29e33d65d44cf6d4" name="a2eabdf79bc1cae2f29e33d65d44cf6d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eabdf79bc1cae2f29e33d65d44cf6d4">&#9670;&nbsp;</a></span>state_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SafetyNode::state_ = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">

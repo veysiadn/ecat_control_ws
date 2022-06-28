@@ -165,7 +165,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/safety_pkg/include/safety_pkg/safety_node.hpp" line="109" column="1" bodyfile="src/safety_pkg/include/safety_pkg/safety_node.hpp" bodystart="109" bodyend="116"/>
+        <location file="src/safety_pkg/include/safety_pkg/safety_node.hpp" line="108" column="1" bodyfile="src/safety_pkg/include/safety_pkg/safety_node.hpp" bodystart="108" bodyend="115"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -181,7 +181,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/safety_pkg/include/safety_pkg/safety_node.hpp" line="60" column="30" bodyfile="src/safety_pkg/include/safety_pkg/safety_node.hpp" bodystart="60" bodyend="-1"/>
+        <location file="src/safety_pkg/include/safety_pkg/safety_node.hpp" line="59" column="30" bodyfile="src/safety_pkg/include/safety_pkg/safety_node.hpp" bodystart="59" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="safety__node_8hpp_1ad7ed2848afc80f097ec467515e548453" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr char const  *</type>
@@ -195,7 +195,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/safety_pkg/include/safety_pkg/safety_node.hpp" line="66" column="30" bodyfile="src/safety_pkg/include/safety_pkg/safety_node.hpp" bodystart="66" bodyend="-1"/>
+        <location file="src/safety_pkg/include/safety_pkg/safety_node.hpp" line="65" column="30" bodyfile="src/safety_pkg/include/safety_pkg/safety_node.hpp" bodystart="65" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="safety__node_8hpp_1a980ba3270c938a20bc0c2071de540eb4" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr char const  *</type>
@@ -209,7 +209,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/safety_pkg/include/safety_pkg/safety_node.hpp" line="67" column="30" bodyfile="src/safety_pkg/include/safety_pkg/safety_node.hpp" bodystart="67" bodyend="-1"/>
+        <location file="src/safety_pkg/include/safety_pkg/safety_node.hpp" line="66" column="30" bodyfile="src/safety_pkg/include/safety_pkg/safety_node.hpp" bodystart="66" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -240,7 +240,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/safety_pkg/include/safety_pkg/safety_node.hpp" line="72" column="1" bodyfile="src/safety_pkg/include/safety_pkg/safety_node.hpp" bodystart="72" bodyend="86"/>
+        <location file="src/safety_pkg/include/safety_pkg/safety_node.hpp" line="71" column="1" bodyfile="src/safety_pkg/include/safety_pkg/safety_node.hpp" bodystart="71" bodyend="85"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -280,90 +280,89 @@
 <codeline lineno="30"><highlight class="comment"><sp/>*****************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">/*****************************************************************************</highlight></codeline>
 <codeline lineno="32"><highlight class="comment"><sp/>*<sp/>\file<sp/><sp/>safety_node.hpp</highlight></codeline>
-<codeline lineno="33"><highlight class="comment"><sp/>*<sp/>\brief<sp/>Header<sp/>file<sp/>for<sp/>the<sp/>Safety<sp/>Node<sp/>which<sp/>is<sp/>a<sp/>manager<sp/>node<sp/>for<sp/>overall</highlight></codeline>
-<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>communication.</highlight></codeline>
-<codeline lineno="35"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="36"><highlight class="comment"><sp/>*<sp/>This<sp/>header<sp/>file<sp/>contains<sp/>required<sp/>include<sp/>for<sp/>lifecycle<sp/>management<sp/>and<sp/>safety</highlight></codeline>
-<codeline lineno="37"><highlight class="comment"><sp/>*<sp/>state<sp/>data<sp/>structure.</highlight></codeline>
-<codeline lineno="38"><highlight class="comment"><sp/>*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;chrono&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;thread&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lifecycle_msgs/msg/state.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lifecycle_msgs/msg/transition.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lifecycle_msgs/srv/change_state.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lifecycle_msgs/srv/get_state.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;sensor_msgs/msg/joy.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ecat_msgs/msg/gui_button_data.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ecat_msgs/msg/data_received.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rclcpp/rclcpp.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;std_srvs/srv/trigger.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;std_msgs/msg/u_int16.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rcutils/logging_macros.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std::chrono_literals;</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">//<sp/>which<sp/>node<sp/>to<sp/>handle</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="60" refid="safety__node_8hpp_1aced6f4a17af3b1dcfe352533f20fa4ee" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><ref refid="safety__node_8hpp_1aced6f4a17af3b1dcfe352533f20fa4ee" kindref="member">lifecycle_node</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ecat_node&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Every<sp/>lifecycle<sp/>node<sp/>has<sp/>various<sp/>services<sp/>attached<sp/>to<sp/>it.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//<sp/>By<sp/>convention,<sp/>we<sp/>use<sp/>the<sp/>format<sp/>of<sp/>&lt;node<sp/>name&gt;/&lt;service<sp/>name&gt;.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment">//<sp/>ecat_node/get_state</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">//<sp/>ecat_node/change_state</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="66" refid="safety__node_8hpp_1ad7ed2848afc80f097ec467515e548453" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><ref refid="safety__node_8hpp_1ad7ed2848afc80f097ec467515e548453" kindref="member">node_get_state_topic</ref><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ecat_node/get_state&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="67" refid="safety__node_8hpp_1a980ba3270c938a20bc0c2071de540eb4" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><ref refid="safety__node_8hpp_1a980ba3270c938a20bc0c2071de540eb4" kindref="member">node_change_state_topic</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ecat_node/change_state&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*<sp/>\brief<sp/>Header<sp/>file<sp/>for<sp/>the<sp/>Safety<sp/>Node<sp/>which<sp/>is<sp/>a<sp/>manager<sp/>node<sp/>for<sp/>the<sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>EtherCAT<sp/>life<sp/>cycle<sp/>node.</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*<sp/>This<sp/>header<sp/>file<sp/>contains<sp/>required<sp/>include<sp/>for<sp/>lifecycle<sp/>management<sp/>and<sp/>safety</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*<sp/>state<sp/>data<sp/>structure.</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;chrono&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;thread&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lifecycle_msgs/msg/state.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lifecycle_msgs/msg/transition.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lifecycle_msgs/srv/change_state.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lifecycle_msgs/srv/get_state.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;sensor_msgs/msg/joy.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ecat_msgs/msg/gui_button_data.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ecat_msgs/msg/data_received.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rclcpp/rclcpp.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;std_srvs/srv/trigger.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;std_msgs/msg/u_int16.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rcutils/logging_macros.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std::chrono_literals;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//<sp/>which<sp/>node<sp/>to<sp/>handle</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="safety__node_8hpp_1aced6f4a17af3b1dcfe352533f20fa4ee" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><ref refid="safety__node_8hpp_1aced6f4a17af3b1dcfe352533f20fa4ee" kindref="member">lifecycle_node</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ecat_node&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Every<sp/>lifecycle<sp/>node<sp/>has<sp/>various<sp/>services<sp/>attached<sp/>to<sp/>it.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">//<sp/>By<sp/>convention,<sp/>we<sp/>use<sp/>the<sp/>format<sp/>of<sp/>&lt;node<sp/>name&gt;/&lt;service<sp/>name&gt;.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//<sp/>ecat_node/get_state</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment">//<sp/>ecat_node/change_state</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="safety__node_8hpp_1ad7ed2848afc80f097ec467515e548453" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><ref refid="safety__node_8hpp_1ad7ed2848afc80f097ec467515e548453" kindref="member">node_get_state_topic</ref><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ecat_node/get_state&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66" refid="safety__node_8hpp_1a980ba3270c938a20bc0c2071de540eb4" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><ref refid="safety__node_8hpp_1a980ba3270c938a20bc0c2071de540eb4" kindref="member">node_change_state_topic</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ecat_node/change_state&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
 <codeline lineno="68"><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>FutureT,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>WaitTimeT&gt;</highlight></codeline>
-<codeline lineno="71"><highlight class="normal">std::future_status</highlight></codeline>
-<codeline lineno="72" refid="safety__node_8hpp_1a8e07ddf5b5b0e71f767a82424f50286b" refkind="member"><highlight class="normal"><ref refid="safety__node_8hpp_1a8e07ddf5b5b0e71f767a82424f50286b" kindref="member">wait_for_result</ref>(</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/>FutureT<sp/>&amp;<sp/>future,</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/>WaitTimeT<sp/>time_to_wait)</highlight></codeline>
-<codeline lineno="75"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>end<sp/>=<sp/>std::chrono::steady_clock::now()<sp/>+<sp/>time_to_wait;</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/>std::chrono::milliseconds<sp/>wait_period(100);</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/>std::future_status<sp/>status<sp/>=<sp/>std::future_status::timeout;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>now<sp/>=<sp/>std::chrono::steady_clock::now();</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>time_left<sp/>=<sp/>end<sp/>-<sp/>now;</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(time_left<sp/>&lt;=<sp/>std::chrono::milliseconds(0))<sp/>{</highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;}</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>status<sp/>=<sp/>future.wait_for((time_left<sp/>&lt;<sp/>wait_period)<sp/>?<sp/>time_left<sp/>:<sp/>wait_period);</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(status<sp/>!=<sp/>std::future_status::ready);</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
-<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight></codeline>
-<codeline lineno="88"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="89"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>left_x_axis_;</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>left_y_axis_;</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>right_x_axis_;</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>right_y_axis_;</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>blue_button_;</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>green_button_;</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>red_button_;</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>yellow_button_;</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>left_r_button_;</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>left_l_button_;</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>left_u_button_;</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>left_d_button_<sp/>;</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>left_rb_button_<sp/>;</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>right_rb_button_<sp/>;</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>left_start_button_<sp/>;</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>right_start_button_<sp/>;<sp/></highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>xbox_button_;</highlight></codeline>
-<codeline lineno="107"><highlight class="normal">}<sp/><ref refid="classController" kindref="compound">Controller</ref>;</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight></codeline>
-<codeline lineno="109" refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833" kindref="member">SafetyInfo</ref>{</highlight></codeline>
-<codeline lineno="110" refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833a3df691a0fd74f5cff7a200944fcf95b5" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833a3df691a0fd74f5cff7a200944fcf95b5" kindref="member">kSafe</ref>=0,</highlight></codeline>
-<codeline lineno="111" refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833af1d450f7efd78d1561d62c8b2d118556" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833af1d450f7efd78d1561d62c8b2d118556" kindref="member">kOverForce</ref>,</highlight></codeline>
-<codeline lineno="112" refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833ae4fcb02848cea9cdb7ac763cd6483232" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833ae4fcb02848cea9cdb7ac763cd6483232" kindref="member">kOverSpeed</ref>,</highlight></codeline>
-<codeline lineno="113" refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833ad4d3efdc172cf449b7b9a255e576b285" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833ad4d3efdc172cf449b7b9a255e576b285" kindref="member">kOverPositionLimit</ref>,</highlight></codeline>
-<codeline lineno="114" refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833a5e729852e9eb01be06479c70df318f90" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833a5e729852e9eb01be06479c70df318f90" kindref="member">kErrorInDrive</ref>,</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><ref refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833ad256d6d5920216ee3841f313bb2c23ac" kindref="member">kEmergencyStop</ref></highlight></codeline>
-<codeline lineno="116" refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833ad256d6d5920216ee3841f313bb2c23ac" refkind="member"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>FutureT,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>WaitTimeT&gt;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">std::future_status</highlight></codeline>
+<codeline lineno="71" refid="safety__node_8hpp_1a8e07ddf5b5b0e71f767a82424f50286b" refkind="member"><highlight class="normal"><ref refid="safety__node_8hpp_1a8e07ddf5b5b0e71f767a82424f50286b" kindref="member">wait_for_result</ref>(</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>FutureT<sp/>&amp;<sp/>future,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>WaitTimeT<sp/>time_to_wait)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>end<sp/>=<sp/>std::chrono::steady_clock::now()<sp/>+<sp/>time_to_wait;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>std::chrono::milliseconds<sp/>wait_period(100);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>std::future_status<sp/>status<sp/>=<sp/>std::future_status::timeout;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>now<sp/>=<sp/>std::chrono::steady_clock::now();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>time_left<sp/>=<sp/>end<sp/>-<sp/>now;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(time_left<sp/>&lt;=<sp/>std::chrono::milliseconds(0))<sp/>{</highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>status<sp/>=<sp/>future.wait_for((time_left<sp/>&lt;<sp/>wait_period)<sp/>?<sp/>time_left<sp/>:<sp/>wait_period);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(status<sp/>!=<sp/>std::future_status::ready);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>left_x_axis_;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>left_y_axis_;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>right_x_axis_;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>right_y_axis_;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>blue_button_;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>green_button_;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>red_button_;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>yellow_button_;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>left_r_button_;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>left_l_button_;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>left_u_button_;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>left_d_button_<sp/>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>left_rb_button_<sp/>;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>right_rb_button_<sp/>;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>left_start_button_<sp/>;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>right_start_button_<sp/>;<sp/></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>xbox_button_;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">}<sp/><ref refid="classController" kindref="compound">Controller</ref>;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108" refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833" kindref="member">SafetyInfo</ref>{</highlight></codeline>
+<codeline lineno="109" refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833a3df691a0fd74f5cff7a200944fcf95b5" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833a3df691a0fd74f5cff7a200944fcf95b5" kindref="member">kSafe</ref>=0,</highlight></codeline>
+<codeline lineno="110" refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833af1d450f7efd78d1561d62c8b2d118556" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833af1d450f7efd78d1561d62c8b2d118556" kindref="member">kOverForce</ref>,</highlight></codeline>
+<codeline lineno="111" refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833ae4fcb02848cea9cdb7ac763cd6483232" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833ae4fcb02848cea9cdb7ac763cd6483232" kindref="member">kOverSpeed</ref>,</highlight></codeline>
+<codeline lineno="112" refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833ad4d3efdc172cf449b7b9a255e576b285" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833ad4d3efdc172cf449b7b9a255e576b285" kindref="member">kOverPositionLimit</ref>,</highlight></codeline>
+<codeline lineno="113" refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833a5e729852e9eb01be06479c70df318f90" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833a5e729852e9eb01be06479c70df318f90" kindref="member">kErrorInDrive</ref>,</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><ref refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833ad256d6d5920216ee3841f313bb2c23ac" kindref="member">kEmergencyStop</ref></highlight></codeline>
+<codeline lineno="115" refid="safety__node_8hpp_1ab1746a86a11d31fce909f5766c726833ad256d6d5920216ee3841f313bb2c23ac" refkind="member"><highlight class="normal">};</highlight></codeline>
     </programlisting>
     <location file="src/safety_pkg/include/safety_pkg/safety_node.hpp"/>
   </compounddef>

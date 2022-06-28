@@ -24,7 +24,9 @@ var searchData=
   ['software_5fposition_5flimit_21',['software_position_limit',['../structCSPositionModeParam.html#ac971e0c8d41d927855decd204399a5c5',1,'CSPositionModeParam::software_position_limit()'],['../structCSVelocityModeParam.html#a1924ebf9d9fa3a78df637fa45e585c14',1,'CSVelocityModeParam::software_position_limit()'],['../structCSTorqueModeParam.html#aaedcfc6837a299deabc0e1a2531c80ff',1,'CSTorqueModeParam::software_position_limit()']]],
   ['speed_5ffor_5fswitch_5fsearch_22',['speed_for_switch_search',['../structHomingParam.html#a2057d1f3d1840af2fe39e25345d0da72',1,'HomingParam']]],
   ['speed_5ffor_5fzero_5fsearch_23',['speed_for_zero_search',['../structHomingParam.html#ad31cac6c7692107df40469f3ae2b7370',1,'HomingParam']]],
-  ['status_5fword_24',['status_word',['../structOffsetPDO.html#ad170d2294efd553e8f5e690c394c96ab',1,'OffsetPDO::status_word()'],['../structReceivedData.html#a149b41071f2011b95143e2e6003ef251',1,'ReceivedData::status_word()'],['../structSdoRequest.html#ad324b1260cacd0165fb12f55967ceed2',1,'SdoRequest::status_word()']]],
-  ['sticky_5fbuttons_5f_25',['sticky_buttons_',['../classController.html#acae097f8b09be11cf90e7d9c06197c86',1,'Controller']]],
-  ['sub_5findex_26',['sub_index',['../structSDO__data.html#a32ad9e80b6edf968610407b14be6fa3d',1,'SDO_data']]]
+  ['spin_5fthread_5f_24',['spin_thread_',['../classSafetyNode.html#a7553c0b617bc664a2e8fe131460f9e96',1,'SafetyNode']]],
+  ['state_5f_25',['state_',['../classSafetyNode.html#a2eabdf79bc1cae2f29e33d65d44cf6d4',1,'SafetyNode']]],
+  ['status_5fword_26',['status_word',['../structOffsetPDO.html#ad170d2294efd553e8f5e690c394c96ab',1,'OffsetPDO::status_word()'],['../structReceivedData.html#a149b41071f2011b95143e2e6003ef251',1,'ReceivedData::status_word()'],['../structSdoRequest.html#ad324b1260cacd0165fb12f55967ceed2',1,'SdoRequest::status_word()']]],
+  ['sticky_5fbuttons_5f_27',['sticky_buttons_',['../classController.html#acae097f8b09be11cf90e7d9c06197c86',1,'Controller']]],
+  ['sub_5findex_28',['sub_index',['../structSDO__data.html#a32ad9e80b6edf968610407b14be6fa3d',1,'SDO_data']]]
 ];

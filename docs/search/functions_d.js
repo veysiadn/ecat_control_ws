@@ -26,6 +26,7 @@ var searchData=
   ['showoperationmode_23',['ShowOperationMode',['../classMainWindow.html#ad089c525f40b13a176246174744e4266',1,'MainWindow']]],
   ['shutdownethercatmaster_24',['ShutDownEthercatMaster',['../classEthercatCommunication_1_1EthercatNode.html#ace130837f0f23861d07f2d252960cac8',1,'EthercatCommunication::EthercatNode']]],
   ['signalhandler_25',['signalHandler',['../ecat__pkg_2src_2main_8cpp.html#adfe90e1a94b18921c8a8ec76d94edbd4',1,'main.cpp']]],
-  ['startethercatcommunication_26',['StartEthercatCommunication',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a2c5796d0f5f88a228c4b064d81a6b2f7',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
-  ['startpdoexchange_27',['StartPdoExchange',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a52a7c57222fb8c896986fafc470d3bc3',1,'EthercatLifeCycleNode::EthercatLifeCycle']]]
+  ['spinthread_26',['SpinThread',['../classSafetyNode.html#af11237bde94c3e47c44073af3a821ba0',1,'SafetyNode']]],
+  ['startethercatcommunication_27',['StartEthercatCommunication',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a2c5796d0f5f88a228c4b064d81a6b2f7',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
+  ['startpdoexchange_28',['StartPdoExchange',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a52a7c57222fb8c896986fafc470d3bc3',1,'EthercatLifeCycleNode::EthercatLifeCycle']]]
 ];

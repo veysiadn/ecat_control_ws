@@ -120,102 +120,101 @@ $(document).ready(function(){initNavTree('safety__node_8hpp_source.html',''); in
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> *****************************************************************************/</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/*****************************************************************************</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * \file  safety_node.hpp</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * \brief Header file for the Safety Node which is a manager node for overall</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * communication.</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> * This header file contains required include for lifecycle management and safety</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> * state data structure.</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> *******************************************************************************/</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &lt;chrono&gt;</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &lt;thread&gt;</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#include &quot;lifecycle_msgs/msg/state.hpp&quot;</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#include &quot;lifecycle_msgs/msg/transition.hpp&quot;</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#include &quot;lifecycle_msgs/srv/change_state.hpp&quot;</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#include &quot;lifecycle_msgs/srv/get_state.hpp&quot;</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#include &quot;sensor_msgs/msg/joy.hpp&quot;</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#include &quot;ecat_msgs/msg/gui_button_data.hpp&quot;</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#include &quot;ecat_msgs/msg/data_received.hpp&quot;</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#include &quot;rclcpp/rclcpp.hpp&quot;</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#include &lt;std_srvs/srv/trigger.hpp&gt;</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#include &quot;std_msgs/msg/u_int16.hpp&quot;</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#include &quot;rcutils/logging_macros.h&quot;</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">using namespace </span>std::chrono_literals;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">// which node to handle</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#aced6f4a17af3b1dcfe352533f20fa4ee">   60</a></span><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">char</span> <span class="keyword">const</span> * <a class="code hl_variable" href="safety__node_8hpp.html#aced6f4a17af3b1dcfe352533f20fa4ee">lifecycle_node</a> = <span class="stringliteral">&quot;ecat_node&quot;</span>;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">// Every lifecycle node has various services attached to it.</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">// By convention, we use the format of &lt;node name&gt;/&lt;service name&gt;.</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">// ecat_node/get_state</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">// ecat_node/change_state</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#ad7ed2848afc80f097ec467515e548453">   66</a></span><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">char</span> <span class="keyword">const</span> * <a class="code hl_variable" href="safety__node_8hpp.html#ad7ed2848afc80f097ec467515e548453">node_get_state_topic</a>    = <span class="stringliteral">&quot;ecat_node/get_state&quot;</span>;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#a980ba3270c938a20bc0c2071de540eb4">   67</a></span><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">char</span> <span class="keyword">const</span> * <a class="code hl_variable" href="safety__node_8hpp.html#a980ba3270c938a20bc0c2071de540eb4">node_change_state_topic</a> = <span class="stringliteral">&quot;ecat_node/change_state&quot;</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * \brief Header file for the Safety Node which is a manager node for the </span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * EtherCAT life cycle node.</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> * This header file contains required include for lifecycle management and safety</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> * state data structure.</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> *******************************************************************************/</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &lt;thread&gt;</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#include &quot;lifecycle_msgs/msg/state.hpp&quot;</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#include &quot;lifecycle_msgs/msg/transition.hpp&quot;</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#include &quot;lifecycle_msgs/srv/change_state.hpp&quot;</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#include &quot;lifecycle_msgs/srv/get_state.hpp&quot;</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#include &quot;sensor_msgs/msg/joy.hpp&quot;</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#include &quot;ecat_msgs/msg/gui_button_data.hpp&quot;</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#include &quot;ecat_msgs/msg/data_received.hpp&quot;</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#include &quot;rclcpp/rclcpp.hpp&quot;</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#include &lt;std_srvs/srv/trigger.hpp&gt;</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#include &quot;std_msgs/msg/u_int16.hpp&quot;</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#include &quot;rcutils/logging_macros.h&quot;</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">// which node to handle</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#aced6f4a17af3b1dcfe352533f20fa4ee">   59</a></span><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">char</span> <span class="keyword">const</span> * <a class="code hl_variable" href="safety__node_8hpp.html#aced6f4a17af3b1dcfe352533f20fa4ee">lifecycle_node</a> = <span class="stringliteral">&quot;ecat_node&quot;</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">// Every lifecycle node has various services attached to it.</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">// By convention, we use the format of &lt;node name&gt;/&lt;service name&gt;.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">// ecat_node/get_state</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">// ecat_node/change_state</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#ad7ed2848afc80f097ec467515e548453">   65</a></span><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">char</span> <span class="keyword">const</span> * <a class="code hl_variable" href="safety__node_8hpp.html#ad7ed2848afc80f097ec467515e548453">node_get_state_topic</a>    = <span class="stringliteral">&quot;ecat_node/get_state&quot;</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#a980ba3270c938a20bc0c2071de540eb4">   66</a></span><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">char</span> <span class="keyword">const</span> * <a class="code hl_variable" href="safety__node_8hpp.html#a980ba3270c938a20bc0c2071de540eb4">node_change_state_topic</a> = <span class="stringliteral">&quot;ecat_node/change_state&quot;</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> FutureT, <span class="keyword">typename</span> WaitTimeT&gt;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>std::future_status</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#a8e07ddf5b5b0e71f767a82424f50286b">   72</a></span><a class="code hl_function" href="safety__node_8hpp.html#a8e07ddf5b5b0e71f767a82424f50286b">wait_for_result</a>(</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  FutureT &amp; future,</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  WaitTimeT time_to_wait)</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>{</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  <span class="keyword">auto</span> end = std::chrono::steady_clock::now() + time_to_wait;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  std::chrono::milliseconds wait_period(100);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  std::future_status status = std::future_status::timeout;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  <span class="keywordflow">do</span> {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">auto</span> now = std::chrono::steady_clock::now();</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">auto</span> time_left = end - now;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordflow">if</span> (time_left &lt;= std::chrono::milliseconds(0)) {<span class="keywordflow">break</span>;}</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    status = future.wait_for((time_left &lt; wait_period) ? time_left : wait_period);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  } <span class="keywordflow">while</span> (status != std::future_status::ready);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  <span class="keywordflow">return</span> status;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>{</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">float</span> left_x_axis_;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">float</span> left_y_axis_;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">float</span> right_x_axis_;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">float</span> right_y_axis_;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    uint8_t blue_button_;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    uint8_t green_button_;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    uint8_t red_button_;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    uint8_t yellow_button_;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    uint8_t left_r_button_;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    uint8_t left_l_button_;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    uint8_t left_u_button_;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    uint8_t left_d_button_ ;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    uint8_t left_rb_button_ ;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    uint8_t right_rb_button_ ;</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    uint8_t left_start_button_ ;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    uint8_t right_start_button_ ; </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    uint8_t xbox_button_;</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>} <a class="code hl_struct" href="classController.html">Controller</a>;</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833">  109</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833">SafetyInfo</a>{</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833a3df691a0fd74f5cff7a200944fcf95b5">  110</a></span>  <a class="code hl_enumvalue" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833a3df691a0fd74f5cff7a200944fcf95b5">kSafe</a>=0,</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833af1d450f7efd78d1561d62c8b2d118556">  111</a></span>  <a class="code hl_enumvalue" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833af1d450f7efd78d1561d62c8b2d118556">kOverForce</a>,</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833ae4fcb02848cea9cdb7ac763cd6483232">  112</a></span>  <a class="code hl_enumvalue" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833ae4fcb02848cea9cdb7ac763cd6483232">kOverSpeed</a>,</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833ad4d3efdc172cf449b7b9a255e576b285">  113</a></span>  <a class="code hl_enumvalue" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833ad4d3efdc172cf449b7b9a255e576b285">kOverPositionLimit</a>,</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833a5e729852e9eb01be06479c70df318f90">  114</a></span>  <a class="code hl_enumvalue" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833a5e729852e9eb01be06479c70df318f90">kErrorInDrive</a>,</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>  <a class="code hl_enumvalue" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833ad256d6d5920216ee3841f313bb2c23ac">kEmergencyStop</a></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833ad256d6d5920216ee3841f313bb2c23ac">  116</a></span>};</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> FutureT, <span class="keyword">typename</span> WaitTimeT&gt;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>std::future_status</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#a8e07ddf5b5b0e71f767a82424f50286b">   71</a></span><a class="code hl_function" href="safety__node_8hpp.html#a8e07ddf5b5b0e71f767a82424f50286b">wait_for_result</a>(</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  FutureT &amp; future,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  WaitTimeT time_to_wait)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>{</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="keyword">auto</span> end = std::chrono::steady_clock::now() + time_to_wait;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  std::chrono::milliseconds wait_period(100);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  std::future_status status = std::future_status::timeout;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  <span class="keywordflow">do</span> {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">auto</span> now = std::chrono::steady_clock::now();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">auto</span> time_left = end - now;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordflow">if</span> (time_left &lt;= std::chrono::milliseconds(0)) {<span class="keywordflow">break</span>;}</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    status = future.wait_for((time_left &lt; wait_period) ? time_left : wait_period);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  } <span class="keywordflow">while</span> (status != std::future_status::ready);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  <span class="keywordflow">return</span> status;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>{</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">float</span> left_x_axis_;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">float</span> left_y_axis_;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">float</span> right_x_axis_;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">float</span> right_y_axis_;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    uint8_t blue_button_;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    uint8_t green_button_;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    uint8_t red_button_;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    uint8_t yellow_button_;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    uint8_t left_r_button_;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    uint8_t left_l_button_;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    uint8_t left_u_button_;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    uint8_t left_d_button_ ;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    uint8_t left_rb_button_ ;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    uint8_t right_rb_button_ ;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    uint8_t left_start_button_ ;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    uint8_t right_start_button_ ; </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    uint8_t xbox_button_;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>} <a class="code hl_struct" href="classController.html">Controller</a>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833">  108</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833">SafetyInfo</a>{</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833a3df691a0fd74f5cff7a200944fcf95b5">  109</a></span>  <a class="code hl_enumvalue" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833a3df691a0fd74f5cff7a200944fcf95b5">kSafe</a>=0,</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833af1d450f7efd78d1561d62c8b2d118556">  110</a></span>  <a class="code hl_enumvalue" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833af1d450f7efd78d1561d62c8b2d118556">kOverForce</a>,</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833ae4fcb02848cea9cdb7ac763cd6483232">  111</a></span>  <a class="code hl_enumvalue" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833ae4fcb02848cea9cdb7ac763cd6483232">kOverSpeed</a>,</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833ad4d3efdc172cf449b7b9a255e576b285">  112</a></span>  <a class="code hl_enumvalue" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833ad4d3efdc172cf449b7b9a255e576b285">kOverPositionLimit</a>,</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833a5e729852e9eb01be06479c70df318f90">  113</a></span>  <a class="code hl_enumvalue" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833a5e729852e9eb01be06479c70df318f90">kErrorInDrive</a>,</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>  <a class="code hl_enumvalue" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833ad256d6d5920216ee3841f313bb2c23ac">kEmergencyStop</a></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833ad256d6d5920216ee3841f313bb2c23ac">  115</a></span>};</div>
 <div class="ttc" id="aclassController_html"><div class="ttname"><a href="classController.html">Controller</a></div><div class="ttdoc">Opens, reads from and publishes joystick events.</div><div class="ttdef"><b>Definition:</b> joy_node_linux.cpp:52</div></div>
-<div class="ttc" id="asafety__node_8hpp_html_a8e07ddf5b5b0e71f767a82424f50286b"><div class="ttname"><a href="safety__node_8hpp.html#a8e07ddf5b5b0e71f767a82424f50286b">wait_for_result</a></div><div class="ttdeci">std::future_status wait_for_result(FutureT &amp;future, WaitTimeT time_to_wait)</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:72</div></div>
-<div class="ttc" id="asafety__node_8hpp_html_a980ba3270c938a20bc0c2071de540eb4"><div class="ttname"><a href="safety__node_8hpp.html#a980ba3270c938a20bc0c2071de540eb4">node_change_state_topic</a></div><div class="ttdeci">static constexpr char const  * node_change_state_topic</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:67</div></div>
-<div class="ttc" id="asafety__node_8hpp_html_ab1746a86a11d31fce909f5766c726833"><div class="ttname"><a href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833">SafetyInfo</a></div><div class="ttdeci">SafetyInfo</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:109</div></div>
-<div class="ttc" id="asafety__node_8hpp_html_ab1746a86a11d31fce909f5766c726833a3df691a0fd74f5cff7a200944fcf95b5"><div class="ttname"><a href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833a3df691a0fd74f5cff7a200944fcf95b5">kSafe</a></div><div class="ttdeci">@ kSafe</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:110</div></div>
-<div class="ttc" id="asafety__node_8hpp_html_ab1746a86a11d31fce909f5766c726833a5e729852e9eb01be06479c70df318f90"><div class="ttname"><a href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833a5e729852e9eb01be06479c70df318f90">kErrorInDrive</a></div><div class="ttdeci">@ kErrorInDrive</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:114</div></div>
-<div class="ttc" id="asafety__node_8hpp_html_ab1746a86a11d31fce909f5766c726833ad256d6d5920216ee3841f313bb2c23ac"><div class="ttname"><a href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833ad256d6d5920216ee3841f313bb2c23ac">kEmergencyStop</a></div><div class="ttdeci">@ kEmergencyStop</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:115</div></div>
-<div class="ttc" id="asafety__node_8hpp_html_ab1746a86a11d31fce909f5766c726833ad4d3efdc172cf449b7b9a255e576b285"><div class="ttname"><a href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833ad4d3efdc172cf449b7b9a255e576b285">kOverPositionLimit</a></div><div class="ttdeci">@ kOverPositionLimit</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:113</div></div>
-<div class="ttc" id="asafety__node_8hpp_html_ab1746a86a11d31fce909f5766c726833ae4fcb02848cea9cdb7ac763cd6483232"><div class="ttname"><a href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833ae4fcb02848cea9cdb7ac763cd6483232">kOverSpeed</a></div><div class="ttdeci">@ kOverSpeed</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:112</div></div>
-<div class="ttc" id="asafety__node_8hpp_html_ab1746a86a11d31fce909f5766c726833af1d450f7efd78d1561d62c8b2d118556"><div class="ttname"><a href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833af1d450f7efd78d1561d62c8b2d118556">kOverForce</a></div><div class="ttdeci">@ kOverForce</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:111</div></div>
-<div class="ttc" id="asafety__node_8hpp_html_aced6f4a17af3b1dcfe352533f20fa4ee"><div class="ttname"><a href="safety__node_8hpp.html#aced6f4a17af3b1dcfe352533f20fa4ee">lifecycle_node</a></div><div class="ttdeci">static constexpr char const  * lifecycle_node</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:60</div></div>
-<div class="ttc" id="asafety__node_8hpp_html_ad7ed2848afc80f097ec467515e548453"><div class="ttname"><a href="safety__node_8hpp.html#ad7ed2848afc80f097ec467515e548453">node_get_state_topic</a></div><div class="ttdeci">static constexpr char const  * node_get_state_topic</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:66</div></div>
+<div class="ttc" id="asafety__node_8hpp_html_a8e07ddf5b5b0e71f767a82424f50286b"><div class="ttname"><a href="safety__node_8hpp.html#a8e07ddf5b5b0e71f767a82424f50286b">wait_for_result</a></div><div class="ttdeci">std::future_status wait_for_result(FutureT &amp;future, WaitTimeT time_to_wait)</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:71</div></div>
+<div class="ttc" id="asafety__node_8hpp_html_a980ba3270c938a20bc0c2071de540eb4"><div class="ttname"><a href="safety__node_8hpp.html#a980ba3270c938a20bc0c2071de540eb4">node_change_state_topic</a></div><div class="ttdeci">static constexpr char const  * node_change_state_topic</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:66</div></div>
+<div class="ttc" id="asafety__node_8hpp_html_ab1746a86a11d31fce909f5766c726833"><div class="ttname"><a href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833">SafetyInfo</a></div><div class="ttdeci">SafetyInfo</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:108</div></div>
+<div class="ttc" id="asafety__node_8hpp_html_ab1746a86a11d31fce909f5766c726833a3df691a0fd74f5cff7a200944fcf95b5"><div class="ttname"><a href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833a3df691a0fd74f5cff7a200944fcf95b5">kSafe</a></div><div class="ttdeci">@ kSafe</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:109</div></div>
+<div class="ttc" id="asafety__node_8hpp_html_ab1746a86a11d31fce909f5766c726833a5e729852e9eb01be06479c70df318f90"><div class="ttname"><a href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833a5e729852e9eb01be06479c70df318f90">kErrorInDrive</a></div><div class="ttdeci">@ kErrorInDrive</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:113</div></div>
+<div class="ttc" id="asafety__node_8hpp_html_ab1746a86a11d31fce909f5766c726833ad256d6d5920216ee3841f313bb2c23ac"><div class="ttname"><a href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833ad256d6d5920216ee3841f313bb2c23ac">kEmergencyStop</a></div><div class="ttdeci">@ kEmergencyStop</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:114</div></div>
+<div class="ttc" id="asafety__node_8hpp_html_ab1746a86a11d31fce909f5766c726833ad4d3efdc172cf449b7b9a255e576b285"><div class="ttname"><a href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833ad4d3efdc172cf449b7b9a255e576b285">kOverPositionLimit</a></div><div class="ttdeci">@ kOverPositionLimit</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:112</div></div>
+<div class="ttc" id="asafety__node_8hpp_html_ab1746a86a11d31fce909f5766c726833ae4fcb02848cea9cdb7ac763cd6483232"><div class="ttname"><a href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833ae4fcb02848cea9cdb7ac763cd6483232">kOverSpeed</a></div><div class="ttdeci">@ kOverSpeed</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:111</div></div>
+<div class="ttc" id="asafety__node_8hpp_html_ab1746a86a11d31fce909f5766c726833af1d450f7efd78d1561d62c8b2d118556"><div class="ttname"><a href="safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833af1d450f7efd78d1561d62c8b2d118556">kOverForce</a></div><div class="ttdeci">@ kOverForce</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:110</div></div>
+<div class="ttc" id="asafety__node_8hpp_html_aced6f4a17af3b1dcfe352533f20fa4ee"><div class="ttname"><a href="safety__node_8hpp.html#aced6f4a17af3b1dcfe352533f20fa4ee">lifecycle_node</a></div><div class="ttdeci">static constexpr char const  * lifecycle_node</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:59</div></div>
+<div class="ttc" id="asafety__node_8hpp_html_ad7ed2848afc80f097ec467515e548453"><div class="ttname"><a href="safety__node_8hpp.html#ad7ed2848afc80f097ec467515e548453">node_get_state_topic</a></div><div class="ttdeci">static constexpr char const  * node_get_state_topic</div><div class="ttdef"><b>Definition:</b> safety_node.hpp:65</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -44,13 +44,13 @@ int main(int argc, char **argv)
     // -----------------------------------------------------------------------------
 
     // CKim - Initialize and launch EthercatLifeCycleNode
-    ecat_lifecycle_node = std::make_shared<EthercatLifeCycleNode::EthercatLifeCycle>();
+    ecat_lifecycle_node = std::make_unique<EthercatLifeCycleNode::EthercatLifeCycle>();
     rclcpp::spin(ecat_lifecycle_node->get_node_base_interface());
     
-    rclcpp::executors::MultiThreadedExecutor exe;
-    exe.add_node(ecat_lifecycle_node->get_node_base_interface());
+    // rclcpp::executors::MultiThreadedExecutor exe;
+    // exe.add_node(ecat_lifecycle_node->get_node_base_interface());
 
-    exe.spin();
+    // exe.spin();
 
     // CKim - Terminate node
     rclcpp::shutdown();

@@ -8,7 +8,10 @@
     ],
     "ros.distro": "foxy",
     "files.associations": {
+<<<<<<< HEAD
         "thread": "cpp",
+=======
+>>>>>>> 36d71338166ace709bf2b4dd0cead8c8dd748c8a
         "cctype": "cpp",
         "clocale": "cpp",
         "cmath": "cpp",
@@ -21,7 +24,10 @@
         "ctime": "cpp",
         "cwchar": "cpp",
         "cwctype": "cpp",
+<<<<<<< HEAD
         "any": "cpp",
+=======
+>>>>>>> 36d71338166ace709bf2b4dd0cead8c8dd748c8a
         "array": "cpp",
         "atomic": "cpp",
         "strstream": "cpp",
@@ -49,7 +55,10 @@
         "optional": "cpp",
         "random": "cpp",
         "ratio": "cpp",
+<<<<<<< HEAD
         "regex": "cpp",
+=======
+>>>>>>> 36d71338166ace709bf2b4dd0cead8c8dd748c8a
         "string": "cpp",
         "string_view": "cpp",
         "system_error": "cpp",
@@ -71,6 +80,10 @@
         "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
+<<<<<<< HEAD
+=======
+        "thread": "cpp",
+>>>>>>> 36d71338166ace709bf2b4dd0cead8c8dd748c8a
         "cfenv": "cpp",
         "cinttypes": "cpp",
         "typeindex": "cpp",

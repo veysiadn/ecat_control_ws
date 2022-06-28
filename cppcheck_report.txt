@@ -28,16 +28,16 @@ src/controller/src/joy_node_linux.cpp:120:3: warning: Member variable 'Controlle
 src/controller/src/joy_node_linux.cpp:71:15: performance:inconclusive: Technically the member function 'Controller::get_dev_by_joy_name' can be static (but you may consider moving to unnamed namespace). [functionStatic]
   std::string get_dev_by_joy_name(const std::string& joy_name, rclcpp::Logger logger)
               ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:1352:11: style: The scope of the variable 'm1_left' can be reduced. [variableScope]
+src/ecat_pkg/src/ecat_lifecycle.cpp:1350:11: style: The scope of the variable 'm1_left' can be reduced. [variableScope]
     float m1_left=0.0, m1_right=0.0, axis_m2=0.0, axis_m3=0.0;
           ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:1352:24: style: The scope of the variable 'm1_right' can be reduced. [variableScope]
+src/ecat_pkg/src/ecat_lifecycle.cpp:1350:24: style: The scope of the variable 'm1_right' can be reduced. [variableScope]
     float m1_left=0.0, m1_right=0.0, axis_m2=0.0, axis_m3=0.0;
                        ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:1352:38: style: The scope of the variable 'axis_m2' can be reduced. [variableScope]
+src/ecat_pkg/src/ecat_lifecycle.cpp:1350:38: style: The scope of the variable 'axis_m2' can be reduced. [variableScope]
     float m1_left=0.0, m1_right=0.0, axis_m2=0.0, axis_m3=0.0;
                                      ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:1352:51: style: The scope of the variable 'axis_m3' can be reduced. [variableScope]
+src/ecat_pkg/src/ecat_lifecycle.cpp:1350:51: style: The scope of the variable 'axis_m3' can be reduced. [variableScope]
     float m1_left=0.0, m1_right=0.0, axis_m2=0.0, axis_m3=0.0;
                                                   ^
 src/ecat_pkg/src/ecat_lifecycle.cpp:542:25: warning:inconclusive: Found suspicious equality comparison. Did you intend to assign a value instead? [constStatement]
@@ -64,27 +64,18 @@ src/ecat_pkg/src/ecat_lifecycle.cpp:597:59: style: Variable 'publish_time_start'
 src/ecat_pkg/src/ecat_lifecycle.cpp:597:80: style: Variable 'publish_time_end' is assigned a value that is never used. [unreadVariable]
     struct timespec wake_up_time, time, publish_time_start={}, publish_time_end={};
                                                                                ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:1352:18: style: Variable 'm1_left' is assigned a value that is never used. [unreadVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:1350:18: style: Variable 'm1_left' is assigned a value that is never used. [unreadVariable]
     float m1_left=0.0, m1_right=0.0, axis_m2=0.0, axis_m3=0.0;
                  ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:1352:32: style: Variable 'm1_right' is assigned a value that is never used. [unreadVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:1350:32: style: Variable 'm1_right' is assigned a value that is never used. [unreadVariable]
     float m1_left=0.0, m1_right=0.0, axis_m2=0.0, axis_m3=0.0;
                                ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:1352:45: style: Variable 'axis_m2' is assigned a value that is never used. [unreadVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:1350:45: style: Variable 'axis_m2' is assigned a value that is never used. [unreadVariable]
     float m1_left=0.0, m1_right=0.0, axis_m2=0.0, axis_m3=0.0;
                                             ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:1352:58: style: Variable 'axis_m3' is assigned a value that is never used. [unreadVariable]
+src/ecat_pkg/src/ecat_lifecycle.cpp:1350:58: style: Variable 'axis_m3' is assigned a value that is never used. [unreadVariable]
     float m1_left=0.0, m1_right=0.0, axis_m2=0.0, axis_m3=0.0;
                                                          ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:780:12: style: The if condition is the same as the previous if condition [duplicateCondition]
-        if(!begin)
-           ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:774:12: note: First condition
-        if(!begin)
-           ^
-src/ecat_pkg/src/ecat_lifecycle.cpp:780:12: note: Second condition
-        if(!begin)
-           ^
 src/ecat_pkg/src/ecat_lifecycle.cpp:600:28: style: Variable 'period_ns' is assigned a value that is never used. [unreadVariable]
         uint32_t period_ns = 0, exec_ns = 0, latency_ns = 0,
                            ^
@@ -166,9 +157,9 @@ src/ecat_pkg/src/lifecycle_node_manager.cpp:48:13: style: struct member 'Control
 src/ecat_pkg/src/lifecycle_node_manager.cpp:308:24: style: Variable 'future_result' is assigned a value that is never used. [unreadVariable]
     auto future_result = client_change_state_->async_send_request(request);
                        ^
-src/gui_pkg/src/main_window.cpp:369:27: warning: Logical conjunction always evaluates to false: state == 0x01 && state == 0. [incorrectLogicOperator]
-   else if (state == 0x01 && state==0){
-                          ^
+src/gui_pkg/src/main_window.cpp:381:28: warning: Logical conjunction always evaluates to false: state == 0x01 && state == 0. [incorrectLogicOperator]
+    else if (state == 0x01 && state==0){
+                           ^
 src/gui_pkg/include/gui_pkg/timing.hpp:25:8: style:inconclusive: Technically the member function 'Timing::OutInfoToFile' can be const. [functionConst]
   void OutInfoToFile();
        ^
@@ -181,12 +172,12 @@ src/gui_pkg/include/gui_pkg/timing.hpp:25:8: note: Technically the member functi
 src/input_pkg/src/hapticNode.cpp:134:18: portability: Casting between signed char * and double * which have an incompatible binary data representation. [invalidPointerCast]
    double* val = (double*) str2;
                  ^
-src/safety_pkg/src/safety_node.cpp:276:24: style: Variable 'future_result' is assigned a value that is never used. [unreadVariable]
+src/safety_pkg/src/safety_node.cpp:279:24: style: Variable 'future_result' is assigned a value that is never used. [unreadVariable]
     auto future_result = client_change_state_->async_send_request(request);
                        ^
-src/safety_pkg/src/safety_node.cpp:316:20: style: Variable 'safety_node' is assigned a value that is never used. [unreadVariable]
-  auto safety_node = std::make_shared<SafetyNode>("safety_node");
-                   ^
+src/safety_pkg/src/safety_node.cpp:353:18: style: Variable 'wake_exec' is assigned a value that is never used. [unreadVariable]
+  auto wake_exec = std::async(
+                 ^
 src/controller/src/joy_node_linux.cpp:51:1: error: The one definition rule is violated, different classes/structs have the same name 'Controller' [ctuOneDefinitionRuleViolation]
 class Controller
 ^
@@ -196,7 +187,7 @@ typedef struct
 src/controller/src/joy_node_linux.cpp:51:1: note: The one definition rule is violated, different classes/structs have the same name 'Controller'
 class Controller
 ^
-src/gui_pkg/src/main_window.cpp:752:0: style: The function 'GetDriveErrorMessage' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:764:0: style: The function 'GetDriveErrorMessage' is never used. [unusedFunction]
 
 ^
 src/gui_pkg/src/timing.cpp:3:0: style: The function 'GetTime' is never used. [unusedFunction]
@@ -208,43 +199,46 @@ src/gui_pkg/src/timing.cpp:7:0: style: The function 'MeasureTimeDifference' is n
 src/gui_pkg/src/timing.cpp:14:0: style: The function 'OutInfoToFile' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/main_window.cpp:206:0: style: The function 'ResetControlButtonValues' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:218:0: style: The function 'ResetControlButtonValues' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/main_window.cpp:120:0: style: The function 'on_b_disable_drives_clicked' is never used. [unusedFunction]
+src/safety_pkg/src/safety_node.cpp:35:0: style: The function 'SpinThread' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/main_window.cpp:157:0: style: The function 'on_b_emergency_mode_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:132:0: style: The function 'on_b_disable_drives_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/main_window.cpp:64:0: style: The function 'on_b_enable_cyclic_pos_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:169:0: style: The function 'on_b_emergency_mode_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/main_window.cpp:71:0: style: The function 'on_b_enable_cylic_vel_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:76:0: style: The function 'on_b_enable_cyclic_pos_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/main_window.cpp:115:0: style: The function 'on_b_enable_drives_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:83:0: style: The function 'on_b_enable_cylic_vel_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/main_window.cpp:81:0: style: The function 'on_b_enable_pos_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:127:0: style: The function 'on_b_enable_drives_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/main_window.cpp:76:0: style: The function 'on_b_enable_vel_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:93:0: style: The function 'on_b_enable_pos_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/main_window.cpp:125:0: style: The function 'on_b_enter_cyclic_pdo_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:88:0: style: The function 'on_b_enable_vel_clicked' is never used. [unusedFunction]
+
+^
+src/gui_pkg/src/main_window.cpp:137:0: style: The function 'on_b_enter_cyclic_pdo_clicked' is never used. [unusedFunction]
 
 ^
 src/gui_pkg/src/endoscope_viewer.cpp:34:0: style: The function 'on_b_exit_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/main_window.cpp:86:0: style: The function 'on_b_init_ecat_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:98:0: style: The function 'on_b_init_ecat_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/main_window.cpp:99:0: style: The function 'on_b_reinit_ecat_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:111:0: style: The function 'on_b_reinit_ecat_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/main_window.cpp:188:0: style: The function 'on_b_send_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:200:0: style: The function 'on_b_send_clicked' is never used. [unusedFunction]
 
 ^
 src/gui_pkg/src/endoscope_viewer.cpp:21:0: style: The function 'on_b_start_capture_clicked' is never used. [unusedFunction]
@@ -253,7 +247,7 @@ src/gui_pkg/src/endoscope_viewer.cpp:21:0: style: The function 'on_b_start_captu
 src/gui_pkg/src/endoscope_viewer.cpp:27:0: style: The function 'on_b_stop_capture_clicked' is never used. [unusedFunction]
 
 ^
-src/gui_pkg/src/main_window.cpp:141:0: style: The function 'on_b_stop_cyclic_pdo_clicked' is never used. [unusedFunction]
+src/gui_pkg/src/main_window.cpp:153:0: style: The function 'on_b_stop_cyclic_pdo_clicked' is never used. [unusedFunction]
 
 ^
 src/gui_pkg/src/video_capture.cpp:11:0: style: The function 'run' is never used. [unusedFunction]

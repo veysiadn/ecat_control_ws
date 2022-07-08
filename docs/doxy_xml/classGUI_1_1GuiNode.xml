@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="116" column="42" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="116" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="115" column="42" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="115" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGUI_1_1GuiNode_1abf1caf97a94659045c927db80791a380" prot="private" static="no" mutable="no">
         <type>rclcpp::Subscription&lt; ecat_msgs::msg::DataSent &gt;::SharedPtr</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="119" column="42" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="119" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="118" column="42" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="118" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGUI_1_1GuiNode_1a0d8c7deb8ea9697735e630aa83f02f81" prot="private" static="no" mutable="no">
         <type>rclcpp::Subscription&lt; sensor_msgs::msg::Joy &gt;::SharedPtr</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="121" column="43" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="121" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="120" column="43" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="120" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGUI_1_1GuiNode_1a66440eb057ca59acb3576141b38ef116" prot="private" static="no" mutable="no">
         <type>rclcpp::Subscription&lt; std_msgs::msg::UInt16 &gt;::SharedPtr</type>
@@ -57,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="123" column="43" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="123" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="122" column="43" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="122" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGUI_1_1GuiNode_1a847bb4ebc91435e0716106b192aee148" prot="private" static="no" mutable="no">
         <type>rclcpp::TimerBase::SharedPtr</type>
@@ -71,7 +71,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="126" column="38" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="126" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="125" column="38" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="125" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGUI_1_1GuiNode_1a2fd7f6c041cd0d2cc22763098618b180" prot="private" static="no" mutable="no">
         <type>rclcpp::Publisher&lt; ecat_msgs::msg::GuiButtonData &gt;::SharedPtr</type>
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="129" column="39" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="129" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="128" column="39" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="128" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -101,7 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="136" column="39" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="136" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="135" column="39" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="135" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGUI_1_1GuiNode_1af706443f1b729129daa680cea9711d54" prot="public" static="no" mutable="no">
         <type>ecat_msgs::msg::DataSent</type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="137" column="35" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="137" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="136" column="35" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="136" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGUI_1_1GuiNode_1a625aa899ac48e4549c7f5fd0399181d7" prot="public" static="no" mutable="no">
         <type>ecat_msgs::msg::GuiButtonData</type>
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="139" column="40" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="139" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="138" column="40" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="138" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGUI_1_1GuiNode_1a238617e7511d538648ec8f3c5f09ddd8" prot="public" static="no" mutable="no">
         <type>std_msgs::msg::UInt16</type>
@@ -141,7 +141,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="140" column="32" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="140" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="139" column="32" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="139" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGUI_1_1GuiNode_1a9e0e5d2cd3d41f0b11bad899eb13e2b1" prot="public" static="no" mutable="no">
         <type><ref refid="classTiming" kindref="compound">Timing</ref></type>
@@ -155,7 +155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="142" column="17" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="142" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="141" column="17" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="141" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGUI_1_1GuiNode_1a6987206057a2586f5fa17ed6206b5703" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -169,7 +169,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="143" column="18" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="143" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="142" column="18" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="142" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -185,7 +185,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="82" column="12" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="40" bodyend="45"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="81" column="12" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="40" bodyend="45"/>
       </memberdef>
       <memberdef kind="function" id="classGUI_1_1GuiNode_1a8c671d0d93d0c61da722666d7b01230f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -213,7 +213,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="90" column="14" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="47" bodyend="54"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="89" column="14" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="47" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="classGUI_1_1GuiNode_1a692f44e42736bb1e31f435024cfdc4f9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -241,7 +241,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="98" column="14" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="56" bodyend="65"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="97" column="14" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="56" bodyend="65"/>
       </memberdef>
       <memberdef kind="function" id="classGUI_1_1GuiNode_1a7bbe29f0fba8cede61e3587adfdc56cb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -271,7 +271,7 @@
 <para>Servo Drive feedbacks</para>
 <para>Costum slave feedbacks.</para>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="106" column="14" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="67" bodyend="86"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="105" column="14" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="67" bodyend="86"/>
       </memberdef>
       <memberdef kind="function" id="classGUI_1_1GuiNode_1aafb5c384ff383686a052111e49e8999b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -285,7 +285,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="110" column="14" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="88" bodyend="102"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="109" column="14" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="88" bodyend="102"/>
       </memberdef>
       <memberdef kind="function" id="classGUI_1_1GuiNode_1af39cdf44be5d28d4e43c30691fcc594b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -302,7 +302,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="112" column="14"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="111" column="14"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -322,7 +322,7 @@
 <para>Gui button value publisher</para>
 <para>Timer callback set to 33HZ.</para>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="132" column="10" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="7" bodyend="33"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="131" column="10" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="7" bodyend="33"/>
       </memberdef>
       <memberdef kind="function" id="classGUI_1_1GuiNode_1a988fcbb2f9503d2f7a28fb657b95d97d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -335,7 +335,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="133" column="18" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="35" bodyend="38"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="132" column="18" bodyfile="src/gui_pkg/src/gui_node.cpp" bodystart="35" bodyend="38"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -372,7 +372,7 @@
         <label>rclcpp::Node</label>
       </node>
     </collaborationgraph>
-    <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="74" column="2" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="75" bodyend="144"/>
+    <location file="src/gui_pkg/include/gui_pkg/gui_node.hpp" line="73" column="2" bodyfile="src/gui_pkg/include/gui_pkg/gui_node.hpp" bodystart="74" bodyend="143"/>
     <listofallmembers>
       <member refid="classGUI_1_1GuiNode_1a0d8c7deb8ea9697735e630aa83f02f81" prot="private" virt="non-virtual"><scope>GUI::GuiNode</scope><name>controller_commands_</name></member>
       <member refid="classGUI_1_1GuiNode_1a6987206057a2586f5fa17ed6206b5703" prot="public" virt="non-virtual"><scope>GUI::GuiNode</scope><name>current_lifecycle_state</name></member>

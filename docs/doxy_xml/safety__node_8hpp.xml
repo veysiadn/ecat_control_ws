@@ -302,7 +302,7 @@
 <codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;std_srvs/srv/trigger.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;std_msgs/msg/u_int16.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rcutils/logging_macros.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rclcpp/rclcpp.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std::chrono_literals;</highlight></codeline>
 <codeline lineno="57"><highlight class="normal"></highlight></codeline>
 <codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//<sp/>which<sp/>node<sp/>to<sp/>handle</highlight><highlight class="normal"></highlight></codeline>

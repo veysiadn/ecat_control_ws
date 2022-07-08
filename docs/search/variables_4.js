@@ -13,6 +13,8 @@ var searchData=
   ['ethercat_5fthread_5f_10',['ethercat_thread_',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#ac443f07a1f4e7252788ca000ea70458f',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
   ['ethercat_5fthread_5fattr_5f_11',['ethercat_thread_attr_',['../classEthercatLifeCycleNode_1_1EthercatLifeCycle.html#a78acbaf6dc792b96f2df3fbef7395dfc',1,'EthercatLifeCycleNode::EthercatLifeCycle']]],
   ['event_5fcount_5f_12',['event_count_',['../classController.html#a05cc7d634a0eb444cbe3b0dc2aa3cdce',1,'Controller']]],
-  ['exit_5fsignal_5f_13',['exit_signal_',['../classHapticNode.html#a57e6292d41b4fbfa4160d328c91cea3a',1,'HapticNode']]],
-  ['extra_5fstatus_5freg_14',['extra_status_reg',['../structOffsetPDO.html#adee3c83f3857725dac30b685d1b90af2',1,'OffsetPDO']]]
+  ['exec_5fmax_5fns_5f_13',['exec_max_ns_',['../classTiming_1_1TimingNode.html#ae739aadbb15d783021464f15050d07eb',1,'Timing::TimingNode']]],
+  ['exec_5fmin_5fns_5f_14',['exec_min_ns_',['../classTiming_1_1TimingNode.html#a77344e4eab4d9ceaf349d808b08eb3f7',1,'Timing::TimingNode']]],
+  ['exit_5fsignal_5f_15',['exit_signal_',['../classHapticNode.html#a57e6292d41b4fbfa4160d328c91cea3a',1,'HapticNode']]],
+  ['extra_5fstatus_5freg_16',['extra_status_reg',['../structOffsetPDO.html#adee3c83f3857725dac30b685d1b90af2',1,'OffsetPDO']]]
 ];

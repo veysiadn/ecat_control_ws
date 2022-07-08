@@ -9,6 +9,9 @@ var annotated_dup =
     [ "GUI", "namespaceGUI.html", [
       [ "GuiNode", "classGUI_1_1GuiNode.html", "classGUI_1_1GuiNode" ]
     ] ],
+    [ "Timing", "namespaceTiming.html", [
+      [ "TimingNode", "classTiming_1_1TimingNode.html", "classTiming_1_1TimingNode" ]
+    ] ],
     [ "Controller", "classController.html", "classController" ],
     [ "ControlUIButtonData", "structControlUIButtonData.html", "structControlUIButtonData" ],
     [ "CSPositionModeParam", "structCSPositionModeParam.html", "structCSPositionModeParam" ],

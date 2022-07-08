@@ -15,5 +15,6 @@ var namespaces_dup =
     [ "pubsubexample", "namespacepubsubexample.html", [
       [ "main", "namespacepubsubexample.html#a6e4acd06d9d359d871fe5dcffa10f3a6", null ]
     ] ],
+    [ "Timing", "namespaceTiming.html", "namespaceTiming" ],
     [ "Ui", "namespaceUi.html", null ]
 ];

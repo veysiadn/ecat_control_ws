@@ -419,9 +419,12 @@
     <member refid="classSafetyNode_1ac7d3f21660608df7643b058c4e76e5ed" kind="variable"><name>lifecycle_node_data_</name></member>
     <member refid="classSafetyNode_1a9c249f357feffc4c6fc5ff2ad7826a3b" kind="variable"><name>controller_</name></member>
     <member refid="classSafetyNode_1abd46448512fd6bc54b6f28ae02fdeb94" kind="variable"><name>safety_state_msg_</name></member>
+    <member refid="classSafetyNode_1a12819fcc0e811bdcd8b08565e43dad02" kind="variable"><name>button_request_</name></member>
+    <member refid="classSafetyNode_1a52bfb22a649d402841598f57442c6c53" kind="variable"><name>timer_</name></member>
     <member refid="classSafetyNode_1ac84b90290107bf6cbceef3fb5f3368eb" kind="variable"><name>client_get_state_</name></member>
     <member refid="classSafetyNode_1a8bfafeed901f7601e58959c89c5ddbef" kind="variable"><name>client_change_state_</name></member>
     <member refid="classSafetyNode_1a25ba9ef6a6264bdbce9cb0e2c206b0f9" kind="function"><name>SafetyNode</name></member>
+    <member refid="classSafetyNode_1af532d46721ec6dce0222e342dd62e531" kind="function"><name>PublishSafetyInfo</name></member>
     <member refid="classSafetyNode_1af11237bde94c3e47c44073af3a821ba0" kind="function"><name>SpinThread</name></member>
     <member refid="classSafetyNode_1a46a6805575045e55abee6da1f7c5c1a7" kind="function"><name>HandleGuiNodeCallbacks</name></member>
     <member refid="classSafetyNode_1ab9728a04827bf37f3d99aa860c46d26f" kind="function"><name>HandleLifecycleNodeCallbacks</name></member>
@@ -471,6 +474,23 @@
     <member refid="classTiming_1a0e717201b291932881ce40f46f1157ec" kind="function"><name>MeasureTimeDifference</name></member>
     <member refid="classTiming_1abca929bf96a9035cdae89d6ac1c18509" kind="function"><name>OutInfoToFile</name></member>
   </compound>
+  <compound refid="classTiming_1_1TimingNode" kind="class"><name>Timing::TimingNode</name>
+    <member refid="classTiming_1_1TimingNode_1afa0a36552d5f3c261e6c2fa32dc844cf" kind="variable"><name>received_data_sub_</name></member>
+    <member refid="classTiming_1_1TimingNode_1ac8f5f06c4d1e5a2dddc00939d96d7354" kind="variable"><name>received_data_</name></member>
+    <member refid="classTiming_1_1TimingNode_1a61ddc9db29b23799187105e9386ae4f0" kind="variable"><name>statistics_timer_</name></member>
+    <member refid="classTiming_1_1TimingNode_1af95d06276ecc590d84cb9b8c91731deb" kind="variable"><name>period_min_ns_</name></member>
+    <member refid="classTiming_1_1TimingNode_1a83f9ac4d300115f1933bdc28990a3447" kind="variable"><name>period_max_ns_</name></member>
+    <member refid="classTiming_1_1TimingNode_1a77344e4eab4d9ceaf349d808b08eb3f7" kind="variable"><name>exec_min_ns_</name></member>
+    <member refid="classTiming_1_1TimingNode_1ae739aadbb15d783021464f15050d07eb" kind="variable"><name>exec_max_ns_</name></member>
+    <member refid="classTiming_1_1TimingNode_1ab58e3d9e1b29036811789f863b281a6c" kind="variable"><name>jitter_min_</name></member>
+    <member refid="classTiming_1_1TimingNode_1a3afad959cbb797f0f97379494b0c19c9" kind="variable"><name>jitter_max_</name></member>
+    <member refid="classTiming_1_1TimingNode_1aa5a89dbf82f33b18364aa88f14132388" kind="variable"><name>print_begin_</name></member>
+    <member refid="classTiming_1_1TimingNode_1ac9ab3f6e3a998f177fe31c8f745ed8a2" kind="function"><name>TimingNode</name></member>
+    <member refid="classTiming_1_1TimingNode_1a769f3b93c5930fcc63df1f7b5ba407de" kind="function"><name>~TimingNode</name></member>
+    <member refid="classTiming_1_1TimingNode_1ab38ff7099b7ee6864f1097c7f0f726e3" kind="function"><name>HandleReceivedDataCallback</name></member>
+    <member refid="classTiming_1_1TimingNode_1a8fb12c62aec8b22ca8713d95932db772" kind="function"><name>CalculateStatistics</name></member>
+    <member refid="classTiming_1_1TimingNode_1ada1e8c1050d44f73991465c399354c18" kind="function"><name>PrintStatistics</name></member>
+  </compound>
   <compound refid="structVelControlParam" kind="struct"><name>VelControlParam</name>
     <member refid="structVelControlParam_1ae6465f71e5ef9372eafc37db7898d71c" kind="variable"><name>Pgain</name></member>
     <member refid="structVelControlParam_1aa7b75a6e39085e186393c83855655c12" kind="variable"><name>Igain</name></member>
@@ -513,6 +533,8 @@
   <compound refid="namespacerclcpp__lifecycle" kind="namespace"><name>rclcpp_lifecycle</name>
   </compound>
   <compound refid="namespacestd_1_1chrono__literals" kind="namespace"><name>std::chrono_literals</name>
+  </compound>
+  <compound refid="namespaceTiming" kind="namespace"><name>Timing</name>
   </compound>
   <compound refid="namespaceUi" kind="namespace"><name>Ui</name>
   </compound>
@@ -711,6 +733,7 @@
     <member refid="ecat__globals_8hpp_1aacc3c7aef173b1cde9377fb7f05c924d" kind="variable"><name>g_kNumberOfServoDrivers</name></member>
     <member refid="ecat__globals_8hpp_1a9f470379e6a057153b1386f8b94c7973" kind="variable"><name>g_kOperationMode</name></member>
     <member refid="ecat__globals_8hpp_1a0f34ecbeba93aefcdd077c6ce0758360" kind="variable"><name>g_cycle_time</name></member>
+    <member refid="ecat__globals_8hpp_1a1ff80c3be290282cd8135a525d719cf0" kind="variable"><name>g_half_cycle_time</name></member>
   </compound>
   <compound refid="ecat__lifecycle_8hpp" kind="file"><name>ecat_lifecycle.hpp</name>
     <member refid="ecat__lifecycle_8hpp_1ad8e9de5b070f6d2a84f39a36e0dcff9b" kind="typedef"><name>TLSFAllocator</name></member>
@@ -1099,6 +1122,11 @@
   <compound refid="hapticNode_8cpp" kind="file"><name>hapticNode.cpp</name>
     <member refid="hapticNode_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
   </compound>
+  <compound refid="timing__node_8hpp" kind="file"><name>timing_node.hpp</name>
+  </compound>
+  <compound refid="timing__node_8cpp" kind="file"><name>timing_node.cpp</name>
+    <member refid="timing__node_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
   <compound refid="controller_2CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
     <member refid="controller_2CMakeLists_8txt_1ad1bf69fd353850593e105f63289c8339" kind="function"><name>cmake_minimum_required</name></member>
     <member refid="controller_2CMakeLists_8txt_1ad9a9e945c10fdf0c9b1dadd2f594291f" kind="function"><name>include</name></member>
@@ -1117,6 +1145,8 @@
   </compound>
   <compound refid="input__pkg_2CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
     <member refid="input__pkg_2CMakeLists_8txt_1a97600d4bbf09916b9863e6b35fc77241" kind="function"><name>cmake_minimum_required</name></member>
+  </compound>
+  <compound refid="log__pkg_2CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
   </compound>
   <compound refid="safety__pkg_2CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
   </compound>
@@ -1150,11 +1180,13 @@
   </compound>
   <compound refid="dir_49c8a06a9201d6d04532d5a0bfb6e5e9" kind="dir"><name>src/gui_pkg/include/gui_pkg</name>
   </compound>
+  <compound refid="dir_95e41177299382f82581ff6a0fdbe1b7" kind="dir"><name>src/safety_pkg/include</name>
+  </compound>
   <compound refid="dir_e13597078cf4e6075ccc1389ec844104" kind="dir"><name>src/ecat_pkg/include</name>
   </compound>
   <compound refid="dir_5f6a9ac372f08ad2f9f56fbda15f8efd" kind="dir"><name>src/gui_pkg/include</name>
   </compound>
-  <compound refid="dir_95e41177299382f82581ff6a0fdbe1b7" kind="dir"><name>src/safety_pkg/include</name>
+  <compound refid="dir_6d0a3ff14f76c0bb6f91fe2cc976bb7c" kind="dir"><name>src/log_pkg/include</name>
   </compound>
   <compound refid="dir_5a4e756bb77571bd5b8d32b7a3f7541e" kind="dir"><name>src/input_pkg/include</name>
   </compound>
@@ -1166,21 +1198,27 @@
   </compound>
   <compound refid="dir_afd3063867063183ef901a7a578d68e9" kind="dir"><name>src/ecat_pkg/launch/LaunchExample</name>
   </compound>
-  <compound refid="dir_675f4537d6e4af31cfc867aad29c483f" kind="dir"><name>src/safety_pkg/include/safety_pkg</name>
+  <compound refid="dir_ecbc7ce0a02869f4b7cfd787b8a8cea7" kind="dir"><name>src/log_pkg</name>
+  </compound>
+  <compound refid="dir_f6a0b7142acfe7d89421178a0ec85a0b" kind="dir"><name>src/log_pkg/include/log_pkg</name>
   </compound>
   <compound refid="dir_2d5e762472730a416a9d6417e2041833" kind="dir"><name>src/safety_pkg</name>
   </compound>
+  <compound refid="dir_675f4537d6e4af31cfc867aad29c483f" kind="dir"><name>src/safety_pkg/include/safety_pkg</name>
+  </compound>
   <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
-  </compound>
-  <compound refid="dir_b3c8cf0a1583fdca019efa4931c113bd" kind="dir"><name>src/safety_pkg/src</name>
-  </compound>
-  <compound refid="dir_43175be8285d9322b122867840b67d13" kind="dir"><name>src/input_pkg/src</name>
   </compound>
   <compound refid="dir_578fcc4aa7bb58f0f856b2f7d84499c2" kind="dir"><name>src/gui_pkg/src</name>
   </compound>
   <compound refid="dir_34a4b34f2cfbf09a1592a51ce47086eb" kind="dir"><name>src/ecat_pkg/src</name>
   </compound>
+  <compound refid="dir_43175be8285d9322b122867840b67d13" kind="dir"><name>src/input_pkg/src</name>
+  </compound>
+  <compound refid="dir_d4e5cacccf9fde46e7a4467e23d058cc" kind="dir"><name>src/log_pkg/src</name>
+  </compound>
   <compound refid="dir_01e3b00c0e79295f4d52db5e62983e30" kind="dir"><name>src/controller/src</name>
+  </compound>
+  <compound refid="dir_b3c8cf0a1583fdca019efa4931c113bd" kind="dir"><name>src/safety_pkg/src</name>
   </compound>
   <compound refid="indexpage" kind="page"><name>index</name>
   </compound>

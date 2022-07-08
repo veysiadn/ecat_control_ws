@@ -115,7 +115,7 @@ Macros</h2></td></tr>
 <tr class="separator:a84142cd3e3bf14c4ecd4b6707a808c39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68f5d933f0593175f4bd579e353d8f54"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ecat__globals_8hpp.html#a68f5d933f0593175f4bd579e353d8f54">MEASURE_TIMING</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:a68f5d933f0593175f4bd579e353d8f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d48656bc4df51f3d8b17da91494a981"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ecat__globals_8hpp.html#a1d48656bc4df51f3d8b17da91494a981">DISTRIBUTED_CLOCK</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:a1d48656bc4df51f3d8b17da91494a981"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ecat__globals_8hpp.html#a1d48656bc4df51f3d8b17da91494a981">DISTRIBUTED_CLOCK</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:a1d48656bc4df51f3d8b17da91494a981"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b5f0a2cda8866a2a87331026ac8bd9a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ecat__globals_8hpp.html#a1b5f0a2cda8866a2a87331026ac8bd9a">GEAR_RATIO</a>&#160;&#160;&#160;49</td></tr>
 <tr class="separator:a1b5f0a2cda8866a2a87331026ac8bd9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,6 +145,8 @@ Variables</h2></td></tr>
 <tr class="separator:a9f470379e6a057153b1386f8b94c7973"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f34ecbeba93aefcdd077c6ce0758360"><td class="memItemLeft" align="right" valign="top">const struct timespec&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ecat__globals_8hpp.html#a0f34ecbeba93aefcdd077c6ce0758360">g_cycle_time</a> = {0, <a class="el" href="ecat__globals_8hpp.html#ab495f8313ac709722de636c17e8a7381">PERIOD_NS</a>}</td></tr>
 <tr class="separator:a0f34ecbeba93aefcdd077c6ce0758360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ff80c3be290282cd8135a525d719cf0"><td class="memItemLeft" align="right" valign="top">const struct timespec&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ecat__globals_8hpp.html#a1ff80c3be290282cd8135a525d719cf0">g_half_cycle_time</a> = {0, <a class="el" href="ecat__globals_8hpp.html#ab495f8313ac709722de636c17e8a7381">PERIOD_NS</a>/2}</td></tr>
+<tr class="separator:a1ff80c3be290282cd8135a525d719cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a1ef60d5687ea9337b2e3e040be43db07" name="a1ef60d5687ea9337b2e3e040be43db07"></a>
@@ -169,7 +171,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DISTRIBUTED_CLOCK&#160;&#160;&#160;0</td>
+          <td class="memname">#define DISTRIBUTED_CLOCK&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -339,6 +341,20 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">const struct timespec g_cycle_time = {0, <a class="el" href="ecat__globals_8hpp.html#ab495f8313ac709722de636c17e8a7381">PERIOD_NS</a>}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1ff80c3be290282cd8135a525d719cf0" name="a1ff80c3be290282cd8135a525d719cf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ff80c3be290282cd8135a525d719cf0">&#9670;&nbsp;</a></span>g_half_cycle_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const struct timespec g_half_cycle_time = {0, <a class="el" href="ecat__globals_8hpp.html#ab495f8313ac709722de636c17e8a7381">PERIOD_NS</a>/2}</td>
         </tr>
       </table>
 </div><div class="memdoc">

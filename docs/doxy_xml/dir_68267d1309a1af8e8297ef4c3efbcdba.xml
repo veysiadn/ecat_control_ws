@@ -7,6 +7,7 @@
     <innerdir refid="dir_6ed40f2d31a14c8f080c4f6acbbad9fa">src/ecat_pkg</innerdir>
     <innerdir refid="dir_a8d7c3dfc6a2d1ab1ed6aadf73452078">src/gui_pkg</innerdir>
     <innerdir refid="dir_86ae27c4297ac583bcdd036becb19fdf">src/input_pkg</innerdir>
+    <innerdir refid="dir_ecbc7ce0a02869f4b7cfd787b8a8cea7">src/log_pkg</innerdir>
     <innerdir refid="dir_2d5e762472730a416a9d6417e2041833">src/safety_pkg</innerdir>
     <briefdescription>
     </briefdescription>

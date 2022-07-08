@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(safety_pkg)
+project(log_pkg)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -31,25 +31,21 @@ find_package(sensor_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
 
-add_executable(safety_node src/safety_node.cpp)
+add_executable(timing_node src/timing_node.cpp)
+target_include_directories(timing_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/log_pkg>
+  $<INSTALL_INTERFACE:include/log_pkg>)
 
-target_include_directories(safety_node PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/safety_pkg>
-  $<INSTALL_INTERFACE:include>)
-
-
-target_link_libraries(safety_node
+target_link_libraries(timing_node
   ${rclcpp_lifecycle_LIBRARIES}
   ${std_msgs_LIBRARIES}
   ${sensor_msgs_LIBRARIES}
   ${ecat_msgs_LIBRARIES}
 )
 
-ament_target_dependencies(safety_node  rclcpp rclcpp_lifecycle ecat_msgs sensor_msgs lifecycle_msgs std_msgs)
-
-install(TARGETS safety_node
+install(TARGETS timing_node
   DESTINATION lib/${PROJECT_NAME})
-
+  ament_target_dependencies(timing_node rclcpp rclcpp_lifecycle ecat_msgs sensor_msgs lifecycle_msgs std_msgs)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

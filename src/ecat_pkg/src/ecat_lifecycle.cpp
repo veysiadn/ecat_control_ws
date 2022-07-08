@@ -30,7 +30,7 @@ rclcpp::NodeOptions().use_intra_process_comms(true))
     joystick_subscriber_     = this->create_subscription<sensor_msgs::msg::Joy>("Controller", qos, 
                                 std::bind(&EthercatLifeCycle::HandleControlNodeCallbacks, this,std::placeholders::_1));
     gui_subscriber_          = this->create_subscription<ecat_msgs::msg::GuiButtonData>(
-    "gui_buttons", 10,std::bind(&EthercatLifeCycle::HandleGuiNodeCallbacks, 
+    "gui_buttons", qos,std::bind(&EthercatLifeCycle::HandleGuiNodeCallbacks, 
     this, std::placeholders::_1));
 
     received_data_publisher_->on_activate();
@@ -374,7 +374,7 @@ void EthercatLifeCycle::HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonDa
 
 int EthercatLifeCycle::SetComThreadPriorities()
 {
-    ethercat_sched_param_.sched_priority = 98;
+    ethercat_sched_param_.sched_priority = sched_get_priority_max(SCHED_FIFO);
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Using priority %i\n.", ethercat_sched_param_.sched_priority);
 
     if (sched_setscheduler(0, SCHED_FIFO, &ethercat_sched_param_) == -1){
@@ -608,7 +608,7 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
 
     #endif
     // get current time
-    int begin=2e4;
+    int begin=1e4;
     int status_check_counter = 1000;
     
     // ------------------------------------------------------- //
@@ -746,6 +746,8 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
         // receive process data
         ecrt_master_receive(g_master);
         ecrt_domain_process(g_master_domain);
+        // wake_up_time = timespec_add(wake_up_time, g_half_cycle_time);
+        // clock_nanosleep(CLOCK_TO_USE, TIMER_ABSTIME, &wake_up_time, NULL);
 
         if (status_check_counter){
             status_check_counter--;
@@ -774,7 +776,7 @@ void EthercatLifeCycle::StartPdoExchange(void *instance)
 
         #if MEASURE_TIMING
             // if you want to print timing stats
-            #if 1
+            #if 0
             if(!print_val){
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"-----------------------------------------------\n\n");
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"),"Tperiod   min   : %10u ns  | max : %10u ns\n",
@@ -1535,7 +1537,7 @@ void EthercatLifeCycle::UpdateCyclicTorqueModeParameters()
 {
     // Torque mode: sending target_torque value in per thousand of Motor Rated Torque value.
     for(int i = 0 ; i < g_kNumberOfServoDrivers ; i++){
-        sent_data_.control_word[i] = SM_GO_ENABLE;
+        // sent_data_.control_word[i] = SM_GO_ENABLE;
         if(motor_state_[i]==kOperationEnabled || motor_state_[i]==kTargetReached || motor_state_[i]==kSwitchedOn){
             if(controller_.right_x_axis_ < -0.1 || controller_.right_x_axis_ > 0.1 ){
                 sent_data_.target_tor[0] = controller_.right_x_axis_ * 300 ;

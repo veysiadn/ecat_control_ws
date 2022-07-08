@@ -7,7 +7,7 @@ public:
   : Node(node_name)
   {
       this->init();
-   auto qos = rclcpp::QoS(rclcpp::KeepLast(1));
+      auto qos = rclcpp::QoS(rclcpp::KeepLast(1));
       qos.best_effort();
       gui_button_subscriber_   = this->create_subscription<ecat_msgs::msg::GuiButtonData>(
         "gui_buttons",qos,std::bind(&SafetyNode::HandleGuiNodeCallbacks, this,std::placeholders::_1
@@ -17,12 +17,15 @@ public:
     /// Subscribtion for slave feedback values acquired from connected slaves.
     lifecycle_node_subscriber_ = this->create_subscription<ecat_msgs::msg::DataReceived>(
     "Slave_Feedback",qos,std::bind(&SafetyNode::HandleLifecycleNodeCallbacks, this, std::placeholders::_1));
+     
      safety_state_publisher_ = this->create_publisher<std_msgs::msg::UInt16>("safety_info",10);
     //  spin_thread_ = std::thread{std::bind(&SafetyNode::SpinThread, this)};
      safety_state_msg_.data=kSafe;
+     timer_= this->create_wall_timer(30ms,std::bind(&SafetyNode::PublishSafetyInfo,this));
   }
+  
   std::thread spin_thread_;
-  uint32_t state_ = 0 ;
+  uint32_t state_ = lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN ;
   rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr         joystick_subscriber_;
   rclcpp::Subscription<ecat_msgs::msg::GuiButtonData>::SharedPtr gui_button_subscriber_;
   rclcpp::Subscription<ecat_msgs::msg::DataReceived>::SharedPtr lifecycle_node_subscriber_;
@@ -31,6 +34,13 @@ public:
   ecat_msgs::msg::DataReceived lifecycle_node_data_ ; 
   Controller controller_ ; 
   std_msgs::msg::UInt16 safety_state_msg_ ;
+  uint8_t button_request_=0;
+  rclcpp::TimerBase::SharedPtr timer_;
+
+  void PublishSafetyInfo()
+  {
+    safety_state_publisher_->publish(safety_state_msg_);
+  }
 
   void SpinThread(){
     while(true){
@@ -39,33 +49,40 @@ public:
             std::this_thread::sleep_for(1s);
             state_ = get_state();
         });
-    });
+      });
       rclcpp::spin(this->get_node_base_interface());
     }
   }
+
   void 
   HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonData::SharedPtr msg)
   {
     // If state is unconfigured and buton_init_ecat trigger configuration transition.;
+    state_ = get_state();
     if(state_==lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED){  
       if(msg->b_init_ecat > 0){
           std::this_thread::sleep_for(std::chrono::milliseconds(500));
+          if (!rclcpp::ok()) {
+            return;
+          }          
           if (this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE)) {
             return;
           }
+          button_request_ = 1; 
       }
     }
     
     // Activate 
     if(state_==lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE){
       if(msg->b_enter_cyclic_pdo > 0){
-            std::this_thread::sleep_for(std::chrono::milliseconds(500));
+          std::this_thread::sleep_for(std::chrono::milliseconds(500));
           if (!rclcpp::ok()) {
             return;
-          }
+          }          
           if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_ACTIVATE)) {
             return;
           }
+          button_request_ = 1; 
       }
     }
     
@@ -79,6 +96,7 @@ public:
         if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_DEACTIVATE)) {
           return;
         }
+        button_request_ = 1;
       }
     }
       
@@ -105,6 +123,7 @@ public:
         if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_CLEANUP)) {
           return;
         }
+        button_request_ = 1; 
       }
     }
   
@@ -129,6 +148,7 @@ public:
           return;
         }
         safety_state_msg_.data = kEmergencyStop;
+        button_request_ = 1;
       }
       safety_state_publisher_->publish(safety_state_msg_);
   }
@@ -137,7 +157,7 @@ public:
   HandleLifecycleNodeCallbacks(const ecat_msgs::msg::DataReceived::SharedPtr msg)
   {
     lifecycle_node_data_ = *msg ; 
-    for(int i=0; i < lifecycle_node_data_.slave_com_status.size(); i++){
+    for(uint32_t i=0; i < lifecycle_node_data_.slave_com_status.size(); i++){
       if(lifecycle_node_data_.error_code[i] > 0 ){
          safety_state_msg_.data = kErrorInDrive;
       }
@@ -168,79 +188,78 @@ public:
   unsigned int
   get_state()
   {
-    auto request = std::make_shared<lifecycle_msgs::srv::GetState::Request>();
-    // switch (lifecycle_node_data_.current_lifecycle_state)
-    // {
-    //   case 0:
-    //     return lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED;
-    //     break;
-    //   case 1:
-    //     return lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED;
-    //     break;
-    //   case 2:
-    //     return lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE;
-    //     break;
-    //   case 3:
-    //     return lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE;
-    //     break;
-    //   case 4:
-    //     return lifecycle_msgs::msg::State::PRIMARY_STATE_FINALIZED;
-    //     break;
-    //   case 10:
-    //     return lifecycle_msgs::msg::State::TRANSITION_STATE_CONFIGURING;    
-    //     break;
-    //   case 11:
-    //     return lifecycle_msgs::msg::State::TRANSITION_STATE_CLEANINGUP;
-    //     break;      
-    //   case 12:
-    //     return lifecycle_msgs::msg::State::TRANSITION_STATE_SHUTTINGDOWN;
-    //     break;    
-    //   case 13:
-    //     return lifecycle_msgs::msg::State::TRANSITION_STATE_ACTIVATING;
-    //     break;
-    //   case 14:
-    //     return lifecycle_msgs::msg::State::TRANSITION_STATE_DEACTIVATING;
-    //     break;
-    //   case 15:
-    //     return lifecycle_msgs::msg::State::TRANSITION_STATE_ERRORPROCESSING;
-    //     break;      
-    //   default:
-    //     return lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN;
-    //     break;
-    // };
-    // return lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN;
-    if (!client_get_state_->wait_for_service(5s)) {
-      RCLCPP_ERROR(
-        get_logger(),
-        "Get State : Service %s is not available.",
-        client_get_state_->get_service_name());
-      return lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN;
-    }
+    // auto request = std::make_shared<lifecycle_msgs::srv::GetState::Request>();
+    switch (lifecycle_node_data_.current_lifecycle_state)
+    {
+      case 0:
+        return lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED;
+        break;
+      case 1:
+        return lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED;
+        break;
+      case 2:
+        return lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE;
+        break;
+      case 3:
+        return lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE;
+        break;
+      case 4:
+        return lifecycle_msgs::msg::State::PRIMARY_STATE_FINALIZED;
+        break;
+      case 10:
+        return lifecycle_msgs::msg::State::TRANSITION_STATE_CONFIGURING;    
+        break;
+      case 11:
+        return lifecycle_msgs::msg::State::TRANSITION_STATE_CLEANINGUP;
+        break;      
+      case 12:
+        return lifecycle_msgs::msg::State::TRANSITION_STATE_SHUTTINGDOWN;
+        break;    
+      case 13:
+        return lifecycle_msgs::msg::State::TRANSITION_STATE_ACTIVATING;
+        break;
+      case 14:
+        return lifecycle_msgs::msg::State::TRANSITION_STATE_DEACTIVATING;
+        break;
+      case 15:
+        return lifecycle_msgs::msg::State::TRANSITION_STATE_ERRORPROCESSING;
+        break;      
+      default:
+        return lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN;
+        break;
+    };
+    // if (!client_get_state_->wait_for_service(5s)) {
+    //   RCLCPP_ERROR(
+    //     get_logger(),
+    //     "Get State : Service %s is not available.",
+    //     client_get_state_->get_service_name());
+    //   return lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN;
+    // }
 
-    // We send the service request for asking the current
-    // state of the ecat_node node.
-    auto future_result = client_get_state_->async_send_request(request);
-    // Let's wait until we have the answer from the node.
-    // If the request times out, we return an unknown state.
-    auto future_status = wait_for_result(future_result, 5s);
+    // // We send the service request for asking the current
+    // // state of the ecat_node node.
+    // auto future_result = client_get_state_->async_send_request(request);
+    // // Let's wait until we have the answer from the node.
+    // // If the request times out, we return an unknown state.
+    // auto future_status = wait_for_result(future_result, 5s);
 
-    if (future_status != std::future_status::ready) {
-      RCLCPP_ERROR(
-        get_logger(), "Get State : Server time out while getting current state for node %s", lifecycle_node);
-      return lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN;
-    }
+    // if (future_status != std::future_status::ready) {
+    //   RCLCPP_ERROR(
+    //     get_logger(), "Get State : Server time out while getting current state for node %s", lifecycle_node);
+    //   return lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN;
+    // }
 
-    // We have an succesful answer. So let's print the current state.
-    if (future_result.get()) {
-      // RCLCPP_INFO(
-      //   get_logger(), "Get State : Node %s has current state %s.",
-      //   lifecycle_node, future_result.get()->current_state.label.c_str());
-      return future_result.get()->current_state.id;
-    } else {
-      RCLCPP_ERROR(
-        get_logger(), "Get State : Failed to get current state for node %s", lifecycle_node);
-      return lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN;
-    }
+    // // We have an succesful answer. So let's print the current state.
+    // if (future_result.get()) {
+    //   // RCLCPP_INFO(
+    //   //   get_logger(), "Get State : Node %s has current state %s.",
+    //   //   lifecycle_node, future_result.get()->current_state.label.c_str());
+    //   return future_result.get()->current_state.id;
+    // } else {
+    //   RCLCPP_ERROR(
+    //     get_logger(), "Get State : Failed to get current state for node %s", lifecycle_node);
+    //   return lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN;
+    // }
   }
 
   /// Invokes a transition
@@ -314,15 +333,20 @@ wake_executor(std::shared_future<void> future, rclcpp::executors::SingleThreaded
   // https://github.com/ros2/rclcpp/issues/1916
   exec.cancel();
 }
+
 void
 callee_script(std::shared_ptr<SafetyNode> safety_node)
 {
-  rclcpp::WallRate time_to_sleep(1s);  // 10s
+  rclcpp::WallRate time_to_sleep(3s);  // 10s
   while(true){
-    safety_node->state_ = safety_node->get_state();
-    time_to_sleep.sleep();
+    if(safety_node->button_request_){
+      time_to_sleep.sleep();
+      safety_node->state_ = safety_node->get_state();
+      safety_node->button_request_= 0 ;
+    }
   }
 }
+
 int main(int argc, char ** argv)
 {
   // force flush of the stdout buffer.
@@ -344,17 +368,9 @@ int main(int argc, char ** argv)
   exe.spin_until_future_complete(script);
 #else
 
-  rclcpp::executors::SingleThreadedExecutor exe;
+  rclcpp::executors::StaticSingleThreadedExecutor exe;
   exe.add_node(safety_node->get_node_base_interface());
-
-  std::shared_future<void> script = std::async(
-    std::launch::async,
-    std::bind(callee_script, safety_node));
-  auto wake_exec = std::async(
-    std::launch::async,
-    std::bind(wake_executor, script, std::ref(exe)));
-
-  exe.spin_until_future_complete(script);
+  exe.spin();
 
 #endif 
   rclcpp::shutdown();

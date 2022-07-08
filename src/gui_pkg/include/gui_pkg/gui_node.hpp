@@ -47,7 +47,6 @@
 #include "ecat_msgs/msg/data_sent.hpp"
 #include "ecat_msgs/msg/gui_button_data.hpp"
 #include "std_msgs/msg/u_int16.hpp"
-#include <rclcpp/rclcpp.hpp>    // Standard ROS2 header API
 //CPP
 #include <vector>
 #include <chrono>

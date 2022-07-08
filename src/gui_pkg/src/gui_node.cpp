@@ -27,7 +27,7 @@
     master_commands_ = this->create_subscription<ecat_msgs::msg::DataSent>("Master_Commands", qos,
                                    std::bind(&GuiNode::HandleMasterCommandCallbacks, this, std::placeholders::_1));
     /// Gui button value publisher
-    gui_publisher_ = create_publisher<ecat_msgs::msg::GuiButtonData>("gui_buttons",10);
+    gui_publisher_ = create_publisher<ecat_msgs::msg::GuiButtonData>("gui_buttons",qos);
     /// Timer callback set to 33HZ.
     timer_ = this->create_wall_timer(30ms,std::bind(&GuiNode::timer_callback,this));
   }

@@ -52,7 +52,7 @@
 #include <std_srvs/srv/trigger.hpp>
 #include "std_msgs/msg/u_int16.hpp"
 #include "rcutils/logging_macros.h"
-
+#include "rclcpp/rclcpp.hpp"
 using namespace std::chrono_literals;
 
 // which node to handle

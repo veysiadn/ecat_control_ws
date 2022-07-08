@@ -52,8 +52,8 @@ static int8_t   g_kOperationMode = kProfileVelocity ;
 /// @note  That if you have different custom slave than EasyCAT you have to modify PDO mapping by yourself.
 #define CUSTOM_SLAVE      0  
 #define FREQUENCY       1000  /// Ethercat PDO exchange loop frequency in Hz
-#define MEASURE_TIMING   1    /// If you want to measure timings leave it as one, otherwise make it 0.
-#define DISTRIBUTED_CLOCK 0   /// If you want to use distributed clock make it one, otherwise leave it zero.
+#define MEASURE_TIMING    1    /// If you want to measure timings leave it as one, otherwise make it 0.
+#define DISTRIBUTED_CLOCK 1   /// If you want to use distributed clock make it one, otherwise leave it zero.
 /*****************************************************************************/
 #define GEAR_RATIO          49
 #define ENCODER_RESOLUTION  1000
@@ -68,3 +68,4 @@ static int8_t   g_kOperationMode = kProfileVelocity ;
 #endif
 const struct timespec       g_cycle_time = {0, PERIOD_NS} ;       // cycletime settings in ns. 
 
+const struct timespec       g_half_cycle_time = {0, PERIOD_NS/2} ;       // cycletime settings in ns. 

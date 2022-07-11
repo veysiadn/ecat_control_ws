@@ -150,6 +150,8 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
       </node>
       <node id="4">
         <label>src/ecat_pkg/include/ecat_pkg/ecat_lifecycle.hpp</label>
@@ -192,6 +194,16 @@
       <node id="6">
         <label>src/ecat_pkg/src/main.cpp</label>
         <link refid="ecat__pkg_2src_2main_8cpp"/>
+      </node>
+      <node id="10">
+        <label>src/safety_pkg/include/safety_pkg/safety_node.hpp</label>
+        <link refid="safety__node_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>src/safety_pkg/src/safety_node.cpp</label>
+        <link refid="safety__node_8cpp"/>
       </node>
     </invincdepgraph>
     <innerclass refid="classController" prot="public">Controller</innerclass>

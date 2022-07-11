@@ -6,7 +6,9 @@ var classSafetyNode =
     [ "HandleGuiNodeCallbacks", "classSafetyNode.html#a46a6805575045e55abee6da1f7c5c1a7", null ],
     [ "HandleLifecycleNodeCallbacks", "classSafetyNode.html#ab9728a04827bf37f3d99aa860c46d26f", null ],
     [ "init", "classSafetyNode.html#ad7fcd00b7ad571292585ba0f925c71e7", null ],
+    [ "PublishSafetyInfo", "classSafetyNode.html#af532d46721ec6dce0222e342dd62e531", null ],
     [ "SpinThread", "classSafetyNode.html#af11237bde94c3e47c44073af3a821ba0", null ],
+    [ "button_request_", "classSafetyNode.html#a12819fcc0e811bdcd8b08565e43dad02", null ],
     [ "client_change_state_", "classSafetyNode.html#a8bfafeed901f7601e58959c89c5ddbef", null ],
     [ "client_get_state_", "classSafetyNode.html#ac84b90290107bf6cbceef3fb5f3368eb", null ],
     [ "controller_", "classSafetyNode.html#a9c249f357feffc4c6fc5ff2ad7826a3b", null ],
@@ -17,5 +19,6 @@ var classSafetyNode =
     [ "safety_state_msg_", "classSafetyNode.html#abd46448512fd6bc54b6f28ae02fdeb94", null ],
     [ "safety_state_publisher_", "classSafetyNode.html#a81f33bbc3cf476f67bf8b68f54b9d3a7", null ],
     [ "spin_thread_", "classSafetyNode.html#a7553c0b617bc664a2e8fe131460f9e96", null ],
-    [ "state_", "classSafetyNode.html#abe14e25adc5ba3566ef61b5c58c679f2", null ]
+    [ "state_", "classSafetyNode.html#abe14e25adc5ba3566ef61b5c58c679f2", null ],
+    [ "timer_", "classSafetyNode.html#a52bfb22a649d402841598f57442c6c53", null ]
 ];

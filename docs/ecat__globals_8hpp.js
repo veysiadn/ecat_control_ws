@@ -14,6 +14,7 @@ var ecat__globals_8hpp =
     [ "PERIOD_US", "ecat__globals_8hpp.html#aa840a0ac3b87cf7c89b265e1912cbb5b", null ],
     [ "THIRTY_DEGREE_CCW", "ecat__globals_8hpp.html#a345f131f51c76cb464c7647eb1e25dd3", null ],
     [ "g_cycle_time", "ecat__globals_8hpp.html#a0f34ecbeba93aefcdd077c6ce0758360", null ],
+    [ "g_half_cycle_time", "ecat__globals_8hpp.html#a1ff80c3be290282cd8135a525d719cf0", null ],
     [ "g_kNumberOfServoDrivers", "ecat__globals_8hpp.html#aacc3c7aef173b1cde9377fb7f05c924d", null ],
     [ "g_kOperationMode", "ecat__globals_8hpp.html#a9f470379e6a057153b1386f8b94c7973", null ]
 ];

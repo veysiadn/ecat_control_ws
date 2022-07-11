@@ -1,0 +1,264 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classTiming_1_1TimingNode" kind="class" language="C++" prot="public">
+    <compoundname>Timing::TimingNode</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">rclcpp::Node</basecompoundref>
+    <includes refid="timing__node_8hpp" local="no">timing_node.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTiming_1_1TimingNode_1afa0a36552d5f3c261e6c2fa32dc844cf" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; ecat_msgs::msg::DataReceived &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;ecat_msgs::msg::DataReceived&gt;::SharedPtr Timing::TimingNode::received_data_sub_</definition>
+        <argsstring></argsstring>
+        <name>received_data_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log_pkg/include/log_pkg/timing_node.hpp" line="52" column="42" bodyfile="src/log_pkg/include/log_pkg/timing_node.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTiming_1_1TimingNode_1ac8f5f06c4d1e5a2dddc00939d96d7354" prot="private" static="no" mutable="no">
+        <type>ecat_msgs::msg::DataReceived::SharedPtr</type>
+        <definition>ecat_msgs::msg::DataReceived::SharedPtr Timing::TimingNode::received_data_</definition>
+        <argsstring></argsstring>
+        <name>received_data_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log_pkg/include/log_pkg/timing_node.hpp" line="53" column="49" bodyfile="src/log_pkg/include/log_pkg/timing_node.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTiming_1_1TimingNode_1a61ddc9db29b23799187105e9386ae4f0" prot="private" static="no" mutable="no">
+        <type>rclcpp::TimerBase::SharedPtr</type>
+        <definition>rclcpp::TimerBase::SharedPtr Timing::TimingNode::statistics_timer_</definition>
+        <argsstring></argsstring>
+        <name>statistics_timer_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log_pkg/include/log_pkg/timing_node.hpp" line="54" column="38" bodyfile="src/log_pkg/include/log_pkg/timing_node.hpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTiming_1_1TimingNode_1af95d06276ecc590d84cb9b8c91731deb" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t Timing::TimingNode::period_min_ns_</definition>
+        <argsstring></argsstring>
+        <name>period_min_ns_</name>
+        <initializer>= 0xffffffff</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log_pkg/include/log_pkg/timing_node.hpp" line="55" column="18" bodyfile="src/log_pkg/include/log_pkg/timing_node.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTiming_1_1TimingNode_1a83f9ac4d300115f1933bdc28990a3447" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t Timing::TimingNode::period_max_ns_</definition>
+        <argsstring></argsstring>
+        <name>period_max_ns_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log_pkg/include/log_pkg/timing_node.hpp" line="56" column="18" bodyfile="src/log_pkg/include/log_pkg/timing_node.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTiming_1_1TimingNode_1a77344e4eab4d9ceaf349d808b08eb3f7" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t Timing::TimingNode::exec_min_ns_</definition>
+        <argsstring></argsstring>
+        <name>exec_min_ns_</name>
+        <initializer>= 0xffffffff</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log_pkg/include/log_pkg/timing_node.hpp" line="57" column="18" bodyfile="src/log_pkg/include/log_pkg/timing_node.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTiming_1_1TimingNode_1ae739aadbb15d783021464f15050d07eb" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t Timing::TimingNode::exec_max_ns_</definition>
+        <argsstring></argsstring>
+        <name>exec_max_ns_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log_pkg/include/log_pkg/timing_node.hpp" line="58" column="18" bodyfile="src/log_pkg/include/log_pkg/timing_node.hpp" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTiming_1_1TimingNode_1ab58e3d9e1b29036811789f863b281a6c" prot="private" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t Timing::TimingNode::jitter_min_</definition>
+        <argsstring></argsstring>
+        <name>jitter_min_</name>
+        <initializer>= 0xfffffff</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log_pkg/include/log_pkg/timing_node.hpp" line="59" column="17" bodyfile="src/log_pkg/include/log_pkg/timing_node.hpp" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTiming_1_1TimingNode_1a3afad959cbb797f0f97379494b0c19c9" prot="private" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t Timing::TimingNode::jitter_max_</definition>
+        <argsstring></argsstring>
+        <name>jitter_max_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log_pkg/include/log_pkg/timing_node.hpp" line="60" column="17" bodyfile="src/log_pkg/include/log_pkg/timing_node.hpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTiming_1_1TimingNode_1aa5a89dbf82f33b18364aa88f14132388" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t Timing::TimingNode::print_begin_</definition>
+        <argsstring></argsstring>
+        <name>print_begin_</name>
+        <initializer>= 20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log_pkg/include/log_pkg/timing_node.hpp" line="61" column="18" bodyfile="src/log_pkg/include/log_pkg/timing_node.hpp" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTiming_1_1TimingNode_1ac9ab3f6e3a998f177fe31c8f745ed8a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TimingNode::TimingNode</definition>
+        <argsstring>()</argsstring>
+        <name>TimingNode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log_pkg/include/log_pkg/timing_node.hpp" line="45" column="9" bodyfile="src/log_pkg/src/timing_node.cpp" bodystart="6" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classTiming_1_1TimingNode_1a769f3b93c5930fcc63df1f7b5ba407de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TimingNode::~TimingNode</definition>
+        <argsstring>()</argsstring>
+        <name>~TimingNode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log_pkg/include/log_pkg/timing_node.hpp" line="46" column="9" bodyfile="src/log_pkg/src/timing_node.cpp" bodystart="16" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classTiming_1_1TimingNode_1ab38ff7099b7ee6864f1097c7f0f726e3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TimingNode::HandleReceivedDataCallback</definition>
+        <argsstring>(const ecat_msgs::msg::DataReceived::SharedPtr msg)</argsstring>
+        <name>HandleReceivedDataCallback</name>
+        <param>
+          <type>const ecat_msgs::msg::DataReceived::SharedPtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log_pkg/include/log_pkg/timing_node.hpp" line="48" column="14" bodyfile="src/log_pkg/src/timing_node.cpp" bodystart="20" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classTiming_1_1TimingNode_1a8fb12c62aec8b22ca8713d95932db772" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TimingNode::CalculateStatistics</definition>
+        <argsstring>()</argsstring>
+        <name>CalculateStatistics</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log_pkg/include/log_pkg/timing_node.hpp" line="49" column="14" bodyfile="src/log_pkg/src/timing_node.cpp" bodystart="26" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classTiming_1_1TimingNode_1ada1e8c1050d44f73991465c399354c18" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TimingNode::PrintStatistics</definition>
+        <argsstring>()</argsstring>
+        <name>PrintStatistics</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log_pkg/include/log_pkg/timing_node.hpp" line="50" column="14" bodyfile="src/log_pkg/src/timing_node.cpp" bodystart="54" bodyend="71"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Timing::TimingNode</label>
+        <link refid="classTiming_1_1TimingNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>rclcpp::Node</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Timing::TimingNode</label>
+        <link refid="classTiming_1_1TimingNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>rclcpp::Node</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/log_pkg/include/log_pkg/timing_node.hpp" line="43" column="1" bodyfile="src/log_pkg/include/log_pkg/timing_node.hpp" bodystart="43" bodyend="62"/>
+    <listofallmembers>
+      <member refid="classTiming_1_1TimingNode_1a8fb12c62aec8b22ca8713d95932db772" prot="private" virt="non-virtual"><scope>Timing::TimingNode</scope><name>CalculateStatistics</name></member>
+      <member refid="classTiming_1_1TimingNode_1ae739aadbb15d783021464f15050d07eb" prot="private" virt="non-virtual"><scope>Timing::TimingNode</scope><name>exec_max_ns_</name></member>
+      <member refid="classTiming_1_1TimingNode_1a77344e4eab4d9ceaf349d808b08eb3f7" prot="private" virt="non-virtual"><scope>Timing::TimingNode</scope><name>exec_min_ns_</name></member>
+      <member refid="classTiming_1_1TimingNode_1ab38ff7099b7ee6864f1097c7f0f726e3" prot="private" virt="non-virtual"><scope>Timing::TimingNode</scope><name>HandleReceivedDataCallback</name></member>
+      <member refid="classTiming_1_1TimingNode_1a3afad959cbb797f0f97379494b0c19c9" prot="private" virt="non-virtual"><scope>Timing::TimingNode</scope><name>jitter_max_</name></member>
+      <member refid="classTiming_1_1TimingNode_1ab58e3d9e1b29036811789f863b281a6c" prot="private" virt="non-virtual"><scope>Timing::TimingNode</scope><name>jitter_min_</name></member>
+      <member refid="classTiming_1_1TimingNode_1a83f9ac4d300115f1933bdc28990a3447" prot="private" virt="non-virtual"><scope>Timing::TimingNode</scope><name>period_max_ns_</name></member>
+      <member refid="classTiming_1_1TimingNode_1af95d06276ecc590d84cb9b8c91731deb" prot="private" virt="non-virtual"><scope>Timing::TimingNode</scope><name>period_min_ns_</name></member>
+      <member refid="classTiming_1_1TimingNode_1aa5a89dbf82f33b18364aa88f14132388" prot="private" virt="non-virtual"><scope>Timing::TimingNode</scope><name>print_begin_</name></member>
+      <member refid="classTiming_1_1TimingNode_1ada1e8c1050d44f73991465c399354c18" prot="private" virt="non-virtual"><scope>Timing::TimingNode</scope><name>PrintStatistics</name></member>
+      <member refid="classTiming_1_1TimingNode_1ac8f5f06c4d1e5a2dddc00939d96d7354" prot="private" virt="non-virtual"><scope>Timing::TimingNode</scope><name>received_data_</name></member>
+      <member refid="classTiming_1_1TimingNode_1afa0a36552d5f3c261e6c2fa32dc844cf" prot="private" virt="non-virtual"><scope>Timing::TimingNode</scope><name>received_data_sub_</name></member>
+      <member refid="classTiming_1_1TimingNode_1a61ddc9db29b23799187105e9386ae4f0" prot="private" virt="non-virtual"><scope>Timing::TimingNode</scope><name>statistics_timer_</name></member>
+      <member refid="classTiming_1_1TimingNode_1ac9ab3f6e3a998f177fe31c8f745ed8a2" prot="public" virt="non-virtual"><scope>Timing::TimingNode</scope><name>TimingNode</name></member>
+      <member refid="classTiming_1_1TimingNode_1a769f3b93c5930fcc63df1f7b5ba407de" prot="public" virt="non-virtual"><scope>Timing::TimingNode</scope><name>~TimingNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

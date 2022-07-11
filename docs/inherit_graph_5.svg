@@ -8,9 +8,9 @@
  viewBox="0.00 0.00 219.00 66.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 62)">
 <title>Graphical Class Hierarchy</title>
-<!-- Node17 -->
+<!-- Node18 -->
 <g id="node1" class="node">
-<title>Node17</title>
+<title>Node18</title>
 <g id="a_node1"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="0,-19.5 0,-38.5 80,-38.5 80,-19.5 0,-19.5"/>
 <text text-anchor="middle" x="40" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">QMainWindow</text>
@@ -26,24 +26,24 @@
 </a>
 </g>
 </g>
-<!-- Node17&#45;&gt;Node0 -->
+<!-- Node18&#45;&gt;Node0 -->
 <g id="edge1" class="edge">
-<title>Node17&#45;&gt;Node0</title>
+<title>Node18&#45;&gt;Node0</title>
 <path fill="none" stroke="midnightblue" d="M90.22,-36.7C98.68,-38.02 107.44,-39.39 115.82,-40.7"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="90.53,-33.2 80.11,-35.12 89.45,-40.12 90.53,-33.2"/>
 </g>
-<!-- Node19 -->
+<!-- Node20 -->
 <g id="node3" class="node">
-<title>Node19</title>
+<title>Node20</title>
 <g id="a_node3"><a xlink:href="classMainWindow.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="127.5,-0.5 127.5,-19.5 199.5,-19.5 199.5,-0.5 127.5,-0.5"/>
 <text text-anchor="middle" x="163.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MainWindow</text>
 </a>
 </g>
 </g>
-<!-- Node17&#45;&gt;Node19 -->
+<!-- Node18&#45;&gt;Node20 -->
 <g id="edge2" class="edge">
-<title>Node17&#45;&gt;Node19</title>
+<title>Node18&#45;&gt;Node20</title>
 <path fill="none" stroke="midnightblue" d="M90.29,-21.29C102.64,-19.36 115.64,-17.33 127.16,-15.53"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="89.45,-17.88 80.11,-22.88 90.53,-24.8 89.45,-17.88"/>
 </g>

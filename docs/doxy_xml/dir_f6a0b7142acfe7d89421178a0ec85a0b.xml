@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="dir_f6a0b7142acfe7d89421178a0ec85a0b" kind="dir">
+    <compoundname>src/log_pkg/include/log_pkg</compoundname>
+    <innerfile refid="timing__node_8hpp">timing_node.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/log_pkg/include/log_pkg/"/>
+  </compounddef>
+</doxygen>

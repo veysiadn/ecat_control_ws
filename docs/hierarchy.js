@@ -12,7 +12,8 @@ var hierarchy =
       [ "GUI::GuiNode", "classGUI_1_1GuiNode.html", null ],
       [ "HapticNode", "classHapticNode.html", null ],
       [ "LifecycleNodeManager", "classLifecycleNodeManager.html", null ],
-      [ "SafetyNode", "classSafetyNode.html", null ]
+      [ "SafetyNode", "classSafetyNode.html", null ],
+      [ "Timing::TimingNode", "classTiming_1_1TimingNode.html", null ]
     ] ],
     [ "OffsetPDO", "structOffsetPDO.html", null ],
     [ "ProfilePosParam", "structProfilePosParam.html", null ],

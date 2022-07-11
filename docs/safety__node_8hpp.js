@@ -1,6 +1,5 @@
 var safety__node_8hpp =
 [
-    [ "Controller", "classController.html", "classController" ],
     [ "SafetyInfo", "safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833", [
       [ "kSafe", "safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833a3df691a0fd74f5cff7a200944fcf95b5", null ],
       [ "kOverForce", "safety__node_8hpp.html#ab1746a86a11d31fce909f5766c726833af1d450f7efd78d1561d62c8b2d118556", null ],

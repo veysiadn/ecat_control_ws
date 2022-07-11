@@ -5,6 +5,7 @@
     <includes refid="ecat__definitions_8hpp" local="yes">ecat_definitions.hpp</includes>
     <includedby refid="ecat__node_8hpp" local="yes">src/ecat_pkg/include/ecat_pkg/ecat_node.hpp</includedby>
     <includedby refid="ecat__slave_8hpp" local="yes">src/ecat_pkg/include/ecat_pkg/ecat_slave.hpp</includedby>
+    <includedby refid="safety__node_8hpp" local="yes">src/safety_pkg/include/safety_pkg/safety_node.hpp</includedby>
     <incdepgraph>
       <node id="2">
         <label>ecat_definitions.hpp</label>
@@ -131,6 +132,8 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
       <node id="3">
         <label>src/ecat_pkg/include/ecat_pkg/ecat_lifecycle.hpp</label>
@@ -173,6 +176,16 @@
       <node id="5">
         <label>src/ecat_pkg/src/main.cpp</label>
         <link refid="ecat__pkg_2src_2main_8cpp"/>
+      </node>
+      <node id="9">
+        <label>src/safety_pkg/include/safety_pkg/safety_node.hpp</label>
+        <link refid="safety__node_8hpp"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>src/safety_pkg/src/safety_node.cpp</label>
+        <link refid="safety__node_8cpp"/>
       </node>
     </invincdepgraph>
       <sectiondef kind="define">
@@ -225,7 +238,7 @@
       </memberdef>
       <memberdef kind="define" id="ecat__globals_8hpp_1a1d48656bc4df51f3d8b17da91494a981" prot="public" static="no">
         <name>DISTRIBUTED_CLOCK</name>
-        <initializer>1</initializer>
+        <initializer>0</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -440,7 +453,7 @@
 <codeline lineno="53" refid="ecat__globals_8hpp_1a1ef60d5687ea9337b2e3e040be43db07" refkind="member"><highlight class="preprocessor">#define<sp/>CUSTOM_SLAVE<sp/><sp/><sp/><sp/><sp/><sp/>0<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="54" refid="ecat__globals_8hpp_1a84142cd3e3bf14c4ecd4b6707a808c39" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FREQUENCY<sp/><sp/><sp/><sp/><sp/><sp/><sp/>1000<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="55" refid="ecat__globals_8hpp_1a68f5d933f0593175f4bd579e353d8f54" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEASURE_TIMING<sp/><sp/><sp/><sp/>1<sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="56" refid="ecat__globals_8hpp_1a1d48656bc4df51f3d8b17da91494a981" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DISTRIBUTED_CLOCK<sp/>1<sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="ecat__globals_8hpp_1a1d48656bc4df51f3d8b17da91494a981" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DISTRIBUTED_CLOCK<sp/>0<sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment">/*****************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="58" refid="ecat__globals_8hpp_1a1b5f0a2cda8866a2a87331026ac8bd9a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GEAR_RATIO<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>49</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="59" refid="ecat__globals_8hpp_1a8cdc17f43c9f3850f60d04f98216fc13" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ENCODER_RESOLUTION<sp/><sp/>1000</highlight><highlight class="normal"></highlight></codeline>

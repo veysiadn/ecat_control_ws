@@ -47,6 +47,7 @@
 #include "ecat_msgs/msg/data_sent.hpp"
 #include "ecat_msgs/msg/gui_button_data.hpp"
 #include "std_msgs/msg/u_int16.hpp"
+#include "ecat_globals.hpp"
 //CPP
 #include <vector>
 #include <chrono>

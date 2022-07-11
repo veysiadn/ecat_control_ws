@@ -82,7 +82,9 @@ add_executable(${node_name}
   ${QT_HEADERS}
   )
 include_directories(
-    ${cv_bridge_INCLUDE_DIRS}
+    ${cv_bridge_INCLUDE_DIRS},
+    "../ecat_pkg/include/ecat_pkg/",
+    "/opt/etherlab/include/"
 )
 
 ament_target_dependencies(${node_name}

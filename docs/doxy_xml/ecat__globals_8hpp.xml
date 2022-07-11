@@ -5,6 +5,7 @@
     <includes refid="ecat__definitions_8hpp" local="yes">ecat_definitions.hpp</includes>
     <includedby refid="ecat__node_8hpp" local="yes">src/ecat_pkg/include/ecat_pkg/ecat_node.hpp</includedby>
     <includedby refid="ecat__slave_8hpp" local="yes">src/ecat_pkg/include/ecat_pkg/ecat_slave.hpp</includedby>
+    <includedby refid="gui__node_8hpp" local="yes">src/gui_pkg/include/gui_pkg/gui_node.hpp</includedby>
     <includedby refid="safety__node_8hpp" local="yes">src/safety_pkg/include/safety_pkg/safety_node.hpp</includedby>
     <incdepgraph>
       <node id="2">
@@ -134,6 +135,8 @@
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
       </node>
       <node id="3">
         <label>src/ecat_pkg/include/ecat_pkg/ecat_lifecycle.hpp</label>
@@ -178,12 +181,40 @@
         <link refid="ecat__pkg_2src_2main_8cpp"/>
       </node>
       <node id="9">
-        <label>src/safety_pkg/include/safety_pkg/safety_node.hpp</label>
-        <link refid="safety__node_8hpp"/>
+        <label>src/gui_pkg/include/gui_pkg/gui_node.hpp</label>
+        <link refid="gui__node_8hpp"/>
         <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
         </childnode>
       </node>
       <node id="10">
+        <label>src/gui_pkg/include/gui_pkg/main_window.hpp</label>
+        <link refid="main__window_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>src/gui_pkg/src/gui_node.cpp</label>
+        <link refid="gui__node_8cpp"/>
+      </node>
+      <node id="11">
+        <label>src/gui_pkg/src/main.cpp</label>
+        <link refid="gui__pkg_2src_2main_8cpp"/>
+      </node>
+      <node id="12">
+        <label>src/gui_pkg/src/main_window.cpp</label>
+        <link refid="main__window_8cpp"/>
+      </node>
+      <node id="14">
+        <label>src/safety_pkg/include/safety_pkg/safety_node.hpp</label>
+        <link refid="safety__node_8hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
         <label>src/safety_pkg/src/safety_node.cpp</label>
         <link refid="safety__node_8cpp"/>
       </node>
@@ -359,7 +390,7 @@
         <definition>int8_t g_kOperationMode</definition>
         <argsstring></argsstring>
         <name>g_kOperationMode</name>
-        <initializer>= <ref refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68afa5d2b33d7161a77fdc97acfdc4de48a03" kindref="member">kProfileVelocity</ref></initializer>
+        <initializer>= <ref refid="ecat__definitions_8hpp_1a56752d1aeb4bd4940e632396072d68afa5d2b33d7161a77fdc97acfdc4de48a03" kindref="member">kProfileVelocity</ref></initializer>
         <briefdescription>
 <para>Select operation mode for motors, default: Profile Velocity. </para>
         </briefdescription>

@@ -18,7 +18,7 @@ var searchData=
   ['registerdomain_15',['RegisterDomain',['../classEthercatCommunication_1_1EthercatNode.html#a5ced6bccaa5b3cf141a39b26782bdb2e',1,'EthercatCommunication::EthercatNode']]],
   ['releasemaster_16',['ReleaseMaster',['../classEthercatCommunication_1_1EthercatNode.html#ac3a61d761598ce347570b9b4e9d31cac',1,'EthercatCommunication::EthercatNode']]],
   ['request_5fsdos_5f_17',['request_sdos_',['../classEthercatCommunication_1_1EthercatNode.html#ac857915bce2d3fef8fdf7711f4d584f4',1,'EthercatCommunication::EthercatNode']]],
-  ['reset_5fbit_18',['RESET_BIT',['../gui__globals_8hpp.html#a4f447e47949e3f87b24ffd1039e07be1',1,'RESET_BIT():&#160;gui_globals.hpp'],['../ecat__definitions_8hpp.html#a4f447e47949e3f87b24ffd1039e07be1',1,'RESET_BIT():&#160;ecat_definitions.hpp']]],
+  ['reset_5fbit_18',['RESET_BIT',['../ecat__definitions_8hpp.html#a4f447e47949e3f87b24ffd1039e07be1',1,'ecat_definitions.hpp']]],
   ['resetcontolbuttonvalues_19',['ResetContolButtonValues',['../classGUI_1_1GuiNode.html#aafb5c384ff383686a052111e49e8999b',1,'GUI::GuiNode']]],
   ['resetcontrolbuttonvalues_20',['ResetControlButtonValues',['../classMainWindow.html#ac111e0466ffe817e13f8fc460980eb40',1,'MainWindow']]],
   ['restartethercatmaster_21',['RestartEthercatMaster',['../classEthercatCommunication_1_1EthercatNode.html#a80f4194504ed97c5be4db8063baeb9e6',1,'EthercatCommunication::EthercatNode']]],
@@ -27,10 +27,9 @@ var searchData=
   ['right_5frb_5fbutton_5f_24',['right_rb_button_',['../classController.html#a156db40170025123bf4a71c89e872dd0',1,'Controller']]],
   ['right_5fstart_5fbutton_5f_25',['right_start_button_',['../classController.html#a9695b16477597d0b1009839cb97856d7',1,'Controller']]],
   ['right_5ft_5faxis_5f_26',['right_t_axis_',['../classController.html#aac13f000223e5b886e5849298deade26',1,'Controller']]],
-  ['right_5fx_5faxis_27',['right_x_axis',['../structReceivedData.html#a4f26602ace4259763df1030b19b6d64f',1,'ReceivedData']]],
-  ['right_5fx_5faxis_5f_28',['right_x_axis_',['../classController.html#a4491f31970440809252f792325f3332c',1,'Controller']]],
-  ['right_5fy_5faxis_5f_29',['right_y_axis_',['../classController.html#a48605a75d1e18d653d428aa12f267cf7',1,'Controller']]],
-  ['ros_5fspin_5fthread_5f_30',['ros_spin_thread_',['../classMainWindow.html#a3db7bc81842485486803124fdf8c3d06',1,'MainWindow']]],
-  ['rosspinthread_31',['rosSpinThread',['../classMainWindow.html#a7e5ea9c0a6e400ec59e1467bf128d2d0',1,'MainWindow']]],
-  ['run_32',['run',['../classVideoCapture.html#a5823b23c4670f2abfdfa523b17adbeca',1,'VideoCapture']]]
+  ['right_5fx_5faxis_5f_27',['right_x_axis_',['../classController.html#a4491f31970440809252f792325f3332c',1,'Controller']]],
+  ['right_5fy_5faxis_5f_28',['right_y_axis_',['../classController.html#a48605a75d1e18d653d428aa12f267cf7',1,'Controller']]],
+  ['ros_5fspin_5fthread_5f_29',['ros_spin_thread_',['../classMainWindow.html#a3db7bc81842485486803124fdf8c3d06',1,'MainWindow']]],
+  ['rosspinthread_30',['rosSpinThread',['../classMainWindow.html#a7e5ea9c0a6e400ec59e1467bf128d2d0',1,'MainWindow']]],
+  ['run_31',['run',['../classVideoCapture.html#a5823b23c4670f2abfdfa523b17adbeca',1,'VideoCapture']]]
 ];

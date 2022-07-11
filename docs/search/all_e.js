@@ -152,8 +152,8 @@ var searchData=
   ['opencv_5fvideo_5fcap_5f_149',['opencv_video_cap_',['../classEndoscopeViewer.html#a1ac9a153f3216709b36655c3dff23313',1,'EndoscopeViewer']]],
   ['openethercatmaster_150',['OpenEthercatMaster',['../classEthercatCommunication_1_1EthercatNode.html#a4455e0ba8abeedb96055615eb5a37f68',1,'EthercatCommunication::EthercatNode']]],
   ['operator_3d_151',['operator=',['../classHapticNode.html#ae9af5f1fbd09ec9ccf0e0d7a16c1790f',1,'HapticNode::operator=(HapticNode &amp;&amp;c)=delete'],['../classHapticNode.html#a065d38b29f309a170a843d09dd4b491f',1,'HapticNode::operator=(const HapticNode &amp;c)=delete']]],
-  ['opmode_152',['OpMode',['../ecat__definitions_8hpp.html#a56752d1aeb4bd4940e632396072d68af',1,'OpMode():&#160;ecat_definitions.hpp'],['../gui__globals_8hpp.html#a56752d1aeb4bd4940e632396072d68af',1,'OpMode():&#160;gui_globals.hpp']]],
+  ['opmode_152',['OpMode',['../ecat__definitions_8hpp.html#a56752d1aeb4bd4940e632396072d68af',1,'ecat_definitions.hpp']]],
   ['outinfotofile_153',['OutInfoToFile',['../classTiming.html#abca929bf96a9035cdae89d6ac1c18509',1,'Timing::OutInfoToFile()'],['../classTiming.html#abca929bf96a9035cdae89d6ac1c18509',1,'Timing::OutInfoToFile()']]],
-  ['over_5fcurrent_5ferror_154',['OVER_CURRENT_ERROR',['../ecat__definitions_8hpp.html#ab0df38968e4f03a3f1f6d6df0f31f45aa920c7f729c170f66d23171faa6ab98a5',1,'OVER_CURRENT_ERROR():&#160;ecat_definitions.hpp'],['../gui__globals_8hpp.html#afeaa6acaf321700c18979784e52e5352a920c7f729c170f66d23171faa6ab98a5',1,'OVER_CURRENT_ERROR():&#160;gui_globals.hpp']]],
-  ['over_5fvoltage_5ferror_155',['OVER_VOLTAGE_ERROR',['../ecat__definitions_8hpp.html#ab0df38968e4f03a3f1f6d6df0f31f45aa638b59942aaf9bec4aaa9580c3edc8e8',1,'OVER_VOLTAGE_ERROR():&#160;ecat_definitions.hpp'],['../gui__globals_8hpp.html#afeaa6acaf321700c18979784e52e5352a638b59942aaf9bec4aaa9580c3edc8e8',1,'OVER_VOLTAGE_ERROR():&#160;gui_globals.hpp']]]
+  ['over_5fcurrent_5ferror_154',['OVER_CURRENT_ERROR',['../ecat__definitions_8hpp.html#ab0df38968e4f03a3f1f6d6df0f31f45aa920c7f729c170f66d23171faa6ab98a5',1,'ecat_definitions.hpp']]],
+  ['over_5fvoltage_5ferror_155',['OVER_VOLTAGE_ERROR',['../ecat__definitions_8hpp.html#ab0df38968e4f03a3f1f6d6df0f31f45aa638b59942aaf9bec4aaa9580c3edc8e8',1,'ecat_definitions.hpp']]]
 ];

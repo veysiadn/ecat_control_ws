@@ -124,18 +124,7 @@ var ecat__definitions_8hpp =
       [ "kWarning", "ecat__definitions_8hpp.html#a5d175b4708e9a88ebbc35372ca1818b7a017887ee6e6d711cdb453f275fd971dc", null ],
       [ "kRemote", "ecat__definitions_8hpp.html#a5d175b4708e9a88ebbc35372ca1818b7af34e262497cefee9f006225d255f0b02", null ],
       [ "kTargetReached", "ecat__definitions_8hpp.html#a5d175b4708e9a88ebbc35372ca1818b7a2f6d5acfbeb8936f56c1a86dd1827dfb", null ],
-      [ "kInternalLimitActivate", "ecat__definitions_8hpp.html#a5d175b4708e9a88ebbc35372ca1818b7af6a3169aef150c63a68dc2206278bb11", null ],
-      [ "kReadyToSwitchOn", "gui__globals_8hpp.html#a5d175b4708e9a88ebbc35372ca1818b7aefe8b16564c493d6aba4e1761d28fb6e", null ],
-      [ "kSwitchedOn", "gui__globals_8hpp.html#a5d175b4708e9a88ebbc35372ca1818b7a1aec86a3bb84af0dc09dfba27134d870", null ],
-      [ "kOperationEnabled", "gui__globals_8hpp.html#a5d175b4708e9a88ebbc35372ca1818b7a830836c1b6166075e14d3cde3ba188bc", null ],
-      [ "kFault", "gui__globals_8hpp.html#a5d175b4708e9a88ebbc35372ca1818b7a17586673585e43ca084718a6a193c61d", null ],
-      [ "kVoltageEnabled", "gui__globals_8hpp.html#a5d175b4708e9a88ebbc35372ca1818b7a94491568dfbb921ec2bc5e0b90bfdf51", null ],
-      [ "kQuickStop", "gui__globals_8hpp.html#a5d175b4708e9a88ebbc35372ca1818b7a9ebe2d45f83dd0328a95f91b5f7f3197", null ],
-      [ "kSwitchOnDisabled", "gui__globals_8hpp.html#a5d175b4708e9a88ebbc35372ca1818b7a69fef3d95dbc631270c0a449c873b1f9", null ],
-      [ "kWarning", "gui__globals_8hpp.html#a5d175b4708e9a88ebbc35372ca1818b7a017887ee6e6d711cdb453f275fd971dc", null ],
-      [ "kRemote", "gui__globals_8hpp.html#a5d175b4708e9a88ebbc35372ca1818b7af34e262497cefee9f006225d255f0b02", null ],
-      [ "kTargetReached", "gui__globals_8hpp.html#a5d175b4708e9a88ebbc35372ca1818b7a2f6d5acfbeb8936f56c1a86dd1827dfb", null ],
-      [ "kInternalLimitActivate", "gui__globals_8hpp.html#a5d175b4708e9a88ebbc35372ca1818b7af6a3169aef150c63a68dc2206278bb11", null ]
+      [ "kInternalLimitActivate", "ecat__definitions_8hpp.html#a5d175b4708e9a88ebbc35372ca1818b7af6a3169aef150c63a68dc2206278bb11", null ]
     ] ],
     [ "OpMode", "ecat__definitions_8hpp.html#a56752d1aeb4bd4940e632396072d68af", [
       [ "kProfilePosition", "ecat__definitions_8hpp.html#a56752d1aeb4bd4940e632396072d68afad52f0058d24f3e3fec39d4502604a22e", null ],
@@ -145,15 +134,7 @@ var ecat__definitions_8hpp =
       [ "kInterpolatedPosition", "ecat__definitions_8hpp.html#a56752d1aeb4bd4940e632396072d68afa7a6bd1ac4ba0aab0998cbccaded2ca27", null ],
       [ "kCSPosition", "ecat__definitions_8hpp.html#a56752d1aeb4bd4940e632396072d68afa1566565deaca1a00f9046cea18ccf5de", null ],
       [ "kCSVelocity", "ecat__definitions_8hpp.html#a56752d1aeb4bd4940e632396072d68afab7ddf4a5dec8aca3035989b429490bc4", null ],
-      [ "kCSTorque", "ecat__definitions_8hpp.html#a56752d1aeb4bd4940e632396072d68afa32c69215479b5f329044f8c79a74e1a4", null ],
-      [ "kProfilePosition", "gui__globals_8hpp.html#a56752d1aeb4bd4940e632396072d68afad52f0058d24f3e3fec39d4502604a22e", null ],
-      [ "kProfileVelocity", "gui__globals_8hpp.html#a56752d1aeb4bd4940e632396072d68afa5d2b33d7161a77fdc97acfdc4de48a03", null ],
-      [ "kProfileTorque", "gui__globals_8hpp.html#a56752d1aeb4bd4940e632396072d68afa3e1069b7c47950dd03ed7eb55f6421d2", null ],
-      [ "kHoming", "gui__globals_8hpp.html#a56752d1aeb4bd4940e632396072d68afa90b00776b82cbe0b451a0a9c46e68945", null ],
-      [ "kInterpolatedPosition", "gui__globals_8hpp.html#a56752d1aeb4bd4940e632396072d68afa7a6bd1ac4ba0aab0998cbccaded2ca27", null ],
-      [ "kCSPosition", "gui__globals_8hpp.html#a56752d1aeb4bd4940e632396072d68afa1566565deaca1a00f9046cea18ccf5de", null ],
-      [ "kCSVelocity", "gui__globals_8hpp.html#a56752d1aeb4bd4940e632396072d68afab7ddf4a5dec8aca3035989b429490bc4", null ],
-      [ "kCSTorque", "gui__globals_8hpp.html#a56752d1aeb4bd4940e632396072d68afa32c69215479b5f329044f8c79a74e1a4", null ]
+      [ "kCSTorque", "ecat__definitions_8hpp.html#a56752d1aeb4bd4940e632396072d68afa32c69215479b5f329044f8c79a74e1a4", null ]
     ] ],
     [ "SensorConfig", "ecat__definitions_8hpp.html#a4a8f52fe7f00c0838866e018dfd0fb2d", [
       [ "kSensor1TypeNone", "ecat__definitions_8hpp.html#a4a8f52fe7f00c0838866e018dfd0fb2dab5f681ac79a8660aba4a9d7dc6eb31f2", null ],

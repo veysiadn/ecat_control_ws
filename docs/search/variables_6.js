@@ -3,7 +3,7 @@ var searchData=
   ['g_5fcycle_5ftime_0',['g_cycle_time',['../ecat__globals_8hpp.html#a0f34ecbeba93aefcdd077c6ce0758360',1,'ecat_globals.hpp']]],
   ['g_5fhalf_5fcycle_5ftime_1',['g_half_cycle_time',['../ecat__globals_8hpp.html#a1ff80c3be290282cd8135a525d719cf0',1,'ecat_globals.hpp']]],
   ['g_5fknspersec_2',['g_kNsPerSec',['../ecat__definitions_8hpp.html#aaf4966dff24b810040e9c7196d621401',1,'ecat_definitions.hpp']]],
-  ['g_5fknumberofservodrivers_3',['g_kNumberOfServoDrivers',['../gui__globals_8hpp.html#a43873e365d1939ab6865a8bb8f679efc',1,'g_kNumberOfServoDrivers():&#160;gui_globals.hpp'],['../ecat__globals_8hpp.html#aacc3c7aef173b1cde9377fb7f05c924d',1,'g_kNumberOfServoDrivers():&#160;ecat_globals.hpp']]],
+  ['g_5fknumberofservodrivers_3',['g_kNumberOfServoDrivers',['../ecat__globals_8hpp.html#aacc3c7aef173b1cde9377fb7f05c924d',1,'ecat_globals.hpp']]],
   ['g_5fkoperationmode_4',['g_kOperationMode',['../ecat__globals_8hpp.html#a9f470379e6a057153b1386f8b94c7973',1,'ecat_globals.hpp']]],
   ['g_5fmaster_5',['g_master',['../ecat__node_8cpp.html#a45e08eacd3bf384fc33a73106b94b592',1,'g_master():&#160;ecat_node.cpp'],['../ecat__definitions_8hpp.html#a45e08eacd3bf384fc33a73106b94b592',1,'g_master():&#160;ecat_node.cpp']]],
   ['g_5fmaster_5fdomain_6',['g_master_domain',['../ecat__node_8cpp.html#a59c10b14596652ba74844434d967d78f',1,'g_master_domain():&#160;ecat_node.cpp'],['../ecat__definitions_8hpp.html#a59c10b14596652ba74844434d967d78f',1,'g_master_domain():&#160;ecat_node.cpp']]],

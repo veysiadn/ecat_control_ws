@@ -225,97 +225,6 @@
         </inbodydescription>
         <location file="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" line="282" column="14" bodyfile="src/ecat_pkg/include/ecat_pkg/ecat_definitions.hpp" bodystart="282" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structReceivedData_1ad1caccbf23e15c9282079e6d0123965f" prot="public" static="no" mutable="no">
-        <type>uint16_t</type>
-        <definition>uint16_t ReceivedData::error_code</definition>
-        <argsstring></argsstring>
-        <name>error_code</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="51" column="15" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="51" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="structReceivedData_1a4f26602ace4259763df1030b19b6d64f" prot="public" static="no" mutable="no">
-        <type>int32_t</type>
-        <definition>int32_t ReceivedData::right_x_axis</definition>
-        <argsstring></argsstring>
-        <name>right_x_axis</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="60" column="14" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="60" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="structReceivedData_1a2af989aebb271f62b967408aa869bc01" prot="public" static="no" mutable="no">
-        <type>int32_t</type>
-        <definition>int32_t ReceivedData::left_x_axis</definition>
-        <argsstring></argsstring>
-        <name>left_x_axis</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="61" column="14" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="61" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="structReceivedData_1abe986d947a31ea05be50bdf96814e59e" prot="public" static="no" mutable="no">
-        <type>uint8_t</type>
-        <definition>uint8_t ReceivedData::p_emergency_switch_val</definition>
-        <argsstring></argsstring>
-        <name>p_emergency_switch_val</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="62" column="14" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="62" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="structReceivedData_1a3afcc288ec8cf840cc34b4426c42a54f" prot="public" static="no" mutable="no">
-        <type>uint8_t</type>
-        <definition>uint8_t ReceivedData::com_status</definition>
-        <argsstring></argsstring>
-        <name>com_status</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="63" column="14" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="63" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="structReceivedData_1ae27cd80acb1039ffe05a6d02dbb33f8f" prot="public" static="no" mutable="no">
-        <type>uint8_t</type>
-        <definition>uint8_t ReceivedData::slave_com_status</definition>
-        <argsstring></argsstring>
-        <name>slave_com_status</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="64" column="14" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="64" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="structReceivedData_1acdb3787a6b0dc60745069f93d3b2c5ec" prot="public" static="no" mutable="no">
-        <type>uint8_t</type>
-        <definition>uint8_t ReceivedData::current_lifecycle_state</definition>
-        <argsstring></argsstring>
-        <name>current_lifecycle_state</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="65" column="14" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="65" bodyend="-1"/>
-      </memberdef>
       </sectiondef>
     <briefdescription>
 <para>Received feedback data from slaves. </para>
@@ -328,20 +237,13 @@
       <member refid="structReceivedData_1a256a4ccad5573ed0d9a4c8add634b86e" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>actual_pos</name></member>
       <member refid="structReceivedData_1ab300dfb5692a9b757908d5d779a8b5b5" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>actual_tor</name></member>
       <member refid="structReceivedData_1abcbbbeec0786dd863007f3b29d37633a" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>actual_vel</name></member>
-      <member refid="structReceivedData_1a3afcc288ec8cf840cc34b4426c42a54f" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>com_status</name></member>
       <member refid="structReceivedData_1a1699392bb03d114ab5a0c7e9250c8d32" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>control_word</name></member>
-      <member refid="structReceivedData_1acdb3787a6b0dc60745069f93d3b2c5ec" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>current_lifecycle_state</name></member>
-      <member refid="structReceivedData_1ad1caccbf23e15c9282079e6d0123965f" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>error_code</name></member>
       <member refid="structReceivedData_1a04019bdb0f44e77381bffe9adf25e1fe" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>left_limit_switch_val</name></member>
-      <member refid="structReceivedData_1a2af989aebb271f62b967408aa869bc01" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>left_x_axis</name></member>
       <member refid="structReceivedData_1a4015807759d6e67ef30820d1c0f6d02f" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>max_tor</name></member>
       <member refid="structReceivedData_1aed0955f9a86ffbffb521caaa3c9cdb1a" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>op_mode</name></member>
       <member refid="structReceivedData_1a25c4e0bcf00afa5883e2c0978cc861b6" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>op_mode_display</name></member>
-      <member refid="structReceivedData_1abe986d947a31ea05be50bdf96814e59e" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>p_emergency_switch_val</name></member>
       <member refid="structReceivedData_1a233c9141d68048d21b26e10a11036e26" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>right_limit_switch_val</name></member>
-      <member refid="structReceivedData_1a4f26602ace4259763df1030b19b6d64f" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>right_x_axis</name></member>
       <member refid="structReceivedData_1af8a59bd5ba6401019489e1a183f77f5d" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>s_emergency_switch_val</name></member>
-      <member refid="structReceivedData_1ae27cd80acb1039ffe05a6d02dbb33f8f" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>slave_com_status</name></member>
       <member refid="structReceivedData_1a149b41071f2011b95143e2e6003ef251" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>status_word</name></member>
       <member refid="structReceivedData_1afff99790265b4a2f4d67ae70a0dc17ce" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>target_pos</name></member>
       <member refid="structReceivedData_1a3fc68c33af6351193d225cdf062f8227" prot="public" virt="non-virtual"><scope>ReceivedData</scope><name>target_tor</name></member>

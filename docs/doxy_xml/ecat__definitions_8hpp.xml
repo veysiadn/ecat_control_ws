@@ -152,6 +152,8 @@
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
       </node>
       <node id="4">
         <label>src/ecat_pkg/include/ecat_pkg/ecat_lifecycle.hpp</label>
@@ -196,12 +198,40 @@
         <link refid="ecat__pkg_2src_2main_8cpp"/>
       </node>
       <node id="10">
-        <label>src/safety_pkg/include/safety_pkg/safety_node.hpp</label>
-        <link refid="safety__node_8hpp"/>
+        <label>src/gui_pkg/include/gui_pkg/gui_node.hpp</label>
+        <link refid="gui__node_8hpp"/>
         <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
       <node id="11">
+        <label>src/gui_pkg/include/gui_pkg/main_window.hpp</label>
+        <link refid="main__window_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>src/gui_pkg/src/gui_node.cpp</label>
+        <link refid="gui__node_8cpp"/>
+      </node>
+      <node id="12">
+        <label>src/gui_pkg/src/main.cpp</label>
+        <link refid="gui__pkg_2src_2main_8cpp"/>
+      </node>
+      <node id="13">
+        <label>src/gui_pkg/src/main_window.cpp</label>
+        <link refid="main__window_8cpp"/>
+      </node>
+      <node id="15">
+        <label>src/safety_pkg/include/safety_pkg/safety_node.hpp</label>
+        <link refid="safety__node_8hpp"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
         <label>src/safety_pkg/src/safety_node.cpp</label>
         <link refid="safety__node_8cpp"/>
       </node>
@@ -365,70 +395,6 @@
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="ecat__definitions_8hpp_1a56752d1aeb4bd4940e632396072d68afad52f0058d24f3e3fec39d4502604a22e" prot="public">
-          <name>kProfilePosition</name>
-          <initializer>= 1</initializer>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="ecat__definitions_8hpp_1a56752d1aeb4bd4940e632396072d68afa5d2b33d7161a77fdc97acfdc4de48a03" prot="public">
-          <name>kProfileVelocity</name>
-          <initializer>= 3</initializer>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="ecat__definitions_8hpp_1a56752d1aeb4bd4940e632396072d68afa3e1069b7c47950dd03ed7eb55f6421d2" prot="public">
-          <name>kProfileTorque</name>
-          <initializer>= 4</initializer>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="ecat__definitions_8hpp_1a56752d1aeb4bd4940e632396072d68afa90b00776b82cbe0b451a0a9c46e68945" prot="public">
-          <name>kHoming</name>
-          <initializer>= 6</initializer>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="ecat__definitions_8hpp_1a56752d1aeb4bd4940e632396072d68afa7a6bd1ac4ba0aab0998cbccaded2ca27" prot="public">
-          <name>kInterpolatedPosition</name>
-          <initializer>= 7</initializer>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="ecat__definitions_8hpp_1a56752d1aeb4bd4940e632396072d68afa1566565deaca1a00f9046cea18ccf5de" prot="public">
-          <name>kCSPosition</name>
-          <initializer>= 8</initializer>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="ecat__definitions_8hpp_1a56752d1aeb4bd4940e632396072d68afab7ddf4a5dec8aca3035989b429490bc4" prot="public">
-          <name>kCSVelocity</name>
-          <initializer>= 9</initializer>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="ecat__definitions_8hpp_1a56752d1aeb4bd4940e632396072d68afa32c69215479b5f329044f8c79a74e1a4" prot="public">
-          <name>kCSTorque</name>
-          <initializer>= 10</initializer>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
         <briefdescription>
 <para>Motor operation modes. </para>
         </briefdescription>
@@ -441,84 +407,6 @@
       <memberdef kind="enum" id="ecat__definitions_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7" prot="public" static="no" strong="no">
         <type></type>
         <name>MotorStates</name>
-        <enumvalue id="ecat__definitions_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7aefe8b16564c493d6aba4e1761d28fb6e" prot="public">
-          <name>kReadyToSwitchOn</name>
-          <initializer>= 1</initializer>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="ecat__definitions_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a1aec86a3bb84af0dc09dfba27134d870" prot="public">
-          <name>kSwitchedOn</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="ecat__definitions_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a830836c1b6166075e14d3cde3ba188bc" prot="public">
-          <name>kOperationEnabled</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="ecat__definitions_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a17586673585e43ca084718a6a193c61d" prot="public">
-          <name>kFault</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="ecat__definitions_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a94491568dfbb921ec2bc5e0b90bfdf51" prot="public">
-          <name>kVoltageEnabled</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="ecat__definitions_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a9ebe2d45f83dd0328a95f91b5f7f3197" prot="public">
-          <name>kQuickStop</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="ecat__definitions_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a69fef3d95dbc631270c0a449c873b1f9" prot="public">
-          <name>kSwitchOnDisabled</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="ecat__definitions_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a017887ee6e6d711cdb453f275fd971dc" prot="public">
-          <name>kWarning</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="ecat__definitions_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7af34e262497cefee9f006225d255f0b02" prot="public">
-          <name>kRemote</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="ecat__definitions_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7a2f6d5acfbeb8936f56c1a86dd1827dfb" prot="public">
-          <name>kTargetReached</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="ecat__definitions_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7af6a3169aef150c63a68dc2206278bb11" prot="public">
-          <name>kInternalLimitActivate</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
         <enumvalue id="ecat__definitions_8hpp_1a5d175b4708e9a88ebbc35372ca1818b7aefe8b16564c493d6aba4e1761d28fb6e" prot="public">
           <name>kReadyToSwitchOn</name>
           <initializer>= 1</initializer>
@@ -1790,7 +1678,7 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="see"><para><ref refid="gui__globals_8hpp_1a56752d1aeb4bd4940e632396072d68af" kindref="member">OpMode</ref> enum defined in </para>
+<simplesect kind="see"><para><ref refid="ecat__definitions_8hpp_1a56752d1aeb4bd4940e632396072d68af" kindref="member">OpMode</ref> enum defined in </para>
 </simplesect>
 <simplesect kind="return"><para>0 if successfull, otherwise -1. </para>
 </simplesect>

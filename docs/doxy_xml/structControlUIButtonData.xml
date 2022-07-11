@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="81" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="81" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="22" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="22" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structControlUIButtonData_1ad997dd1579d5ddba6b1732b245c78df0" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="82" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="82" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="23" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="23" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structControlUIButtonData_1a6ea3c9660676c76b0a177782bcd1bc4f" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="83" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="83" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="24" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="24" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structControlUIButtonData_1a281503d032887eb113403dfaa4be413f" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="84" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="84" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="25" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="25" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structControlUIButtonData_1a1f6ee7050766572eeea63b77b59d5ae1" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="85" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="85" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="26" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structControlUIButtonData_1a7927fc4aa1b1e66deb628cfba4f84aac" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="86" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="86" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="27" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="27" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structControlUIButtonData_1a9da7551ad6af62ad9419593ad1916e11" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="87" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="87" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="28" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structControlUIButtonData_1a1b1c2a7d44a1e1ba5fea472cbbb8f611" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="88" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="88" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="29" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="29" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structControlUIButtonData_1a41a30954171b8f5acfa3f04cba81c9aa" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="89" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="89" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="30" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structControlUIButtonData_1a8f0892ccf5398525440cfe46e80db953" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="90" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="90" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="31" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="31" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structControlUIButtonData_1a9a37a98efc39c42870246421a83b7f95" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -145,7 +145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="91" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="91" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="32" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="32" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structControlUIButtonData_1a16f408c268b53db43e393dd8cc27c22f" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -158,7 +158,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="92" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="92" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="33" column="13" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structControlUIButtonData_1a8c1b8287572701d04f32f04b0f5b722d" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -171,14 +171,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="93" column="14" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="93" bodyend="-1"/>
+        <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="34" column="14" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="34" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="80" column="1" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="80" bodyend="94"/>
+    <location file="src/gui_pkg/include/gui_pkg/gui_globals.hpp" line="21" column="1" bodyfile="src/gui_pkg/include/gui_pkg/gui_globals.hpp" bodystart="21" bodyend="35"/>
     <listofallmembers>
       <member refid="structControlUIButtonData_1a1f6ee7050766572eeea63b77b59d5ae1" prot="public" virt="non-virtual"><scope>ControlUIButtonData</scope><name>b_disable_drives</name></member>
       <member refid="structControlUIButtonData_1a9a37a98efc39c42870246421a83b7f95" prot="public" virt="non-virtual"><scope>ControlUIButtonData</scope><name>b_emergency_mode</name></member>

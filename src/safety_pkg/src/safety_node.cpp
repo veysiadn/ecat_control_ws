@@ -39,6 +39,18 @@ public:
 
   void PublishSafetyInfo()
   {
+    for(uint32_t i=0; i < lifecycle_node_data_.slave_com_status.size(); i++){
+        if(lifecycle_node_data_.error_code[i] > 0 && safety_state_msg_.data!=kErrorInDrive){
+            RCLCPP_ERROR(
+            get_logger(),
+            "Drive in error state : %s.",
+            GetErrorMessage(lifecycle_node_data_.error_code[i]).c_str());
+            this->safety_state_msg_.data = kErrorInDrive;
+        }else if(lifecycle_node_data_.error_code[i]==0){
+            safety_state_msg_.data = kSafe;
+        }
+        
+    }
     safety_state_publisher_->publish(safety_state_msg_);
   }
 
@@ -157,11 +169,6 @@ public:
   HandleLifecycleNodeCallbacks(const ecat_msgs::msg::DataReceived::SharedPtr msg)
   {
     lifecycle_node_data_ = *msg ; 
-    for(uint32_t i=0; i < lifecycle_node_data_.slave_com_status.size(); i++){
-      if(lifecycle_node_data_.error_code[i] > 0 ){
-         safety_state_msg_.data = kErrorInDrive;
-      }
-    }
   }
   
   void

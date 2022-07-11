@@ -32,6 +32,8 @@ find_package(std_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
 
 add_executable(safety_node src/safety_node.cpp)
+include_directories("../ecat_pkg/include/ecat_pkg/")
+include_directories("/opt/etherlab/include")
 
 target_include_directories(safety_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/safety_pkg>

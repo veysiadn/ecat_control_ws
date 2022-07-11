@@ -53,6 +53,8 @@
 #include "std_msgs/msg/u_int16.hpp"
 #include "rcutils/logging_macros.h"
 #include "rclcpp/rclcpp.hpp"
+#include "ecat_globals.hpp"
+
 using namespace std::chrono_literals;
 
 // which node to handle
@@ -83,27 +85,6 @@ wait_for_result(
   } while (status != std::future_status::ready);
   return status;
 }
-
-typedef struct
-{
-    float left_x_axis_;
-    float left_y_axis_;
-    float right_x_axis_;
-    float right_y_axis_;
-    uint8_t blue_button_;
-    uint8_t green_button_;
-    uint8_t red_button_;
-    uint8_t yellow_button_;
-    uint8_t left_r_button_;
-    uint8_t left_l_button_;
-    uint8_t left_u_button_;
-    uint8_t left_d_button_ ;
-    uint8_t left_rb_button_ ;
-    uint8_t right_rb_button_ ;
-    uint8_t left_start_button_ ;
-    uint8_t right_start_button_ ; 
-    uint8_t xbox_button_;
-} Controller;
 
 enum SafetyInfo{
   kSafe=0,

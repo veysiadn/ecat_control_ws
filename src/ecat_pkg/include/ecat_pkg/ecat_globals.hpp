@@ -53,7 +53,7 @@ static int8_t   g_kOperationMode = kProfileVelocity ;
 #define CUSTOM_SLAVE      0  
 #define FREQUENCY       1000  /// Ethercat PDO exchange loop frequency in Hz
 #define MEASURE_TIMING    1    /// If you want to measure timings leave it as one, otherwise make it 0.
-#define DISTRIBUTED_CLOCK 1   /// If you want to use distributed clock make it one, otherwise leave it zero.
+#define DISTRIBUTED_CLOCK 0   /// If you want to use distributed clock make it one, otherwise leave it zero.
 /*****************************************************************************/
 #define GEAR_RATIO          49
 #define ENCODER_RESOLUTION  1000

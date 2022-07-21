@@ -32,13 +32,13 @@
  * \file  gui_node.hpp
  * \brief GUI node implementation to show slave status and controller commands in ROS2.
  *        Additionally it publishes information regarding buttons on mainscreen.
- *        GUI node is a ROS2 node which subscribes EthercatLifecycle Node topics and 
+ *        GUI node is a ROS2 node which subscribes EthercatLifecycle Node topics and
  *        controller topics and shows those values via GUI and publishes control ui
  *        button values.
  *******************************************************************************/
 
 #pragma once
-//ROS2
+// ROS2
 #include "rclcpp/rclcpp.hpp"
 
 // Message file headers, -custom and built-in-
@@ -48,7 +48,7 @@
 #include "ecat_msgs/msg/gui_button_data.hpp"
 #include "std_msgs/msg/u_int16.hpp"
 #include "ecat_globals.hpp"
-//CPP
+// CPP
 #include <vector>
 #include <chrono>
 #include <memory>
@@ -64,83 +64,84 @@
 
 using namespace std::chrono_literals;
 
-namespace GUI {
-
+namespace GUI
+{
 /**
  * @brief This node will be responsible from all GUI interaction and visualization of feedback information acquired
  * via EtherCAT communication.
  */
 
- class GuiNode : public rclcpp::Node
-  {
+class GuiNode : public rclcpp::Node
+{
+private:
+  /**
+   * @brief Publishes gui button value in specified interval.
+   */
 
-  private:
-      /**
-       * @brief Publishes gui button value in specified interval.
-       */
+  void timer_callback();
+  /**
+   * @brief Function will be used for subscribtion callbacks from controller node
+   *        for Controller topic.
+   *
+   * @param msg controller command structure published by controller node.
+   */
 
-      void timer_callback();
-      /**
-       * @brief Function will be used for subscribtion callbacks from controller node
-       *        for Controller topic.
-       *
-       * @param msg controller command structure published by controller node.
-       */
+  void HandleControllerCallbacks(const sensor_msgs::msg::Joy::SharedPtr msg);
+  /**
+   * @brief Function will be used for subscribtion callbacks from EthercatLifecycle node
+   *        for Master_Commands topic.
+   *
+   * @param msg Master commands structure published by EthercatLifecycle node
+   */
 
-        void HandleControllerCallbacks(const sensor_msgs::msg::Joy::SharedPtr msg);
-        /**
-         * @brief Function will be used for subscribtion callbacks from EthercatLifecycle node
-         *        for Master_Commands topic.
-         *
-         * @param msg Master commands structure published by EthercatLifecycle node
-         */
+  void HandleMasterCommandCallbacks(const ecat_msgs::msg::DataSent::SharedPtr msg);
+  /**
+   * @brief Function will be used for subscribtion callbacks from EthercatLifecycle node
+   *        for Master_Commands topic.
+   *
+   * @param msg Slave feedback structure published by EthercatLifecycle node
+   */
 
-        void HandleMasterCommandCallbacks(const ecat_msgs::msg::DataSent::SharedPtr msg);
-        /**
-         * @brief Function will be used for subscribtion callbacks from EthercatLifecycle node
-         *        for Master_Commands topic.
-         *
-         * @param msg Slave feedback structure published by EthercatLifecycle node
-         */
+  void HandleSlaveFeedbackCallbacks(const ecat_msgs::msg::DataReceived::SharedPtr msg);
+  /**
+   * @brief Resets control button values coming from control UI.
+   */
+  void ResetContolButtonValues();
 
-        void HandleSlaveFeedbackCallbacks(const ecat_msgs::msg::DataReceived::SharedPtr msg);
-        /**
-         * @brief Resets control button values coming from control UI.
-         */
-        void ResetContolButtonValues();
+  void HandleSafetyNodeCallback(const std_msgs::msg::UInt16::SharedPtr msg);
 
-        void HandleSafetyNodeCallback(const std_msgs::msg::UInt16::SharedPtr msg);
-   private:
-        /// ROS2 subscriptions.
-        /// Acquired feedback information from connected slaves
-        rclcpp::Subscription<ecat_msgs::msg::DataReceived>::SharedPtr slave_feedback_;
+private:
+  /// ROS2 subscriptions.
+  /// Acquired feedback information from connected slaves
+  rclcpp::Subscription<ecat_msgs::msg::DataReceived>::SharedPtr slave_feedback_;
 
-        /// Subscribed to commands that's being sent by ecat_master
-        rclcpp::Subscription<ecat_msgs::msg::DataSent>::SharedPtr master_commands_;
+  /// Subscribed to commands that's being sent by ecat_master
+  rclcpp::Subscription<ecat_msgs::msg::DataSent>::SharedPtr master_commands_;
 
-        rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr  controller_commands_;
+  rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr controller_commands_;
 
-        rclcpp::Subscription<std_msgs::msg::UInt16>::SharedPtr  safety_info_subscriber_;
+  rclcpp::Subscription<std_msgs::msg::UInt16>::SharedPtr safety_info_subscriber_;
 
-        /// Timer for timer callbacks, publishing will be done in certain interval.
-        rclcpp::TimerBase::SharedPtr timer_;
+  /// Timer for timer callbacks, publishing will be done in certain interval.
+  rclcpp::TimerBase::SharedPtr timer_;
 
-        /// Gui publisher, which contains clicked button information
-        rclcpp::Publisher<ecat_msgs::msg::GuiButtonData>::SharedPtr gui_publisher_;
+  /// Gui publisher, which contains clicked button information
+  rclcpp::Publisher<ecat_msgs::msg::GuiButtonData>::SharedPtr gui_publisher_;
 
-     public:
-         GuiNode();
-         virtual ~GuiNode();
-     public:
-         /// Received data structure to store all subscribed data.
-         ecat_msgs::msg::DataReceived slave_feedback_data_;
-         ecat_msgs::msg::DataSent master_command_data_;
-         /// GUI button value to publish emergency button state.
-         ecat_msgs::msg::GuiButtonData ui_control_buttons_;
-         std_msgs::msg::UInt16 safety_info_;
-         /// For time measurements
-         Timing time_info_;
-         uint8_t current_lifecycle_state = 0;
-  };// class GuiNode
+public:
+  GuiNode();
+  virtual ~GuiNode();
 
- } // namespace GUI
+public:
+  /// Received data structure to store all subscribed data.
+  ecat_msgs::msg::DataReceived slave_feedback_data_;
+  ecat_msgs::msg::DataSent master_command_data_;
+  /// GUI button value to publish emergency button state.
+  ecat_msgs::msg::GuiButtonData ui_control_buttons_;
+  std_msgs::msg::UInt16 safety_info_;
+  /// For time measurements
+  Timing time_info_;
+  uint8_t current_lifecycle_state = 0;
+};  // class GuiNode
+
+}  // namespace GUI

@@ -3,181 +3,195 @@
 class SafetyNode : public rclcpp::Node
 {
 public:
-  explicit SafetyNode(const std::string & node_name)
-  : Node(node_name)
+  explicit SafetyNode(const std::string& node_name) : Node(node_name)
   {
-      this->init();
-      auto qos = rclcpp::QoS(rclcpp::KeepLast(1));
-      qos.best_effort();
-      gui_button_subscriber_   = this->create_subscription<ecat_msgs::msg::GuiButtonData>(
-        "gui_buttons",qos,std::bind(&SafetyNode::HandleGuiNodeCallbacks, this,std::placeholders::_1
-      ));
+    this->init();
+    auto qos = rclcpp::QoS(rclcpp::KeepLast(1));
+    qos.best_effort();
+    gui_button_subscriber_ = this->create_subscription<ecat_msgs::msg::GuiButtonData>(
+        "gui_buttons", qos, std::bind(&SafetyNode::HandleGuiNodeCallbacks, this, std::placeholders::_1));
 
     /// Subscribtion for control node.
     /// Subscribtion for slave feedback values acquired from connected slaves.
     lifecycle_node_subscriber_ = this->create_subscription<ecat_msgs::msg::DataReceived>(
-    "Slave_Feedback",qos,std::bind(&SafetyNode::HandleLifecycleNodeCallbacks, this, std::placeholders::_1));
-     
-     safety_state_publisher_ = this->create_publisher<std_msgs::msg::UInt16>("safety_info",10);
+        "Slave_Feedback", qos, std::bind(&SafetyNode::HandleLifecycleNodeCallbacks, this, std::placeholders::_1));
+
+    safety_state_publisher_ = this->create_publisher<std_msgs::msg::UInt16>("safety_info", 10);
     //  spin_thread_ = std::thread{std::bind(&SafetyNode::SpinThread, this)};
-     safety_state_msg_.data=kSafe;
-     timer_= this->create_wall_timer(30ms,std::bind(&SafetyNode::PublishSafetyInfo,this));
+    safety_state_msg_.data = kSafe;
+    timer_ = this->create_wall_timer(30ms, std::bind(&SafetyNode::PublishSafetyInfo, this));
   }
-  
+
   std::thread spin_thread_;
-  uint32_t state_ = lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN ;
-  rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr         joystick_subscriber_;
+  uint32_t state_ = lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN;
+  rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr joystick_subscriber_;
   rclcpp::Subscription<ecat_msgs::msg::GuiButtonData>::SharedPtr gui_button_subscriber_;
   rclcpp::Subscription<ecat_msgs::msg::DataReceived>::SharedPtr lifecycle_node_subscriber_;
 
-  rclcpp::Publisher<std_msgs::msg::UInt16>::SharedPtr  safety_state_publisher_;
-  ecat_msgs::msg::DataReceived lifecycle_node_data_ ; 
-  Controller controller_ ; 
-  std_msgs::msg::UInt16 safety_state_msg_ ;
-  uint8_t button_request_=0;
+  rclcpp::Publisher<std_msgs::msg::UInt16>::SharedPtr safety_state_publisher_;
+  ecat_msgs::msg::DataReceived lifecycle_node_data_;
+  Controller controller_;
+  std_msgs::msg::UInt16 safety_state_msg_;
+  uint8_t button_request_ = 0;
   rclcpp::TimerBase::SharedPtr timer_;
 
   void PublishSafetyInfo()
   {
-    for(uint32_t i=0; i < lifecycle_node_data_.slave_com_status.size(); i++){
-        if(lifecycle_node_data_.error_code[i] > 0 && safety_state_msg_.data!=kErrorInDrive){
-            RCLCPP_ERROR(
-            get_logger(),
-            "Drive in error state : %s.",
-            GetErrorMessage(lifecycle_node_data_.error_code[i]).c_str());
-            this->safety_state_msg_.data = kErrorInDrive;
-        }else if(lifecycle_node_data_.error_code[i]==0){
-            safety_state_msg_.data = kSafe;
-        }
-        
+    for (uint32_t i = 0; i < lifecycle_node_data_.slave_com_status.size(); i++)
+    {
+      if (lifecycle_node_data_.error_code[i] > 0 && safety_state_msg_.data != kErrorInDrive)
+      {
+        RCLCPP_ERROR(get_logger(), "Drive in error state : %s.",
+                     GetErrorMessage(lifecycle_node_data_.error_code[i]).c_str());
+        this->safety_state_msg_.data = kErrorInDrive;
+      }
+      else if (lifecycle_node_data_.error_code[i] == 0)
+      {
+        safety_state_msg_.data = kSafe;
+      }
     }
     safety_state_publisher_->publish(safety_state_msg_);
   }
 
-  void SpinThread(){
-    while(true){
+  void SpinThread()
+  {
+    while (true)
+    {
       auto timer = this->create_wall_timer(1s, [this]() {
         static auto task = std::async(std::launch::async, [this] {
-            std::this_thread::sleep_for(1s);
-            state_ = get_state();
+          std::this_thread::sleep_for(1s);
+          state_ = get_state();
         });
       });
       rclcpp::spin(this->get_node_base_interface());
     }
   }
 
-  void 
-  HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonData::SharedPtr msg)
+  void HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonData::SharedPtr msg)
   {
     // If state is unconfigured and buton_init_ecat trigger configuration transition.;
     state_ = get_state();
-    if(state_==lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED){  
-      if(msg->b_init_ecat > 0){
-          std::this_thread::sleep_for(std::chrono::milliseconds(500));
-          if (!rclcpp::ok()) {
-            return;
-          }          
-          if (this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE)) {
-            return;
-          }
-          button_request_ = 1; 
-      }
-    }
-    
-    // Activate 
-    if(state_==lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE){
-      if(msg->b_enter_cyclic_pdo > 0){
-          std::this_thread::sleep_for(std::chrono::milliseconds(500));
-          if (!rclcpp::ok()) {
-            return;
-          }          
-          if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_ACTIVATE)) {
-            return;
-          }
-          button_request_ = 1; 
-      }
-    }
-    
-    // Deactivate
-    if(state_==lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE){
-      if(msg->b_stop_cyclic_pdo > 0){
+    if (state_ == lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED)
+    {
+      if (msg->b_init_ecat > 0)
+      {
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
-        if (!rclcpp::ok()) {
+        if (!rclcpp::ok())
+        {
           return;
         }
-        if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_DEACTIVATE)) {
+        if (this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE))
+        {
           return;
         }
         button_request_ = 1;
       }
     }
-      
-      // msg->b_init_ecat = 0;
-      // msg->b_reinit_ecat = 0;
-      // msg->b_enable_drives = 0;
-      // msg->b_disable_drives = 0;
-      // msg->b_enable_cyclic_pos = 0;
-      // msg->b_enable_cyclic_vel = 0;
-      // msg->b_enable_vel = 0;
-      // msg->b_enable_pos = 0;
-      // msg->b_enter_cyclic_pdo = 0;
-      // msg->b_emergency_mode = 0;
-      // msg->b_send = 0;
-      // msg->b_stop_cyclic_pdo = 0;
 
-   // Cleanup
-    if(state_==lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE){
-      if(msg->b_reinit_ecat > 0){
+    // Activate
+    if (state_ == lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE)
+    {
+      if (msg->b_enter_cyclic_pdo > 0)
+      {
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
-        if (!rclcpp::ok()) {
+        if (!rclcpp::ok())
+        {
           return;
         }
-        if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_CLEANUP)) {
+        if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_ACTIVATE))
+        {
           return;
         }
-        button_request_ = 1; 
-      }
-    }
-  
-  //   // Shutdown
-  //   if(controller_.right_rb_button_ > 0){
-  //     std::this_thread::sleep_for(std::chrono::milliseconds(500));
-  //     if (!rclcpp::ok()) {
-  //       return;
-  //     }
-  //     if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_UNCONFIGURED_SHUTDOWN))
-  //     {
-  //       return;
-  //     }
-  //     if (!this->get_state()) {
-  //       return;
-  //     }
-  //   }
-  
-      if(msg->b_emergency_mode > 0){
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
-        if (!rclcpp::ok()) {
-          return;
-        }
-        safety_state_msg_.data = kEmergencyStop;
         button_request_ = 1;
       }
-      safety_state_publisher_->publish(safety_state_msg_);
+    }
+
+    // Deactivate
+    if (state_ == lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE)
+    {
+      if (msg->b_stop_cyclic_pdo > 0)
+      {
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        if (!rclcpp::ok())
+        {
+          return;
+        }
+        if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_DEACTIVATE))
+        {
+          return;
+        }
+        button_request_ = 1;
+      }
+    }
+
+    // msg->b_init_ecat = 0;
+    // msg->b_reinit_ecat = 0;
+    // msg->b_enable_drives = 0;
+    // msg->b_disable_drives = 0;
+    // msg->b_enable_cyclic_pos = 0;
+    // msg->b_enable_cyclic_vel = 0;
+    // msg->b_enable_vel = 0;
+    // msg->b_enable_pos = 0;
+    // msg->b_enter_cyclic_pdo = 0;
+    // msg->b_emergency_mode = 0;
+    // msg->b_send = 0;
+    // msg->b_stop_cyclic_pdo = 0;
+
+    // Cleanup
+    if (state_ == lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE)
+    {
+      if (msg->b_reinit_ecat > 0)
+      {
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        if (!rclcpp::ok())
+        {
+          return;
+        }
+        if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_CLEANUP))
+        {
+          return;
+        }
+        button_request_ = 1;
+      }
+    }
+
+    //   // Shutdown
+    //   if(controller_.right_rb_button_ > 0){
+    //     std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    //     if (!rclcpp::ok()) {
+    //       return;
+    //     }
+    //     if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_UNCONFIGURED_SHUTDOWN))
+    //     {
+    //       return;
+    //     }
+    //     if (!this->get_state()) {
+    //       return;
+    //     }
+    //   }
+
+    if (msg->b_emergency_mode > 0)
+    {
+      std::this_thread::sleep_for(std::chrono::milliseconds(500));
+      if (!rclcpp::ok())
+      {
+        return;
+      }
+      safety_state_msg_.data = kEmergencyStop;
+      button_request_ = 1;
+    }
+    safety_state_publisher_->publish(safety_state_msg_);
   }
-  
-  void 
-  HandleLifecycleNodeCallbacks(const ecat_msgs::msg::DataReceived::SharedPtr msg)
+
+  void HandleLifecycleNodeCallbacks(const ecat_msgs::msg::DataReceived::SharedPtr msg)
   {
-    lifecycle_node_data_ = *msg ; 
+    lifecycle_node_data_ = *msg;
   }
-  
-  void
-  init()
+
+  void init()
   {
-    client_get_state_ = this->create_client<lifecycle_msgs::srv::GetState>(
-      node_get_state_topic);
-    client_change_state_ = this->create_client<lifecycle_msgs::srv::ChangeState>(
-      node_change_state_topic);
+    client_get_state_ = this->create_client<lifecycle_msgs::srv::GetState>(node_get_state_topic);
+    client_change_state_ = this->create_client<lifecycle_msgs::srv::ChangeState>(node_change_state_topic);
   }
 
   /// Requests the current state of the node
@@ -192,8 +206,7 @@ public:
    * how long we wait for a response before returning
    * unknown state
    */
-  unsigned int
-  get_state()
+  unsigned int get_state()
   {
     // auto request = std::make_shared<lifecycle_msgs::srv::GetState::Request>();
     switch (lifecycle_node_data_.current_lifecycle_state)
@@ -214,14 +227,14 @@ public:
         return lifecycle_msgs::msg::State::PRIMARY_STATE_FINALIZED;
         break;
       case 10:
-        return lifecycle_msgs::msg::State::TRANSITION_STATE_CONFIGURING;    
+        return lifecycle_msgs::msg::State::TRANSITION_STATE_CONFIGURING;
         break;
       case 11:
         return lifecycle_msgs::msg::State::TRANSITION_STATE_CLEANINGUP;
-        break;      
+        break;
       case 12:
         return lifecycle_msgs::msg::State::TRANSITION_STATE_SHUTTINGDOWN;
-        break;    
+        break;
       case 13:
         return lifecycle_msgs::msg::State::TRANSITION_STATE_ACTIVATING;
         break;
@@ -230,7 +243,7 @@ public:
         break;
       case 15:
         return lifecycle_msgs::msg::State::TRANSITION_STATE_ERRORPROCESSING;
-        break;      
+        break;
       default:
         return lifecycle_msgs::msg::State::PRIMARY_STATE_UNKNOWN;
         break;
@@ -285,23 +298,21 @@ public:
    * how long we wait for a response before returning
    * unknown state
    */
-  
-  bool
-  change_state(std::uint8_t transition)
+
+  bool change_state(std::uint8_t transition)
   {
     auto request = std::make_shared<lifecycle_msgs::srv::ChangeState::Request>();
     request->transition.id = transition;
 
-    if (!client_change_state_->wait_for_service(3s)) {
-      RCLCPP_ERROR(
-        get_logger(),
-        "Change State : Service %s is not available.",
-        client_change_state_->get_service_name());
+    if (!client_change_state_->wait_for_service(3s))
+    {
+      RCLCPP_ERROR(get_logger(), "Change State : Service %s is not available.",
+                   client_change_state_->get_service_name());
       return false;
     }
 
     // // We send the request with the transition we want to invoke.
-    
+
     auto future_result = client_change_state_->async_send_request(request);
 
     // Let's wait until we have the answer from the node.
@@ -332,8 +343,7 @@ private:
   std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> client_change_state_;
 };
 
-void
-wake_executor(std::shared_future<void> future, rclcpp::executors::SingleThreadedExecutor & exec)
+void wake_executor(std::shared_future<void> future, rclcpp::executors::SingleThreadedExecutor& exec)
 {
   future.wait();
   // Wake the executor when the script is done
@@ -341,20 +351,21 @@ wake_executor(std::shared_future<void> future, rclcpp::executors::SingleThreaded
   exec.cancel();
 }
 
-void
-callee_script(std::shared_ptr<SafetyNode> safety_node)
+void callee_script(std::shared_ptr<SafetyNode> safety_node)
 {
   rclcpp::WallRate time_to_sleep(3s);  // 10s
-  while(true){
-    if(safety_node->button_request_){
+  while (true)
+  {
+    if (safety_node->button_request_)
+    {
       time_to_sleep.sleep();
       safety_node->state_ = safety_node->get_state();
-      safety_node->button_request_= 0 ;
+      safety_node->button_request_ = 0;
     }
   }
 }
 
-int main(int argc, char ** argv)
+int main(int argc, char** argv)
 {
   // force flush of the stdout buffer.
   // this ensures a correct sync of all prints
@@ -379,7 +390,7 @@ int main(int argc, char ** argv)
   exe.add_node(safety_node->get_node_base_interface());
   exe.spin();
 
-#endif 
+#endif
   rclcpp::shutdown();
 
   return 0;

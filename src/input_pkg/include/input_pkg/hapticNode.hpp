@@ -9,7 +9,7 @@
 #ifndef HAPTICNODE
 #define HAPTICNODE
 
-// CKim - SDL = Simple DirectMedia Layer is cross-platform development library designed 
+// CKim - SDL = Simple DirectMedia Layer is cross-platform development library designed
 // to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via
 // OpenGL and Direct3D.  Used for joystickinput processing here
 #include <SDL2/SDL.h>
@@ -26,16 +26,15 @@
 class HapticNode final : public rclcpp::Node  // keyword 'final' prevents further inheritance
 {
 public:
-
   // CKim - Keyword 'explicit' restricts implicit conversion
-  explicit HapticNode(char * argv[]);
-  
+  explicit HapticNode(char* argv[]);
+
   // CKim - Restrict copy constructors and assignment operator =
-  // keyword 'delete' tells these functions will not be implemented. 
-  HapticNode(HapticNode && c) = delete;
-  HapticNode & operator=(HapticNode && c) = delete;
-  HapticNode(const HapticNode & c) = delete;
-  HapticNode & operator=(const HapticNode & c) = delete;
+  // keyword 'delete' tells these functions will not be implemented.
+  HapticNode(HapticNode&& c) = delete;
+  HapticNode& operator=(HapticNode&& c) = delete;
+  HapticNode(const HapticNode& c) = delete;
+  HapticNode& operator=(const HapticNode& c) = delete;
 
   // CKim - Keyword 'override' tell compiler that this inherited function must be implemented
   ~HapticNode() override;
@@ -43,7 +42,7 @@ public:
 private:
   void commThread();
 
-  // CKim - C++ standard thread, 
+  // CKim - C++ standard thread,
   // std::future/shared_future and promise provides a mechanism to
   // control therad....
   std::thread comm_thread_;
@@ -62,6 +61,5 @@ private:
   // rclcpp::Subscription<sensor_msgs::msg::JoyFeedback>::SharedPtr feedback_sub_;
   // sensor_msgs::msg::Joy joy_msg_;
 };
-
 
 #endif  // JOY__JOY_HPP_

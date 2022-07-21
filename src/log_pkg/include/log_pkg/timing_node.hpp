@@ -38,27 +38,30 @@
 #include "ecat_msgs/msg/data_received.hpp"
 #include "rcutils/logging_macros.h"
 
-namespace Timing{
+namespace Timing
+{
+class TimingNode : public rclcpp::Node
+{
+public:
+  TimingNode();
+  ~TimingNode();
 
-class TimingNode:public rclcpp::Node{
-    public:
-        TimingNode();
-        ~TimingNode();
-    private:
-        void HandleReceivedDataCallback(const ecat_msgs::msg::DataReceived::SharedPtr msg);
-        void CalculateStatistics();
-        void PrintStatistics();
-    private:        
-        rclcpp::Subscription<ecat_msgs::msg::DataReceived>::SharedPtr received_data_sub_;
-        ecat_msgs::msg::DataReceived::SharedPtr received_data_;
-        rclcpp::TimerBase::SharedPtr statistics_timer_;
-        uint32_t period_min_ns_ = 0xffffffff;
-        uint32_t period_max_ns_ = 0;
-        uint32_t exec_min_ns_ = 0xffffffff; 
-        uint32_t exec_max_ns_ = 0;
-        int32_t jitter_min_ = 0xfffffff; 
-        int32_t jitter_max_ = 0; 
-        uint32_t print_begin_= 20;
+private:
+  void HandleReceivedDataCallback(const ecat_msgs::msg::DataReceived::SharedPtr msg);
+  void CalculateStatistics();
+  void PrintStatistics();
+
+private:
+  rclcpp::Subscription<ecat_msgs::msg::DataReceived>::SharedPtr received_data_sub_;
+  ecat_msgs::msg::DataReceived::SharedPtr received_data_;
+  rclcpp::TimerBase::SharedPtr statistics_timer_;
+  uint32_t period_min_ns_ = 0xffffffff;
+  uint32_t period_max_ns_ = 0;
+  uint32_t exec_min_ns_ = 0xffffffff;
+  uint32_t exec_max_ns_ = 0;
+  int32_t jitter_min_ = 0xfffffff;
+  int32_t jitter_max_ = 0;
+  uint32_t print_begin_ = 20;
 };
 
-}//namespace Timing
+}  // namespace Timing

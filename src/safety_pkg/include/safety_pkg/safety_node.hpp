@@ -30,7 +30,7 @@
  *****************************************************************************/
 /*****************************************************************************
  * \file  safety_node.hpp
- * \brief Header file for the Safety Node which is a manager node for the 
+ * \brief Header file for the Safety Node which is a manager node for the
  * EtherCAT life cycle node.
  * This header file contains required include for lifecycle management and safety
  * state data structure.
@@ -58,36 +58,37 @@
 using namespace std::chrono_literals;
 
 // which node to handle
-static constexpr char const * lifecycle_node = "ecat_node";
+static constexpr char const* lifecycle_node = "ecat_node";
 
 // Every lifecycle node has various services attached to it.
 // By convention, we use the format of <node name>/<service name>.
 // ecat_node/get_state
 // ecat_node/change_state
-static constexpr char const * node_get_state_topic    = "ecat_node/get_state";
-static constexpr char const * node_change_state_topic = "ecat_node/change_state";
+static constexpr char const* node_get_state_topic = "ecat_node/get_state";
+static constexpr char const* node_change_state_topic = "ecat_node/change_state";
 
-
-template<typename FutureT, typename WaitTimeT>
-std::future_status
-wait_for_result(
-  FutureT & future,
-  WaitTimeT time_to_wait)
+template <typename FutureT, typename WaitTimeT>
+std::future_status wait_for_result(FutureT& future, WaitTimeT time_to_wait)
 {
   auto end = std::chrono::steady_clock::now() + time_to_wait;
   std::chrono::milliseconds wait_period(100);
   std::future_status status = std::future_status::timeout;
-  do {
+  do
+  {
     auto now = std::chrono::steady_clock::now();
     auto time_left = end - now;
-    if (time_left <= std::chrono::milliseconds(0)) {break;}
+    if (time_left <= std::chrono::milliseconds(0))
+    {
+      break;
+    }
     status = future.wait_for((time_left < wait_period) ? time_left : wait_period);
   } while (status != std::future_status::ready);
   return status;
 }
 
-enum SafetyInfo{
-  kSafe=0,
+enum SafetyInfo
+{
+  kSafe = 0,
   kOverForce,
   kOverSpeed,
   kOverPositionLimit,

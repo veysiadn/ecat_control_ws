@@ -8,29 +8,30 @@
 
 #include "video_capture.hpp"
 
-namespace Ui {
+namespace Ui
+{
 class EndoscopeViewer;
 }
 
 class EndoscopeViewer : public QMainWindow
 {
-    Q_OBJECT
+  Q_OBJECT
 
 public:
-    explicit EndoscopeViewer(QWidget *parent = nullptr);
-    ~EndoscopeViewer();
+  explicit EndoscopeViewer(QWidget* parent = nullptr);
+  ~EndoscopeViewer();
 
 private slots:
 
-    void on_b_start_capture_clicked();
+  void on_b_start_capture_clicked();
 
-    void on_b_stop_capture_clicked();
+  void on_b_stop_capture_clicked();
 
-    void on_b_exit_clicked();
+  void on_b_exit_clicked();
 
 private:
-    Ui::EndoscopeViewer *ui;
-    VideoCapture* opencv_video_cap_;
+  Ui::EndoscopeViewer* ui;
+  VideoCapture* opencv_video_cap_;
 };
 
-#endif // ENDOSCOPE_VIEWER_HPP
+#endif  // ENDOSCOPE_VIEWER_HPP

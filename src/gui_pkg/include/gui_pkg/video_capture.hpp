@@ -53,32 +53,36 @@
  *  $ v4l2-ctl --list-devices
  * You can take your camera by taking the last digit in /dev/videoX
  * X will be your device ID.
-*/
+ */
 
 #include "gui_globals.hpp"
 
 class VideoCapture : public QThread
 {
-    Q_OBJECT
+  Q_OBJECT
 public:
-    VideoCapture(QObject *parent = nullptr);
-    QPixmap pixmap() const { return pixmap_cap;}
+  VideoCapture(QObject* parent = nullptr);
+  QPixmap pixmap() const
+  {
+    return pixmap_cap;
+  }
 signals:
-    //capture a frame
-    void NewPixmapCapture();
+  // capture a frame
+  void NewPixmapCapture();
+
 protected:
-    void run() override;
+  void run() override;
+
 private:
+  QPixmap pixmap_cap;          // Qt image
+  cv::Mat frame_cap;           // OpenCV image
+  cv::VideoCapture video_cap;  // video capture
 
-    QPixmap pixmap_cap;              //Qt image
-    cv::Mat frame_cap;               //OpenCV image
-    cv::VideoCapture video_cap;      //video capture
-
-    unsigned long frame_rate = 30;
-    uint8_t cam_id  = ID_CAMERA ; 
-    // Convert opencv readings to QImage && QPixmap format
-    QImage cvMatToQImage(const cv::Mat &inMat);
-    QPixmap cvMatToQPixmap(const cv::Mat &inMat );
+  unsigned long frame_rate = 30;
+  uint8_t cam_id = ID_CAMERA;
+  // Convert opencv readings to QImage && QPixmap format
+  QImage cvMatToQImage(const cv::Mat& inMat);
+  QPixmap cvMatToQPixmap(const cv::Mat& inMat);
 };
 
-#endif // MYVIDEOCAPTURE_H
+#endif  // MYVIDEOCAPTURE_H

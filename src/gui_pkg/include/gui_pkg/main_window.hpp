@@ -75,17 +75,19 @@ public:
 private:
   void DisableOtherModes(QPushButton* button, int index);
   void EnableAllModes(int index);
+
 private slots:
-  void on_send_clicked(int m_no);
-  void on_stop_clicked(int m_no);
-  void on_enable_clicked(int m_no);
-  void on_disable_clicked(int m_no);
-  void on_vel_clicked(int m_no);
-  void on_cyclic_vel_clicked(int m_no);
-  void on_pos_clicked(int m_no);
-  void on_cyclic_pos_clicked(int m_no);
-  void on_tor_clicked(int m_no);
-  void on_cyclic_tor_clicked(int m_no);
+
+  void b_send_clicked(int m_no);
+  void b_stop_clicked(int m_no);
+  void b_enable_clicked(int m_no);
+  void b_disable_clicked(int m_no);
+  void b_vel_clicked(int m_no);
+  void b_cyclic_vel_clicked(int m_no);
+  void b_pos_clicked(int m_no);
+  void b_cyclic_pos_clicked(int m_no);
+  void b_tor_clicked(int m_no);
+  void b_cyclic_tor_clicked(int m_no);
 
 private slots:
 
@@ -95,7 +97,7 @@ private slots:
 
   void on_b_enable_cyclic_pos_clicked();
 
-  void on_b_enable_cylic_vel_clicked();
+  void on_b_enable_cyclic_vel_clicked();
 
   void on_b_enable_vel_clicked();
 
@@ -114,8 +116,6 @@ private slots:
   void on_b_stop_cyclic_pdo_clicked();
 
   void on_b_emergency_mode_clicked();
-
-  void on_b_send_clicked();
 
 private:
   /**

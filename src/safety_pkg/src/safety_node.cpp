@@ -9,7 +9,7 @@ public:
     auto qos = rclcpp::QoS(rclcpp::KeepLast(1));
     qos.best_effort();
     gui_button_subscriber_ = this->create_subscription<ecat_msgs::msg::GuiButtonData>(
-        "gui_buttons", qos, std::bind(&SafetyNode::HandleGuiNodeCallbacks, this, std::placeholders::_1));
+        "gui_buttons", 10, std::bind(&SafetyNode::HandleGuiNodeCallbacks, this, std::placeholders::_1));
 
     /// Subscribtion for control node.
     /// Subscribtion for slave feedback values acquired from connected slaves.

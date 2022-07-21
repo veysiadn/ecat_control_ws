@@ -75,11 +75,6 @@ class GuiNode : public rclcpp::Node
 {
 private:
   /**
-   * @brief Publishes gui button value in specified interval.
-   */
-
-  void timer_callback();
-  /**
    * @brief Function will be used for subscribtion callbacks from controller node
    *        for Controller topic.
    *
@@ -131,7 +126,11 @@ private:
 public:
   GuiNode();
   virtual ~GuiNode();
+  /**
+   * @brief Publishes gui button value in specified interval.
+   */
 
+  void PublishGuiEvents();
 public:
   /// Received data structure to store all subscribed data.
   ecat_msgs::msg::DataReceived slave_feedback_data_;

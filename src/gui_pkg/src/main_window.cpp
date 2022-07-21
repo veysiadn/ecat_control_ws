@@ -9,16 +9,16 @@ MainWindow::MainWindow(int argc, char** argv, QWidget* parent)
   this->my_timer.start();
   for (int i = 0; i < g_kNumberOfServoDrivers; i++)
   {
-    connect(ui->b_send[i], &MyButton::buttonClicked, this, &MainWindow::on_send_clicked);
-    connect(ui->b_stop[i], SIGNAL(buttonClicked(int)), this, SLOT(on_stop_clicked(int)));
-    connect(ui->b_enable[i], SIGNAL(buttonClicked(int)), this, SLOT(on_enable_clicked(int)));
-    connect(ui->b_disable[i], SIGNAL(buttonClicked(int)), this, SLOT(on_disable_clicked(int)));
-    connect(ui->b_vel[i], SIGNAL(buttonClicked(int)), this, SLOT(on_vel_clicked(int)));
-    connect(ui->b_pos[i], SIGNAL(buttonClicked(int)), this, SLOT(on_cyclic_vel_clicked(int)));
-    connect(ui->b_tor[i], SIGNAL(buttonClicked(int)), this, SLOT(on_pos_clicked(int)));
-    connect(ui->b_cyclic_vel[i], SIGNAL(buttonClicked(int)), this, SLOT(on_cyclic_pos_clicked(int)));
-    connect(ui->b_cyclic_pos[i], SIGNAL(buttonClicked(int)), this, SLOT(on_tor_clicked(int)));
-    connect(ui->b_cyclic_tor[i], SIGNAL(buttonClicked(int)), this, SLOT(on_cyclic_tor_clicked(int)));
+    connect(ui->b_send[i], &MyButton::buttonClicked, this, &MainWindow::b_send_clicked);
+    connect(ui->b_stop[i], SIGNAL(buttonClicked(int)), this, SLOT(b_stop_clicked(int)));
+    connect(ui->b_enable[i], SIGNAL(buttonClicked(int)), this, SLOT(b_enable_clicked(int)));
+    connect(ui->b_disable[i], SIGNAL(buttonClicked(int)), this, SLOT(b_disable_clicked(int)));
+    connect(ui->b_vel[i], SIGNAL(buttonClicked(int)), this, SLOT(b_vel_clicked(int)));
+    connect(ui->b_pos[i], SIGNAL(buttonClicked(int)), this, SLOT(b_pos_clicked(int)));
+    connect(ui->b_tor[i], SIGNAL(buttonClicked(int)), this, SLOT(b_tor_clicked(int)));
+    connect(ui->b_cyclic_vel[i], SIGNAL(buttonClicked(int)), this, SLOT(b_cyclic_vel_clicked(int)));
+    connect(ui->b_cyclic_pos[i], SIGNAL(buttonClicked(int)), this, SLOT(b_cyclic_pos_clicked(int)));
+    connect(ui->b_cyclic_tor[i], SIGNAL(buttonClicked(int)), this, SLOT(b_cyclic_tor_clicked(int)));
   }
   connect(&my_timer, SIGNAL(timeout()), this, SLOT(UpdateGUI()));
   CallUnconfiguredStateUI();
@@ -53,7 +53,6 @@ void MainWindow::rosSpinThread()
 
 void MainWindow::UpdateGUI()
 {
-  // gui_node_->ui_control_buttons_.b_init_ecat = 0;
   //  Updating Additional GUI Part Veysi ADN
   ShowEmergencyStatus();
   ShowComStatus();
@@ -61,37 +60,115 @@ void MainWindow::UpdateGUI()
   ShowOperationMode();
 }
 
-void MainWindow::on_send_clicked(int m_no)
+void MainWindow::b_send_clicked(int m_no)
 {
-  ui->lb_target_vel[m_no]->setText(QString("Sent ") + QString::number(m_no + 1));
-  if (ui->b_send[m_no]->isChecked())
-    ui->lb_target_vel[m_no]->clear();
+  gui_node_->ui_control_buttons_.b_send[m_no] = 1;
+  gui_node_->ui_control_buttons_.spn_target_values[m_no] = ui->spn_target_val_[m_no]->value();
+  gui_node_->PublishGuiEvents();
 }
-void MainWindow::on_stop_clicked(int m_no)
+
+void MainWindow::b_stop_clicked(int m_no)
 {
-  ui->lb_target_vel[m_no]->setText(QString("Stopped ") + QString::number(m_no + 1));
+  gui_node_->ui_control_buttons_.b_stop[m_no] = 1;
+  gui_node_->PublishGuiEvents();
 }
-void MainWindow::on_enable_clicked(int m_no)
+
+void MainWindow::b_enable_clicked(int m_no)
 {
-  ui->lb_target_vel[m_no]->setText(QString("Enabled ") + QString::number(m_no + 1));
+  gui_node_->ui_control_buttons_.b_enable[m_no] = 1;
+  gui_node_->PublishGuiEvents();
 }
-void MainWindow::on_disable_clicked(int m_no)
+
+void MainWindow::b_disable_clicked(int m_no)
 {
-  ui->lb_target_vel[m_no]->setText(QString("Disabled ") + QString::number(m_no + 1));
+  gui_node_->ui_control_buttons_.b_disable[m_no] = 1;
+  gui_node_->PublishGuiEvents();
 }
-void MainWindow::on_vel_clicked(int m_no)
+
+void MainWindow::b_vel_clicked(int m_no)
 {
-  ui->lb_target_vel[m_no]->setText(QString("Vel Mode ") + QString::number(m_no + 1));
   if (ui->b_vel[m_no]->isChecked())
   {
     DisableOtherModes(ui->b_vel[m_no], m_no);
+    gui_node_->ui_control_buttons_.b_vel[m_no] = 1;
+    gui_node_->PublishGuiEvents();
   }
   else
   {
     EnableAllModes(m_no);
-    ui->lb_target_vel[m_no]->clear();
   }
 }
+
+void MainWindow::b_cyclic_vel_clicked(int m_no)
+{
+  if (ui->b_cyclic_vel[m_no]->isChecked())
+  {
+    DisableOtherModes(ui->b_cyclic_vel[m_no], m_no);
+    gui_node_->ui_control_buttons_.b_cyclic_vel[m_no] = 1;
+    gui_node_->PublishGuiEvents();
+  }
+  else
+  {
+    EnableAllModes(m_no);
+  }
+}
+
+void MainWindow::b_pos_clicked(int m_no)
+{
+  if (ui->b_pos[m_no]->isChecked())
+  {
+    DisableOtherModes(ui->b_pos[m_no], m_no);
+    gui_node_->ui_control_buttons_.b_pos[m_no] = 1;
+    gui_node_->PublishGuiEvents();
+  }
+  else
+  {
+    EnableAllModes(m_no);
+  }
+}
+
+void MainWindow::b_cyclic_pos_clicked(int m_no)
+{
+  if (ui->b_cyclic_pos[m_no]->isChecked())
+  {
+    DisableOtherModes(ui->b_cyclic_pos[m_no], m_no);
+    gui_node_->ui_control_buttons_.b_cyclic_pos[m_no] = 1;
+    gui_node_->PublishGuiEvents();
+  }
+  else
+  {
+    EnableAllModes(m_no);
+  }
+}
+
+void MainWindow::b_tor_clicked(int m_no)
+{
+  if (ui->b_tor[m_no]->isChecked())
+  {
+    DisableOtherModes(ui->b_tor[m_no], m_no);
+    gui_node_->ui_control_buttons_.b_tor[m_no] = 1;
+    gui_node_->PublishGuiEvents();
+  }
+  else
+  {
+    EnableAllModes(m_no);
+  }
+}
+
+void MainWindow::b_cyclic_tor_clicked(int m_no)
+{
+  if (ui->b_cyclic_tor[m_no]->isChecked())
+  {
+    DisableOtherModes(ui->b_cyclic_tor[m_no], m_no);
+    gui_node_->ui_control_buttons_.b_cyclic_tor[m_no] = 1;
+    gui_node_->PublishGuiEvents();
+  }
+  else
+  {
+    EnableAllModes(m_no);
+  }
+}
+
 void MainWindow::DisableOtherModes(QPushButton* button, int index)
 {
   ui->b_vel[index]->setDisabled(true);
@@ -105,158 +182,137 @@ void MainWindow::DisableOtherModes(QPushButton* button, int index)
 
 void MainWindow::EnableAllModes(int index)
 {
-  ui->b_vel[index]->setDisabled(false);
-  ui->b_pos[index]->setDisabled(false);
-  ui->b_tor[index]->setDisabled(false);
-  ui->b_cyclic_vel[index]->setDisabled(false);
-  ui->b_cyclic_pos[index]->setDisabled(false);
-  ui->b_cyclic_tor[index]->setDisabled(false);
-}
-void MainWindow::on_cyclic_vel_clicked(int m_no)
-{
-  ui->lb_target_vel[m_no]->setText(QString("Cyc Vel Mode ") + QString::number(m_no + 1));
-}
-void MainWindow::on_pos_clicked(int m_no)
-{
-  ui->lb_target_vel[m_no]->setText(QString("Pos Mode ") + QString::number(m_no + 1));
-}
-void MainWindow::on_cyclic_pos_clicked(int m_no)
-{
-  ui->lb_target_vel[m_no]->setText(QString("Cyc Pos Mode ") + QString::number(m_no + 1));
-}
-void MainWindow::on_tor_clicked(int m_no)
-{
-  ui->lb_target_vel[m_no]->setText(QString("Tor Mode ") + QString::number(m_no + 1));
-}
-void MainWindow::on_cyclic_tor_clicked(int m_no)
-{
-  ui->lb_target_vel[m_no]->setText(QString("Cyc Tor Mode ") + QString::number(m_no + 1));
+  ui->b_vel[index]->setEnabled(true);
+  ui->b_pos[index]->setEnabled(true);
+  ui->b_tor[index]->setEnabled(true);
+  ui->b_cyclic_vel[index]->setEnabled(true);
+  ui->b_cyclic_pos[index]->setEnabled(true);
+  ui->b_cyclic_tor[index]->setEnabled(true);
 }
 
 void MainWindow::SetDisabledStyleSheet(QPushButton* button)
 {
   button->setEnabled(false);
-  button->setStyleSheet(
-      "color: rgb(33, 33, 33);"
-      "background-color:gray;"
-      "font: bold 75 15pt;");
+  // button->setStyleSheet(
+  //     "color: rgb(33, 33, 33);"
+  //     "background-color:gray;"
+  //     "font: bold 75 15pt;");
 }
 
 void MainWindow::SetEnabledStyleSheetSDO(QPushButton* button)
 {
   button->setEnabled(true);
-  button->setStyleSheet(sdo_style_sheet_);
+  // button->setStyleSheet(sdo_style_sheet_);
 }
 
 void MainWindow::SetEnabledStyleSheetPDO(QPushButton* button)
 {
   button->setEnabled(true);
-  button->setStyleSheet(blue_style_sheet_);
+  // button->setStyleSheet(blue_style_sheet_);
 }
 
 void MainWindow::on_b_enable_cyclic_pos_clicked()
 {
   gui_node_->ui_control_buttons_.b_enable_cyclic_pos = 1;
-  // Todo : Disable buttons/ apply disable stylesheet.Make other buttons 0;
-  // this->setDisabledStyleSheet(ui->b_enable_cyclic_pos);
+  gui_node_->PublishGuiEvents();
 }
 
-void MainWindow::on_b_enable_cylic_vel_clicked()
+void MainWindow::on_b_enable_cyclic_vel_clicked()
 {
   gui_node_->ui_control_buttons_.b_enable_cyclic_vel = 1;
+  gui_node_->PublishGuiEvents();
 }
 
 void MainWindow::on_b_enable_vel_clicked()
 {
   gui_node_->ui_control_buttons_.b_enable_vel = 1;
+  gui_node_->PublishGuiEvents();
 }
 
 void MainWindow::on_b_enable_pos_clicked()
 {
   gui_node_->ui_control_buttons_.b_enable_pos = 1;
+  gui_node_->PublishGuiEvents();
 }
 
 void MainWindow::on_b_init_ecat_clicked()
 {
   gui_node_->ui_control_buttons_.b_init_ecat = 1;
+  gui_node_->PublishGuiEvents();
   int time_out_counter = 0;
   while ((gui_node_->slave_feedback_data_.current_lifecycle_state == kConfiguring ||
           gui_node_->slave_feedback_data_.current_lifecycle_state != kInactive) &&
          time_out_counter != 10)
   {
-    std::this_thread::sleep_for(std::chrono::seconds(1));
+    // std::this_thread::sleep_for(std::chrono::seconds(1));
     time_out_counter++;
   }
   if (gui_node_->slave_feedback_data_.current_lifecycle_state != kInactive)
-    return;
-  CallInactiveStateUI();
+    // return;
+    CallInactiveStateUI();
 }
 
 void MainWindow::on_b_reinit_ecat_clicked()
 {
   gui_node_->ui_control_buttons_.b_reinit_ecat = 1;
+  gui_node_->PublishGuiEvents();
   int time_out_counter = 0;
   while ((gui_node_->slave_feedback_data_.current_lifecycle_state == kCleaningUp ||
           gui_node_->slave_feedback_data_.current_lifecycle_state != kUnconfigured) &&
          time_out_counter != 10)
   {
-    std::this_thread::sleep_for(std::chrono::seconds(1));
+    // std::this_thread::sleep_for(std::chrono::seconds(1));
     time_out_counter++;
   }
   if (gui_node_->slave_feedback_data_.current_lifecycle_state != kUnconfigured)
-  {
-    gui_node_->ui_control_buttons_.b_reinit_ecat = 0;
-    return;
-  }
-  CallUnconfiguredStateUI();
+    // return;
+    CallUnconfiguredStateUI();
 }
 
 void MainWindow::on_b_enable_drives_clicked()
 {
   gui_node_->ui_control_buttons_.b_enable_drives = 1;
+  gui_node_->PublishGuiEvents();
 }
 
 void MainWindow::on_b_disable_drives_clicked()
 {
   gui_node_->ui_control_buttons_.b_disable_drives = 1;
+  gui_node_->PublishGuiEvents();
 }
 
 void MainWindow::on_b_enter_cyclic_pdo_clicked()
 {
   gui_node_->ui_control_buttons_.b_enter_cyclic_pdo = 1;
+  gui_node_->PublishGuiEvents();
   int time_out_counter = 0;
   while ((gui_node_->slave_feedback_data_.current_lifecycle_state == kActivating ||
           gui_node_->slave_feedback_data_.current_lifecycle_state != kActive) &&
          time_out_counter != 10)
   {
-    std::this_thread::sleep_for(std::chrono::seconds(1));
+    // std::this_thread::sleep_for(std::chrono::seconds(1));
     time_out_counter++;
   }
   if (gui_node_->slave_feedback_data_.current_lifecycle_state != kActive)
-  {
-    gui_node_->ui_control_buttons_.b_enter_cyclic_pdo = 0;
-    return;
-  }
-  CallActiveStateUI();
+    // return;
+    CallActiveStateUI();
 }
 
 void MainWindow::on_b_stop_cyclic_pdo_clicked()
 {
   gui_node_->ui_control_buttons_.b_stop_cyclic_pdo = 1;
+  gui_node_->PublishGuiEvents();
   int time_out_counter = 0;
   while ((gui_node_->slave_feedback_data_.current_lifecycle_state == kDeactivating ||
           gui_node_->slave_feedback_data_.current_lifecycle_state != kInactive) &&
          time_out_counter != 10)
   {
-    std::this_thread::sleep_for(std::chrono::seconds(1));
+    // std::this_thread::sleep_for(std::chrono::seconds(1));
     time_out_counter++;
   }
   if (gui_node_->slave_feedback_data_.current_lifecycle_state != kInactive)
-  {
-    gui_node_->ui_control_buttons_.b_stop_cyclic_pdo = 0;
-    return;
-  }
-  CallInactiveStateUI();
+    // return;
+    CallInactiveStateUI();
 }
 
 void MainWindow::on_b_emergency_mode_clicked()
@@ -265,6 +321,7 @@ void MainWindow::on_b_emergency_mode_clicked()
   {
     em_state_ = 1;
     gui_node_->ui_control_buttons_.b_emergency_mode = 1;
+    gui_node_->PublishGuiEvents();
     ui->b_emergency_mode->setText("RESET");
     ui->b_emergency_mode->setStyleSheet(
         "QPushButton:pressed {"
@@ -279,6 +336,7 @@ void MainWindow::on_b_emergency_mode_clicked()
   else
   {
     gui_node_->ui_control_buttons_.b_emergency_mode = 0;
+    gui_node_->PublishGuiEvents();
     em_state_ = 0;
     ui->b_emergency_mode->setText("Emergency Mode");
     ui->b_emergency_mode->setStyleSheet(
@@ -288,26 +346,6 @@ void MainWindow::on_b_emergency_mode_clicked()
         "color: rgb(255, 255, 255);"
         "background-color: rgb(252, 0, 0);"
         "font: bold 75 15pt \"Noto Sans\";}");
-  }
-}
-
-void MainWindow::on_b_send_clicked()
-{
-  gui_node_->ui_control_buttons_.b_send = 1;
-  for (int i = 0; i < g_kNumberOfServoDrivers; i++)
-  {
-    switch (i)
-    {
-      case 0:
-        // gui_node_->ui_control_buttons_.spn_target_values[i] = static_cast<int> (ui->spn_target_val_1->value());
-        break;
-      case 1:
-        // gui_node_->ui_control_buttons_.spn_target_values[i] = static_cast<int> (ui->spn_target_val_2->value());
-        break;
-      case 2:
-        // gui_node_->ui_control_buttons_.spn_target_values[i] = static_cast<int> (ui->spn_target_val_3->value());
-        break;
-    }
   }
 }
 
@@ -323,111 +361,119 @@ void MainWindow::ResetControlButtonValues(unsigned char& button_val)
   gui_node_->ui_control_buttons_.b_enable_pos = 0;
   gui_node_->ui_control_buttons_.b_enter_cyclic_pdo = 0;
   gui_node_->ui_control_buttons_.b_emergency_mode = 0;
-  gui_node_->ui_control_buttons_.b_send = 0;
   gui_node_->ui_control_buttons_.b_stop_cyclic_pdo = 0;
   button_val = 1;
 }
 
 void MainWindow::CallUnconfiguredStateUI()
 {
-  // SetEnabledStyleSheetPDO(ui->b_init_ecat);
-  // SetDisabledStyleSheet(ui->b_reinit_ecat);
-  // SetDisabledStyleSheet(ui->b_enter_cyclic_pdo);
-  // SetDisabledStyleSheet(ui->b_stop_cyclic_pdo);
-  // SetDisabledStyleSheet(ui->b_enable_drives);
-  // SetDisabledStyleSheet(ui->b_disable_drives);
-  // SetDisabledStyleSheet(ui->b_send);
-  // SetDisabledStyleSheet(ui->b_enable_cyclic_pos);
-  // SetDisabledStyleSheet(ui->b_enable_cylic_vel);
-  // SetDisabledStyleSheet(ui->b_enable_pos);
-  // SetDisabledStyleSheet(ui->b_enable_vel);
+  SetEnabledStyleSheetPDO(ui->b_init_ecat);
+  SetDisabledStyleSheet(ui->b_reinit_ecat);
+  SetDisabledStyleSheet(ui->b_enter_cyclic_pdo);
+  SetDisabledStyleSheet(ui->b_stop_cyclic_pdo);
+  SetDisabledStyleSheet(ui->b_enable_drives);
+  SetDisabledStyleSheet(ui->b_disable_drives);
+  SetDisabledStyleSheet(ui->b_enable_cyclic_pos);
+  SetDisabledStyleSheet(ui->b_enable_cyclic_vel);
+  SetDisabledStyleSheet(ui->b_enable_pos);
+  SetDisabledStyleSheet(ui->b_enable_vel);
+  SetDisabledStyleSheet(ui->b_enable_torque);
+  SetDisabledStyleSheet(ui->b_enable_cyclic_torque);
+  SetDisabledStyleSheet(ui->b_clear_fault);
 
-  // ui->lb_actual_pos_m1->setText("0");
-  // ui->lb_actual_pos_m2->setText("0");
-  // ui->lb_actual_pos_m3->setText("0");
+  for (int i = 0; i < g_kNumberOfServoDrivers; i++)
+  {
+    SetDisabledStyleSheet(ui->b_send[i]);
+    SetDisabledStyleSheet(ui->b_stop[i]);
+    SetDisabledStyleSheet(ui->b_enable[i]);
+    SetDisabledStyleSheet(ui->b_disable[i]);
+    SetDisabledStyleSheet(ui->b_disable[i]);
+    SetDisabledStyleSheet(ui->b_vel[i]);
+    SetDisabledStyleSheet(ui->b_pos[i]);
+    SetDisabledStyleSheet(ui->b_tor[i]);
+    SetDisabledStyleSheet(ui->b_cyclic_vel[i]);
+    SetDisabledStyleSheet(ui->b_cyclic_pos[i]);
+    SetDisabledStyleSheet(ui->b_cyclic_tor[i]);
 
-  // ui->lb_target_pos_m1->setText("0");
-  // ui->lb_target_pos_m2->setText("0");
-  // ui->lb_target_pos_m3->setText("0");
-
-  // ui->lb_actual_vel_m1->setText("0");
-  // ui->lb_actual_vel_m2->setText("0");
-  // ui->lb_actual_vel_m3->setText("0");
-
-  // ui->lb_target_vel_m1->setText("0");
-  // ui->lb_target_vel_m2->setText("0");
-  // ui->lb_target_vel_m3->setText("0");
-
-  // ui->lb_actual_tor_m1->setText("0");
-  // ui->lb_actual_tor_m2->setText("0");
-  // ui->lb_actual_tor_m3->setText("0");
-
-  // ui->lb_target_tor_m1->setText("0");
-  // ui->lb_target_tor_m2->setText("0");
-  // ui->lb_target_tor_m3->setText("0");
-
-  // ui->lb_status_word_m1->setText("NOT READY");
-  // ui->lb_control_word_m1->setText("0");
-
-  // ui->lb_status_word_m2->setText("NOT READY");
-  // ui->lb_control_word_m2->setText("0");
-
-  // ui->lb_status_word_m3->setText("NOT READY");
-  // ui->lb_control_word_m3->setText("0");
-
-  // ui->lb_op_mode_m1->setText("Not Selected");
-  // ui->lb_op_mode_m2->setText("Not Selected");
-  // ui->lb_op_mode_m3->setText("Not Selected");
+    ui->lb_actual_pos[i]->setText("0");
+    ui->lb_target_pos[i]->setText("0");
+    ui->lb_actual_vel[i]->setText("0");
+    ui->lb_target_vel[i]->setText("0");
+    ui->lb_actual_tor[i]->setText("0");
+    ui->lb_target_tor[i]->setText("0");
+    ui->lb_status_word[i]->setText("NOT READY");
+    ui->lb_control_word[i]->setText("0");
+    ui->lb_op_mode[i]->setText("Not Selected");
+  }
 }
 
 void MainWindow::CallInactiveStateUI()
 {
-  // SetDisabledStyleSheet(ui->b_init_ecat);
-  // SetDisabledStyleSheet(ui->b_stop_cyclic_pdo);
+  SetDisabledStyleSheet(ui->b_init_ecat);
+  SetDisabledStyleSheet(ui->b_stop_cyclic_pdo);
 
-  // SetEnabledStyleSheetPDO(ui->b_reinit_ecat);
-  // SetEnabledStyleSheetPDO(ui->b_enter_cyclic_pdo);
+  SetEnabledStyleSheetPDO(ui->b_reinit_ecat);
+  SetEnabledStyleSheetPDO(ui->b_enter_cyclic_pdo);
+  SetEnabledStyleSheetSDO(ui->b_enable_drives);
+  SetEnabledStyleSheetSDO(ui->b_disable_drives);
+  SetEnabledStyleSheetSDO(ui->b_enable_vel);
+  SetEnabledStyleSheetSDO(ui->b_enable_pos);
+  SetEnabledStyleSheetSDO(ui->b_enable_torque);
+  SetEnabledStyleSheetSDO(ui->b_enable_cyclic_vel);
+  SetEnabledStyleSheetSDO(ui->b_enable_cyclic_pos);
+  SetEnabledStyleSheetSDO(ui->b_enable_cyclic_torque);
+  SetEnabledStyleSheetSDO(ui->b_clear_fault);
 
-  // SetEnabledStyleSheetSDO(ui->b_enable_drives);
-  // SetEnabledStyleSheetSDO(ui->b_disable_drives);
-  // SetEnabledStyleSheetSDO(ui->b_send);
-  // SetEnabledStyleSheetSDO(ui->b_enable_cyclic_pos);
-  // SetEnabledStyleSheetSDO(ui->b_enable_cylic_vel);
-  // SetEnabledStyleSheetSDO(ui->b_enable_pos);
-  // SetEnabledStyleSheetSDO(ui->b_enable_vel);
+  for (int i = 0; i < g_kNumberOfServoDrivers; i++)
+  {
+    SetEnabledStyleSheetSDO(ui->b_send[i]);
+    SetEnabledStyleSheetSDO(ui->b_stop[i]);
+    SetEnabledStyleSheetSDO(ui->b_enable[i]);
+    SetEnabledStyleSheetSDO(ui->b_disable[i]);
+    SetEnabledStyleSheetSDO(ui->b_vel[i]);
+    SetEnabledStyleSheetSDO(ui->b_pos[i]);
+    SetEnabledStyleSheetSDO(ui->b_tor[i]);
+    SetEnabledStyleSheetSDO(ui->b_cyclic_vel[i]);
+    SetEnabledStyleSheetSDO(ui->b_cyclic_pos[i]);
+    SetEnabledStyleSheetSDO(ui->b_cyclic_tor[i]);
+  }
 }
 
 void MainWindow::CallActiveStateUI()
 {
-  // SetEnabledStyleSheetPDO(ui->b_stop_cyclic_pdo);
-  // SetEnabledStyleSheetPDO(ui->b_enter_cyclic_pdo);
+  SetEnabledStyleSheetPDO(ui->b_stop_cyclic_pdo);
+  SetDisabledStyleSheet(ui->b_enter_cyclic_pdo);
+  SetDisabledStyleSheet(ui->b_init_ecat);
+  SetDisabledStyleSheet(ui->b_reinit_ecat);
+  SetDisabledStyleSheet(ui->b_enable_drives);
+  SetDisabledStyleSheet(ui->b_disable_drives);
+  SetDisabledStyleSheet(ui->b_enable_pos);
+  SetDisabledStyleSheet(ui->b_enable_vel);
+  SetDisabledStyleSheet(ui->b_enable_torque);
+  SetDisabledStyleSheet(ui->b_enable_cyclic_vel);
+  SetDisabledStyleSheet(ui->b_enable_cyclic_pos);
+  SetDisabledStyleSheet(ui->b_enable_cyclic_torque);
+  SetDisabledStyleSheet(ui->b_clear_fault);
 
-  // SetDisabledStyleSheet(ui->b_init_ecat);
-  // SetDisabledStyleSheet(ui->b_reinit_ecat);
-  // SetDisabledStyleSheet(ui->b_enable_drives);
-  // SetDisabledStyleSheet(ui->b_disable_drives);
-  // SetDisabledStyleSheet(ui->b_send);
-  // SetDisabledStyleSheet(ui->b_enable_cyclic_pos);
-  // SetDisabledStyleSheet(ui->b_enable_cylic_vel);
-  // SetDisabledStyleSheet(ui->b_enable_pos);
-  // SetDisabledStyleSheet(ui->b_enable_vel);
+  for (int i = 0; i < g_kNumberOfServoDrivers; i++)
+  {
+    SetDisabledStyleSheet(ui->b_send[i]);
+    SetDisabledStyleSheet(ui->b_stop[i]);
+    SetDisabledStyleSheet(ui->b_enable[i]);
+    SetDisabledStyleSheet(ui->b_disable[i]);
+    SetDisabledStyleSheet(ui->b_vel[i]);
+    SetDisabledStyleSheet(ui->b_pos[i]);
+    SetDisabledStyleSheet(ui->b_tor[i]);
+    SetDisabledStyleSheet(ui->b_cyclic_vel[i]);
+    SetDisabledStyleSheet(ui->b_cyclic_pos[i]);
+    SetDisabledStyleSheet(ui->b_cyclic_tor[i]);
+  }
 }
-
+/// TODO: Implement this function
 void MainWindow::ShowEmergencyStatus()
 {
   QString qstr;
-  if (!gui_node_->slave_feedback_data_.emergency_switch_val)
-  {
-    // SetDisabledStyleSheet(ui->b_emergency_mode);
-  }
-  else
-  {
-    // if(!ui->b_emergency_mode->isEnabled()){
-    //     ui->b_emergency_mode->setEnabled(true);
-    //     ui->b_emergency_mode->setStyleSheet(red_style_sheet);
-    // }
-  }
-  if (gui_node_->slave_feedback_data_.emergency_switch_val && !gui_node_->ui_control_buttons_.b_emergency_mode)
+  if (!gui_node_->ui_control_buttons_.b_emergency_mode)
   {
     QTextStream(&qstr) << "IDLE";
     // ui->lb_emergency_status->setText(qstr);
@@ -451,50 +497,55 @@ void MainWindow::ShowComStatus()
 {
   QString qstr;
   int state = gui_node_->slave_feedback_data_.com_status;
-  if (state == 0x08)
+  if (state == EC_AL_STATE_OP)
   {
     QTextStream(&qstr) << "OPERATIONAL";
-    // ui->lb_com_status->setText(qstr);
-    // ui->lb_com_status->setStyleSheet("QLabel{background:green;"
-    //                                  "color:white;"
-    //                                  "font:bold 75 12pt \"Noto Sans\";}");
+    ui->lb_com_status->setText(qstr);
+    ui->lb_com_status->setStyleSheet(
+        "QLabel{background:green;"
+        "color:white;"
+        "font:bold 75 12pt \"Noto Sans\";}");
     qstr.clear();
   }
-  else if (state == 0x04)
+  else if (state == EC_AL_STATE_SAFEOP)
   {
-    // QTextStream(&qstr) << "SAFE OPERATIONAL";
-    // ui->lb_com_status->setText(qstr);
-    // ui->lb_com_status->setStyleSheet("QLabel{background:yellow;"
-    //                                  "color:black;"
-    //                                  "font:bold 75 12pt \"Noto Sans\";}");
-    // qstr.clear();
+    QTextStream(&qstr) << "SAFE OPERATIONAL";
+    ui->lb_com_status->setText(qstr);
+    ui->lb_com_status->setStyleSheet(
+        "QLabel{background:yellow;"
+        "color:black;"
+        "font:bold 75 12pt \"Noto Sans\";}");
+    qstr.clear();
   }
-  else if (state == 0x02)
+  else if (state == EC_AL_STATE_PREOP)
   {
-    // QTextStream(&qstr) << "PRE OPERATIONAL";
-    // ui->lb_com_status->setText(qstr);
-    // ui->lb_com_status->setStyleSheet("QLabel{background:yellow;"
-    //                                  "color:black;"
-    //                                  "font:bold 75 12pt \"Noto Sans\";}");
-    // qstr.clear();
+    QTextStream(&qstr) << "PRE OPERATIONAL";
+    ui->lb_com_status->setText(qstr);
+    ui->lb_com_status->setStyleSheet(
+        "QLabel{background:yellow;"
+        "color:black;"
+        "font:bold 75 12pt \"Noto Sans\";}");
+    qstr.clear();
   }
-  else if (state == 0x01 && state == 0)
+  else if (state == EC_AL_STATE_INIT)
   {
-    // QTextStream(&qstr) << "INIT";
-    // ui->lb_com_status->setText(qstr);
-    // ui->lb_com_status->setStyleSheet("QLabel{background:red;"
-    //                                  "color:white;"
-    //                                  "font:bold 75 12pt \"Noto Sans\";}");
-    // qstr.clear();
+    QTextStream(&qstr) << "INIT";
+    ui->lb_com_status->setText(qstr);
+    ui->lb_com_status->setStyleSheet(
+        "QLabel{background:red;"
+        "color:white;"
+        "font:bold 75 12pt \"Noto Sans\";}");
+    qstr.clear();
   }
   else
   {
-    // QTextStream(&qstr) << "NO CONNECTION";
-    // ui->lb_com_status->setText(qstr);
-    // ui->lb_com_status->setStyleSheet("QLabel{background:red;"
-    //                                  "color:white;"
-    //                                  "font:bold 75 12pt \"Noto Sans\";}");
-    // qstr.clear();
+    QTextStream(&qstr) << "NO CONNECTION";
+    ui->lb_com_status->setText(qstr);
+    ui->lb_com_status->setStyleSheet(
+        "QLabel{background:red;"
+        "color:white;"
+        "font:bold 75 12pt \"Noto Sans\";}");
+    qstr.clear();
   }
 }
 
@@ -503,152 +554,37 @@ void MainWindow::ShowAllMotorStatus()
   QString qstr;
   for (int i = 0; i < g_kNumberOfServoDrivers; i++)
   {
-    switch (i)
-    {
-      case 0:
-        QTextStream(&qstr) << gui_node_->master_command_data_.target_vel[i];
-        // ui->lb_target_vel_m1->setText(qstr);
-        /*  ui->line_target_velocity_m1->setStyleSheet("QLabel{background:white;"
-                                                  "color:black;"
-                                                  "font:bold 75 12pt \"Noto Sans\";}");*/
-        qstr.clear();
+    // Target vel.
+    QTextStream(&qstr) << gui_node_->master_command_data_.target_vel[i];
+    ui->lb_target_vel[i]->setText(qstr);
+    qstr.clear();
+    // Actual vel
+    QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_vel[i];
+    ui->lb_actual_vel[i]->setText(qstr);
+    qstr.clear();
+    // Target pos
+    QTextStream(&qstr) << gui_node_->master_command_data_.target_pos[i];
+    ui->lb_target_pos[i]->setText(qstr);
+    qstr.clear();
+    // Actual Pos
+    QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_pos[i];
+    ui->lb_actual_pos[i]->setText(qstr);
+    qstr.clear();
+    // Target torque
+    QTextStream(&qstr) << gui_node_->master_command_data_.target_tor[i];
+    ui->lb_target_tor[i]->setText(qstr);
+    qstr.clear();
+    // Actual torque
+    QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_tor[i];
+    ui->lb_actual_tor[i]->setText(qstr);
+    qstr.clear();
 
-        QTextStream(&qstr) << gui_node_->master_command_data_.control_word[i];
-        // ui->lb_control_word_m1->setText(qstr);
-        qstr.clear();
+    QTextStream(&qstr) << gui_node_->master_command_data_.control_word[i];
+    ui->lb_control_word[i]->setText(qstr);
+    qstr.clear();
 
-        QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_vel[i];
-        // ui->lb_actual_vel_m1->setText(qstr);
-        qstr.clear();
-
-        qstr = GetReadableStatusWord(i);
-
-        qstr.clear();
-
-        QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_pos[i];
-        // ui->lb_actual_pos_m1->setText(qstr);
-        qstr.clear();
-
-        QTextStream(&qstr) << gui_node_->master_command_data_.target_pos[i];
-        // ui->lb_target_pos_m1->setText(qstr);
-        qstr.clear();
-
-        QTextStream(&qstr) << gui_node_->master_command_data_.target_tor[i];
-        // ui->lb_target_tor_m1->setText(qstr);
-        qstr.clear();
-
-        QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_tor[i];
-        // ui->lb_actual_tor_m1->setText(qstr);
-        qstr.clear();
-
-        break;
-      case 1:
-        QTextStream(&qstr) << gui_node_->master_command_data_.target_vel[i];
-        // ui->lb_target_vel_m2->setText(qstr);
-        /*  ui->line_target_velocity_m2->setStyleSheet("QLabel{background:white;"
-                                                  "color:black;"
-                                                  "font:bold 75 12pt \"Noto Sans\";}");*/
-        qstr.clear();
-
-        QTextStream(&qstr) << gui_node_->master_command_data_.control_word[i];
-        // ui->lb_control_word_m2->setText(qstr);
-        qstr.clear();
-
-        QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_vel[i];
-        // ui->lb_actual_vel_m2->setText(qstr);
-        qstr.clear();
-
-        qstr = GetReadableStatusWord(i);
-
-        qstr.clear();
-
-        QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_pos[i];
-        // ui->lb_actual_pos_m2->setText(qstr);
-        qstr.clear();
-
-        QTextStream(&qstr) << gui_node_->master_command_data_.target_pos[i];
-        // ui->lb_target_pos_m2->setText(qstr);
-        qstr.clear();
-
-        QTextStream(&qstr) << gui_node_->master_command_data_.target_tor[i];
-        // ui->lb_target_tor_m2->setText(qstr);
-        qstr.clear();
-
-        QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_tor[i];
-        // ui->lb_actual_tor_m2->setText(qstr);
-        qstr.clear();
-        break;
-      case 2:
-        QTextStream(&qstr) << gui_node_->master_command_data_.target_vel[i];
-        // ui->lb_target_vel_m3->setText(qstr);
-        /*  ui->line_target_velocity_m3->setStyleSheet("QLabel{background:white;"
-                                                  "color:black;"
-                                                  "font:bold 75 12pt \"Noto Sans\";}");*/
-        qstr.clear();
-
-        QTextStream(&qstr) << gui_node_->master_command_data_.control_word[i];
-        // ui->lb_control_word_m3->setText(qstr);
-        qstr.clear();
-
-        QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_vel[i];
-        // ui->lb_actual_vel_m3->setText(qstr);
-        qstr.clear();
-
-        qstr = GetReadableStatusWord(i);
-
-        qstr.clear();
-
-        QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_pos[i];
-        // ui->lb_actual_pos_m3->setText(qstr);
-        qstr.clear();
-
-        QTextStream(&qstr) << gui_node_->master_command_data_.target_pos[i];
-        // ui->lb_target_pos_m3->setText(qstr);
-        qstr.clear();
-
-        QTextStream(&qstr) << gui_node_->master_command_data_.target_tor[i];
-        // ui->lb_target_tor_m3->setText(qstr);
-        qstr.clear();
-
-        QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_tor[i];
-        // ui->lb_actual_tor_m3->setText(qstr);
-        qstr.clear();
-        break;
-      default:
-        // ui->lb_actual_pos_m1->setText("0");
-        // ui->lb_actual_pos_m2->setText("0");
-        // ui->lb_actual_pos_m3->setText("0");
-
-        // ui->lb_target_pos_m1->setText("0");
-        // ui->lb_target_pos_m2->setText("0");
-        // ui->lb_target_pos_m3->setText("0");
-
-        // ui->lb_actual_vel_m1->setText("0");
-        // ui->lb_actual_vel_m2->setText("0");
-        // ui->lb_actual_vel_m3->setText("0");
-
-        // ui->lb_target_vel_m1->setText("0");
-        // ui->lb_target_vel_m2->setText("0");
-        // ui->lb_target_vel_m3->setText("0");
-
-        // ui->lb_actual_tor_m1->setText("0");
-        // ui->lb_actual_tor_m2->setText("0");
-        // ui->lb_actual_tor_m3->setText("0");
-
-        // ui->lb_target_tor_m1->setText("0");
-        // ui->lb_target_tor_m2->setText("0");
-        // ui->lb_target_tor_m3->setText("0");
-
-        // ui->lb_status_word_m1->setText("NOT READY");
-        // ui->lb_control_word_m1->setText("0");
-
-        // ui->lb_status_word_m2->setText("NOT READY");
-        // ui->lb_control_word_m2->setText("0");
-
-        // ui->lb_status_word_m3->setText("NOT READY");
-        // ui->lb_control_word_m3->setText("0");
-        break;
-    }
+    qstr = GetReadableStatusWord(i);
+    qstr.clear();
   }
 }
 
@@ -707,37 +643,29 @@ void MainWindow::ShowOperationMode()
   {
     switch (gui_node_->slave_feedback_data_.op_mode_display[i])
     {
-      case kCSPosition:
-        QTextStream(&qstr) << "Cyclic Sync Position";
-        // ui->lb_op_mode_m1->setText(qstr);
-        // ui->lb_op_mode_m2->setText(qstr);
-        // ui->lb_op_mode_m3->setText(qstr);
-        break;
-      case kCSVelocity:
-        QTextStream(&qstr) << "Cyclic Sync Velocity";
-        // ui->lb_op_mode_m1->setText(qstr);
-        // ui->lb_op_mode_m2->setText(qstr);
-        // ui->lb_op_mode_m3->setText(qstr);
+      case kProfileVelocity:
+        QTextStream(&qstr) << "Velocity";
         break;
       case kProfilePosition:
-        QTextStream(&qstr) << "Profile Position";
-        // ui->lb_op_mode_m1->setText(qstr);
-        // ui->lb_op_mode_m2->setText(qstr);
-        // ui->lb_op_mode_m3->setText(qstr);
+        QTextStream(&qstr) << "Position";
         break;
-      case kProfileVelocity:
-        QTextStream(&qstr) << "Profile Velocity";
-        // ui->lb_op_mode_m1->setText(qstr);
-        // ui->lb_op_mode_m2->setText(qstr);
-        // ui->lb_op_mode_m3->setText(qstr);
+      case kProfileTorque:
+        QTextStream(&qstr) << "Torque";
+        break;
+      case kCSVelocity:
+        QTextStream(&qstr) << "CSV";
+        break;
+      case kCSPosition:
+        QTextStream(&qstr) << "CSP";
+        break;
+      case kCSTorque:
+        QTextStream(&qstr) << "CST";
         break;
       default:
         QTextStream(&qstr) << "Not Selected";
-        // ui->lb_op_mode_m1->setText(qstr);
-        // ui->lb_op_mode_m2->setText(qstr);
-        // ui->lb_op_mode_m3->setText(qstr);
         break;
     }
+    ui->lb_op_mode[i]->setText(qstr);
     qstr.clear();
   }
 }
@@ -745,139 +673,97 @@ void MainWindow::ShowOperationMode()
 QString MainWindow::GetReadableStatusWord(int index)
 {
   QString qstr;
+  qstr.clear();
   if (GetDriveStates(gui_node_->slave_feedback_data_.status_word[index]) == kOperationEnabled)
   {
-    if (gui_node_->slave_feedback_data_.op_mode_display[index] == kProfilePosition ||
-        gui_node_->slave_feedback_data_.op_mode_display[index] == kCSPosition)
+    if (gui_node_->slave_feedback_data_.op_mode_display[index] == kProfilePosition)
     {
       if (TEST_BIT(gui_node_->slave_feedback_data_.status_word[index], 10))
       {
         QTextStream(&qstr) << "READY";
-        switch (index)
-        {
-          case 0:
-            // ui->lb_status_word_m1->setText(qstr);
-            // ui->lb_status_word_m1->setStyleSheet("QLabel{background:green;"
-            //                                      "color:black;"
-            //                                      "font:bold 75 12pt \"Noto Sans\";}");
-            break;
-          case 1:
-            // ui->lb_status_word_m2->setText(qstr);
-            // ui->lb_status_word_m2->setStyleSheet("QLabel{background:green;"
-            //                                      "color:black;"
-            //                                      "font:bold 75 12pt \"Noto Sans\";}");
-            break;
-          case 2:
-            // ui->lb_status_word_m3->setText(qstr);
-            // ui->lb_status_word_m3->setStyleSheet("QLabel{background:green;"
-            //                                      "color:black;"
-            //                                      "font:bold 75 12pt \"Noto Sans\";}");
-            break;
-          default:
-            break;
-        }
+        ui->lb_status_word[index]->setText(qstr);
+        ui->lb_status_word[index]->setStyleSheet(
+            "QLabel{background:green;"
+            "color:black;"
+            "font:bold 75 12pt \"Noto Sans\";}");
       }
       else
       {
         QTextStream(&qstr) << "MOVING";
-        switch (index)
-        {
-          case 0:
-            // ui->lb_status_word_m1->setText(qstr);
-            // ui->lb_status_word_m1->setStyleSheet("QLabel{background:yellow;"
-            //                                      "color:black;"
-            //                                      "font:bold 75 12pt \"Noto Sans\";}");
-            break;
-          case 1:
-            // ui->lb_status_word_m2->setText(qstr);
-            // ui->lb_status_word_m2->setStyleSheet("QLabel{background:yellow;"
-            //                                      "color:black;"
-            //                                      "font:bold 75 12pt \"Noto Sans\";}");
-            break;
-          case 2:
-            // ui->lb_status_word_m3->setText(qstr);
-            // ui->lb_status_word_m3->setStyleSheet("QLabel{background:yellow;"
-            //                                      "color:black;"
-            //                                      "font:bold 75 12pt \"Noto Sans\";}");
-            break;
-          default:
-            break;
-        }
+        ui->lb_status_word[index]->setText(qstr);
+        ui->lb_status_word[index]->setStyleSheet(
+            "QLabel{background:yellow;"
+            "color:black;"
+            "font:bold 75 12pt \"Noto Sans\";}");
       }
     }
-    else
+    else if (gui_node_->slave_feedback_data_.op_mode_display[index] == kProfileVelocity)
     {
       if (TEST_BIT(gui_node_->slave_feedback_data_.status_word[index], 12))
       {
         QTextStream(&qstr) << "READY";
-        switch (index)
-        {
-          case 0:
-            // ui->lb_status_word_m1->setText(qstr);
-            // ui->lb_status_word_m1->setStyleSheet("QLabel{background:green;"
-            //                                      "color:black;"
-            //                                      "font:bold 75 12pt \"Noto Sans\";}");
-            break;
-          case 1:
-            // ui->lb_status_word_m2->setText(qstr);
-            // ui->lb_status_word_m2->setStyleSheet("QLabel{background:green;"
-            //                                      "color:black;"
-            //                                      "font:bold 75 12pt \"Noto Sans\";}");
-            break;
-          case 2:
-            // ui->lb_status_word_m3->setText(qstr);
-            // ui->lb_status_word_m3->setStyleSheet("QLabel{background:green;"
-            //                                      "color:black;"
-            //                                      "font:bold 75 12pt \"Noto Sans\";}");
-            break;
-          default:
-            break;
-        }
+
+        ui->lb_status_word[index]->setText(qstr);
+        ui->lb_status_word[index]->setStyleSheet(
+            "QLabel{background:green;"
+            "color:black;"
+            "font:bold 75 12pt \"Noto Sans\";}");
       }
       else
       {
         QTextStream(&qstr) << "MOVING";
-        switch (index)
-        {
-          case 0:
-            // ui->lb_status_word_m1->setText(qstr);
-            // ui->lb_status_word_m1->setStyleSheet("QLabel{background:yellow;"
-            //                                      "color:black;"
-            //                                      "font:bold 75 12pt \"Noto Sans\";}");
-            break;
-          case 1:
-            // ui->lb_status_word_m2->setText(qstr);
-            // ui->lb_status_word_m2->setStyleSheet("QLabel{background:yellow;"
-            //                                      "color:black;"
-            //                                      "font:bold 75 12pt \"Noto Sans\";}");
-            break;
-          case 2:
-            // ui->lb_status_word_m3->setText(qstr);
-            // ui->lb_status_word_m3->setStyleSheet("QLabel{background:yellow;"
-            //                                      "color:black;"
-            //                                      "font:bold 75 12pt \"Noto Sans\";}");
-            break;
-          default:
-            break;
-        }
+
+        ui->lb_status_word[index]->setText(qstr);
+        ui->lb_status_word[index]->setStyleSheet(
+            "QLabel{background:yellow;"
+            "color:black;"
+            "font:bold 75 12pt \"Noto Sans\";}");
       }
+    }
+    else if (gui_node_->slave_feedback_data_.op_mode_display[index] == kProfileTorque ||
+             gui_node_->slave_feedback_data_.op_mode_display[index] == kCSTorque ||
+             gui_node_->slave_feedback_data_.op_mode_display[index] == kCSVelocity ||
+             gui_node_->slave_feedback_data_.op_mode_display[index] == kCSPosition)
+    {
+      if (TEST_BIT(gui_node_->slave_feedback_data_.status_word[index], 12))
+      {
+        QTextStream(&qstr) << "MOVING";
+
+        ui->lb_status_word[index]->setText(qstr);
+        ui->lb_status_word[index]->setStyleSheet(
+            "QLabel{background:green;"
+            "color:black;"
+            "font:bold 75 12pt \"Noto Sans\";}");
+      }
+      else
+      {
+        QTextStream(&qstr) << "READY";
+
+        ui->lb_status_word[index]->setText(qstr);
+        ui->lb_status_word[index]->setStyleSheet(
+            "QLabel{background:yellow;"
+            "color:black;"
+            "font:bold 75 12pt \"Noto Sans\";}");
+      }
+    }
+    else
+    {
+      QTextStream(&qstr) << "DISABLED";
+      ui->lb_status_word[index]->setText(qstr);
+      ui->lb_status_word[index]->setStyleSheet(
+          "QLabel{background:white;"
+          "color:black;"
+          "font:bold 75 12pt \"Noto Sans\";}");
     }
   }
   else
   {
-    QTextStream(&qstr) << "NOT READY";
-    // ui->lb_status_word_m1->setText(qstr);
-    // ui->lb_status_word_m1->setStyleSheet("QLabel{background:white;"
-    //                                      "color:black;"
-    //                                      "font:bold 75 12pt \"Noto Sans\";}");
-    // ui->lb_status_word_m2->setText(qstr);
-    // ui->lb_status_word_m2->setStyleSheet("QLabel{background:white;"
-    //                                      "color:black;"
-    //                                      "font:bold 75 12pt \"Noto Sans\";}");
-    // ui->lb_status_word_m3->setText(qstr);
-    // ui->lb_status_word_m3->setStyleSheet("QLabel{background:white;"
-    //                                      "color:black;"
-    //                                      "font:bold 75 12pt \"Noto Sans\";}");
+    QTextStream(&qstr) << "DISABLED";
+    ui->lb_status_word[index]->setText(qstr);
+    ui->lb_status_word[index]->setStyleSheet(
+        "QLabel{background:white;"
+        "color:black;"
+        "font:bold 75 12pt \"Noto Sans\";}");
   }
   return qstr;
 }

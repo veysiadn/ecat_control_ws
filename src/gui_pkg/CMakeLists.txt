@@ -12,15 +12,19 @@ project(gui_pkg)
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
   set(CMAKE_C_STANDARD 99)
+  add_compile_options(-g -w -Wall -Wextra -Wpedantic)
+
 endif()
 
 # Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 14)
+  add_compile_options(-g -w -Wall -Wextra -Wpedantic)
+
 endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)
+  add_compile_options(-g -w -Wall -Wextra -Wpedantic)
 endif()
 
 ##############################################################################
@@ -80,8 +84,8 @@ add_executable(${node_name}
   ${QT_HEADERS}
   )
 include_directories(
-    ${cv_bridge_INCLUDE_DIRS},
-    "../ecat_pkg/include/ecat_pkg/",
+    ${cv_bridge_INCLUDE_DIRS}
+    "../ecat_pkg/include/ecat_pkg/"
     "/opt/etherlab/include/"
 )
 

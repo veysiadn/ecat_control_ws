@@ -371,8 +371,8 @@ public:
   /**
    * @brief Read actual torque value from slave in specified index via SDO.
    *
-   * @param index
-   * @return uint16_t
+   * @param index slave index
+   * @return actual torque value of selected slave.
    */
   int16_t ReadActualTorqueViaSDO(int index);
   /**
@@ -397,6 +397,13 @@ public:
    * @return 0 if successfull, otherwise -1.
    */
   int16_t DisableDrivesViaSDO(int index);
+  /**
+   * @brief Reads error register value from slave in specified index via SDO.
+   * 
+   * @param index slave index
+   * @return error register value of the selected slave.
+   */
+  uint16_t ReadErrorCodeViaSDO(int index);
 
 private:
   /// File descriptor to open and wake  master from CLI.

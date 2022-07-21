@@ -326,6 +326,13 @@ private:
    */
   void UpdateControlParameters();
 
+  /**
+   * @brief Callback to trigger in inactive mode to
+   * publish slave feedback data for visualization
+   * and notifying safety package.
+   */
+  void InactiveModeCallback();
+
 private:
   /// pthread create required parameters.
   pthread_t ethercat_thread_;
@@ -344,5 +351,6 @@ private:
   // Will be used as a parameter for taking timing measurements.
   std::int32_t measurement_time = 0;
   Timing timer_info_;
+  rclcpp::TimerBase::SharedPtr inactive_mode_callback_timer_;
 };
 }  // namespace EthercatLifeCycleNode

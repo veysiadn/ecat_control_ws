@@ -8,6 +8,16 @@ GuiNode::GuiNode() : Node("gui_node")
 {
   slave_feedback_data_.actual_pos.resize(g_kNumberOfServoDrivers);
   ui_control_buttons_.spn_target_values.resize(g_kNumberOfServoDrivers);
+  ui_control_buttons_.b_vel.resize(g_kNumberOfServoDrivers);
+  ui_control_buttons_.b_pos.resize(g_kNumberOfServoDrivers);
+  ui_control_buttons_.b_tor.resize(g_kNumberOfServoDrivers);
+  ui_control_buttons_.b_cyclic_vel.resize(g_kNumberOfServoDrivers);
+  ui_control_buttons_.b_cyclic_pos.resize(g_kNumberOfServoDrivers);
+  ui_control_buttons_.b_cyclic_tor.resize(g_kNumberOfServoDrivers);
+  ui_control_buttons_.b_enable.resize(g_kNumberOfServoDrivers);
+  ui_control_buttons_.b_disable.resize(g_kNumberOfServoDrivers);
+  ui_control_buttons_.b_stop.resize(g_kNumberOfServoDrivers);
+  ui_control_buttons_.b_send.resize(g_kNumberOfServoDrivers);
   for (int i = 0; i < g_kNumberOfServoDrivers; i++)
   {
     ui_control_buttons_.spn_target_values[i] = 0;
@@ -27,9 +37,9 @@ GuiNode::GuiNode() : Node("gui_node")
   master_commands_ = this->create_subscription<ecat_msgs::msg::DataSent>(
       "Master_Commands", qos, std::bind(&GuiNode::HandleMasterCommandCallbacks, this, std::placeholders::_1));
   /// Gui button value publisher
-  gui_publisher_ = create_publisher<ecat_msgs::msg::GuiButtonData>("gui_buttons", qos);
+  gui_publisher_ = create_publisher<ecat_msgs::msg::GuiButtonData>("gui_buttons", 10);
   /// Timer callback set to 33HZ.
-  timer_ = this->create_wall_timer(30ms, std::bind(&GuiNode::timer_callback, this));
+  // timer_ = this->create_wall_timer(30ms, std::bind(&GuiNode::PublishGuiEvents, this));
 }
 
 GuiNode::~GuiNode()
@@ -37,7 +47,7 @@ GuiNode::~GuiNode()
   rclcpp::shutdown();
 }
 
-void GuiNode::timer_callback()
+void GuiNode::PublishGuiEvents()
 {
   ui_control_buttons_.header.stamp = this->now();
   gui_publisher_->publish(ui_control_buttons_);
@@ -97,6 +107,22 @@ void GuiNode::ResetContolButtonValues()
   ui_control_buttons_.b_enable_pos = 0;
   ui_control_buttons_.b_enter_cyclic_pdo = 0;
   ui_control_buttons_.b_emergency_mode = 0;
-  ui_control_buttons_.b_send = 0;
   ui_control_buttons_.b_stop_cyclic_pdo = 0;
+  ui_control_buttons_.b_enable_torque = 0; 
+  ui_control_buttons_.b_enable_cyclic_torque = 0;
+  ui_control_buttons_.b_clear_fault = 0;
+  for (int i = 0; i < g_kNumberOfServoDrivers; i++)
+  {
+    ui_control_buttons_.b_enable[i] = 0;
+    ui_control_buttons_.b_disable[i] = 0;
+    ui_control_buttons_.b_stop[i] = 0;
+    ui_control_buttons_.b_send[i] = 0;
+    ui_control_buttons_.b_vel[i] = 0;
+    ui_control_buttons_.b_pos[i] = 0;
+    ui_control_buttons_.b_tor[i] = 0;
+    ui_control_buttons_.b_cyclic_vel[i] = 0;
+    ui_control_buttons_.b_cyclic_pos[i] = 0;
+    ui_control_buttons_.b_cyclic_tor[i] = 0;
+    ui_control_buttons_.spn_target_values[i] = 0 ;
+  }
 }

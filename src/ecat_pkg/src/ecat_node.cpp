@@ -562,19 +562,19 @@ int EthercatNode::SetCyclicSyncVelocityModeParameters(CSVelocityModeParam& P, in
     RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Set operation mode config error ! ");
     return -1;
   }
-  // Velocity control parameter set, P, I gain only
-  if (ecrt_slave_config_sdo32(slaves_[position].slave_config_, OD_VELOCITY_CONTROLLER_PGAIN,
-                              P.velocity_controller_gain.Pgain) < 0)
-  {
-    RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Set velocity Pgain failed ! ");
-    return -1;
-  }
-  if (ecrt_slave_config_sdo32(slaves_[position].slave_config_, OD_VELOCITY_CONTROLLER_IGAIN,
-                              P.velocity_controller_gain.Igain) < 0)
-  {
-    RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Set velocity Igain failed ! ");
-    return -1;
-  }
+  // // Velocity control parameter set, P, I gain only
+  // if (ecrt_slave_config_sdo32(slaves_[position].slave_config_, OD_VELOCITY_CONTROLLER_PGAIN,
+  //                             P.velocity_controller_gain.Pgain) < 0)
+  // {
+  //   RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Set velocity Pgain failed ! ");
+  //   return -1;
+  // }
+  // if (ecrt_slave_config_sdo32(slaves_[position].slave_config_, OD_VELOCITY_CONTROLLER_IGAIN,
+  //                             P.velocity_controller_gain.Igain) < 0)
+  // {
+  //   RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Set velocity Igain failed ! ");
+  //   return -1;
+  // }
   // profile deceleration
   if (ecrt_slave_config_sdo32(slaves_[position].slave_config_, OD_PROFILE_DECELERATION, P.profile_dec) < 0)
   {
@@ -1121,7 +1121,22 @@ int16_t EthercatNode::WriteTargetTorqueViaSDO(int index, uint16_t target_tor)
   }
   return 0;
 }
-
+uint16_t EthercatNode::ReadErrorCodeViaSDO(int index)
+{
+  SDO_data pack;
+  uint16_t error_code;
+  pack.slave_position = index;
+  pack.index = OD_ERROR_CODE;
+  pack.sub_index = 0;
+  pack.data_sz = sizeof(uint16_t);
+  if (SdoRead(pack))
+  {
+    std::cout << "Error while reading Error Code " << std::endl;
+    return -1;
+  }
+  error_code = (uint16_t)(pack.data);
+  return error_code;
+}
 int EthercatNode::MapDefaultSdos()
 {
   for (int i = 0; i < g_kNumberOfServoDrivers; i++)

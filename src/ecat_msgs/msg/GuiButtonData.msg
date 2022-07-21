@@ -3,15 +3,27 @@ std_msgs/Header header
 
 uint8 b_init_ecat
 uint8 b_reinit_ecat
-uint8 b_enable_drives
-uint8 b_disable_drives
-uint8 b_enable_cyclic_pos
-uint8 b_enable_cyclic_vel
-uint8 b_enable_vel
-uint8 b_enable_pos
 uint8 b_enter_cyclic_pdo
 uint8 b_emergency_mode
-uint8 b_send
 uint8 b_stop_cyclic_pdo
-int32[] spn_target_values
 
+uint8 b_enable_drives
+uint8 b_disable_drives
+uint8 b_enable_vel
+uint8 b_enable_pos
+uint8 b_enable_torque
+uint8 b_enable_cyclic_vel
+uint8 b_enable_cyclic_pos
+uint8 b_enable_cyclic_torque
+uint8 b_clear_fault
+int32[] spn_target_values
+uint8[] b_send
+uint8[] b_stop
+uint8[] b_enable
+uint8[] b_disable
+uint8[] b_vel
+uint8[] b_pos
+uint8[] b_tor
+uint8[] b_cyclic_vel
+uint8[] b_cyclic_pos
+uint8[] b_cyclic_tor

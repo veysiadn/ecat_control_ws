@@ -51,7 +51,7 @@ public:
   MyButton* b_enable_torque;
   MyButton* b_clear_fault;
   MyButton* b_enable_cyclic_torque;
-  MyButton* b_enable_cylic_vel;
+  MyButton* b_enable_cyclic_vel;
   MyButton* b_enable_vel;
   MyButton* b_enable_pos;
   QVBoxLayout* right_verticalLayout;
@@ -136,6 +136,11 @@ public:
         QString::fromUtf8("MyButton:pressed {\n"
                           "    background-color: rgb(5, 153, 44);\n"
                           "}\n"
+                          "MyButton:disabled {\n"
+                          "color: rgb(33, 33, 33);\n"
+                          "background-color:gray;\n"
+                          "font: bold 75 15pt;\n"
+                          "}\n"
                           "MyButton { \n"
                           "color: rgb(255, 255, 255);\n"
                           "background-color: rgb(252, 119, 3);\n"
@@ -145,13 +150,18 @@ public:
 
     left_sdo_button_layout->addWidget(b_enable_vel);
 
-    b_enable_cylic_vel = new MyButton(centralwidget);
-    b_enable_cylic_vel->setObjectName(QString::fromUtf8("b_enable_cylic_vel"));
-    sizePolicy.setHeightForWidth(b_enable_cylic_vel->sizePolicy().hasHeightForWidth());
-    b_enable_cylic_vel->setSizePolicy(sizePolicy);
-    b_enable_cylic_vel->setStyleSheet(
+    b_enable_cyclic_vel = new MyButton(centralwidget);
+    b_enable_cyclic_vel->setObjectName(QString::fromUtf8("b_enable_cyclic_vel"));
+    sizePolicy.setHeightForWidth(b_enable_cyclic_vel->sizePolicy().hasHeightForWidth());
+    b_enable_cyclic_vel->setSizePolicy(sizePolicy);
+    b_enable_cyclic_vel->setStyleSheet(
         QString::fromUtf8("MyButton:pressed {\n"
                           "    background-color: rgb(5, 153, 44);\n"
+                          "}\n"
+                          "MyButton:disabled {\n"
+                          "color: rgb(33, 33, 33);\n"
+                          "background-color:gray;\n"
+                          "font: bold 75 15pt;\n"
                           "}\n"
                           "MyButton { \n"
                           "color: rgb(255, 255, 255);\n"
@@ -160,7 +170,7 @@ public:
                           "}\n"
                           ""));
 
-    left_sdo_button_layout->addWidget(b_enable_cylic_vel);
+    left_sdo_button_layout->addWidget(b_enable_cyclic_vel);
 
     b_enable_pos = new MyButton(centralwidget);
     b_enable_pos->setObjectName(QString::fromUtf8("b_enable_pos"));
@@ -169,6 +179,11 @@ public:
     b_enable_pos->setStyleSheet(
         QString::fromUtf8("MyButton:pressed {\n"
                           "    background-color: rgb(5, 153, 44);\n"
+                          "}\n"
+                          "MyButton:disabled {\n"
+                          "color: rgb(33, 33, 33);\n"
+                          "background-color:gray;\n"
+                          "font: bold 75 15pt;\n"
                           "}\n"
                           "MyButton { \n"
                           "color: rgb(255, 255, 255);\n"
@@ -189,6 +204,11 @@ public:
         QString::fromUtf8("MyButton:pressed {\n"
                           "    background-color: rgb(5, 153, 44);\n"
                           "}\n"
+                          "MyButton:disabled {\n"
+                          "color: rgb(33, 33, 33);\n"
+                          "background-color:gray;\n"
+                          "font: bold 75 15pt;\n"
+                          "}\n"
                           "MyButton { \n"
                           "color: rgb(255, 255, 255);\n"
                           "background-color: rgb(252, 119, 3);\n"
@@ -207,6 +227,11 @@ public:
     b_enable_torque->setStyleSheet(
         QString::fromUtf8("MyButton:pressed {\n"
                           "    background-color: rgb(5, 153, 44);\n"
+                          "}\n"
+                          "MyButton:disabled {\n"
+                          "color: rgb(33, 33, 33);\n"
+                          "background-color:gray;\n"
+                          "font: bold 75 15pt;\n"
                           "}\n"
                           "MyButton { \n"
                           "color: rgb(255, 255, 255);\n"
@@ -227,6 +252,11 @@ public:
         QString::fromUtf8("MyButton:pressed {\n"
                           "    background-color: rgb(5, 153, 44);\n"
                           "}\n"
+                          "MyButton:disabled {\n"
+                          "color: rgb(33, 33, 33);\n"
+                          "background-color:gray;\n"
+                          "font: bold 75 15pt;\n"
+                          "}\n"
                           "MyButton { \n"
                           "color: rgb(255, 255, 255);\n"
                           "background-color: rgb(252, 119, 3);\n"
@@ -245,6 +275,11 @@ public:
     b_clear_fault->setStyleSheet(
         QString::fromUtf8("MyButton:pressed {\n"
                           "    background-color: rgb(5, 153, 44);\n"
+                          "}\n"
+                          "MyButton:disabled {\n"
+                          "color: rgb(33, 33, 33);\n"
+                          "background-color:gray;\n"
+                          "font: bold 75 15pt;\n"
                           "}\n"
                           "MyButton { \n"
                           "color: rgb(255, 255, 255);\n"
@@ -268,6 +303,11 @@ public:
         QString::fromUtf8("MyButton:pressed {\n"
                           "    background-color: rgb(5, 153, 44);\n"
                           "}\n"
+                          "MyButton:disabled {\n"
+                          "color: rgb(33, 33, 33);\n"
+                          "background-color:gray;\n"
+                          "font: bold 75 15pt;\n"
+                          "}\n"
                           "MyButton { \n"
                           "color: rgb(255, 255, 255);\n"
                           "selection-background-color: rgb(238, 238, 236);\n"
@@ -286,6 +326,11 @@ public:
     b_reinit_ecat->setStyleSheet(
         QString::fromUtf8("MyButton:pressed {\n"
                           "    background-color: rgb(5, 153, 44);\n"
+                          "}\n"
+                          "MyButton:disabled {\n"
+                          "color: rgb(33, 33, 33);\n"
+                          "background-color:gray;\n"
+                          "font: bold 75 15pt;\n"
                           "}\n"
                           "MyButton { \n"
                           "color: rgb(255, 255, 255);\n"
@@ -306,6 +351,11 @@ public:
         QString::fromUtf8("MyButton:pressed {\n"
                           "    background-color: rgb(5, 153, 44);\n"
                           "}\n"
+                          "MyButton:disabled {\n"
+                          "color: rgb(33, 33, 33);\n"
+                          "background-color:gray;\n"
+                          "font: bold 75 15pt;\n"
+                          "}\n"
                           "MyButton { \n"
                           "color: rgb(255, 255, 255);\n"
                           "background-color: rgb(252, 119, 3);\n"
@@ -322,6 +372,11 @@ public:
     b_disable_drives->setStyleSheet(
         QString::fromUtf8("MyButton:pressed {\n"
                           "    background-color: rgb(5, 153, 44);\n"
+                          "}\n"
+                          "MyButton:disabled {\n"
+                          "color: rgb(33, 33, 33);\n"
+                          "background-color:gray;\n"
+                          "font: bold 75 15pt;\n"
                           "}\n"
                           "MyButton { \n"
                           "color: rgb(255, 255, 255);\n"
@@ -345,6 +400,11 @@ public:
         QString::fromUtf8("MyButton:pressed {\n"
                           "    background-color: rgb(5, 153, 44);\n"
                           "}\n"
+                          "MyButton:disabled {\n"
+                          "color: rgb(33, 33, 33);\n"
+                          "background-color:gray;\n"
+                          "font: bold 75 15pt;\n"
+                          "}\n"
                           "MyButton { \n"
                           "color: rgb(255, 255, 255);\n"
                           "selection-background-color: rgb(238, 238, 236);\n"
@@ -363,6 +423,11 @@ public:
     b_stop_cyclic_pdo->setStyleSheet(
         QString::fromUtf8("MyButton:pressed {\n"
                           "    background-color: rgb(5, 153, 44);\n"
+                          "}\n"
+                          "MyButton:disabled {\n"
+                          "color: rgb(33, 33, 33);\n"
+                          "background-color:gray;\n"
+                          "font: bold 75 15pt;\n"
                           "}\n"
                           "MyButton { \n"
                           "color: rgb(255, 255, 255);\n"
@@ -449,6 +514,11 @@ public:
           QString::fromUtf8("MyButton:pressed {\n"
                             "    background-color: rgb(5, 153, 44);\n"
                             "}\n"
+                            "MyButton:disabled {\n"
+                            "color: rgb(33, 33, 33);\n"
+                            "background-color:gray;\n"
+                            "font: bold 75 15pt;\n"
+                            "}\n"
                             "MyButton { \n"
                             "color: rgb(255, 255, 255);\n"
                             "background-color: rgb(252, 119, 3);\n"
@@ -469,6 +539,11 @@ public:
       b_stop[i]->setStyleSheet(
           QString::fromUtf8("MyButton:pressed {\n"
                             "background-color: rgb(193, 5, 10);\n"
+                            "}\n"
+                            "MyButton:disabled {\n"
+                            "color: rgb(33, 33, 33);\n"
+                            "background-color:gray;\n"
+                            "font: bold 75 15pt;\n"
                             "}\n"
                             "MyButton { \n"
                             "color: rgb(255, 255, 255);\n"
@@ -493,6 +568,11 @@ public:
           QString::fromUtf8("MyButton:pressed {\n"
                             "    background-color: rgb(5, 153, 44);\n"
                             "}\n"
+                            "MyButton:disabled {\n"
+                            "color: rgb(33, 33, 33);\n"
+                            "background-color:gray;\n"
+                            "font: bold 75 15pt;\n"
+                            "}\n"
                             "MyButton:checked {\n"
                             "    background-color: rgb(5, 153, 44);\n"
                             "}\n"
@@ -502,7 +582,6 @@ public:
                             "font: bold 75 15pt \"Noto Sans\";\n"
                             "}\n"
                             ""));
-      b_enable[i]->setCheckable(true);
       singleButtonGridLayout->addWidget(b_enable[i], i, 1, 1, 1);
     }
     for (int i = 0; i < g_kNumberOfServoDrivers; i++)
@@ -521,13 +600,17 @@ public:
                             "MyButton:checked {\n"
                             "    background-color: rgb(5, 153, 44);\n"
                             "}\n"
+                            "MyButton:disabled {\n"
+                            "color: rgb(33, 33, 33);\n"
+                            "background-color:gray;\n"
+                            "font: bold 75 15pt;\n"
+                            "}\n"
                             "MyButton { \n"
                             "color: rgb(255, 255, 255);\n"
                             "background-color: rgb(10, 60, 87);\n"
                             "font: bold 75 15pt \"Noto Sans\";\n"
                             "}\n"
                             ""));
-      b_disable[i]->setCheckable(true);
       singleButtonGridLayout->addWidget(b_disable[i], i, 2, 1, 1);
     }
 
@@ -1140,10 +1223,10 @@ public:
                                                          "Position Mode All",
                                                          nullptr));
 
-    b_enable_cylic_vel->setText(QApplication::translate("MainWindow",
-                                                        "Enable Cyclic\n"
-                                                        "Velocity Mode All",
-                                                        nullptr));
+    b_enable_cyclic_vel->setText(QApplication::translate("MainWindow",
+                                                         "Enable Cyclic\n"
+                                                         "Velocity Mode All",
+                                                         nullptr));
     b_enable_torque->setText(QApplication::translate("MainWindow",
                                                      "Enable\n"
                                                      "Torque Mode All",

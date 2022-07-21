@@ -51,9 +51,7 @@ find_package(cv_bridge REQUIRED)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-file(GLOB UIS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
-  ui/*.ui
-  )
+file(GLOB UIS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}  ui/endoscope_viewer.ui)
 file(GLOB RESOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
   resources/*.qrc
   )

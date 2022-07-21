@@ -17,35 +17,35 @@
 using namespace std::chrono_literals;
 
 // which node to handle
-static constexpr char const * lifecycle_node = "ecat_node";
+static constexpr char const* lifecycle_node = "ecat_node";
 
 // Every lifecycle node has various services
 // attached to it. By convention, we use the format of
 // <node name>/<service name>.
 // ecat_node/get_state
 // ecat_node/change_state
-static constexpr char const * node_get_state_topic    = "ecat_node/get_state";
-static constexpr char const * node_change_state_topic = "ecat_node/change_state";
+static constexpr char const* node_get_state_topic = "ecat_node/get_state";
+static constexpr char const* node_change_state_topic = "ecat_node/change_state";
 
 typedef struct
 {
-    float left_x_axis_;
-    float left_y_axis_;
-    float right_x_axis_;
-    float right_y_axis_;
-    uint8_t blue_button_;
-    uint8_t green_button_;
-    uint8_t red_button_;
-    uint8_t yellow_button_;
-    uint8_t left_r_button_;
-    uint8_t left_l_button_;
-    uint8_t left_u_button_;
-    uint8_t left_d_button_ ;
-    uint8_t left_rb_button_ ;
-    uint8_t right_rb_button_ ;
-    uint8_t left_start_button_ ;
-    uint8_t right_start_button_ ; 
-    uint8_t xbox_button_;
+  float left_x_axis_;
+  float left_y_axis_;
+  float right_x_axis_;
+  float right_y_axis_;
+  uint8_t blue_button_;
+  uint8_t green_button_;
+  uint8_t red_button_;
+  uint8_t yellow_button_;
+  uint8_t left_r_button_;
+  uint8_t left_l_button_;
+  uint8_t left_u_button_;
+  uint8_t left_d_button_;
+  uint8_t left_rb_button_;
+  uint8_t right_rb_button_;
+  uint8_t left_start_button_;
+  uint8_t right_start_button_;
+  uint8_t xbox_button_;
 } Controller;
 
 // template<typename FutureT, typename WaitTimeT>
@@ -69,118 +69,127 @@ typedef struct
 class LifecycleNodeManager : public rclcpp::Node
 {
 public:
-  explicit LifecycleNodeManager(const std::string & node_name)
-  : Node(node_name)
+  explicit LifecycleNodeManager(const std::string& node_name) : Node(node_name)
   {
-      this->init();
-   auto qos = rclcpp::QoS(rclcpp::KeepLast(1));
-      qos.best_effort();
-      gui_button_subscriber_   = this->create_subscription<ecat_msgs::msg::GuiButtonData>(
-        "gui_buttons",qos,std::bind(&LifecycleNodeManager::HandleGuiNodeCallbacks, this,std::placeholders::_1
-      ));
+    this->init();
+    auto qos = rclcpp::QoS(rclcpp::KeepLast(1));
+    qos.best_effort();
+    gui_button_subscriber_ = this->create_subscription<ecat_msgs::msg::GuiButtonData>(
+        "gui_buttons", qos, std::bind(&LifecycleNodeManager::HandleGuiNodeCallbacks, this, std::placeholders::_1));
 
     /// Subscribtion for control node.
     /// Subscribtion for slave feedback values acquired from connected slaves.
     lifecycle_node_subscriber_ = this->create_subscription<ecat_msgs::msg::DataReceived>(
-      "Slave_Feedback",qos,std::bind(&LifecycleNodeManager::HandleLifecycleNodeCallbacks, this, std::placeholders::_1));
+        "Slave_Feedback", qos,
+        std::bind(&LifecycleNodeManager::HandleLifecycleNodeCallbacks, this, std::placeholders::_1));
   }
 
-  rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr      joystick_subscriber_;
+  rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr joystick_subscriber_;
   rclcpp::Subscription<ecat_msgs::msg::GuiButtonData>::SharedPtr gui_button_subscriber_;
   rclcpp::Subscription<ecat_msgs::msg::DataReceived>::SharedPtr lifecycle_node_subscriber_;
-  ecat_msgs::msg::DataReceived lifecycle_node_data_ ; 
-  Controller controller_ ; 
-  void 
-  HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonData::SharedPtr msg)
+  ecat_msgs::msg::DataReceived lifecycle_node_data_;
+  Controller controller_;
+  void HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonData::SharedPtr msg)
   {
     // If state is unconfigured and buton_init_ecat trigger configuration transition.;
-    if(get_state()==lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED){  
-      if(msg->b_init_ecat > 0){
-          std::this_thread::sleep_for(std::chrono::milliseconds(500));
-          if (this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE)) {
-            return;
-          }
-      }
-    }
-    
-    // Activate 
-    if(get_state()==lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE){
-      if(msg->b_enter_cyclic_pdo > 0){
-            std::this_thread::sleep_for(std::chrono::milliseconds(500));
-          if (!rclcpp::ok()) {
-            return;
-          }
-          if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_ACTIVATE)) {
-            return;
-          }
-      }
-    }
-    
-    // Deactivate
-    if(get_state()==lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE){
-      if(msg->b_stop_cyclic_pdo > 0){
+    if (get_state() == lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED)
+    {
+      if (msg->b_init_ecat > 0)
+      {
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
-        if (!rclcpp::ok()) {
-          return;
-        }
-        if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_DEACTIVATE)) {
+        if (this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE))
+        {
           return;
         }
       }
     }
-      // msg->b_init_ecat = 0;
-      // msg->b_reinit_ecat = 0;
-      // msg->b_enable_drives = 0;
-      // msg->b_disable_drives = 0;
-      // msg->b_enable_cyclic_pos = 0;
-      // msg->b_enable_cyclic_vel = 0;
-      // msg->b_enable_vel = 0;
-      // msg->b_enable_pos = 0;
-      // msg->b_enter_cyclic_pdo = 0;
-      // msg->b_emergency_mode = 0;
-      // msg->b_send = 0;
-      // msg->b_stop_cyclic_pdo = 0;
 
-   // Cleanup
-    if(get_state()==lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE){
-      if(msg->b_reinit_ecat > 0){
+    // Activate
+    if (get_state() == lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE)
+    {
+      if (msg->b_enter_cyclic_pdo > 0)
+      {
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
-        if (!rclcpp::ok()) {
+        if (!rclcpp::ok())
+        {
           return;
         }
-        if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_CLEANUP)) {
+        if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_ACTIVATE))
+        {
           return;
         }
       }
     }
-  //   // Shutdown
-  //   if(controller_.right_rb_button_ > 0){
-  //     std::this_thread::sleep_for(std::chrono::milliseconds(500));
-  //     if (!rclcpp::ok()) {
-  //       return;
-  //     }
-  //     if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_UNCONFIGURED_SHUTDOWN))
-  //     {
-  //       return;
-  //     }
-  //     if (!this->get_state()) {
-  //       return;
-  //     }
-  //   }
+
+    // Deactivate
+    if (get_state() == lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE)
+    {
+      if (msg->b_stop_cyclic_pdo > 0)
+      {
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        if (!rclcpp::ok())
+        {
+          return;
+        }
+        if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_DEACTIVATE))
+        {
+          return;
+        }
+      }
+    }
+    // msg->b_init_ecat = 0;
+    // msg->b_reinit_ecat = 0;
+    // msg->b_enable_drives = 0;
+    // msg->b_disable_drives = 0;
+    // msg->b_enable_cyclic_pos = 0;
+    // msg->b_enable_cyclic_vel = 0;
+    // msg->b_enable_vel = 0;
+    // msg->b_enable_pos = 0;
+    // msg->b_enter_cyclic_pdo = 0;
+    // msg->b_emergency_mode = 0;
+    // msg->b_send = 0;
+    // msg->b_stop_cyclic_pdo = 0;
+
+    // Cleanup
+    if (get_state() == lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE)
+    {
+      if (msg->b_reinit_ecat > 0)
+      {
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        if (!rclcpp::ok())
+        {
+          return;
+        }
+        if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_CLEANUP))
+        {
+          return;
+        }
+      }
+    }
+    //   // Shutdown
+    //   if(controller_.right_rb_button_ > 0){
+    //     std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    //     if (!rclcpp::ok()) {
+    //       return;
+    //     }
+    //     if (!this->change_state(lifecycle_msgs::msg::Transition::TRANSITION_UNCONFIGURED_SHUTDOWN))
+    //     {
+    //       return;
+    //     }
+    //     if (!this->get_state()) {
+    //       return;
+    //     }
+    //   }
   }
-  
-  void 
-  HandleLifecycleNodeCallbacks(const ecat_msgs::msg::DataReceived::SharedPtr msg)
+
+  void HandleLifecycleNodeCallbacks(const ecat_msgs::msg::DataReceived::SharedPtr msg)
   {
-    lifecycle_node_data_ = *msg ; 
+    lifecycle_node_data_ = *msg;
   }
-  void
-  init()
+  void init()
   {
-    client_get_state_ = this->create_client<lifecycle_msgs::srv::GetState>(
-      node_get_state_topic);
-    client_change_state_ = this->create_client<lifecycle_msgs::srv::ChangeState>(
-      node_change_state_topic);
+    client_get_state_ = this->create_client<lifecycle_msgs::srv::GetState>(node_get_state_topic);
+    client_change_state_ = this->create_client<lifecycle_msgs::srv::ChangeState>(node_change_state_topic);
   }
 
   /// Requests the current state of the node
@@ -195,8 +204,7 @@ public:
    * how long we wait for a response before returning
    * unknown state
    */
-  unsigned int
-  get_state()
+  unsigned int get_state()
   {
     // auto request = std::make_shared<lifecycle_msgs::srv::GetState::Request>();
     switch (lifecycle_node_data_.current_lifecycle_state)
@@ -217,14 +225,14 @@ public:
         return lifecycle_msgs::msg::State::PRIMARY_STATE_FINALIZED;
         break;
       case 10:
-        return lifecycle_msgs::msg::State::TRANSITION_STATE_CONFIGURING;    
+        return lifecycle_msgs::msg::State::TRANSITION_STATE_CONFIGURING;
         break;
       case 11:
         return lifecycle_msgs::msg::State::TRANSITION_STATE_CLEANINGUP;
-        break;      
+        break;
       case 12:
         return lifecycle_msgs::msg::State::TRANSITION_STATE_SHUTTINGDOWN;
-        break;    
+        break;
       case 13:
         return lifecycle_msgs::msg::State::TRANSITION_STATE_ACTIVATING;
         break;
@@ -233,7 +241,7 @@ public:
         break;
       case 15:
         return lifecycle_msgs::msg::State::TRANSITION_STATE_ERRORPROCESSING;
-        break;      
+        break;
       default:
         break;
     };
@@ -288,23 +296,21 @@ public:
    * how long we wait for a response before returning
    * unknown state
    */
-  
-  bool
-  change_state(std::uint8_t transition)
+
+  bool change_state(std::uint8_t transition)
   {
     auto request = std::make_shared<lifecycle_msgs::srv::ChangeState::Request>();
     request->transition.id = transition;
 
-    if (!client_change_state_->wait_for_service(3s)) {
-      RCLCPP_ERROR(
-        get_logger(),
-        "Change State : Service %s is not available.",
-        client_change_state_->get_service_name());
+    if (!client_change_state_->wait_for_service(3s))
+    {
+      RCLCPP_ERROR(get_logger(), "Change State : Service %s is not available.",
+                   client_change_state_->get_service_name());
       return false;
     }
 
     // // We send the request with the transition we want to invoke.
-    
+
     auto future_result = client_change_state_->async_send_request(request);
 
     // Let's wait until we have the answer from the node.
@@ -335,8 +341,7 @@ private:
   std::shared_ptr<rclcpp::Client<lifecycle_msgs::srv::ChangeState>> client_change_state_;
 };
 
-
-int main(int argc, char ** argv)
+int main(int argc, char** argv)
 {
   // force flush of the stdout buffer.
   // this ensures a correct sync of all prints
@@ -346,7 +351,7 @@ int main(int argc, char ** argv)
   rclcpp::init(argc, argv);
 
   auto lifecycle_manager = std::make_shared<LifecycleNodeManager>("lifecycle_manager_node");
-  
+
 #if 0
   rclcpp::executors::SingleThreadedExecutor exe;
   exe.add_node(lc_client);
@@ -356,13 +361,12 @@ int main(int argc, char ** argv)
     std::bind(callee_script, lc_client));
   exe.spin_until_future_complete(script);
 #else
-    rclcpp::spin(lifecycle_manager);
-#endif 
+  rclcpp::spin(lifecycle_manager);
+#endif
   rclcpp::shutdown();
 
   return 0;
 }
-
 
 /**
  * This is a little independent

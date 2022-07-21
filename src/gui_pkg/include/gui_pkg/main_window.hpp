@@ -71,6 +71,22 @@ class MainWindow;
     MainWindow(int argc, char** argv, QWidget *parent = nullptr);
     ~MainWindow();
 
+
+private:
+    void DisableOtherModes(QPushButton *button,int index);
+    void EnableAllModes(int index);
+private slots:
+    void on_send_clicked(int m_no);
+    void on_stop_clicked(int m_no);
+    void on_enable_clicked(int m_no);
+    void on_disable_clicked(int m_no);
+    void on_vel_clicked(int m_no);
+    void on_cyclic_vel_clicked(int m_no);
+    void on_pos_clicked(int m_no);
+    void on_cyclic_pos_clicked(int m_no);
+    void on_tor_clicked(int m_no);
+    void on_cyclic_tor_clicked(int m_no);
+
   private slots:
 
     void UpdateGUI();

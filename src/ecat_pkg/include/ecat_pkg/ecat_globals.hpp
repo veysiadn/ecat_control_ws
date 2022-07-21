@@ -32,9 +32,9 @@
  * \file  ecat_globals.hpp
  * \brief Header file for all include statements and global variables for EtherCAT
  *        communication.
- * 
+ *
  * This header file contains required include statements for IgH EtherCAT library,
- * global variables (e.g. ethercat master,master_state, domain,domain_state), 
+ * global variables (e.g. ethercat master,master_state, domain,domain_state),
  * structs for PDO offset and recieved data from slaves,
  * Communication period and number of slaves can be specified in here.
  *******************************************************************************/
@@ -42,30 +42,30 @@
 #include "ecat_definitions.hpp"
 
 /****************************************************************************/
-                /// USER SHOULD DEFINE THIS AREAS ///
-/// Number of connected servo drives.                
-const uint32_t  g_kNumberOfServoDrivers = 1 ; 
+/// USER SHOULD DEFINE THIS AREAS ///
+/// Number of connected servo drives.
+const uint32_t g_kNumberOfServoDrivers = 3;
 /// Select operation mode for motors, default: Profile Velocity.
-static int8_t   g_kOperationMode = kProfileVelocity ;  
-#define NUM_OF_SLAVES     1  /// Total number of connected slave to the bus.
+static int8_t g_kOperationMode = kProfileVelocity;
+#define NUM_OF_SLAVES 8  /// Total number of connected slave to the bus.
 /// Set this to 1 if you have custom EtherCAT slave other than servo drive.
 /// @note  That if you have different custom slave than EasyCAT you have to modify PDO mapping by yourself.
-#define CUSTOM_SLAVE      0  
-#define FREQUENCY       1000  /// Ethercat PDO exchange loop frequency in Hz
-#define MEASURE_TIMING    1    /// If you want to measure timings leave it as one, otherwise make it 0.
-#define DISTRIBUTED_CLOCK 0   /// If you want to use distributed clock make it one, otherwise leave it zero.
+#define CUSTOM_SLAVE 0
+#define FREQUENCY 1000       /// Ethercat PDO exchange loop frequency in Hz
+#define MEASURE_TIMING 1     /// If you want to measure timings leave it as one, otherwise make it 0.
+#define DISTRIBUTED_CLOCK 0  /// If you want to use distributed clock make it one, otherwise leave it zero.
 /*****************************************************************************/
-#define GEAR_RATIO          49
-#define ENCODER_RESOLUTION  1000
-#define INC_PER_ROTATION      GEAR_RATIO*ENCODER_RESOLUTION*4
-#define FIVE_DEGREE_CCW      int(INC_PER_ROTATION/72)
-#define THIRTY_DEGREE_CCW    int(INC_PER_ROTATION/12)
-#define PERIOD_NS       (g_kNsPerSec/FREQUENCY)  /// EtherCAT communication period in nanoseconds.
-#define PERIOD_US       (PERIOD_NS / 1000)
-#define PERIOD_MS       (PERIOD_US / 1000)
+#define GEAR_RATIO 49
+#define ENCODER_RESOLUTION 1000
+#define INC_PER_ROTATION GEAR_RATIO* ENCODER_RESOLUTION * 4
+#define FIVE_DEGREE_CCW int(INC_PER_ROTATION / 72)
+#define THIRTY_DEGREE_CCW int(INC_PER_ROTATION / 12)
+#define PERIOD_NS (g_kNsPerSec / FREQUENCY)  /// EtherCAT communication period in nanoseconds.
+#define PERIOD_US (PERIOD_NS / 1000)
+#define PERIOD_MS (PERIOD_US / 1000)
 #if CUSTOM_SLAVE
-    #define FINAL_SLAVE     (NUM_OF_SLAVES-1)
+#define FINAL_SLAVE (NUM_OF_SLAVES - 1)
 #endif
-const struct timespec       g_cycle_time = {0, PERIOD_NS} ;       // cycletime settings in ns. 
+const struct timespec g_cycle_time = { 0, PERIOD_NS };  // cycletime settings in ns.
 
-const struct timespec       g_half_cycle_time = {0, PERIOD_NS/2} ;       // cycletime settings in ns. 
+const struct timespec g_half_cycle_time = { 0, PERIOD_NS / 2 };  // cycletime settings in ns.

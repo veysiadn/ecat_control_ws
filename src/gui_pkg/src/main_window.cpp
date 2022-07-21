@@ -10,6 +10,18 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
     ros_spin_thread_ = std::thread{std::bind(&MainWindow::rosSpinThread, this)};
     this->my_timer.setInterval(30);  // Update rate 30 ms for GUI.
     this->my_timer.start();
+    for(int i = 0 ; i < g_kNumberOfServoDrivers;i++){
+        connect(ui->b_send[i],&MyButton::buttonClicked,this,&MainWindow::on_send_clicked);
+        connect(ui->b_stop[i],SIGNAL(buttonClicked(int)),this,SLOT(on_stop_clicked(int)));
+        connect(ui->b_enable[i],SIGNAL(buttonClicked(int)),this,SLOT(on_enable_clicked(int)));
+        connect(ui->b_disable[i],SIGNAL(buttonClicked(int)),this,SLOT(on_disable_clicked(int)));
+        connect(ui->b_vel[i],SIGNAL(buttonClicked(int)),this,SLOT(on_vel_clicked(int)));
+        connect(ui->b_pos[i],SIGNAL(buttonClicked(int)),this,SLOT(on_cyclic_vel_clicked(int)));
+        connect(ui->b_tor[i],SIGNAL(buttonClicked(int)),this,SLOT(on_pos_clicked(int)));
+        connect(ui->b_cyclic_vel[i],SIGNAL(buttonClicked(int)),this,SLOT(on_cyclic_pos_clicked(int)));
+        connect(ui->b_cyclic_pos[i],SIGNAL(buttonClicked(int)),this,SLOT(on_tor_clicked(int)));
+        connect(ui->b_cyclic_tor[i],SIGNAL(buttonClicked(int)),this,SLOT(on_cyclic_tor_clicked(int)));
+    }
     connect(&my_timer, SIGNAL(timeout()), this, SLOT(UpdateGUI()));
     CallUnconfiguredStateUI();
 }
@@ -50,6 +62,89 @@ void MainWindow::UpdateGUI()
     ShowComStatus();
     ShowAllMotorStatus();
     ShowOperationMode();
+}
+
+
+
+
+
+void MainWindow::on_send_clicked(int m_no)
+{
+
+    ui->lb_target_vel[m_no]->setText(QString("Sent ")+ QString::number(m_no+1));
+    if (ui->b_send[m_no]->isChecked())
+        ui->lb_target_vel[m_no]->clear();
+}
+void MainWindow::on_stop_clicked(int m_no)
+{
+    ui->lb_target_vel[m_no]->setText(QString("Stopped ")+ QString::number(m_no+1));
+
+}
+void MainWindow::on_enable_clicked(int m_no)
+{
+    ui->lb_target_vel[m_no]->setText(QString("Enabled ")+ QString::number(m_no+1));
+
+}
+void MainWindow::on_disable_clicked(int m_no)
+{
+    ui->lb_target_vel[m_no]->setText(QString("Disabled ")+ QString::number(m_no+1));
+
+}
+void MainWindow::on_vel_clicked(int m_no)
+{
+    ui->lb_target_vel[m_no]->setText(QString("Vel Mode ")+ QString::number(m_no+1));
+    if (ui->b_vel[m_no]->isChecked()){
+        DisableOtherModes(ui->b_vel[m_no],m_no);
+    }else{
+        EnableAllModes(m_no);
+        ui->lb_target_vel[m_no]->clear();
+    }
+}
+void MainWindow::DisableOtherModes(QPushButton *button,int index)
+{
+    ui->b_vel[index]->setDisabled(true);
+    ui->b_pos[index]->setDisabled(true);
+    ui->b_tor[index]->setDisabled(true);
+    ui->b_cyclic_vel[index]->setDisabled(true);
+    ui->b_cyclic_pos[index]->setDisabled(true);
+    ui->b_cyclic_tor[index]->setDisabled(true);
+    button->setEnabled(true);
+
+}
+
+void MainWindow::EnableAllModes(int index)
+{
+    ui->b_vel[index]->setDisabled(false);
+    ui->b_pos[index]->setDisabled(false);
+    ui->b_tor[index]->setDisabled(false);
+    ui->b_cyclic_vel[index]->setDisabled(false);
+    ui->b_cyclic_pos[index]->setDisabled(false);
+    ui->b_cyclic_tor[index]->setDisabled(false);
+
+}
+void MainWindow::on_cyclic_vel_clicked(int m_no)
+{
+    ui->lb_target_vel[m_no]->setText(QString("Cyc Vel Mode ")+ QString::number(m_no+1));
+
+}
+void MainWindow::on_pos_clicked(int m_no)
+{
+    ui->lb_target_vel[m_no]->setText(QString("Pos Mode ")+ QString::number(m_no+1));
+
+}
+void MainWindow::on_cyclic_pos_clicked(int m_no)
+{
+    ui->lb_target_vel[m_no]->setText(QString("Cyc Pos Mode ")+ QString::number(m_no+1));
+
+}
+void MainWindow::on_tor_clicked(int m_no)
+{
+    ui->lb_target_vel[m_no]->setText(QString("Tor Mode ")+ QString::number(m_no+1));
+}
+void MainWindow::on_cyclic_tor_clicked(int m_no)
+{
+    ui->lb_target_vel[m_no]->setText(QString("Cyc Tor Mode ")+ QString::number(m_no+1));
+
 }
 
 
@@ -203,13 +298,13 @@ void MainWindow::on_b_send_clicked()
     for(int i = 0 ; i < g_kNumberOfServoDrivers; i++){
         switch (i) {
         case 0:
-            gui_node_->ui_control_buttons_.spn_target_values[i] = static_cast<int> (ui->spn_target_val_1->value());
+            // gui_node_->ui_control_buttons_.spn_target_values[i] = static_cast<int> (ui->spn_target_val_1->value());
             break;
         case 1:
-            gui_node_->ui_control_buttons_.spn_target_values[i] = static_cast<int> (ui->spn_target_val_2->value());
+            // gui_node_->ui_control_buttons_.spn_target_values[i] = static_cast<int> (ui->spn_target_val_2->value());
             break;
         case 2:
-            gui_node_->ui_control_buttons_.spn_target_values[i] = static_cast<int> (ui->spn_target_val_3->value());
+            // gui_node_->ui_control_buttons_.spn_target_values[i] = static_cast<int> (ui->spn_target_val_3->value());
             break;
         }
     }
@@ -234,115 +329,115 @@ void MainWindow::ResetControlButtonValues(unsigned char &button_val)
 
 void MainWindow::CallUnconfiguredStateUI()
 {
-    SetEnabledStyleSheetPDO(ui->b_init_ecat);
-    SetDisabledStyleSheet(ui->b_reinit_ecat);
-    SetDisabledStyleSheet(ui->b_enter_cyclic_pdo);
-    SetDisabledStyleSheet(ui->b_stop_cyclic_pdo);
-    SetDisabledStyleSheet(ui->b_enable_drives);
-    SetDisabledStyleSheet(ui->b_disable_drives);
-    SetDisabledStyleSheet(ui->b_send);
-    SetDisabledStyleSheet(ui->b_enable_cyclic_pos);
-    SetDisabledStyleSheet(ui->b_enable_cylic_vel);
-    SetDisabledStyleSheet(ui->b_enable_pos);
-    SetDisabledStyleSheet(ui->b_enable_vel);
+    // SetEnabledStyleSheetPDO(ui->b_init_ecat);
+    // SetDisabledStyleSheet(ui->b_reinit_ecat);
+    // SetDisabledStyleSheet(ui->b_enter_cyclic_pdo);
+    // SetDisabledStyleSheet(ui->b_stop_cyclic_pdo);
+    // SetDisabledStyleSheet(ui->b_enable_drives);
+    // SetDisabledStyleSheet(ui->b_disable_drives);
+    // SetDisabledStyleSheet(ui->b_send);
+    // SetDisabledStyleSheet(ui->b_enable_cyclic_pos);
+    // SetDisabledStyleSheet(ui->b_enable_cylic_vel);
+    // SetDisabledStyleSheet(ui->b_enable_pos);
+    // SetDisabledStyleSheet(ui->b_enable_vel);
 
-    ui->lb_actual_pos_m1->setText("0");
-    ui->lb_actual_pos_m2->setText("0");
-    ui->lb_actual_pos_m3->setText("0");
+    // ui->lb_actual_pos_m1->setText("0");
+    // ui->lb_actual_pos_m2->setText("0");
+    // ui->lb_actual_pos_m3->setText("0");
 
-    ui->lb_target_pos_m1->setText("0");
-    ui->lb_target_pos_m2->setText("0");
-    ui->lb_target_pos_m3->setText("0");
+    // ui->lb_target_pos_m1->setText("0");
+    // ui->lb_target_pos_m2->setText("0");
+    // ui->lb_target_pos_m3->setText("0");
 
-    ui->lb_actual_vel_m1->setText("0");
-    ui->lb_actual_vel_m2->setText("0");
-    ui->lb_actual_vel_m3->setText("0");
+    // ui->lb_actual_vel_m1->setText("0");
+    // ui->lb_actual_vel_m2->setText("0");
+    // ui->lb_actual_vel_m3->setText("0");
 
-    ui->lb_target_vel_m1->setText("0");
-    ui->lb_target_vel_m2->setText("0");
-    ui->lb_target_vel_m3->setText("0");
+    // ui->lb_target_vel_m1->setText("0");
+    // ui->lb_target_vel_m2->setText("0");
+    // ui->lb_target_vel_m3->setText("0");
     
-    ui->lb_actual_tor_m1->setText("0");
-    ui->lb_actual_tor_m2->setText("0");
-    ui->lb_actual_tor_m3->setText("0");
+    // ui->lb_actual_tor_m1->setText("0");
+    // ui->lb_actual_tor_m2->setText("0");
+    // ui->lb_actual_tor_m3->setText("0");
 
-    ui->lb_target_tor_m1->setText("0");
-    ui->lb_target_tor_m2->setText("0");
-    ui->lb_target_tor_m3->setText("0");
+    // ui->lb_target_tor_m1->setText("0");
+    // ui->lb_target_tor_m2->setText("0");
+    // ui->lb_target_tor_m3->setText("0");
 
 
-    ui->lb_status_word_m1->setText("NOT READY");
-    ui->lb_control_word_m1->setText("0");
+    // ui->lb_status_word_m1->setText("NOT READY");
+    // ui->lb_control_word_m1->setText("0");
 
-    ui->lb_status_word_m2->setText("NOT READY");
-    ui->lb_control_word_m2->setText("0");
+    // ui->lb_status_word_m2->setText("NOT READY");
+    // ui->lb_control_word_m2->setText("0");
 
-    ui->lb_status_word_m3->setText("NOT READY");
-    ui->lb_control_word_m3->setText("0");
+    // ui->lb_status_word_m3->setText("NOT READY");
+    // ui->lb_control_word_m3->setText("0");
 
-    ui->lb_op_mode_m1->setText("Not Selected");
-    ui->lb_op_mode_m2->setText("Not Selected");
-    ui->lb_op_mode_m3->setText("Not Selected");
+    // ui->lb_op_mode_m1->setText("Not Selected");
+    // ui->lb_op_mode_m2->setText("Not Selected");
+    // ui->lb_op_mode_m3->setText("Not Selected");
 }
 
 void MainWindow::CallInactiveStateUI()
 {
-    SetDisabledStyleSheet(ui->b_init_ecat);
-    SetDisabledStyleSheet(ui->b_stop_cyclic_pdo);
+    // SetDisabledStyleSheet(ui->b_init_ecat);
+    // SetDisabledStyleSheet(ui->b_stop_cyclic_pdo);
 
-    SetEnabledStyleSheetPDO(ui->b_reinit_ecat);
-    SetEnabledStyleSheetPDO(ui->b_enter_cyclic_pdo);
+    // SetEnabledStyleSheetPDO(ui->b_reinit_ecat);
+    // SetEnabledStyleSheetPDO(ui->b_enter_cyclic_pdo);
 
-    SetEnabledStyleSheetSDO(ui->b_enable_drives);
-    SetEnabledStyleSheetSDO(ui->b_disable_drives);
-    SetEnabledStyleSheetSDO(ui->b_send);
-    SetEnabledStyleSheetSDO(ui->b_enable_cyclic_pos);
-    SetEnabledStyleSheetSDO(ui->b_enable_cylic_vel);
-    SetEnabledStyleSheetSDO(ui->b_enable_pos);
-    SetEnabledStyleSheetSDO(ui->b_enable_vel);
+    // SetEnabledStyleSheetSDO(ui->b_enable_drives);
+    // SetEnabledStyleSheetSDO(ui->b_disable_drives);
+    // SetEnabledStyleSheetSDO(ui->b_send);
+    // SetEnabledStyleSheetSDO(ui->b_enable_cyclic_pos);
+    // SetEnabledStyleSheetSDO(ui->b_enable_cylic_vel);
+    // SetEnabledStyleSheetSDO(ui->b_enable_pos);
+    // SetEnabledStyleSheetSDO(ui->b_enable_vel);
 }
 
 void MainWindow::CallActiveStateUI()
 {
-    SetEnabledStyleSheetPDO(ui->b_stop_cyclic_pdo);
-    SetEnabledStyleSheetPDO(ui->b_enter_cyclic_pdo);
+    // SetEnabledStyleSheetPDO(ui->b_stop_cyclic_pdo);
+    // SetEnabledStyleSheetPDO(ui->b_enter_cyclic_pdo);
 
-    SetDisabledStyleSheet(ui->b_init_ecat);
-    SetDisabledStyleSheet(ui->b_reinit_ecat);
-    SetDisabledStyleSheet(ui->b_enable_drives);
-    SetDisabledStyleSheet(ui->b_disable_drives);
-    SetDisabledStyleSheet(ui->b_send);
-    SetDisabledStyleSheet(ui->b_enable_cyclic_pos);
-    SetDisabledStyleSheet(ui->b_enable_cylic_vel);
-    SetDisabledStyleSheet(ui->b_enable_pos);
-    SetDisabledStyleSheet(ui->b_enable_vel);
+    // SetDisabledStyleSheet(ui->b_init_ecat);
+    // SetDisabledStyleSheet(ui->b_reinit_ecat);
+    // SetDisabledStyleSheet(ui->b_enable_drives);
+    // SetDisabledStyleSheet(ui->b_disable_drives);
+    // SetDisabledStyleSheet(ui->b_send);
+    // SetDisabledStyleSheet(ui->b_enable_cyclic_pos);
+    // SetDisabledStyleSheet(ui->b_enable_cylic_vel);
+    // SetDisabledStyleSheet(ui->b_enable_pos);
+    // SetDisabledStyleSheet(ui->b_enable_vel);
 }
 
 void MainWindow::ShowEmergencyStatus()
 {   
     QString qstr;
     if(!gui_node_->slave_feedback_data_.emergency_switch_val){
-        SetDisabledStyleSheet(ui->b_emergency_mode);
+        // SetDisabledStyleSheet(ui->b_emergency_mode);
     }else{
-        if(!ui->b_emergency_mode->isEnabled()){
-            ui->b_emergency_mode->setEnabled(true);
-            ui->b_emergency_mode->setStyleSheet(red_style_sheet);
-        }
+        // if(!ui->b_emergency_mode->isEnabled()){
+        //     ui->b_emergency_mode->setEnabled(true);
+        //     ui->b_emergency_mode->setStyleSheet(red_style_sheet);
+        // }
     }
     if(gui_node_->slave_feedback_data_.emergency_switch_val
             && !gui_node_->ui_control_buttons_.b_emergency_mode ){
         QTextStream(&qstr) << "IDLE";
-        ui->lb_emergency_status->setText(qstr);
-        ui->lb_emergency_status->setStyleSheet("QLabel{background:green;"
-                                               "color:white;"
-                                               "font:bold 75 12pt \"Noto Sans\";}");
+        // ui->lb_emergency_status->setText(qstr);
+        // ui->lb_emergency_status->setStyleSheet("QLabel{background:green;"
+        //                                        "color:white;"
+        //                                        "font:bold 75 12pt \"Noto Sans\";}");
         qstr.clear();
     }else{
-        QTextStream(&qstr) << "EMERGENCY MODE";
-        ui->lb_emergency_status->setText(qstr);
-        ui->lb_emergency_status->setStyleSheet("QLabel{background:red;"
-                                               "color:white;"
-                                               "font:bold 75 12pt \"Noto Sans\";}");
+        // QTextStream(&qstr) << "EMERGENCY MODE";
+        // ui->lb_emergency_status->setText(qstr);
+        // ui->lb_emergency_status->setStyleSheet("QLabel{background:red;"
+        //                                        "color:white;"
+        //                                        "font:bold 75 12pt \"Noto Sans\";}");
         qstr.clear();
     }
 }
@@ -354,46 +449,46 @@ void MainWindow::ShowComStatus()
     if(state == 0x08){
 
         QTextStream(&qstr) << "OPERATIONAL";
-        ui->lb_com_status->setText(qstr);
-        ui->lb_com_status->setStyleSheet("QLabel{background:green;"
-                                         "color:white;"
-                                         "font:bold 75 12pt \"Noto Sans\";}");
+        // ui->lb_com_status->setText(qstr);
+        // ui->lb_com_status->setStyleSheet("QLabel{background:green;"
+        //                                  "color:white;"
+        //                                  "font:bold 75 12pt \"Noto Sans\";}");
         qstr.clear();
     }
     else if (state == 0x04){
-        QTextStream(&qstr) << "SAFE OPERATIONAL";
-        ui->lb_com_status->setText(qstr);
-        ui->lb_com_status->setStyleSheet("QLabel{background:yellow;"
-                                         "color:black;"
-                                         "font:bold 75 12pt \"Noto Sans\";}");
-        qstr.clear();
+        // QTextStream(&qstr) << "SAFE OPERATIONAL";
+        // ui->lb_com_status->setText(qstr);
+        // ui->lb_com_status->setStyleSheet("QLabel{background:yellow;"
+        //                                  "color:black;"
+        //                                  "font:bold 75 12pt \"Noto Sans\";}");
+        // qstr.clear();
 
     }
     else if (state == 0x02){
-        QTextStream(&qstr) << "PRE OPERATIONAL";
-        ui->lb_com_status->setText(qstr);
-        ui->lb_com_status->setStyleSheet("QLabel{background:yellow;"
-                                         "color:black;"
-                                         "font:bold 75 12pt \"Noto Sans\";}");
-        qstr.clear();
+        // QTextStream(&qstr) << "PRE OPERATIONAL";
+        // ui->lb_com_status->setText(qstr);
+        // ui->lb_com_status->setStyleSheet("QLabel{background:yellow;"
+        //                                  "color:black;"
+        //                                  "font:bold 75 12pt \"Noto Sans\";}");
+        // qstr.clear();
 
     }
     else if (state == 0x01 && state==0){
-        QTextStream(&qstr) << "INIT";
-        ui->lb_com_status->setText(qstr);
-        ui->lb_com_status->setStyleSheet("QLabel{background:red;"
-                                         "color:white;"
-                                         "font:bold 75 12pt \"Noto Sans\";}");
-        qstr.clear();
+        // QTextStream(&qstr) << "INIT";
+        // ui->lb_com_status->setText(qstr);
+        // ui->lb_com_status->setStyleSheet("QLabel{background:red;"
+        //                                  "color:white;"
+        //                                  "font:bold 75 12pt \"Noto Sans\";}");
+        // qstr.clear();
 
     }
     else {
-        QTextStream(&qstr) << "NO CONNECTION";
-        ui->lb_com_status->setText(qstr);
-        ui->lb_com_status->setStyleSheet("QLabel{background:red;"
-                                         "color:white;"
-                                         "font:bold 75 12pt \"Noto Sans\";}");
-        qstr.clear();
+        // QTextStream(&qstr) << "NO CONNECTION";
+        // ui->lb_com_status->setText(qstr);
+        // ui->lb_com_status->setStyleSheet("QLabel{background:red;"
+        //                                  "color:white;"
+        //                                  "font:bold 75 12pt \"Noto Sans\";}");
+        // qstr.clear();
 
     }
 
@@ -406,18 +501,18 @@ void MainWindow::ShowAllMotorStatus()
         switch (i) {
         case 0:
             QTextStream(&qstr) << gui_node_->master_command_data_.target_vel[i];
-            ui->lb_target_vel_m1->setText(qstr);
+            // ui->lb_target_vel_m1->setText(qstr);
             /*  ui->line_target_velocity_m1->setStyleSheet("QLabel{background:white;"
                                                       "color:black;"
                                                       "font:bold 75 12pt \"Noto Sans\";}");*/
             qstr.clear();
 
             QTextStream(&qstr) << gui_node_->master_command_data_.control_word[i];
-            ui->lb_control_word_m1->setText(qstr);
+            // ui->lb_control_word_m1->setText(qstr);
             qstr.clear();
 
             QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_vel[i];
-            ui->lb_actual_vel_m1->setText(qstr);
+            // ui->lb_actual_vel_m1->setText(qstr);
             qstr.clear();
 
             qstr = GetReadableStatusWord(i);
@@ -425,36 +520,36 @@ void MainWindow::ShowAllMotorStatus()
             qstr.clear();
             
             QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_pos[i];
-            ui->lb_actual_pos_m1->setText(qstr);
+            // ui->lb_actual_pos_m1->setText(qstr);
             qstr.clear();
 
             QTextStream(&qstr) << gui_node_->master_command_data_.target_pos[i];
-            ui->lb_target_pos_m1->setText(qstr);
+            // ui->lb_target_pos_m1->setText(qstr);
             qstr.clear();
 
             QTextStream(&qstr) << gui_node_->master_command_data_.target_tor[i];
-            ui->lb_target_tor_m1->setText(qstr);
+            // ui->lb_target_tor_m1->setText(qstr);
             qstr.clear();
 
             QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_tor[i];
-            ui->lb_actual_tor_m1->setText(qstr);
+            // ui->lb_actual_tor_m1->setText(qstr);
             qstr.clear();
 
             break;
         case 1:
             QTextStream(&qstr) << gui_node_->master_command_data_.target_vel[i];
-            ui->lb_target_vel_m2->setText(qstr);
+            // ui->lb_target_vel_m2->setText(qstr);
             /*  ui->line_target_velocity_m2->setStyleSheet("QLabel{background:white;"
                                                       "color:black;"
                                                       "font:bold 75 12pt \"Noto Sans\";}");*/
             qstr.clear();
 
             QTextStream(&qstr) << gui_node_->master_command_data_.control_word[i];
-            ui->lb_control_word_m2->setText(qstr);
+            // ui->lb_control_word_m2->setText(qstr);
             qstr.clear();
 
             QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_vel[i];
-            ui->lb_actual_vel_m2->setText(qstr);
+            // ui->lb_actual_vel_m2->setText(qstr);
             qstr.clear();
 
             qstr = GetReadableStatusWord(i);
@@ -462,35 +557,35 @@ void MainWindow::ShowAllMotorStatus()
             qstr.clear();
             
             QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_pos[i];
-            ui->lb_actual_pos_m2->setText(qstr);
+            // ui->lb_actual_pos_m2->setText(qstr);
             qstr.clear();
 
             QTextStream(&qstr) << gui_node_->master_command_data_.target_pos[i];
-            ui->lb_target_pos_m2->setText(qstr);
+            // ui->lb_target_pos_m2->setText(qstr);
             qstr.clear();
 
             QTextStream(&qstr) << gui_node_->master_command_data_.target_tor[i];
-            ui->lb_target_tor_m2->setText(qstr);
+            // ui->lb_target_tor_m2->setText(qstr);
             qstr.clear();
 
             QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_tor[i];
-            ui->lb_actual_tor_m2->setText(qstr);
+            // ui->lb_actual_tor_m2->setText(qstr);
             qstr.clear();
             break;
         case 2:
             QTextStream(&qstr) << gui_node_->master_command_data_.target_vel[i];
-            ui->lb_target_vel_m3->setText(qstr);
+            // ui->lb_target_vel_m3->setText(qstr);
             /*  ui->line_target_velocity_m3->setStyleSheet("QLabel{background:white;"
                                                       "color:black;"
                                                       "font:bold 75 12pt \"Noto Sans\";}");*/
             qstr.clear();
 
             QTextStream(&qstr) << gui_node_->master_command_data_.control_word[i];
-            ui->lb_control_word_m3->setText(qstr);
+            // ui->lb_control_word_m3->setText(qstr);
             qstr.clear();
 
             QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_vel[i];
-            ui->lb_actual_vel_m3->setText(qstr);
+            // ui->lb_actual_vel_m3->setText(qstr);
             qstr.clear();
 
             qstr = GetReadableStatusWord(i);
@@ -498,55 +593,55 @@ void MainWindow::ShowAllMotorStatus()
             qstr.clear();
             
             QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_pos[i];
-            ui->lb_actual_pos_m3->setText(qstr);
+            // ui->lb_actual_pos_m3->setText(qstr);
             qstr.clear();
 
             QTextStream(&qstr) << gui_node_->master_command_data_.target_pos[i];
-            ui->lb_target_pos_m3->setText(qstr);
+            // ui->lb_target_pos_m3->setText(qstr);
             qstr.clear();
 
             QTextStream(&qstr) << gui_node_->master_command_data_.target_tor[i];
-            ui->lb_target_tor_m3->setText(qstr);
+            // ui->lb_target_tor_m3->setText(qstr);
             qstr.clear();
 
             QTextStream(&qstr) << gui_node_->slave_feedback_data_.actual_tor[i];
-            ui->lb_actual_tor_m3->setText(qstr);
+            // ui->lb_actual_tor_m3->setText(qstr);
             qstr.clear();
             break;
         default:
-            ui->lb_actual_pos_m1->setText("0");
-            ui->lb_actual_pos_m2->setText("0");
-            ui->lb_actual_pos_m3->setText("0");
+            // ui->lb_actual_pos_m1->setText("0");
+            // ui->lb_actual_pos_m2->setText("0");
+            // ui->lb_actual_pos_m3->setText("0");
 
-            ui->lb_target_pos_m1->setText("0");
-            ui->lb_target_pos_m2->setText("0");
-            ui->lb_target_pos_m3->setText("0");
+            // ui->lb_target_pos_m1->setText("0");
+            // ui->lb_target_pos_m2->setText("0");
+            // ui->lb_target_pos_m3->setText("0");
 
-            ui->lb_actual_vel_m1->setText("0");
-            ui->lb_actual_vel_m2->setText("0");
-            ui->lb_actual_vel_m3->setText("0");
+            // ui->lb_actual_vel_m1->setText("0");
+            // ui->lb_actual_vel_m2->setText("0");
+            // ui->lb_actual_vel_m3->setText("0");
 
-            ui->lb_target_vel_m1->setText("0");
-            ui->lb_target_vel_m2->setText("0");
-            ui->lb_target_vel_m3->setText("0");
+            // ui->lb_target_vel_m1->setText("0");
+            // ui->lb_target_vel_m2->setText("0");
+            // ui->lb_target_vel_m3->setText("0");
 
-            ui->lb_actual_tor_m1->setText("0");
-            ui->lb_actual_tor_m2->setText("0");
-            ui->lb_actual_tor_m3->setText("0");
+            // ui->lb_actual_tor_m1->setText("0");
+            // ui->lb_actual_tor_m2->setText("0");
+            // ui->lb_actual_tor_m3->setText("0");
 
-            ui->lb_target_tor_m1->setText("0");
-            ui->lb_target_tor_m2->setText("0");
-            ui->lb_target_tor_m3->setText("0");
+            // ui->lb_target_tor_m1->setText("0");
+            // ui->lb_target_tor_m2->setText("0");
+            // ui->lb_target_tor_m3->setText("0");
 
 
-            ui->lb_status_word_m1->setText("NOT READY");
-            ui->lb_control_word_m1->setText("0");
+            // ui->lb_status_word_m1->setText("NOT READY");
+            // ui->lb_control_word_m1->setText("0");
 
-            ui->lb_status_word_m2->setText("NOT READY");
-            ui->lb_control_word_m2->setText("0");
+            // ui->lb_status_word_m2->setText("NOT READY");
+            // ui->lb_control_word_m2->setText("0");
 
-            ui->lb_status_word_m3->setText("NOT READY");
-            ui->lb_control_word_m3->setText("0");
+            // ui->lb_status_word_m3->setText("NOT READY");
+            // ui->lb_control_word_m3->setText("0");
             break;
         }
 
@@ -599,33 +694,33 @@ void MainWindow::ShowOperationMode()
         {
         case kCSPosition:
             QTextStream(&qstr) << "Cyclic Sync Position";
-            ui->lb_op_mode_m1->setText(qstr);
-            ui->lb_op_mode_m2->setText(qstr);
-            ui->lb_op_mode_m3->setText(qstr);
+            // ui->lb_op_mode_m1->setText(qstr);
+            // ui->lb_op_mode_m2->setText(qstr);
+            // ui->lb_op_mode_m3->setText(qstr);
             break;
         case kCSVelocity:
             QTextStream(&qstr) << "Cyclic Sync Velocity";
-            ui->lb_op_mode_m1->setText(qstr);
-            ui->lb_op_mode_m2->setText(qstr);
-            ui->lb_op_mode_m3->setText(qstr);
+            // ui->lb_op_mode_m1->setText(qstr);
+            // ui->lb_op_mode_m2->setText(qstr);
+            // ui->lb_op_mode_m3->setText(qstr);
             break;
         case kProfilePosition:
             QTextStream(&qstr) << "Profile Position";
-            ui->lb_op_mode_m1->setText(qstr);
-            ui->lb_op_mode_m2->setText(qstr);
-            ui->lb_op_mode_m3->setText(qstr);
+            // ui->lb_op_mode_m1->setText(qstr);
+            // ui->lb_op_mode_m2->setText(qstr);
+            // ui->lb_op_mode_m3->setText(qstr);
             break;
         case kProfileVelocity:
             QTextStream(&qstr) << "Profile Velocity";
-            ui->lb_op_mode_m1->setText(qstr);
-            ui->lb_op_mode_m2->setText(qstr);
-            ui->lb_op_mode_m3->setText(qstr);
+            // ui->lb_op_mode_m1->setText(qstr);
+            // ui->lb_op_mode_m2->setText(qstr);
+            // ui->lb_op_mode_m3->setText(qstr);
             break;
         default:
             QTextStream(&qstr) << "Not Selected";
-            ui->lb_op_mode_m1->setText(qstr);
-            ui->lb_op_mode_m2->setText(qstr);
-            ui->lb_op_mode_m3->setText(qstr);
+            // ui->lb_op_mode_m1->setText(qstr);
+            // ui->lb_op_mode_m2->setText(qstr);
+            // ui->lb_op_mode_m3->setText(qstr);
             break;
         }
         qstr.clear();
@@ -644,22 +739,22 @@ QString MainWindow::GetReadableStatusWord(int index)
                 QTextStream(&qstr) << "READY";
                 switch (index) {
                 case 0:
-                    ui->lb_status_word_m1->setText(qstr);
-                    ui->lb_status_word_m1->setStyleSheet("QLabel{background:green;"
-                                                         "color:black;"
-                                                         "font:bold 75 12pt \"Noto Sans\";}");
+                    // ui->lb_status_word_m1->setText(qstr);
+                    // ui->lb_status_word_m1->setStyleSheet("QLabel{background:green;"
+                    //                                      "color:black;"
+                    //                                      "font:bold 75 12pt \"Noto Sans\";}");
                     break;
                 case 1:
-                    ui->lb_status_word_m2->setText(qstr);
-                    ui->lb_status_word_m2->setStyleSheet("QLabel{background:green;"
-                                                         "color:black;"
-                                                         "font:bold 75 12pt \"Noto Sans\";}");
+                    // ui->lb_status_word_m2->setText(qstr);
+                    // ui->lb_status_word_m2->setStyleSheet("QLabel{background:green;"
+                    //                                      "color:black;"
+                    //                                      "font:bold 75 12pt \"Noto Sans\";}");
                     break;
                 case 2:
-                    ui->lb_status_word_m3->setText(qstr);
-                    ui->lb_status_word_m3->setStyleSheet("QLabel{background:green;"
-                                                         "color:black;"
-                                                         "font:bold 75 12pt \"Noto Sans\";}");
+                    // ui->lb_status_word_m3->setText(qstr);
+                    // ui->lb_status_word_m3->setStyleSheet("QLabel{background:green;"
+                    //                                      "color:black;"
+                    //                                      "font:bold 75 12pt \"Noto Sans\";}");
                     break;
                 default:
                     break;
@@ -668,22 +763,22 @@ QString MainWindow::GetReadableStatusWord(int index)
                 QTextStream(&qstr) << "MOVING";
                 switch (index) {
                 case 0:
-                    ui->lb_status_word_m1->setText(qstr);
-                    ui->lb_status_word_m1->setStyleSheet("QLabel{background:yellow;"
-                                                         "color:black;"
-                                                         "font:bold 75 12pt \"Noto Sans\";}");
+                    // ui->lb_status_word_m1->setText(qstr);
+                    // ui->lb_status_word_m1->setStyleSheet("QLabel{background:yellow;"
+                    //                                      "color:black;"
+                    //                                      "font:bold 75 12pt \"Noto Sans\";}");
                     break;
                 case 1:
-                    ui->lb_status_word_m2->setText(qstr);
-                    ui->lb_status_word_m2->setStyleSheet("QLabel{background:yellow;"
-                                                         "color:black;"
-                                                         "font:bold 75 12pt \"Noto Sans\";}");
+                    // ui->lb_status_word_m2->setText(qstr);
+                    // ui->lb_status_word_m2->setStyleSheet("QLabel{background:yellow;"
+                    //                                      "color:black;"
+                    //                                      "font:bold 75 12pt \"Noto Sans\";}");
                     break;
                 case 2:
-                    ui->lb_status_word_m3->setText(qstr);
-                    ui->lb_status_word_m3->setStyleSheet("QLabel{background:yellow;"
-                                                         "color:black;"
-                                                         "font:bold 75 12pt \"Noto Sans\";}");
+                    // ui->lb_status_word_m3->setText(qstr);
+                    // ui->lb_status_word_m3->setStyleSheet("QLabel{background:yellow;"
+                    //                                      "color:black;"
+                    //                                      "font:bold 75 12pt \"Noto Sans\";}");
                     break;
                 default:
                     break;
@@ -695,22 +790,22 @@ QString MainWindow::GetReadableStatusWord(int index)
                 QTextStream(&qstr) << "READY";
                 switch (index) {
                 case 0:
-                    ui->lb_status_word_m1->setText(qstr);
-                    ui->lb_status_word_m1->setStyleSheet("QLabel{background:green;"
-                                                         "color:black;"
-                                                         "font:bold 75 12pt \"Noto Sans\";}");
+                    // ui->lb_status_word_m1->setText(qstr);
+                    // ui->lb_status_word_m1->setStyleSheet("QLabel{background:green;"
+                    //                                      "color:black;"
+                    //                                      "font:bold 75 12pt \"Noto Sans\";}");
                     break;
                 case 1:
-                    ui->lb_status_word_m2->setText(qstr);
-                    ui->lb_status_word_m2->setStyleSheet("QLabel{background:green;"
-                                                         "color:black;"
-                                                         "font:bold 75 12pt \"Noto Sans\";}");
+                    // ui->lb_status_word_m2->setText(qstr);
+                    // ui->lb_status_word_m2->setStyleSheet("QLabel{background:green;"
+                    //                                      "color:black;"
+                    //                                      "font:bold 75 12pt \"Noto Sans\";}");
                     break;
                 case 2:
-                    ui->lb_status_word_m3->setText(qstr);
-                    ui->lb_status_word_m3->setStyleSheet("QLabel{background:green;"
-                                                         "color:black;"
-                                                         "font:bold 75 12pt \"Noto Sans\";}");
+                    // ui->lb_status_word_m3->setText(qstr);
+                    // ui->lb_status_word_m3->setStyleSheet("QLabel{background:green;"
+                    //                                      "color:black;"
+                    //                                      "font:bold 75 12pt \"Noto Sans\";}");
                     break;
                 default:
                     break;
@@ -719,22 +814,22 @@ QString MainWindow::GetReadableStatusWord(int index)
                 QTextStream(&qstr) << "MOVING";
                 switch (index) {
                 case 0:
-                    ui->lb_status_word_m1->setText(qstr);
-                    ui->lb_status_word_m1->setStyleSheet("QLabel{background:yellow;"
-                                                         "color:black;"
-                                                         "font:bold 75 12pt \"Noto Sans\";}");
+                    // ui->lb_status_word_m1->setText(qstr);
+                    // ui->lb_status_word_m1->setStyleSheet("QLabel{background:yellow;"
+                    //                                      "color:black;"
+                    //                                      "font:bold 75 12pt \"Noto Sans\";}");
                     break;
                 case 1:
-                    ui->lb_status_word_m2->setText(qstr);
-                    ui->lb_status_word_m2->setStyleSheet("QLabel{background:yellow;"
-                                                         "color:black;"
-                                                         "font:bold 75 12pt \"Noto Sans\";}");
+                    // ui->lb_status_word_m2->setText(qstr);
+                    // ui->lb_status_word_m2->setStyleSheet("QLabel{background:yellow;"
+                    //                                      "color:black;"
+                    //                                      "font:bold 75 12pt \"Noto Sans\";}");
                     break;
                 case 2:
-                    ui->lb_status_word_m3->setText(qstr);
-                    ui->lb_status_word_m3->setStyleSheet("QLabel{background:yellow;"
-                                                         "color:black;"
-                                                         "font:bold 75 12pt \"Noto Sans\";}");
+                    // ui->lb_status_word_m3->setText(qstr);
+                    // ui->lb_status_word_m3->setStyleSheet("QLabel{background:yellow;"
+                    //                                      "color:black;"
+                    //                                      "font:bold 75 12pt \"Noto Sans\";}");
                     break;
                 default:
                     break;
@@ -744,18 +839,18 @@ QString MainWindow::GetReadableStatusWord(int index)
         }
     }else{
         QTextStream(&qstr) << "NOT READY";
-        ui->lb_status_word_m1->setText(qstr);
-        ui->lb_status_word_m1->setStyleSheet("QLabel{background:white;"
-                                             "color:black;"
-                                             "font:bold 75 12pt \"Noto Sans\";}");
-        ui->lb_status_word_m2->setText(qstr);
-        ui->lb_status_word_m2->setStyleSheet("QLabel{background:white;"
-                                             "color:black;"
-                                             "font:bold 75 12pt \"Noto Sans\";}");
-        ui->lb_status_word_m3->setText(qstr);
-        ui->lb_status_word_m3->setStyleSheet("QLabel{background:white;"
-                                             "color:black;"
-                                             "font:bold 75 12pt \"Noto Sans\";}");
+        // ui->lb_status_word_m1->setText(qstr);
+        // ui->lb_status_word_m1->setStyleSheet("QLabel{background:white;"
+        //                                      "color:black;"
+        //                                      "font:bold 75 12pt \"Noto Sans\";}");
+        // ui->lb_status_word_m2->setText(qstr);
+        // ui->lb_status_word_m2->setStyleSheet("QLabel{background:white;"
+        //                                      "color:black;"
+        //                                      "font:bold 75 12pt \"Noto Sans\";}");
+        // ui->lb_status_word_m3->setText(qstr);
+        // ui->lb_status_word_m3->setStyleSheet("QLabel{background:white;"
+        //                                      "color:black;"
+        //                                      "font:bold 75 12pt \"Noto Sans\";}");
 
     }
     return qstr;

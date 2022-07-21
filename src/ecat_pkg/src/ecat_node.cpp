@@ -154,7 +154,7 @@ int EthercatNode::MapDefaultPdos()
   ec_sync_info_t easycat_syncs[3] = { { 0, EC_DIR_OUTPUT, 1, easycat_pdos + 0, EC_WD_ENABLE },
                                       { 1, EC_DIR_INPUT, 1, easycat_pdos + 1, EC_WD_DISABLE },
                                       { 0xff } };
-
+#if DEVTEST
   for (int i = 0; i < 4; i++)
   {
     if (ecrt_slave_config_pdos(slaves_[i].slave_config_, EC_END, elmo_syncs))
@@ -171,6 +171,16 @@ int EthercatNode::MapDefaultPdos()
       return -1;
     }
   }
+#else
+  for (int i = 0; i < g_kNumberOfServoDrivers; i++)
+  {
+    if (ecrt_slave_config_pdos(slaves_[i].slave_config_, EC_END, maxon_syncs))
+    {
+      RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Slave PDO configuration failed... ");
+      return -1;
+    }
+  }
+#endif
 #if CUSTOM_SLAVE
   if (ecrt_slave_config_pdos(slaves_[FINAL_SLAVE].slave_config_, EC_END, easycat_syncs))
   {

@@ -53,7 +53,6 @@ void MainWindow::rosSpinThread()
 
 void MainWindow::UpdateGUI()
 {
-  //  Updating Additional GUI Part Veysi ADN
   ShowEmergencyStatus();
   ShowComStatus();
   ShowAllMotorStatus();
@@ -244,11 +243,11 @@ void MainWindow::on_b_init_ecat_clicked()
           gui_node_->slave_feedback_data_.current_lifecycle_state != kInactive) &&
          time_out_counter != 10)
   {
-    // std::this_thread::sleep_for(std::chrono::seconds(1));
+    std::this_thread::sleep_for(std::chrono::seconds(1));
     time_out_counter++;
   }
   if (gui_node_->slave_feedback_data_.current_lifecycle_state != kInactive)
-    // return;
+    return;
     CallInactiveStateUI();
 }
 
@@ -261,11 +260,11 @@ void MainWindow::on_b_reinit_ecat_clicked()
           gui_node_->slave_feedback_data_.current_lifecycle_state != kUnconfigured) &&
          time_out_counter != 10)
   {
-    // std::this_thread::sleep_for(std::chrono::seconds(1));
+    std::this_thread::sleep_for(std::chrono::seconds(1));
     time_out_counter++;
   }
   if (gui_node_->slave_feedback_data_.current_lifecycle_state != kUnconfigured)
-    // return;
+    return;
     CallUnconfiguredStateUI();
 }
 
@@ -290,11 +289,11 @@ void MainWindow::on_b_enter_cyclic_pdo_clicked()
           gui_node_->slave_feedback_data_.current_lifecycle_state != kActive) &&
          time_out_counter != 10)
   {
-    // std::this_thread::sleep_for(std::chrono::seconds(1));
+    std::this_thread::sleep_for(std::chrono::seconds(1));
     time_out_counter++;
   }
   if (gui_node_->slave_feedback_data_.current_lifecycle_state != kActive)
-    // return;
+    return;
     CallActiveStateUI();
 }
 
@@ -307,11 +306,11 @@ void MainWindow::on_b_stop_cyclic_pdo_clicked()
           gui_node_->slave_feedback_data_.current_lifecycle_state != kInactive) &&
          time_out_counter != 10)
   {
-    // std::this_thread::sleep_for(std::chrono::seconds(1));
+    std::this_thread::sleep_for(std::chrono::seconds(1));
     time_out_counter++;
   }
   if (gui_node_->slave_feedback_data_.current_lifecycle_state != kInactive)
-    // return;
+    return;
     CallInactiveStateUI();
 }
 

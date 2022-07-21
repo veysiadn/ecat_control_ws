@@ -7,6 +7,12 @@ using namespace GUI;
 GuiNode::GuiNode() : Node("gui_node")
 {
   slave_feedback_data_.actual_pos.resize(g_kNumberOfServoDrivers);
+  slave_feedback_data_.actual_tor.resize(g_kNumberOfServoDrivers);
+  slave_feedback_data_.actual_vel.resize(g_kNumberOfServoDrivers);
+  slave_feedback_data_.error_code.resize(g_kNumberOfServoDrivers);
+  slave_feedback_data_.status_word.resize(g_kNumberOfServoDrivers);
+  slave_feedback_data_.op_mode_display.resize(g_kNumberOfServoDrivers);
+  slave_feedback_data_.slave_com_status.resize(g_kNumberOfServoDrivers);
   ui_control_buttons_.spn_target_values.resize(g_kNumberOfServoDrivers);
   ui_control_buttons_.b_vel.resize(g_kNumberOfServoDrivers);
   ui_control_buttons_.b_pos.resize(g_kNumberOfServoDrivers);
@@ -77,7 +83,7 @@ void GuiNode::HandleMasterCommandCallbacks(const ecat_msgs::msg::DataSent::Share
 void GuiNode::HandleSlaveFeedbackCallbacks(const ecat_msgs::msg::DataReceived::SharedPtr msg)
 {
   for (int i = 0; i < g_kNumberOfServoDrivers; i++)
-  {
+  { 
     /// Servo Drive feedbacks
     slave_feedback_data_.actual_pos[i] = msg->actual_pos[i];
     slave_feedback_data_.actual_vel[i] = msg->actual_vel[i];

@@ -698,7 +698,7 @@ int EthercatLifeCycle::StartEthercatCommunication()
     return -1;
   }
   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Waiting for operational mode...\n");
-  if (ecat_node_->WaitForOperationalMode())
+  if (WaitForOperationalMode())
   {
     return -1;
   }
@@ -751,7 +751,7 @@ void EthercatLifeCycle::StartPdoExchange(void* instance)
   // Switch On and Enable Driver
   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Enabling motors...");
   clock_gettime(CLOCK_TO_USE, &wake_up_time);
-  while (sig && !gui_buttons_status_.b_stop_cyclic_pdo && (enabled_counter!=g_kNumberOfServoDrivers))
+  while (sig && !gui_buttons_status_.b_stop_cyclic_pdo && (enabled_counter<g_kNumberOfServoDrivers))
   {
     // CKim - Sleep for 1 ms
     wake_up_time = timespec_add(wake_up_time, g_cycle_time);
@@ -771,8 +771,13 @@ void EthercatLifeCycle::StartPdoExchange(void* instance)
       // CKim - Check status and update control words to enable drivers
       // Returns number of enabled drivers
       EnableDrivers(i);
-      if(motor_state_[i]==kOperationEnabled)
-        enabled_counter++;
+      if(motor_state_[i]==kOperationEnabled){
+        enabled_counter+=1;
+      }
+      else
+      {
+        enabled_counter=0;
+      }
     }
 
     // CKim - Periodic printout
@@ -1052,6 +1057,49 @@ void EthercatLifeCycle::StartPdoExchange(void* instance)
   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Leaving control thread.");
   pthread_exit(NULL);
 }  // StartPdoExchange end
+
+int EthercatLifeCycle::WaitForOperationalMode()
+{
+  int try_counter = 0;
+  int check_state_count = 0;
+  int time_out = 20e3;
+  while (g_master_state.al_states != EC_AL_STATE_OP)
+  {
+    if (try_counter < time_out)
+    {
+      clock_gettime(CLOCK_MONOTONIC, &g_sync_timer);
+      ecrt_master_application_time(g_master, TIMESPEC2NS(g_sync_timer));
+
+      ecrt_master_receive(g_master);
+      ecrt_domain_process(g_master_domain);
+      ReadFromSlaves();
+      usleep(PERIOD_US);
+      if (!check_state_count)
+      {
+        ecat_node_->CheckMasterState();
+        ecat_node_->CheckMasterDomainState();
+        ecat_node_->CheckSlaveConfigurationState();
+        check_state_count = PERIOD_US;
+      }
+
+      ecrt_domain_queue(g_master_domain);
+      ecrt_master_sync_slave_clocks(g_master);
+      ecrt_master_sync_reference_clock_to(g_master, TIMESPEC2NS(g_sync_timer));
+      ecrt_master_send(g_master);
+
+      try_counter++;
+      check_state_count--;
+    }
+    else
+    {
+      RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Error : Time out occurred while waiting for OP mode.!  ");
+      on_cleanup(this->get_current_state());
+      return -1;
+    }
+  }
+  return 0;
+}
+
 
 void EthercatLifeCycle::UpdateControlParameters()
 {
@@ -1897,11 +1945,12 @@ void EthercatLifeCycle::UpdateCyclicTorqueModeParameters()
 
 int8_t EthercatLifeCycle::EnableDrivesViaSDO(int index)
 {
-  while (motor_state_[index] != kOperationEnabled)
+  EnableDrivers(index);
+  while (this->motor_state_[index] != kOperationEnabled)
   {
     received_data_.status_word[index] = ecat_node_->ReadStatusWordViaSDO(index);
-
-    if (ecat_node_->WriteControlWordViaSDO(index, EnableDrivers(index)))
+    EnableDrivers(index);
+    if (ecat_node_->WriteControlWordViaSDO(index, sent_data_.control_word[index]))
     {
       return -1;
     }
@@ -1911,7 +1960,7 @@ int8_t EthercatLifeCycle::EnableDrivesViaSDO(int index)
 
 int8_t EthercatLifeCycle::DisableDrivesViaSDO(int index)
 {
-  sent_data_.control_word[index] = SM_GO_SWITCH_ON_DISABLE;
+  sent_data_.control_word[index] = SM_GO_SWITCH_ON;
   if (ecat_node_->WriteControlWordViaSDO(index, sent_data_.control_word[index]))
   {
     return -1;

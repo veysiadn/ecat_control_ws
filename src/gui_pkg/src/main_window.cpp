@@ -282,6 +282,14 @@ void MainWindow::on_b_enter_cyclic_pdo_clicked()
   if (gui_node_->slave_feedback_data_.current_lifecycle_state != kActive)
     return;
   CallActiveStateUI();
+  for(int i = 0 ; i < g_kNumberOfServoDrivers; i++)
+  {
+    ui->b_vel[i]->setChecked(false);
+    ui->b_pos[i]->setChecked(false);
+    ui->b_cyclic_vel[i]->setChecked(false);
+    ui->b_cyclic_pos[i]->setChecked(false);
+    ui->b_cyclic_tor[i]->setChecked(false);
+  }
 }
 
 void MainWindow::on_b_stop_cyclic_pdo_clicked()

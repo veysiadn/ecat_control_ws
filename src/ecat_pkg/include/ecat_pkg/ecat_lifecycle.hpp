@@ -335,6 +335,8 @@ private:
    */
   void InactiveModeCallback();
 
+  int WaitForOperationalMode();
+
 private:
   /// pthread create required parameters.
   pthread_t ethercat_thread_;

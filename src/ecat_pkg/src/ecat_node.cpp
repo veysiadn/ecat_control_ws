@@ -745,9 +745,9 @@ int EthercatNode::WaitForOperationalMode()
     else
     {
       RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Error : Time out occurred while waiting for OP mode.!  ");
-      // ecrt_master_deactivate_slaves(g_master);
-      ecrt_master_deactivate(g_master);
-      ecrt_release_master(g_master);
+        // ecrt_master_deactivate_slaves(g_master);
+        ecrt_master_deactivate(g_master);
+        ecrt_release_master(g_master);
       return -1;
     }
   }

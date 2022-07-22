@@ -155,7 +155,7 @@ int EthercatNode::MapDefaultPdos()
   ec_sync_info_t easycat_syncs[3] = { { 0, EC_DIR_OUTPUT, 1, easycat_pdos + 0, EC_WD_ENABLE },
                                       { 1, EC_DIR_INPUT, 1, easycat_pdos + 1, EC_WD_DISABLE },
                                       { 0xff } };
-#if DEVTEST
+#if DEV_TEST
   for (int i = 0; i < 4; i++)
   {
     if (ecrt_slave_config_pdos(slaves_[i].slave_config_, EC_END, elmo_syncs))
@@ -201,8 +201,8 @@ int EthercatNode::MapDefaultPdos()
     this->slaves_[i].offset_.actual_vel = ecrt_slave_config_reg_pdo_entry(
         this->slaves_[i].slave_config_, OD_VELOCITY_ACTUAL_VALUE, g_master_domain, NULL);
 
-    this->slaves_[i].offset_.op_mode_display = ecrt_slave_config_reg_pdo_entry(
-        this->slaves_[i].slave_config_, OD_OPERATION_MODE_DISPLAY, g_master_domain, NULL);
+    // this->slaves_[i].offset_.op_mode_display = ecrt_slave_config_reg_pdo_entry(
+    //     this->slaves_[i].slave_config_, OD_OPERATION_MODE_DISPLAY, g_master_domain, NULL);
 
     this->slaves_[i].offset_.actual_tor =
         ecrt_slave_config_reg_pdo_entry(this->slaves_[i].slave_config_, OD_TORQUE_ACTUAL_VALUE, g_master_domain, NULL);

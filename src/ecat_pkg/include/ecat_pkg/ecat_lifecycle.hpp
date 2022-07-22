@@ -294,9 +294,10 @@ private:
   /**
    * @brief CKim - This function checks status word, clears
    *        any faults and enables torque of the motor driver
-   *
+   *@param index slave index
+   *@return control_word val
    */
-  int EnableDrivers();
+  uint16_t EnableDrivers(int index);
 
   /**
    * @brief Enables drives supporting CiA402 in specified index.
@@ -353,5 +354,6 @@ private:
   std::int32_t measurement_time = 0;
   Timing timer_info_;
   rclcpp::TimerBase::SharedPtr inactive_mode_callback_timer_;
+  bool gui_event_=false;
 };
 }  // namespace EthercatLifeCycleNode

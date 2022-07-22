@@ -41,8 +41,8 @@ public:
     {
       if (lifecycle_node_data_.error_code[i] > 0 && safety_state_msg_.data != kErrorInDrive)
       {
-        RCLCPP_ERROR(get_logger(), "Drive in error state : %s.",
-                     GetErrorMessage(lifecycle_node_data_.error_code[i]).c_str());
+        // RCLCPP_ERROR(get_logger(), "Drive in error state : %s.",
+        //              GetErrorMessage(lifecycle_node_data_.error_code[i]).c_str());
         this->safety_state_msg_.data = kErrorInDrive;
       }
       else if (lifecycle_node_data_.error_code[i] == 0)

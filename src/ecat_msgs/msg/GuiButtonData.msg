@@ -11,7 +11,6 @@ uint8 b_enable_drives
 uint8 b_disable_drives
 uint8 b_enable_vel
 uint8 b_enable_pos
-uint8 b_enable_torque
 uint8 b_enable_cyclic_vel
 uint8 b_enable_cyclic_pos
 uint8 b_enable_cyclic_torque
@@ -23,7 +22,6 @@ uint8[] b_enable
 uint8[] b_disable
 uint8[] b_vel
 uint8[] b_pos
-uint8[] b_tor
 uint8[] b_cyclic_vel
 uint8[] b_cyclic_pos
 uint8[] b_cyclic_tor

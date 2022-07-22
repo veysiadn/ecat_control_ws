@@ -48,7 +48,6 @@ public:
   QHBoxLayout* bottom_horizontal_layout;
   QVBoxLayout* left_sdo_button_layout;
   MyButton* b_enable_cyclic_pos;
-  MyButton* b_enable_torque;
   MyButton* b_clear_fault;
   MyButton* b_enable_cyclic_torque;
   MyButton* b_enable_cyclic_vel;
@@ -80,7 +79,6 @@ public:
   MyButton* b_cyclic_vel[g_kNumberOfServoDrivers];
   MyButton* b_pos[g_kNumberOfServoDrivers];
   MyButton* b_cyclic_pos[g_kNumberOfServoDrivers];
-  MyButton* b_tor[g_kNumberOfServoDrivers];
   MyButton* b_cyclic_tor[g_kNumberOfServoDrivers];
 
   QLabel* ls_status_bar;
@@ -96,6 +94,7 @@ public:
   QLabel* lb_target_tor[g_kNumberOfServoDrivers];
   QLabel* lb_op_mode[g_kNumberOfServoDrivers];
   QLabel* label_motor[g_kNumberOfServoDrivers];
+  QLabel* lb_motor_error_code[g_kNumberOfServoDrivers];
 
   QLabel* ls_op_mode;
   QLabel* ls_tar_vel;
@@ -104,7 +103,6 @@ public:
   QLabel* ls_control_word;
   QLabel* ls_target_tor;
   QLabel* lb_safety_state;
-  QLabel* lb_motor_error_code;
   QLabel* ls_motor_error_code;
   QLabel* ls_ecat_status_bar;
   QLabel* ls_safety_state;
@@ -217,30 +215,6 @@ public:
                           ""));
 
     left_sdo_button_layout->addWidget(b_enable_cyclic_pos);
-
-    b_enable_torque = new MyButton(centralwidget);
-    b_enable_torque->setObjectName(QString::fromUtf8("b_enable_torque"));
-    sizePolicy.setHorizontalStretch(0);
-    sizePolicy.setVerticalStretch(0);
-    sizePolicy.setHeightForWidth(b_enable_cyclic_pos->sizePolicy().hasHeightForWidth());
-    b_enable_torque->setSizePolicy(sizePolicy);
-    b_enable_torque->setStyleSheet(
-        QString::fromUtf8("MyButton:pressed {\n"
-                          "    background-color: rgb(5, 153, 44);\n"
-                          "}\n"
-                          "MyButton:disabled {\n"
-                          "color: rgb(33, 33, 33);\n"
-                          "background-color:gray;\n"
-                          "font: bold 75 15pt;\n"
-                          "}\n"
-                          "MyButton { \n"
-                          "color: rgb(255, 255, 255);\n"
-                          "background-color: rgb(252, 119, 3);\n"
-                          "font: bold 75 15pt \"Noto Sans\";\n"
-                          "}\n"
-                          ""));
-
-    left_sdo_button_layout->addWidget(b_enable_torque);
 
     b_enable_cyclic_torque = new MyButton(centralwidget);
     b_enable_cyclic_torque->setObjectName(QString::fromUtf8("b_enable_cyclic_torque"));
@@ -717,32 +691,6 @@ public:
 
     for (int i = 0; i < g_kNumberOfServoDrivers; i++)
     {
-      b_tor[i] = new MyButton(centralwidget, i);
-      b_tor[i]->setObjectName(QString::fromUtf8("b_tor_") + QString::number(i));
-      QSizePolicy sizePolicy3(QSizePolicy::Minimum, QSizePolicy::Minimum);
-      sizePolicy3.setHorizontalStretch(0);
-      sizePolicy3.setVerticalStretch(0);
-      sizePolicy3.setHeightForWidth(b_tor[i]->sizePolicy().hasHeightForWidth());
-      b_tor[i]->setSizePolicy(sizePolicy3);
-      b_tor[i]->setStyleSheet(QString::fromUtf8(
-          "MyButton:pressed {\n"
-          "    background-color: rgb(5, 153, 44);\n"
-          "}\n"
-          "MyButton:checked {\n"
-          "    background-color: rgb(5, 153, 44);\n"
-          "}\n"
-          "MyButton { \n"
-          //                                                       "color: rgb(255, 255, 255);\n"
-          //                                                       "background-color: rgb(252, 119, 3);\n"
-          "font: bold 75 15pt \"Noto Sans\";\n"
-          "}\n"
-          ""));
-      b_tor[i]->setCheckable(true);
-      singleButtonGridLayout->addWidget(b_tor[i], i, 7, 1, 1);
-    }
-
-    for (int i = 0; i < g_kNumberOfServoDrivers; i++)
-    {
       b_cyclic_tor[i] = new MyButton(centralwidget, i);
       b_cyclic_tor[i]->setObjectName(QString::fromUtf8("b_cyclic_tor_") + QString::number(i));
       QSizePolicy sizePolicy3(QSizePolicy::Minimum, QSizePolicy::Minimum);
@@ -764,7 +712,7 @@ public:
           "}\n"
           ""));
       b_cyclic_tor[i]->setCheckable(true);
-      singleButtonGridLayout->addWidget(b_cyclic_tor[i], i, 8, 1, 1);
+      singleButtonGridLayout->addWidget(b_cyclic_tor[i], i, 7, 1, 1);
     }
 
     send_spin_horizontal_layout->addLayout(send_verticalLayout);
@@ -880,7 +828,7 @@ public:
                           "font: bold 75 14pt \"Noto Sans\";"));
     lb_com_status->setAlignment(Qt::AlignCenter);
 
-    status_bar_gridLayout->addWidget(lb_com_status, 7, 1, 1, 2 * g_kNumberOfServoDrivers);
+    status_bar_gridLayout->addWidget(lb_com_status, 8, 1, 1, 2 * g_kNumberOfServoDrivers);
 
     ls_com_status = new QLabel(centralwidget);
     ls_com_status->setObjectName(QString::fromUtf8("ls_com_status"));
@@ -898,24 +846,23 @@ public:
                           ""));
     ls_com_status->setAlignment(Qt::AlignCenter);
 
-    status_bar_gridLayout->addWidget(ls_com_status, 7, 0, 1, 1);
-
-    lb_motor_error_code = new QLabel(centralwidget);
-    lb_motor_error_code->setObjectName(QString::fromUtf8("lb_motor_error_code"));
-    sizePolicy.setHeightForWidth(lb_motor_error_code->sizePolicy().hasHeightForWidth());
-    lb_motor_error_code->setSizePolicy(sizePolicy);
-    lb_motor_error_code->setMinimumSize(QSize(0, 0));
-    lb_motor_error_code->setStyleSheet(
-        QString::fromUtf8("color: rgb(0, 0, 0);\n"
-                          "selection-background-color: rgb(238, 238, 236);\n"
-                          "selection-color: rgb(238, 238, 236);\n"
-                          "background-color:  rgb(255, 255, 255);\n"
-                          "alternate-background-color: rgb(0, 0, 0);\n"
-                          "font: bold 75 14pt \"Noto Sans\";"));
-    lb_motor_error_code->setAlignment(Qt::AlignCenter);
-
-    status_bar_gridLayout->addWidget(lb_motor_error_code, 9, 1, 1, 2 * g_kNumberOfServoDrivers);
-
+    status_bar_gridLayout->addWidget(ls_com_status, 8, 0, 1, 1);
+    for(int i = 0; i < g_kNumberOfServoDrivers; i++){
+      lb_motor_error_code[i] = new QLabel(centralwidget);
+      lb_motor_error_code[i]->setObjectName(QString::fromUtf8("lb_motor_error_code"));
+      sizePolicy.setHeightForWidth(lb_motor_error_code[i]->sizePolicy().hasHeightForWidth());
+      lb_motor_error_code[i]->setSizePolicy(sizePolicy);
+      lb_motor_error_code[i]->setMinimumSize(QSize(0, 0));
+      lb_motor_error_code[i]->setStyleSheet(
+          QString::fromUtf8("color: rgb(0, 0, 0);\n"
+                            "selection-background-color: rgb(238, 238, 236);\n"
+                            "selection-color: rgb(238, 238, 236);\n"
+                            "background-color:  rgb(255, 255, 255);\n"
+                            "alternate-background-color: rgb(0, 0, 0);\n"
+                            "font: bold 75 14pt \"Noto Sans\";"));
+      lb_motor_error_code[i]->setAlignment(Qt::AlignCenter);
+      status_bar_gridLayout->addWidget(lb_motor_error_code[i], 6, 2 * i + 1, 1, 2);
+    }
     for (int i = 0; i < g_kNumberOfServoDrivers; i++)
     {
       lb_status_word[i] = new QLabel(centralwidget);
@@ -1058,7 +1005,7 @@ public:
                           "font: bold 75 14pt \"Noto Sans\";"));
     lb_safety_state->setAlignment(Qt::AlignCenter);
 
-    status_bar_gridLayout->addWidget(lb_safety_state, 8, 1, 1, 2 * g_kNumberOfServoDrivers);
+    status_bar_gridLayout->addWidget(lb_safety_state, 9, 1, 1, 2 * g_kNumberOfServoDrivers);
 
     ls_ecat_status_bar = new QLabel(centralwidget);
     ls_ecat_status_bar->setObjectName(QString::fromUtf8("ls_ecat_status_bar"));
@@ -1073,7 +1020,7 @@ public:
                           "font: bold 75 16pt \"Noto Sans\";"));
     ls_ecat_status_bar->setAlignment(Qt::AlignCenter);
 
-    status_bar_gridLayout->addWidget(ls_ecat_status_bar, 6, 0, 1, 2 * g_kNumberOfServoDrivers + 1);
+    status_bar_gridLayout->addWidget(ls_ecat_status_bar, 7, 0, 1, 2 * g_kNumberOfServoDrivers + 1);
 
     for (int i = 0; i < g_kNumberOfServoDrivers; i++)
     {
@@ -1144,7 +1091,7 @@ public:
                           ""));
     ls_safety_state->setAlignment(Qt::AlignCenter);
 
-    status_bar_gridLayout->addWidget(ls_safety_state, 8, 0, 1, 1);
+    status_bar_gridLayout->addWidget(ls_safety_state, 9, 0, 1, 1);
 
     ls_motor_error_code = new QLabel(centralwidget);
     ls_motor_error_code->setObjectName(QString::fromUtf8("ls_motor_error_code"));
@@ -1163,7 +1110,7 @@ public:
                           ""));
     ls_motor_error_code->setAlignment(Qt::AlignCenter);
 
-    status_bar_gridLayout->addWidget(ls_motor_error_code, 9, 0, 1, 1);
+    status_bar_gridLayout->addWidget(ls_motor_error_code, 6, 0, 1, 1);
 
     label_motor_no = new QLabel(centralwidget);
     label_motor_no->setObjectName(QString::fromUtf8("label_motor_no"));
@@ -1227,10 +1174,6 @@ public:
                                                          "Enable Cyclic\n"
                                                          "Velocity Mode All",
                                                          nullptr));
-    b_enable_torque->setText(QApplication::translate("MainWindow",
-                                                     "Enable\n"
-                                                     "Torque Mode All",
-                                                     nullptr));
 
     b_enable_cyclic_torque->setText(QApplication::translate("MainWindow",
                                                             "Enable Cyclic\n"
@@ -1304,9 +1247,6 @@ public:
 
       b_cyclic_pos[i]->setText(QApplication::translate("MainWindow", "Cyclic Position" + i, nullptr));
       b_cyclic_pos[i]->setText(QString("CSP"));
-
-      b_tor[i]->setText(QApplication::translate("MainWindow", "Torque" + i, nullptr));
-      b_tor[i]->setText(QString("TOR"));
 
       b_cyclic_tor[i]->setText(QApplication::translate("MainWindow", "Cyclic Torque" + i, nullptr));
       b_cyclic_tor[i]->setText(QString("CST"));

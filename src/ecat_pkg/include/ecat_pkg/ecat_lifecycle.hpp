@@ -317,9 +317,10 @@ private:
    * @brief Assigns operation mode parameters based on selected operation mode.
    * @note That if you want to change the parameters just change it by modifying this function.
    * @note By default operation mode is selected as profile velocity mode.
+   * @param index Slave index
    * @return 0 if succesful, otherwise -1.
    */
-  int SetConfigurationParameters();
+  int SetConfigurationParameters(int index=0);
   /**
    * @brief Updates control parameters based on selected mode.
    *

@@ -404,6 +404,14 @@ public:
    * @return error register value of the selected slave.
    */
   uint16_t ReadErrorCodeViaSDO(int index);
+  /**
+   * @brief Clears all faults by sending control word
+   * clear fault command.
+   * 
+   * @param index slave index
+   * @return 0 if successfull, otherwise -1.
+   */
+  uint16_t ClearFaultsViaSDO(int index);
 
 private:
   /// File descriptor to open and wake  master from CLI.

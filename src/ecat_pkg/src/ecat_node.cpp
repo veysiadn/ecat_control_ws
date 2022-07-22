@@ -100,7 +100,7 @@ int EthercatNode::MapDefaultPdos()
    * Revision number: 0x01600000
    */
   // CKim - First three entries will be read by slave (master sends command). RxPDO
-  ec_pdo_entry_info_t maxon_epos_pdo_entries[10] = { { OD_CONTROL_WORD, 16 },
+  ec_pdo_entry_info_t maxon_epos_pdo_entries[11] = { { OD_CONTROL_WORD, 16 },
                                                      { OD_TARGET_VELOCITY, 32 },
                                                      { OD_TARGET_POSITION, 32 },
                                                      { OD_TARGET_TORQUE, 16 },
@@ -111,11 +111,12 @@ int EthercatNode::MapDefaultPdos()
                                                      { OD_POSITION_ACTUAL_VAL, 32 },
                                                      { OD_VELOCITY_ACTUAL_VALUE, 32 },
                                                      { OD_TORQUE_ACTUAL_VALUE, 16 },
-                                                     { OD_ERROR_CODE, 16 } };
+                                                     { OD_ERROR_CODE, 16 } ,
+                                                     { OD_OPERATION_MODE_DISPLAY,8}};
 
   ec_pdo_info_t maxon_pdos[2] = {
     { 0x1600, 5, maxon_epos_pdo_entries + 0 },  // CKim - RxPDO index of the EPOS4
-    { 0x1a00, 5, maxon_epos_pdo_entries + 5 }   // CKim - TxPDO index of the EPOS4
+    { 0x1a00, 6, maxon_epos_pdo_entries + 5 }   // CKim - TxPDO index of the EPOS4
   };
 
   // CKim - Sync manager configuration of the EPOS4. 0,1 is reserved for SDO communications
@@ -199,6 +200,9 @@ int EthercatNode::MapDefaultPdos()
 
     this->slaves_[i].offset_.actual_vel = ecrt_slave_config_reg_pdo_entry(
         this->slaves_[i].slave_config_, OD_VELOCITY_ACTUAL_VALUE, g_master_domain, NULL);
+
+    this->slaves_[i].offset_.op_mode_display = ecrt_slave_config_reg_pdo_entry(
+        this->slaves_[i].slave_config_, OD_OPERATION_MODE_DISPLAY, g_master_domain, NULL);
 
     this->slaves_[i].offset_.actual_tor =
         ecrt_slave_config_reg_pdo_entry(this->slaves_[i].slave_config_, OD_TORQUE_ACTUAL_VALUE, g_master_domain, NULL);
@@ -1147,6 +1151,13 @@ uint16_t EthercatNode::ReadErrorCodeViaSDO(int index)
   error_code = (uint16_t)(pack.data);
   return error_code;
 }
+
+uint16_t EthercatNode::ClearFaultsViaSDO(int index)
+{
+  WriteControlWordViaSDO(index, SM_START);
+  WriteControlWordViaSDO(index, SM_FULL_RESET);
+}
+
 int EthercatNode::MapDefaultSdos()
 {
   for (int i = 0; i < g_kNumberOfServoDrivers; i++)

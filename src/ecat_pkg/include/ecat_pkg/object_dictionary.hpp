@@ -238,7 +238,7 @@ xxxx xxxx x0xx 1000 | Fault
 // ControlWord bits :
 #define SM_CW_SWITCH_ON 0x0001
 #define SM_CW_ENABLE_VOLTAGE 0x0002
-#define SM_CW_QUICK_STOP 0x0004
+#define SM_CW_QUICK_STOP 0x0003
 #define SM_CW_ENABLE_OPERATION 0x0008
 #define SM_CW_FAULT_RESET 0x0080
 #define SM_CW_OD_HALT 0x0100

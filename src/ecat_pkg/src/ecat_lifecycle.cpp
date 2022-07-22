@@ -23,7 +23,6 @@ EthercatLifeCycle::EthercatLifeCycle() : LifecycleNode("ecat_node", rclcpp::Node
   gui_buttons_status_.b_disable.resize(g_kNumberOfServoDrivers);
   gui_buttons_status_.b_vel.resize(g_kNumberOfServoDrivers);
   gui_buttons_status_.b_pos.resize(g_kNumberOfServoDrivers);
-  gui_buttons_status_.b_tor.resize(g_kNumberOfServoDrivers);
   gui_buttons_status_.b_cyclic_vel.resize(g_kNumberOfServoDrivers);
   gui_buttons_status_.b_cyclic_pos.resize(g_kNumberOfServoDrivers);
   gui_buttons_status_.b_cyclic_tor.resize(g_kNumberOfServoDrivers);
@@ -40,8 +39,8 @@ EthercatLifeCycle::EthercatLifeCycle() : LifecycleNode("ecat_node", rclcpp::Node
   gui_subscriber_ = this->create_subscription<ecat_msgs::msg::GuiButtonData>(
       "gui_buttons", 10, std::bind(&EthercatLifeCycle::HandleGuiNodeCallbacks, this, std::placeholders::_1));
   received_data_publisher_->on_activate();
-  inactive_mode_callback_timer_ = this->create_wall_timer(
-      std::chrono::milliseconds(50), std::bind(&EthercatLifeCycle::InactiveModeCallback, this));
+  inactive_mode_callback_timer_ =
+      this->create_wall_timer(std::chrono::milliseconds(50), std::bind(&EthercatLifeCycle::InactiveModeCallback, this));
 }
 
 EthercatLifeCycle::~EthercatLifeCycle()
@@ -91,8 +90,8 @@ node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_ac
     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Activation phase failed");
     received_data_.current_lifecycle_state = PRIMARY_STATE_INACTIVE;
     PublishReceivedData();
-    /// TODO: clear fault in here. Assuming drive went into fault state. It will be better to clear fault in case of error 
-    /// by informing the user.
+    /// TODO: clear fault in here. Assuming drive went into fault state. It will be better to clear fault in case of
+    /// error by informing the user.
     return node_interfaces::LifecycleNodeInterface::CallbackReturn::FAILURE;
   }
   else
@@ -216,6 +215,7 @@ void EthercatLifeCycle::InactiveModeCallback()
       received_data_.actual_pos[i] = ecat_node_->ReadActualPositionViaSDO(i);
       received_data_.actual_vel[i] = ecat_node_->ReadActualVelocityViaSDO(i);
       received_data_.actual_tor[i] = ecat_node_->ReadActualTorqueViaSDO(i);
+      received_data_.error_code[i] = ecat_node_->ReadErrorCodeViaSDO(i);
       ecat_node_->CheckMasterState();
       received_data_.com_status = g_master_state.al_states;
       received_data_.status_word[i] = ecat_node_->ReadStatusWordViaSDO(i);
@@ -226,7 +226,7 @@ void EthercatLifeCycle::InactiveModeCallback()
         sent_data_.target_vel[i] = received_data_.actual_vel[i];
         sent_data_.target_tor[i] = received_data_.actual_tor[i];
       }
-      else if(g_kOperationMode == kProfileVelocity || g_kOperationMode == kCSVelocity)
+      else if (g_kOperationMode == kProfileVelocity || g_kOperationMode == kCSVelocity)
       {
         sent_data_.target_vel[i] = gui_buttons_status_.spn_target_values[i];
         sent_data_.target_pos[i] = received_data_.actual_pos[i];
@@ -307,7 +307,7 @@ void EthercatLifeCycle::HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonDa
       for (int i = 0; i < g_kNumberOfServoDrivers; i++)
       {
         ecat_node_->WriteOpModeViaSDO(i, kCSPosition);
-        SetConfigurationParameters();
+        SetConfigurationParameters(i);
       }
     }
 
@@ -317,7 +317,17 @@ void EthercatLifeCycle::HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonDa
       for (int i = 0; i < g_kNumberOfServoDrivers; i++)
       {
         ecat_node_->WriteOpModeViaSDO(i, kCSVelocity);
-        SetConfigurationParameters();
+        SetConfigurationParameters(i);
+      }
+    }
+
+    if (gui_buttons_status_.b_enable_cyclic_torque)
+    {
+      g_kOperationMode = kCSTorque;
+      for (int i = 0; i < g_kNumberOfServoDrivers; i++)
+      {
+        ecat_node_->WriteOpModeViaSDO(i, kCSTorque);
+        SetConfigurationParameters(i);
       }
     }
 
@@ -327,7 +337,7 @@ void EthercatLifeCycle::HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonDa
       for (int i = 0; i < g_kNumberOfServoDrivers; i++)
       {
         ecat_node_->WriteOpModeViaSDO(i, kProfilePosition);
-        SetConfigurationParameters();
+        SetConfigurationParameters(i);
       }
     }
 
@@ -337,7 +347,7 @@ void EthercatLifeCycle::HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonDa
       for (int i = 0; i < g_kNumberOfServoDrivers; i++)
       {
         ecat_node_->WriteOpModeViaSDO(i, kProfileVelocity);
-        SetConfigurationParameters();
+        SetConfigurationParameters(i);
       }
     }
 
@@ -356,53 +366,94 @@ void EthercatLifeCycle::HandleGuiNodeCallbacks(const ecat_msgs::msg::GuiButtonDa
         DisableDrivesViaSDO(i);
       }
     }
-    /// TODO: Update this statement with b_send.
-    if (gui_buttons_status_.b_disable_drives)
+
+    if (gui_buttons_status_.b_clear_fault)
     {
-      switch (g_kOperationMode)
+      for (int i = 0; i < g_kNumberOfServoDrivers; i++)
       {
-        case kProfilePosition:
-          for (int i = 0; i < g_kNumberOfServoDrivers; i++)
-          {
+        ecat_node_->ClearFaultsViaSDO(i);
+      }
+    }
+
+    if (gui_buttons_status_.b_enable_cyclic_torque)
+    {
+      for (int i = 0; i < g_kNumberOfServoDrivers; i++)
+      {
+        ecat_node_->WriteOpModeViaSDO(i, kCSTorque);
+      }
+    }
+
+    for (int i = 0; i < g_kNumberOfServoDrivers; i++)
+    {
+      if (gui_buttons_status_.b_stop[i])
+        ecat_node_->WriteControlWordViaSDO(i, SM_QUICKSTOP);
+      if (gui_buttons_status_.b_enable[i])
+        EnableDrivesViaSDO(i);
+      if (gui_buttons_status_.b_disable[i])
+        DisableDrivesViaSDO(i);
+      if (gui_buttons_status_.b_vel[i])
+      {
+        g_kOperationMode = kProfileVelocity;
+        ecat_node_->WriteOpModeViaSDO(i, kProfileVelocity);
+        SetConfigurationParameters(i);
+      }
+      if (gui_buttons_status_.b_pos[i])
+      {
+        g_kOperationMode = kProfilePosition;
+        ecat_node_->WriteOpModeViaSDO(i, kProfilePosition);
+        SetConfigurationParameters(i);
+      }
+      if (gui_buttons_status_.b_cyclic_vel[i])
+      {
+        g_kOperationMode = kCSVelocity;
+        ecat_node_->WriteOpModeViaSDO(i, kCSVelocity);
+        SetConfigurationParameters(i);
+      }
+      if (gui_buttons_status_.b_cyclic_pos[i])
+      {
+        g_kOperationMode = kCSPosition;
+        ecat_node_->WriteOpModeViaSDO(i, kCSPosition);
+        SetConfigurationParameters(i);
+      }
+      if (gui_buttons_status_.b_cyclic_tor[i])
+      {
+        g_kOperationMode = kCSTorque;
+        ecat_node_->WriteOpModeViaSDO(i, kCSTorque);
+        SetConfigurationParameters(i);
+      }
+      if (gui_buttons_status_.b_send[i])
+      {
+        switch (g_kOperationMode)
+        {
+          case kProfilePosition:
+            ecat_node_->WriteControlWordViaSDO(i, SM_GO_ENABLE);
             ecat_node_->WriteTargetPositionViaSDO(i, gui_buttons_status_.spn_target_values[i]);
-          }
-          break;
-        case kProfileTorque:
-          for (int i = 0; i < g_kNumberOfServoDrivers; i++)
-          {
+            break;
+          case kProfileTorque:
+            ecat_node_->WriteControlWordViaSDO(i, SM_GO_ENABLE);
             ecat_node_->WriteTargetTorqueViaSDO(i, gui_buttons_status_.spn_target_values[i]);
-          }
-          break;
-        case kCSPosition:
-          for (int i = 0; i < g_kNumberOfServoDrivers; i++)
-          {
+            break;
+          case kCSPosition:
+            ecat_node_->WriteControlWordViaSDO(i, SM_GO_ENABLE);
             ecat_node_->WriteTargetPositionViaSDO(i, gui_buttons_status_.spn_target_values[i]);
-          }
-          break;
-        case kCSTorque:
-          for (int i = 0; i < g_kNumberOfServoDrivers; i++)
-          {
+            break;
+          case kCSTorque:
+            ecat_node_->WriteControlWordViaSDO(i, SM_GO_ENABLE);
             ecat_node_->WriteTargetTorqueViaSDO(i, gui_buttons_status_.spn_target_values[i]);
-          }
-          break;
-        case kCSVelocity:
-          for (int i = 0; i < g_kNumberOfServoDrivers; i++)
-          {
+            break;
+          case kCSVelocity:
+            ecat_node_->WriteControlWordViaSDO(i, SM_GO_ENABLE);
             ecat_node_->WriteTargetVelocityViaSDO(i, gui_buttons_status_.spn_target_values[i]);
-          }
-          break;
-        case kProfileVelocity:
-          for (int i = 0; i < g_kNumberOfServoDrivers; i++)
-          {
+            break;
+          case kProfileVelocity:
+            ecat_node_->WriteControlWordViaSDO(i, SM_GO_ENABLE);
             ecat_node_->WriteTargetVelocityViaSDO(i, gui_buttons_status_.spn_target_values[i]);
-          }
-          break;
-        default:
-          for (int i = 0; i < g_kNumberOfServoDrivers; i++)
-          {
+            break;
+          default:
+            ecat_node_->WriteControlWordViaSDO(i, SM_GO_ENABLE);
             ecat_node_->WriteTargetVelocityViaSDO(i, gui_buttons_status_.spn_target_values[i]);
-          }
-          break;
+            break;
+        }
       }
     }
   }
@@ -528,9 +579,12 @@ int EthercatLifeCycle::InitEthercatCommunication()
   }
 
   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Assigning configuration parameters...\n");
-  if (SetConfigurationParameters())
+  for (int i = 0; i < g_kNumberOfServoDrivers; i++)
   {
-    return -1;
+    if (SetConfigurationParameters(i))
+    {
+      return -1;
+    }
   }
   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Mapping default PDOs...\n");
 
@@ -545,7 +599,7 @@ int EthercatLifeCycle::InitEthercatCommunication()
   return 0;
 }
 
-int EthercatLifeCycle::SetConfigurationParameters()
+int EthercatLifeCycle::SetConfigurationParameters(int index)
 {
   int error = 0;
   if (g_kOperationMode == kProfilePosition)
@@ -559,10 +613,7 @@ int EthercatLifeCycle::SetConfigurationParameters()
     P.max_profile_vel = 1e3;
     P.quick_stop_dec = 3e4;
     P.motion_profile_type = 0;
-    for (int i; i < g_kNumberOfServoDrivers; i++)
-    {
-      error = ecat_node_->SetProfilePositionParameters(P, i);
-    }
+    error = ecat_node_->SetProfilePositionParameters(P, index);
   }
   else if (g_kOperationMode == kCSPosition)
   {
@@ -575,10 +626,7 @@ int EthercatLifeCycle::SetConfigurationParameters()
     P.max_profile_vel = 1e3;
     P.quick_stop_dec = 3e4;
     P.interpolation_time_period = 0;
-    for (int i; i < g_kNumberOfServoDrivers; i++)
-    {
-      error = ecat_node_->SetCyclicSyncPositionModeParameters(P, i);
-    }
+    error = ecat_node_->SetCyclicSyncPositionModeParameters(P, index);
   }
   else if (g_kOperationMode == kCSVelocity)
   {
@@ -588,10 +636,7 @@ int EthercatLifeCycle::SetConfigurationParameters()
     P.max_profile_vel = 1e3;
     P.quick_stop_dec = 3e4;
     P.interpolation_time_period = 0;
-    for (int i; i < g_kNumberOfServoDrivers; i++)
-    {
-      error = ecat_node_->SetCyclicSyncVelocityModeParameters(P, i);
-    }
+    error = ecat_node_->SetCyclicSyncVelocityModeParameters(P, index);
   }
   else if (g_kOperationMode == kCSTorque)
   {
@@ -599,10 +644,7 @@ int EthercatLifeCycle::SetConfigurationParameters()
     CSTorqueModeParam P;
     P.profile_dec = 3e4;
     P.quick_stop_dec = 3e4;
-    for (int i; i < g_kNumberOfServoDrivers; i++)
-    {
-      error = ecat_node_->SetCyclicSyncTorqueModeParameters(P, i);
-    }
+    error = ecat_node_->SetCyclicSyncTorqueModeParameters(P, index);
   }
   else
   {
@@ -634,10 +676,7 @@ int EthercatLifeCycle::SetConfigurationParameters()
     P.max_profile_vel = 5e3;
     P.quick_stop_dec = 3e4;
     P.motion_profile_type = 0;
-    for (int i; i < g_kNumberOfServoDrivers; i++)
-    {
-      error = ecat_node_->SetProfileVelocityParameters(P, i);
-    }
+    error = ecat_node_->SetProfileVelocityParameters(P, index);
 #endif
   }
   return error;
@@ -1057,6 +1096,8 @@ void EthercatLifeCycle::ReadFromSlaves()
         EC_READ_S16(ecat_node_->slaves_[i].slave_pdo_domain_ + ecat_node_->slaves_[i].offset_.actual_tor);
     received_data_.error_code[i] =
         EC_READ_U16(ecat_node_->slaves_[i].slave_pdo_domain_ + ecat_node_->slaves_[i].offset_.error_code);
+    received_data_.op_mode_display[i] =
+        EC_READ_U8(ecat_node_->slaves_[i].slave_pdo_domain_ + ecat_node_->slaves_[i].offset_.op_mode_display);
   }
   received_data_.com_status = al_state_;
 #if CUSTOM_SLAVE
@@ -1865,15 +1906,9 @@ void EthercatLifeCycle::UpdateCyclicTorqueModeParameters()
 
 int8_t EthercatLifeCycle::EnableDrivesViaSDO(int index)
 {
-  for (int i = 0; i < 10; i++)
+  while (EnableDrivers() != g_kNumberOfServoDrivers)
   {
     received_data_.status_word[index] = ecat_node_->ReadStatusWordViaSDO(index);
-    // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%d\n" ,received_data_.status_word[index]);
-    if (EnableDrivers() == g_kNumberOfServoDrivers)
-    {
-      return 0;
-    };
-    // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "%d\n" ,sent_data_.control_word[index]);
     if (ecat_node_->WriteControlWordViaSDO(index, sent_data_.control_word[index]))
     {
       return -1;

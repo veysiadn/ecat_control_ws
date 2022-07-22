@@ -86,7 +86,6 @@ private slots:
   void b_cyclic_vel_clicked(int m_no);
   void b_pos_clicked(int m_no);
   void b_cyclic_pos_clicked(int m_no);
-  void b_tor_clicked(int m_no);
   void b_cyclic_tor_clicked(int m_no);
 
 private slots:
@@ -116,6 +115,10 @@ private slots:
   void on_b_stop_cyclic_pdo_clicked();
 
   void on_b_emergency_mode_clicked();
+
+  void on_b_enable_cyclic_torque_clicked();
+
+  void on_b_clear_fault_clicked();
 
 private:
   /**

@@ -15,7 +15,6 @@ MainWindow::MainWindow(int argc, char** argv, QWidget* parent)
     connect(ui->b_disable[i], SIGNAL(buttonClicked(int)), this, SLOT(b_disable_clicked(int)));
     connect(ui->b_vel[i], SIGNAL(buttonClicked(int)), this, SLOT(b_vel_clicked(int)));
     connect(ui->b_pos[i], SIGNAL(buttonClicked(int)), this, SLOT(b_pos_clicked(int)));
-    connect(ui->b_tor[i], SIGNAL(buttonClicked(int)), this, SLOT(b_tor_clicked(int)));
     connect(ui->b_cyclic_vel[i], SIGNAL(buttonClicked(int)), this, SLOT(b_cyclic_vel_clicked(int)));
     connect(ui->b_cyclic_pos[i], SIGNAL(buttonClicked(int)), this, SLOT(b_cyclic_pos_clicked(int)));
     connect(ui->b_cyclic_tor[i], SIGNAL(buttonClicked(int)), this, SLOT(b_cyclic_tor_clicked(int)));
@@ -140,20 +139,6 @@ void MainWindow::b_cyclic_pos_clicked(int m_no)
   }
 }
 
-void MainWindow::b_tor_clicked(int m_no)
-{
-  if (ui->b_tor[m_no]->isChecked())
-  {
-    DisableOtherModes(ui->b_tor[m_no], m_no);
-    gui_node_->ui_control_buttons_.b_tor[m_no] = 1;
-    gui_node_->PublishGuiEvents();
-  }
-  else
-  {
-    EnableAllModes(m_no);
-  }
-}
-
 void MainWindow::b_cyclic_tor_clicked(int m_no)
 {
   if (ui->b_cyclic_tor[m_no]->isChecked())
@@ -172,7 +157,6 @@ void MainWindow::DisableOtherModes(QPushButton* button, int index)
 {
   ui->b_vel[index]->setDisabled(true);
   ui->b_pos[index]->setDisabled(true);
-  ui->b_tor[index]->setDisabled(true);
   ui->b_cyclic_vel[index]->setDisabled(true);
   ui->b_cyclic_pos[index]->setDisabled(true);
   ui->b_cyclic_tor[index]->setDisabled(true);
@@ -183,7 +167,6 @@ void MainWindow::EnableAllModes(int index)
 {
   ui->b_vel[index]->setEnabled(true);
   ui->b_pos[index]->setEnabled(true);
-  ui->b_tor[index]->setEnabled(true);
   ui->b_cyclic_vel[index]->setEnabled(true);
   ui->b_cyclic_pos[index]->setEnabled(true);
   ui->b_cyclic_tor[index]->setEnabled(true);
@@ -227,7 +210,11 @@ void MainWindow::on_b_enable_vel_clicked()
   gui_node_->ui_control_buttons_.b_enable_vel = 1;
   gui_node_->PublishGuiEvents();
 }
-
+void MainWindow::on_b_enable_cyclic_torque_clicked()
+{
+  gui_node_->ui_control_buttons_.b_enable_cyclic_torque = 1;
+  gui_node_->PublishGuiEvents();
+}
 void MainWindow::on_b_enable_pos_clicked()
 {
   gui_node_->ui_control_buttons_.b_enable_pos = 1;
@@ -248,7 +235,7 @@ void MainWindow::on_b_init_ecat_clicked()
   }
   if (gui_node_->slave_feedback_data_.current_lifecycle_state != kInactive)
     return;
-    CallInactiveStateUI();
+  CallInactiveStateUI();
 }
 
 void MainWindow::on_b_reinit_ecat_clicked()
@@ -265,7 +252,7 @@ void MainWindow::on_b_reinit_ecat_clicked()
   }
   if (gui_node_->slave_feedback_data_.current_lifecycle_state != kUnconfigured)
     return;
-    CallUnconfiguredStateUI();
+  CallUnconfiguredStateUI();
 }
 
 void MainWindow::on_b_enable_drives_clicked()
@@ -294,7 +281,7 @@ void MainWindow::on_b_enter_cyclic_pdo_clicked()
   }
   if (gui_node_->slave_feedback_data_.current_lifecycle_state != kActive)
     return;
-    CallActiveStateUI();
+  CallActiveStateUI();
 }
 
 void MainWindow::on_b_stop_cyclic_pdo_clicked()
@@ -311,7 +298,13 @@ void MainWindow::on_b_stop_cyclic_pdo_clicked()
   }
   if (gui_node_->slave_feedback_data_.current_lifecycle_state != kInactive)
     return;
-    CallInactiveStateUI();
+  CallInactiveStateUI();
+}
+
+void MainWindow::on_b_clear_fault_clicked()
+{
+  gui_node_->ui_control_buttons_.b_clear_fault = 1;
+  gui_node_->PublishGuiEvents();
 }
 
 void MainWindow::on_b_emergency_mode_clicked()
@@ -376,7 +369,6 @@ void MainWindow::CallUnconfiguredStateUI()
   SetDisabledStyleSheet(ui->b_enable_cyclic_vel);
   SetDisabledStyleSheet(ui->b_enable_pos);
   SetDisabledStyleSheet(ui->b_enable_vel);
-  SetDisabledStyleSheet(ui->b_enable_torque);
   SetDisabledStyleSheet(ui->b_enable_cyclic_torque);
   SetDisabledStyleSheet(ui->b_clear_fault);
 
@@ -389,7 +381,6 @@ void MainWindow::CallUnconfiguredStateUI()
     SetDisabledStyleSheet(ui->b_disable[i]);
     SetDisabledStyleSheet(ui->b_vel[i]);
     SetDisabledStyleSheet(ui->b_pos[i]);
-    SetDisabledStyleSheet(ui->b_tor[i]);
     SetDisabledStyleSheet(ui->b_cyclic_vel[i]);
     SetDisabledStyleSheet(ui->b_cyclic_pos[i]);
     SetDisabledStyleSheet(ui->b_cyclic_tor[i]);
@@ -417,7 +408,6 @@ void MainWindow::CallInactiveStateUI()
   SetEnabledStyleSheetSDO(ui->b_disable_drives);
   SetEnabledStyleSheetSDO(ui->b_enable_vel);
   SetEnabledStyleSheetSDO(ui->b_enable_pos);
-  SetEnabledStyleSheetSDO(ui->b_enable_torque);
   SetEnabledStyleSheetSDO(ui->b_enable_cyclic_vel);
   SetEnabledStyleSheetSDO(ui->b_enable_cyclic_pos);
   SetEnabledStyleSheetSDO(ui->b_enable_cyclic_torque);
@@ -431,7 +421,6 @@ void MainWindow::CallInactiveStateUI()
     SetEnabledStyleSheetSDO(ui->b_disable[i]);
     SetEnabledStyleSheetSDO(ui->b_vel[i]);
     SetEnabledStyleSheetSDO(ui->b_pos[i]);
-    SetEnabledStyleSheetSDO(ui->b_tor[i]);
     SetEnabledStyleSheetSDO(ui->b_cyclic_vel[i]);
     SetEnabledStyleSheetSDO(ui->b_cyclic_pos[i]);
     SetEnabledStyleSheetSDO(ui->b_cyclic_tor[i]);
@@ -448,7 +437,6 @@ void MainWindow::CallActiveStateUI()
   SetDisabledStyleSheet(ui->b_disable_drives);
   SetDisabledStyleSheet(ui->b_enable_pos);
   SetDisabledStyleSheet(ui->b_enable_vel);
-  SetDisabledStyleSheet(ui->b_enable_torque);
   SetDisabledStyleSheet(ui->b_enable_cyclic_vel);
   SetDisabledStyleSheet(ui->b_enable_cyclic_pos);
   SetDisabledStyleSheet(ui->b_enable_cyclic_torque);
@@ -462,7 +450,6 @@ void MainWindow::CallActiveStateUI()
     SetDisabledStyleSheet(ui->b_disable[i]);
     SetDisabledStyleSheet(ui->b_vel[i]);
     SetDisabledStyleSheet(ui->b_pos[i]);
-    SetDisabledStyleSheet(ui->b_tor[i]);
     SetDisabledStyleSheet(ui->b_cyclic_vel[i]);
     SetDisabledStyleSheet(ui->b_cyclic_pos[i]);
     SetDisabledStyleSheet(ui->b_cyclic_tor[i]);
@@ -583,6 +570,10 @@ void MainWindow::ShowAllMotorStatus()
     qstr.clear();
 
     qstr = GetReadableStatusWord(i);
+    qstr.clear();
+
+    QTextStream(&qstr) << GetDriveErrorMessage(gui_node_->slave_feedback_data_.error_code[i]);
+    ui->lb_motor_error_code[i]->setText(qstr);
     qstr.clear();
   }
 }
@@ -726,7 +717,7 @@ QString MainWindow::GetReadableStatusWord(int index)
     {
       if (TEST_BIT(gui_node_->slave_feedback_data_.status_word[index], 12))
       {
-        QTextStream(&qstr) << "MOVING";
+        QTextStream(&qstr) << "READY";
 
         ui->lb_status_word[index]->setText(qstr);
         ui->lb_status_word[index]->setStyleSheet(
@@ -736,7 +727,7 @@ QString MainWindow::GetReadableStatusWord(int index)
       }
       else
       {
-        QTextStream(&qstr) << "READY";
+        QTextStream(&qstr) << "MOVING";
 
         ui->lb_status_word[index]->setText(qstr);
         ui->lb_status_word[index]->setStyleSheet(
@@ -754,6 +745,15 @@ QString MainWindow::GetReadableStatusWord(int index)
           "color:black;"
           "font:bold 75 12pt \"Noto Sans\";}");
     }
+  }
+  else if (GetDriveStates(gui_node_->slave_feedback_data_.status_word[index]) == kQuickStop)
+  {
+    QTextStream(&qstr) << "STOPPED";
+    ui->lb_status_word[index]->setText(qstr);
+    ui->lb_status_word[index]->setStyleSheet(
+        "QLabel{background:white;"
+        "color:black;"
+        "font:bold 75 12pt \"Noto Sans\";}");
   }
   else
   {

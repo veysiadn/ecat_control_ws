@@ -16,7 +16,6 @@ GuiNode::GuiNode() : Node("gui_node")
   ui_control_buttons_.spn_target_values.resize(g_kNumberOfServoDrivers);
   ui_control_buttons_.b_vel.resize(g_kNumberOfServoDrivers);
   ui_control_buttons_.b_pos.resize(g_kNumberOfServoDrivers);
-  ui_control_buttons_.b_tor.resize(g_kNumberOfServoDrivers);
   ui_control_buttons_.b_cyclic_vel.resize(g_kNumberOfServoDrivers);
   ui_control_buttons_.b_cyclic_pos.resize(g_kNumberOfServoDrivers);
   ui_control_buttons_.b_cyclic_tor.resize(g_kNumberOfServoDrivers);
@@ -114,7 +113,6 @@ void GuiNode::ResetContolButtonValues()
   ui_control_buttons_.b_enter_cyclic_pdo = 0;
   ui_control_buttons_.b_emergency_mode = 0;
   ui_control_buttons_.b_stop_cyclic_pdo = 0;
-  ui_control_buttons_.b_enable_torque = 0; 
   ui_control_buttons_.b_enable_cyclic_torque = 0;
   ui_control_buttons_.b_clear_fault = 0;
   for (int i = 0; i < g_kNumberOfServoDrivers; i++)
@@ -125,7 +123,6 @@ void GuiNode::ResetContolButtonValues()
     ui_control_buttons_.b_send[i] = 0;
     ui_control_buttons_.b_vel[i] = 0;
     ui_control_buttons_.b_pos[i] = 0;
-    ui_control_buttons_.b_tor[i] = 0;
     ui_control_buttons_.b_cyclic_vel[i] = 0;
     ui_control_buttons_.b_cyclic_pos[i] = 0;
     ui_control_buttons_.b_cyclic_tor[i] = 0;

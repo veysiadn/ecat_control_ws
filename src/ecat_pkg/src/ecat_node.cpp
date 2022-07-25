@@ -111,8 +111,8 @@ int EthercatNode::MapDefaultPdos()
                                                      { OD_POSITION_ACTUAL_VAL, 32 },
                                                      { OD_VELOCITY_ACTUAL_VALUE, 32 },
                                                      { OD_TORQUE_ACTUAL_VALUE, 16 },
-                                                     { OD_ERROR_CODE, 16 } ,
-                                                     { OD_OPERATION_MODE_DISPLAY,8}};
+                                                     { OD_ERROR_CODE, 16 },
+                                                     { OD_OPERATION_MODE_DISPLAY, 8 } };
 
   ec_pdo_info_t maxon_pdos[2] = {
     { 0x1600, 5, maxon_epos_pdo_entries + 0 },  // CKim - RxPDO index of the EPOS4
@@ -631,6 +631,22 @@ int EthercatNode::SetCyclicSyncTorqueModeParameters(CSTorqueModeParam& P, int po
     RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Set quick stop deceleration failed !");
     return -1;
   }
+  if (ecrt_slave_config_sdo8(slaves_[position].slave_config_, OD_INTERPOLATION_TIME_PERIOD,
+                             P.interpolation_time_period) < 0)
+  {
+    RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Set quick stop deceleration failed !");
+    return -1;
+  }
+  if (ecrt_slave_config_sdo16(slaves_[position].slave_config_, OD_MAX_TORQUE, P.max_torque) < 0)
+  {
+    RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Set quick stop deceleration failed !");
+    return -1;
+  }
+  if (ecrt_slave_config_sdo32(slaves_[position].slave_config_, OD_MAX_MOTOR_SPEED, P.max_profile_vel) < 0)
+  {
+    RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Set quick stop deceleration failed !");
+    return -1;
+  }
   return 0;
 }
 
@@ -745,9 +761,9 @@ int EthercatNode::WaitForOperationalMode()
     else
     {
       RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Error : Time out occurred while waiting for OP mode.!  ");
-        // ecrt_master_deactivate_slaves(g_master);
-        ecrt_master_deactivate(g_master);
-        ecrt_release_master(g_master);
+      // ecrt_master_deactivate_slaves(g_master);
+      ecrt_master_deactivate(g_master);
+      ecrt_release_master(g_master);
       return -1;
     }
   }
@@ -844,9 +860,10 @@ int EthercatNode::GetNumberOfConnectedSlaves()
   number_of_slaves = g_master_state.slaves_responding;
   if (NUM_OF_SLAVES != number_of_slaves)
   {
-    std::cout << "Please enter correct number of slaves... " << std::endl;
-    std::cout << "Entered number of slave : " << NUM_OF_SLAVES << std::endl
-              << "Connected slaves        : " << number_of_slaves << std::endl;
+    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"),"Please enter correct number of slaves... \n"
+                 "Entered number of slave : %d\n"
+                 "Connected slaves        : %d\n", NUM_OF_SLAVES,number_of_slaves);
+ 
     return -1;
   }
   return 0;
@@ -961,7 +978,7 @@ uint16_t EthercatNode::ReadStatusWordViaSDO(int index)
   pack.data_sz = sizeof(uint16_t);
   if (SdoRead(pack))
   {
-    std::cout << "Error while reading Status Word " << std::endl;
+       RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Error while reading Status Word\n" );
     return -1;
   }
   status_word = (uint16_t)(pack.data);
@@ -978,7 +995,7 @@ int16_t EthercatNode::WriteControlWordViaSDO(int index, uint16_t control_word)
   pack.data = uint32_t(control_word);
   if (SdoWrite(pack))
   {
-    std::cout << "Error while writing Control Word " << std::endl;
+     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"),"Error while writing Control Word\n ");
     return -1;
   }
   return 0;
@@ -994,7 +1011,7 @@ uint8_t EthercatNode::ReadOpModeViaSDO(int index)
   pack.data_sz = sizeof(uint8_t);
   if (SdoRead(pack))
   {
-    std::cout << "Error while reading Operation Mode " << std::endl;
+     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Error while reading Operation Mode\n ") ;
     return -1;
   }
   op_mode = (uint8_t)(pack.data);
@@ -1011,7 +1028,7 @@ int16_t EthercatNode::WriteOpModeViaSDO(int index, uint8_t op_mode)
   pack.data = uint32_t(op_mode);
   if (SdoWrite(pack))
   {
-    std::cout << "Error while writing Op Mode " << std::endl;
+     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"),"Error while writing Op Mode \n");
     return -1;
   }
   return 0;
@@ -1027,7 +1044,7 @@ int32_t EthercatNode::ReadActualVelocityViaSDO(int index)
   pack.data_sz = sizeof(int32_t);
   if (SdoRead(pack))
   {
-    std::cout << "Error while reading Actual Velocity " << std::endl;
+     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Error while reading Actual Velocity \n");
     return -1;
   }
   actual_vel = (int32_t)(pack.data);
@@ -1044,7 +1061,7 @@ int16_t EthercatNode::WriteTargetVelocityViaSDO(int index, int32_t target_vel)
   pack.data = int32_t(target_vel);
   if (SdoWrite(pack))
   {
-    std::cout << "Error while writing Target Velocity " << std::endl;
+     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Error while writing Target Velocity\n");
     return -1;
   }
   if (WriteControlWordViaSDO(index, SM_RUN))
@@ -1064,7 +1081,7 @@ int32_t EthercatNode::ReadActualPositionViaSDO(int index)
   pack.data_sz = sizeof(int32_t);
   if (SdoRead(pack))
   {
-    std::cout << "Error while reading Actual Position " << std::endl;
+     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"),"Error while reading Actual Position \n" );
     return -1;
   }
   actual_pos = (int32_t)(pack.data);
@@ -1081,7 +1098,7 @@ int16_t EthercatNode::WriteTargetPositionViaSDO(int index, int32_t target_pos)
   pack.data = int32_t(target_pos);
   if (SdoWrite(pack))
   {
-    std::cout << "Error while writing Target Position " << std::endl;
+     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"),"Error while writing Target Position ");
     return -1;
   }
   if (TEST_BIT(ReadStatusWordViaSDO(index), 10) == 1)
@@ -1109,7 +1126,7 @@ int16_t EthercatNode::ReadActualTorqueViaSDO(int index)
   pack.data_sz = sizeof(int16_t);
   if (SdoRead(pack))
   {
-    std::cout << "Error while reading SDO " << std::endl;
+     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"),"Error while reading SDO \n");
     return -1;
   }
   actual_tor = (int16_t)(pack.data);
@@ -1126,7 +1143,7 @@ int16_t EthercatNode::WriteTargetTorqueViaSDO(int index, uint16_t target_tor)
   pack.data = uint32_t(target_tor);
   if (SdoWrite(pack))
   {
-    std::cout << "Error while writing SDO " << std::endl;
+     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"),"Error while writing SDO \n");
     return -1;
   }
   if (WriteControlWordViaSDO(index, SM_RUN))
@@ -1145,7 +1162,7 @@ uint16_t EthercatNode::ReadErrorCodeViaSDO(int index)
   pack.data_sz = sizeof(uint16_t);
   if (SdoRead(pack))
   {
-    std::cout << "Error while reading Error Code " << std::endl;
+     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"),"Error while reading Error Code \n");
     return -1;
   }
   error_code = (uint16_t)(pack.data);
@@ -1154,6 +1171,7 @@ uint16_t EthercatNode::ReadErrorCodeViaSDO(int index)
 
 uint16_t EthercatNode::ClearFaultsViaSDO(int index)
 {
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Clearing faults for motor %d ...  ", index + 1);
   WriteControlWordViaSDO(index, SM_START);
   WriteControlWordViaSDO(index, SM_FULL_RESET);
 }
@@ -1165,7 +1183,7 @@ int EthercatNode::MapDefaultSdos()
     if (!(request_sdos_[i].target_vel =
               ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_TARGET_VELOCITY, sizeof(int32_t))))
     {
-      fprintf(stderr, "Failed to create SDO request for Target Velocity.\n");
+      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to create SDO request for Target Velocity.\n ");
       return -1;
     }
     ecrt_sdo_request_timeout(request_sdos_[i].target_vel, 500);  // ms
@@ -1173,7 +1191,7 @@ int EthercatNode::MapDefaultSdos()
     if (!(request_sdos_[i].actual_vel =
               ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_TARGET_VELOCITY, sizeof(int32_t))))
     {
-      fprintf(stderr, "Failed to create SDO request for Actual Velocity.\n");
+      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to create SDO request for Actual Velocity.\n");
       return -1;
     }
     ecrt_sdo_request_timeout(request_sdos_[i].actual_vel, 500);  // ms
@@ -1181,7 +1199,7 @@ int EthercatNode::MapDefaultSdos()
     if (!(request_sdos_[i].target_pos =
               ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_TARGET_POSITION, sizeof(int32_t))))
     {
-      fprintf(stderr, "Failed to create SDO request for Target Position.\n");
+      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to create SDO request for Target Position.\n");
       return -1;
     }
     ecrt_sdo_request_timeout(request_sdos_[i].target_pos, 500);  // ms
@@ -1189,7 +1207,7 @@ int EthercatNode::MapDefaultSdos()
     if (!(request_sdos_[i].actual_pos =
               ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_TARGET_POSITION, sizeof(int32_t))))
     {
-      fprintf(stderr, "Failed to create SDO request for Actual Position.\n");
+      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to create SDO request for Actual Position.\n");
       return -1;
     }
     ecrt_sdo_request_timeout(request_sdos_[i].actual_pos, 500);  // ms
@@ -1197,7 +1215,7 @@ int EthercatNode::MapDefaultSdos()
     if (!(request_sdos_[i].target_tor =
               ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_TARGET_TORQUE, sizeof(int16_t))))
     {
-      fprintf(stderr, "Failed to create SDO request for Target Torque\n");
+      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to create SDO request for Target Torque\n");
       return -1;
     }
     ecrt_sdo_request_timeout(request_sdos_[i].target_tor, 500);  // ms
@@ -1205,7 +1223,7 @@ int EthercatNode::MapDefaultSdos()
     if (!(request_sdos_[i].actual_tor =
               ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_TARGET_TORQUE, sizeof(int16_t))))
     {
-      fprintf(stderr, "Failed to create SDO request for Actual Torque\n");
+      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to create SDO request for Actual Torque\n");
       return -1;
     }
     ecrt_sdo_request_timeout(request_sdos_[i].actual_tor, 500);  // ms
@@ -1213,7 +1231,7 @@ int EthercatNode::MapDefaultSdos()
     if (!(request_sdos_[i].control_word =
               ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_CONTROL_WORD, sizeof(uint16_t))))
     {
-      fprintf(stderr, "Failed to create SDO request for Control Word\n");
+      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to create SDO request for Control Word\n");
       return -1;
     }
     ecrt_sdo_request_timeout(request_sdos_[i].control_word, 500);  // ms
@@ -1221,7 +1239,7 @@ int EthercatNode::MapDefaultSdos()
     if (!(request_sdos_[i].status_word =
               ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_STATUS_WORD, sizeof(uint16_t))))
     {
-      fprintf(stderr, "Failed to create SDO request for Status Word\n");
+      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to create SDO request for Status Word\n");
       return -1;
     }
     ecrt_sdo_request_timeout(request_sdos_[i].status_word, 500);  // ms
@@ -1229,7 +1247,7 @@ int EthercatNode::MapDefaultSdos()
     if (!(request_sdos_[i].op_mode =
               ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_OPERATION_MODE, sizeof(uint8_t))))
     {
-      fprintf(stderr, "Failed to create SDO request for Op Mode \n");
+      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to create SDO request for Op Mode \n");
       return -1;
     }
     ecrt_sdo_request_timeout(request_sdos_[i].op_mode, 500);  // ms
@@ -1237,7 +1255,7 @@ int EthercatNode::MapDefaultSdos()
     if (!(request_sdos_[i].op_mode_display =
               ecrt_slave_config_create_sdo_request(slaves_[i].slave_config_, OD_OPERATION_MODE_DISPLAY, 1)))
     {
-      fprintf(stderr, "Failed to create SDO request for Op Mode Display\n");
+      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to create SDO request for Op Mode Display\n");
       return -1;
     }
     ecrt_sdo_request_timeout(request_sdos_[i].op_mode_display, 500);  // ms
@@ -1253,7 +1271,7 @@ void EthercatNode::WriteSDO(ec_sdo_request_t* req, int32_t data, int size)
       ecrt_sdo_request_write(req);  // trigger first write
       break;
     case EC_REQUEST_BUSY:
-      fprintf(stderr, "SDO write still busy...\n");
+      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "SDO write still busy...\n");
       break;
     case EC_REQUEST_SUCCESS:
       if (size == 1)
@@ -1263,10 +1281,10 @@ void EthercatNode::WriteSDO(ec_sdo_request_t* req, int32_t data, int size)
       else if (size == 4)
         EC_WRITE_U32(ecrt_sdo_request_data(req), data & 0Xffffffff);
       else
-        fprintf(stderr, "Size value is invalid, try 1,2 or 4\n");
+        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Size value is invalid, try 1,2 or 4\n");
       break;
     case EC_REQUEST_ERROR:
-      fprintf(stderr, "Failed to write SDO!\n");
+      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to write SDO!\n");
       ecrt_sdo_request_write(req);  // retry writing
       break;
   }
@@ -1280,14 +1298,14 @@ uint16_t EthercatNode::ReadSDO(ec_sdo_request_t* req, uint16_t& status_word)
       ecrt_sdo_request_read(req);  // trigger first read
       break;
     case EC_REQUEST_BUSY:
-      fprintf(stderr, "SDO still busy...\n");
+      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "SDO still busy...\n");
       break;
     case EC_REQUEST_SUCCESS:
       status_word = EC_READ_U32(ecrt_sdo_request_data(req));
       ecrt_sdo_request_read(req);  // trigger next read
       break;
     case EC_REQUEST_ERROR:
-      fprintf(stderr, "Failed to read SDO!\n");
+      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to read SDO!\n");
       ecrt_sdo_request_read(req);  // retry reading
       break;
   }

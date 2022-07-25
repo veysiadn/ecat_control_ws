@@ -388,6 +388,7 @@ typedef struct
   uint32_t max_profile_vel;
   uint32_t quick_stop_dec;
   uint32_t interpolation_time_period;
+  uint16_t max_torque;
 } CSTorqueModeParam;
 
 /// Parameters that should be specified in homing mode.

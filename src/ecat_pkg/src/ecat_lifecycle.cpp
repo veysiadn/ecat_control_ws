@@ -39,8 +39,8 @@ EthercatLifeCycle::EthercatLifeCycle() : LifecycleNode("ecat_node", rclcpp::Node
   gui_subscriber_ = this->create_subscription<ecat_msgs::msg::GuiButtonData>(
       "gui_buttons", 10, std::bind(&EthercatLifeCycle::HandleGuiNodeCallbacks, this, std::placeholders::_1));
   received_data_publisher_->on_activate();
-  inactive_mode_callback_timer_ = this->create_wall_timer(std::chrono::milliseconds(100),
-                                                          std::bind(&EthercatLifeCycle::InactiveModeCallback, this));
+  inactive_mode_callback_timer_ =
+      this->create_wall_timer(std::chrono::milliseconds(30), std::bind(&EthercatLifeCycle::InactiveModeCallback, this));
 }
 
 EthercatLifeCycle::~EthercatLifeCycle()
@@ -206,10 +206,13 @@ node_interfaces::LifecycleNodeInterface::CallbackReturn EthercatLifeCycle::on_er
   PublishReceivedData();
   return node_interfaces::LifecycleNodeInterface::CallbackReturn::SUCCESS;
 }
+
 void EthercatLifeCycle::InactiveModeCallback()
 {
-  if (received_data_.current_lifecycle_state == PRIMARY_STATE_INACTIVE && !gui_event_)
+  if (received_data_.current_lifecycle_state == PRIMARY_STATE_INACTIVE && !gui_event_ &&
+      (g_master_state.slaves_responding == NUM_OF_SLAVES))
   {
+    ecrt_master_state(g_master, &g_master_state);
     for (int i = 0; i < g_kNumberOfServoDrivers; i++)
     {
       received_data_.actual_pos[i] = ecat_node_->ReadActualPositionViaSDO(i);
@@ -242,6 +245,7 @@ void EthercatLifeCycle::InactiveModeCallback()
     PublishAllData();
   }
 }
+
 void EthercatLifeCycle::HandleControlNodeCallbacks(const sensor_msgs::msg::Joy::SharedPtr msg)
 {
   // RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Joy Msgs : %.2f, %.2f",msg->axes[0],msg->axes[2]);
@@ -603,6 +607,7 @@ int EthercatLifeCycle::InitEthercatCommunication()
 
 int EthercatLifeCycle::SetConfigurationParameters(int index)
 {
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Setting configuration parameter for motor %d ...", index + 1);
   int error = 0;
   if (g_kOperationMode == kProfilePosition)
   {
@@ -644,6 +649,9 @@ int EthercatLifeCycle::SetConfigurationParameters(int index)
   {
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Setting drives to CST mode...\n");
     CSTorqueModeParam P;
+    P.interpolation_time_period = 1;
+    P.max_torque = 50;
+    P.max_profile_vel = 40000;
     P.profile_dec = 3e4;
     P.quick_stop_dec = 3e4;
     error = ecat_node_->SetCyclicSyncTorqueModeParameters(P, index);
@@ -745,13 +753,13 @@ void EthercatLifeCycle::StartPdoExchange(void* instance)
   int begin = 1e4;
   int status_check_counter = 1000;
   int enabled_counter = 0;
-  int try_enable_counter=g_kNumberOfServoDrivers*5;
+  int try_enable_counter = g_kNumberOfServoDrivers * 5;
   // ------------------------------------------------------- //
   // CKim - Initialization loop before entring control loop.
   // Switch On and Enable Driver
   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Enabling motors...");
   clock_gettime(CLOCK_TO_USE, &wake_up_time);
-  while (sig && !gui_buttons_status_.b_stop_cyclic_pdo && (enabled_counter<g_kNumberOfServoDrivers))
+  while (sig && !gui_buttons_status_.b_stop_cyclic_pdo && (enabled_counter < g_kNumberOfServoDrivers))
   {
     // CKim - Sleep for 1 ms
     wake_up_time = timespec_add(wake_up_time, g_cycle_time);
@@ -764,19 +772,20 @@ void EthercatLifeCycle::StartPdoExchange(void* instance)
     ReadFromSlaves();
 
     // CKim - Initialize target pos and vel
-    for (int i = 0; i < g_kNumberOfServoDrivers ; i++)
+    for (int i = enabled_counter; i < g_kNumberOfServoDrivers; i++)
     {
       sent_data_.target_pos[i] = received_data_.actual_pos[i];
       sent_data_.target_vel[i] = 0;
       // CKim - Check status and update control words to enable drivers
       // Returns number of enabled drivers
       EnableDrivers(i);
-      if(motor_state_[i]==kOperationEnabled){
-        enabled_counter+=1;
+      if (motor_state_[i] == kOperationEnabled)
+      {
+        enabled_counter += 1;
       }
       else
       {
-        enabled_counter=0;
+        enabled_counter = 0;
       }
     }
 
@@ -1093,13 +1102,14 @@ int EthercatLifeCycle::WaitForOperationalMode()
     else
     {
       RCLCPP_ERROR(rclcpp::get_logger(__PRETTY_FUNCTION__), "Error : Time out occurred while waiting for OP mode.!  ");
-      on_cleanup(this->get_current_state());
+        on_cleanup(this->get_current_state());
+        if(received_data_.current_lifecycle_state==PRIMARY_STATE_UNCONFIGURED)
+          on_configure(this->get_current_state());
       return -1;
     }
   }
   return 0;
 }
-
 
 void EthercatLifeCycle::UpdateControlParameters()
 {
@@ -1459,8 +1469,12 @@ uint16_t EthercatLifeCycle::EnableDrivers(int index)
   {
     sent_data_.control_word[index] = SM_GO_ENABLE;
   }
+  if (motor_state_[index] == kOperationEnabled)
+  {
+    sent_data_.control_word[index] = SM_GO_ENABLE;
+  }
 
-  return sent_data_.control_word[index];
+  return this->sent_data_.control_word[index];
 }
 
 void EthercatLifeCycle::WriteToSlavesInPositionMode()
@@ -1945,21 +1959,31 @@ void EthercatLifeCycle::UpdateCyclicTorqueModeParameters()
 
 int8_t EthercatLifeCycle::EnableDrivesViaSDO(int index)
 {
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Enabling motor %d ...  ", index + 1);
+  int try_counter = 0;
   EnableDrivers(index);
-  while (this->motor_state_[index] != kOperationEnabled)
+  while (this->motor_state_[index] != kOperationEnabled && (try_counter < 20))
   {
     received_data_.status_word[index] = ecat_node_->ReadStatusWordViaSDO(index);
     EnableDrivers(index);
-    if (ecat_node_->WriteControlWordViaSDO(index, sent_data_.control_word[index]))
+    if (ecat_node_->WriteControlWordViaSDO(index, this->sent_data_.control_word[index]))
     {
       return -1;
     }
+    try_counter += 1;
+    if (try_counter == 20)
+    {
+      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Time out while enabling motor %d ...  ", index + 1);
+      return -1;
+    }
   }
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Motor %d  enabled...  ", index + 1);
   return 0;
 }
 
 int8_t EthercatLifeCycle::DisableDrivesViaSDO(int index)
 {
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Disabling motor %d ...  ", index + 1);
   sent_data_.control_word[index] = SM_GO_SWITCH_ON;
   if (ecat_node_->WriteControlWordViaSDO(index, sent_data_.control_word[index]))
   {

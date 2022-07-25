@@ -56,6 +56,7 @@ void MainWindow::UpdateGUI()
   ShowComStatus();
   ShowAllMotorStatus();
   ShowOperationMode();
+  ShowGUILifecycleState();
 }
 
 void MainWindow::b_send_clicked(int m_no)
@@ -160,7 +161,13 @@ void MainWindow::DisableOtherModes(QPushButton* button, int index)
   ui->b_cyclic_vel[index]->setDisabled(true);
   ui->b_cyclic_pos[index]->setDisabled(true);
   ui->b_cyclic_tor[index]->setDisabled(true);
+  ui->b_vel[index]->setChecked(false);
+  ui->b_pos[index]->setChecked(false);
+  ui->b_cyclic_vel[index]->setChecked(false);
+  ui->b_cyclic_pos[index]->setChecked(false);
+  ui->b_cyclic_tor[index]->setChecked(false);
   button->setEnabled(true);
+  button->setChecked(true);
 }
 
 void MainWindow::EnableAllModes(int index)
@@ -196,28 +203,53 @@ void MainWindow::SetEnabledStyleSheetPDO(QPushButton* button)
 void MainWindow::on_b_enable_cyclic_pos_clicked()
 {
   gui_node_->ui_control_buttons_.b_enable_cyclic_pos = 1;
+  for (int i = 0; i < g_kNumberOfServoDrivers; i++)
+  {
+    ui->b_cyclic_pos[i]->setChecked(true);
+    DisableOtherModes(ui->b_cyclic_pos[i], i);
+  }
   gui_node_->PublishGuiEvents();
 }
 
 void MainWindow::on_b_enable_cyclic_vel_clicked()
 {
   gui_node_->ui_control_buttons_.b_enable_cyclic_vel = 1;
+  for (int i = 0; i < g_kNumberOfServoDrivers; i++)
+  {
+    ui->b_cyclic_vel[i]->setChecked(true);
+    DisableOtherModes(ui->b_cyclic_vel[i], i);
+  }
   gui_node_->PublishGuiEvents();
 }
 
 void MainWindow::on_b_enable_vel_clicked()
 {
   gui_node_->ui_control_buttons_.b_enable_vel = 1;
+  for (int i = 0; i < g_kNumberOfServoDrivers; i++)
+  {
+    ui->b_vel[i]->setChecked(true);
+    DisableOtherModes(ui->b_vel[i], i);
+  }
   gui_node_->PublishGuiEvents();
 }
 void MainWindow::on_b_enable_cyclic_torque_clicked()
 {
   gui_node_->ui_control_buttons_.b_enable_cyclic_torque = 1;
+  for (int i = 0; i < g_kNumberOfServoDrivers; i++)
+  {
+    ui->b_cyclic_tor[i]->setChecked(true);
+    DisableOtherModes(ui->b_cyclic_tor[i], i);
+  }
   gui_node_->PublishGuiEvents();
 }
 void MainWindow::on_b_enable_pos_clicked()
 {
   gui_node_->ui_control_buttons_.b_enable_pos = 1;
+  for (int i = 0; i < g_kNumberOfServoDrivers; i++)
+  {
+    ui->b_pos[i]->setChecked(true);
+    DisableOtherModes(ui->b_pos[i], i);
+  }
   gui_node_->PublishGuiEvents();
 }
 
@@ -225,34 +257,12 @@ void MainWindow::on_b_init_ecat_clicked()
 {
   gui_node_->ui_control_buttons_.b_init_ecat = 1;
   gui_node_->PublishGuiEvents();
-  int time_out_counter = 0;
-  while ((gui_node_->slave_feedback_data_.current_lifecycle_state == kConfiguring ||
-          gui_node_->slave_feedback_data_.current_lifecycle_state != kInactive) &&
-         time_out_counter != 10)
-  {
-    std::this_thread::sleep_for(std::chrono::seconds(1));
-    time_out_counter++;
-  }
-  if (gui_node_->slave_feedback_data_.current_lifecycle_state != kInactive)
-    return;
-  CallInactiveStateUI();
 }
 
 void MainWindow::on_b_reinit_ecat_clicked()
 {
   gui_node_->ui_control_buttons_.b_reinit_ecat = 1;
   gui_node_->PublishGuiEvents();
-  int time_out_counter = 0;
-  while ((gui_node_->slave_feedback_data_.current_lifecycle_state == kCleaningUp ||
-          gui_node_->slave_feedback_data_.current_lifecycle_state != kUnconfigured) &&
-         time_out_counter != 10)
-  {
-    std::this_thread::sleep_for(std::chrono::seconds(1));
-    time_out_counter++;
-  }
-  if (gui_node_->slave_feedback_data_.current_lifecycle_state != kUnconfigured)
-    return;
-  CallUnconfiguredStateUI();
 }
 
 void MainWindow::on_b_enable_drives_clicked()
@@ -271,18 +281,7 @@ void MainWindow::on_b_enter_cyclic_pdo_clicked()
 {
   gui_node_->ui_control_buttons_.b_enter_cyclic_pdo = 1;
   gui_node_->PublishGuiEvents();
-  int time_out_counter = 0;
-  while ((gui_node_->slave_feedback_data_.current_lifecycle_state == kActivating ||
-          gui_node_->slave_feedback_data_.current_lifecycle_state != kActive) &&
-         time_out_counter != 10)
-  {
-    std::this_thread::sleep_for(std::chrono::seconds(1));
-    time_out_counter++;
-  }
-  if (gui_node_->slave_feedback_data_.current_lifecycle_state != kActive)
-    return;
-  CallActiveStateUI();
-  for(int i = 0 ; i < g_kNumberOfServoDrivers; i++)
+  for (int i = 0; i < g_kNumberOfServoDrivers; i++)
   {
     ui->b_vel[i]->setChecked(false);
     ui->b_pos[i]->setChecked(false);
@@ -296,17 +295,6 @@ void MainWindow::on_b_stop_cyclic_pdo_clicked()
 {
   gui_node_->ui_control_buttons_.b_stop_cyclic_pdo = 1;
   gui_node_->PublishGuiEvents();
-  int time_out_counter = 0;
-  while ((gui_node_->slave_feedback_data_.current_lifecycle_state == kDeactivating ||
-          gui_node_->slave_feedback_data_.current_lifecycle_state != kInactive) &&
-         time_out_counter != 10)
-  {
-    std::this_thread::sleep_for(std::chrono::seconds(1));
-    time_out_counter++;
-  }
-  if (gui_node_->slave_feedback_data_.current_lifecycle_state != kInactive)
-    return;
-  CallInactiveStateUI();
 }
 
 void MainWindow::on_b_clear_fault_clicked()
@@ -367,100 +355,110 @@ void MainWindow::ResetControlButtonValues(unsigned char& button_val)
 
 void MainWindow::CallUnconfiguredStateUI()
 {
-  SetEnabledStyleSheetPDO(ui->b_init_ecat);
-  SetDisabledStyleSheet(ui->b_reinit_ecat);
-  SetDisabledStyleSheet(ui->b_enter_cyclic_pdo);
-  SetDisabledStyleSheet(ui->b_stop_cyclic_pdo);
-  SetDisabledStyleSheet(ui->b_enable_drives);
-  SetDisabledStyleSheet(ui->b_disable_drives);
-  SetDisabledStyleSheet(ui->b_enable_cyclic_pos);
-  SetDisabledStyleSheet(ui->b_enable_cyclic_vel);
-  SetDisabledStyleSheet(ui->b_enable_pos);
-  SetDisabledStyleSheet(ui->b_enable_vel);
-  SetDisabledStyleSheet(ui->b_enable_cyclic_torque);
-  SetDisabledStyleSheet(ui->b_clear_fault);
-
-  for (int i = 0; i < g_kNumberOfServoDrivers; i++)
+  if (gui_apperance_state_ != kUnconfigured)
   {
-    SetDisabledStyleSheet(ui->b_send[i]);
-    SetDisabledStyleSheet(ui->b_stop[i]);
-    SetDisabledStyleSheet(ui->b_enable[i]);
-    SetDisabledStyleSheet(ui->b_disable[i]);
-    SetDisabledStyleSheet(ui->b_disable[i]);
-    SetDisabledStyleSheet(ui->b_vel[i]);
-    SetDisabledStyleSheet(ui->b_pos[i]);
-    SetDisabledStyleSheet(ui->b_cyclic_vel[i]);
-    SetDisabledStyleSheet(ui->b_cyclic_pos[i]);
-    SetDisabledStyleSheet(ui->b_cyclic_tor[i]);
+    SetEnabledStyleSheetPDO(ui->b_init_ecat);
+    SetDisabledStyleSheet(ui->b_reinit_ecat);
+    SetDisabledStyleSheet(ui->b_enter_cyclic_pdo);
+    SetDisabledStyleSheet(ui->b_stop_cyclic_pdo);
+    SetDisabledStyleSheet(ui->b_enable_drives);
+    SetDisabledStyleSheet(ui->b_disable_drives);
+    SetDisabledStyleSheet(ui->b_enable_cyclic_pos);
+    SetDisabledStyleSheet(ui->b_enable_cyclic_vel);
+    SetDisabledStyleSheet(ui->b_enable_pos);
+    SetDisabledStyleSheet(ui->b_enable_vel);
+    SetDisabledStyleSheet(ui->b_enable_cyclic_torque);
+    SetDisabledStyleSheet(ui->b_clear_fault);
 
-    ui->lb_actual_pos[i]->setText("0");
-    ui->lb_target_pos[i]->setText("0");
-    ui->lb_actual_vel[i]->setText("0");
-    ui->lb_target_vel[i]->setText("0");
-    ui->lb_actual_tor[i]->setText("0");
-    ui->lb_target_tor[i]->setText("0");
-    ui->lb_status_word[i]->setText("NOT READY");
-    ui->lb_control_word[i]->setText("0");
-    ui->lb_op_mode[i]->setText("Not Selected");
+    for (int i = 0; i < g_kNumberOfServoDrivers; i++)
+    {
+      SetDisabledStyleSheet(ui->b_send[i]);
+      SetDisabledStyleSheet(ui->b_stop[i]);
+      SetDisabledStyleSheet(ui->b_enable[i]);
+      SetDisabledStyleSheet(ui->b_disable[i]);
+      SetDisabledStyleSheet(ui->b_disable[i]);
+      SetDisabledStyleSheet(ui->b_vel[i]);
+      SetDisabledStyleSheet(ui->b_pos[i]);
+      SetDisabledStyleSheet(ui->b_cyclic_vel[i]);
+      SetDisabledStyleSheet(ui->b_cyclic_pos[i]);
+      SetDisabledStyleSheet(ui->b_cyclic_tor[i]);
+
+      ui->lb_actual_pos[i]->setText("0");
+      ui->lb_target_pos[i]->setText("0");
+      ui->lb_actual_vel[i]->setText("0");
+      ui->lb_target_vel[i]->setText("0");
+      ui->lb_actual_tor[i]->setText("0");
+      ui->lb_target_tor[i]->setText("0");
+      ui->lb_status_word[i]->setText("NOT READY");
+      ui->lb_control_word[i]->setText("0");
+      ui->lb_op_mode[i]->setText("Not Selected");
+    }
+    gui_apperance_state_ = kUnconfigured;
   }
 }
 
 void MainWindow::CallInactiveStateUI()
 {
-  SetDisabledStyleSheet(ui->b_init_ecat);
-  SetDisabledStyleSheet(ui->b_stop_cyclic_pdo);
+  if(gui_apperance_state_!=kInactive){
+    SetDisabledStyleSheet(ui->b_init_ecat);
+    SetDisabledStyleSheet(ui->b_stop_cyclic_pdo);
 
-  SetEnabledStyleSheetPDO(ui->b_reinit_ecat);
-  SetEnabledStyleSheetPDO(ui->b_enter_cyclic_pdo);
-  SetEnabledStyleSheetSDO(ui->b_enable_drives);
-  SetEnabledStyleSheetSDO(ui->b_disable_drives);
-  SetEnabledStyleSheetSDO(ui->b_enable_vel);
-  SetEnabledStyleSheetSDO(ui->b_enable_pos);
-  SetEnabledStyleSheetSDO(ui->b_enable_cyclic_vel);
-  SetEnabledStyleSheetSDO(ui->b_enable_cyclic_pos);
-  SetEnabledStyleSheetSDO(ui->b_enable_cyclic_torque);
-  SetEnabledStyleSheetSDO(ui->b_clear_fault);
+    SetEnabledStyleSheetPDO(ui->b_reinit_ecat);
+    SetEnabledStyleSheetPDO(ui->b_enter_cyclic_pdo);
+    SetEnabledStyleSheetSDO(ui->b_enable_drives);
+    SetEnabledStyleSheetSDO(ui->b_disable_drives);
+    SetEnabledStyleSheetSDO(ui->b_enable_vel);
+    SetEnabledStyleSheetSDO(ui->b_enable_pos);
+    SetEnabledStyleSheetSDO(ui->b_enable_cyclic_vel);
+    SetEnabledStyleSheetSDO(ui->b_enable_cyclic_pos);
+    SetEnabledStyleSheetSDO(ui->b_enable_cyclic_torque);
+    SetEnabledStyleSheetSDO(ui->b_clear_fault);
 
-  for (int i = 0; i < g_kNumberOfServoDrivers; i++)
-  {
-    SetEnabledStyleSheetSDO(ui->b_send[i]);
-    SetEnabledStyleSheetSDO(ui->b_stop[i]);
-    SetEnabledStyleSheetSDO(ui->b_enable[i]);
-    SetEnabledStyleSheetSDO(ui->b_disable[i]);
-    SetEnabledStyleSheetSDO(ui->b_vel[i]);
-    SetEnabledStyleSheetSDO(ui->b_pos[i]);
-    SetEnabledStyleSheetSDO(ui->b_cyclic_vel[i]);
-    SetEnabledStyleSheetSDO(ui->b_cyclic_pos[i]);
-    SetEnabledStyleSheetSDO(ui->b_cyclic_tor[i]);
+    for (int i = 0; i < g_kNumberOfServoDrivers; i++)
+    {
+      SetEnabledStyleSheetSDO(ui->b_send[i]);
+      SetEnabledStyleSheetSDO(ui->b_stop[i]);
+      SetEnabledStyleSheetSDO(ui->b_enable[i]);
+      SetEnabledStyleSheetSDO(ui->b_disable[i]);
+      SetEnabledStyleSheetSDO(ui->b_vel[i]);
+      SetEnabledStyleSheetSDO(ui->b_pos[i]);
+      SetEnabledStyleSheetSDO(ui->b_cyclic_vel[i]);
+      SetEnabledStyleSheetSDO(ui->b_cyclic_pos[i]);
+      SetEnabledStyleSheetSDO(ui->b_cyclic_tor[i]);
+    }
+    gui_apperance_state_=kInactive;
   }
 }
 
 void MainWindow::CallActiveStateUI()
 {
-  SetEnabledStyleSheetPDO(ui->b_stop_cyclic_pdo);
-  SetDisabledStyleSheet(ui->b_enter_cyclic_pdo);
-  SetDisabledStyleSheet(ui->b_init_ecat);
-  SetDisabledStyleSheet(ui->b_reinit_ecat);
-  SetDisabledStyleSheet(ui->b_enable_drives);
-  SetDisabledStyleSheet(ui->b_disable_drives);
-  SetDisabledStyleSheet(ui->b_enable_pos);
-  SetDisabledStyleSheet(ui->b_enable_vel);
-  SetDisabledStyleSheet(ui->b_enable_cyclic_vel);
-  SetDisabledStyleSheet(ui->b_enable_cyclic_pos);
-  SetDisabledStyleSheet(ui->b_enable_cyclic_torque);
-  SetDisabledStyleSheet(ui->b_clear_fault);
+  if(gui_apperance_state_!=kActive){
+    SetEnabledStyleSheetPDO(ui->b_stop_cyclic_pdo);
+    SetDisabledStyleSheet(ui->b_enter_cyclic_pdo);
+    SetDisabledStyleSheet(ui->b_init_ecat);
+    SetDisabledStyleSheet(ui->b_reinit_ecat);
+    SetDisabledStyleSheet(ui->b_enable_drives);
+    SetDisabledStyleSheet(ui->b_disable_drives);
+    SetDisabledStyleSheet(ui->b_enable_pos);
+    SetDisabledStyleSheet(ui->b_enable_vel);
+    SetDisabledStyleSheet(ui->b_enable_cyclic_vel);
+    SetDisabledStyleSheet(ui->b_enable_cyclic_pos);
+    SetDisabledStyleSheet(ui->b_enable_cyclic_torque);
+    SetDisabledStyleSheet(ui->b_clear_fault);
 
-  for (int i = 0; i < g_kNumberOfServoDrivers; i++)
-  {
-    SetDisabledStyleSheet(ui->b_send[i]);
-    SetDisabledStyleSheet(ui->b_stop[i]);
-    SetDisabledStyleSheet(ui->b_enable[i]);
-    SetDisabledStyleSheet(ui->b_disable[i]);
-    SetDisabledStyleSheet(ui->b_vel[i]);
-    SetDisabledStyleSheet(ui->b_pos[i]);
-    SetDisabledStyleSheet(ui->b_cyclic_vel[i]);
-    SetDisabledStyleSheet(ui->b_cyclic_pos[i]);
-    SetDisabledStyleSheet(ui->b_cyclic_tor[i]);
+    for (int i = 0; i < g_kNumberOfServoDrivers; i++)
+    {
+      SetDisabledStyleSheet(ui->b_send[i]);
+      SetDisabledStyleSheet(ui->b_stop[i]);
+      SetDisabledStyleSheet(ui->b_enable[i]);
+      SetDisabledStyleSheet(ui->b_disable[i]);
+      SetDisabledStyleSheet(ui->b_vel[i]);
+      SetDisabledStyleSheet(ui->b_pos[i]);
+      SetDisabledStyleSheet(ui->b_cyclic_vel[i]);
+      SetDisabledStyleSheet(ui->b_cyclic_pos[i]);
+      SetDisabledStyleSheet(ui->b_cyclic_tor[i]);
+    }
+    gui_apperance_state_=kActive;
   }
 }
 /// TODO: Implement this function
@@ -633,7 +631,23 @@ int MainWindow::GetDriveStates(const int& statusWord)
   }
   return state;
 }
-
+void MainWindow::ShowGUILifecycleState()
+{
+  switch (gui_node_->slave_feedback_data_.current_lifecycle_state)
+  {
+    case kInactive:
+      CallInactiveStateUI();
+      break;
+    case kActive:
+      CallActiveStateUI();
+      break;
+    case kUnconfigured:
+      CallUnconfiguredStateUI();
+      break;
+    default:
+      break;
+  }
+}
 void MainWindow::ShowOperationMode()
 {
   QString qstr;
@@ -725,21 +739,21 @@ QString MainWindow::GetReadableStatusWord(int index)
     {
       if (TEST_BIT(gui_node_->slave_feedback_data_.status_word[index], 12))
       {
-        QTextStream(&qstr) << "READY";
-
-        ui->lb_status_word[index]->setText(qstr);
-        ui->lb_status_word[index]->setStyleSheet(
-            "QLabel{background:green;"
-            "color:black;"
-            "font:bold 75 12pt \"Noto Sans\";}");
-      }
-      else
-      {
         QTextStream(&qstr) << "MOVING";
 
         ui->lb_status_word[index]->setText(qstr);
         ui->lb_status_word[index]->setStyleSheet(
             "QLabel{background:yellow;"
+            "color:black;"
+            "font:bold 75 12pt \"Noto Sans\";}");
+      }
+      else
+      {
+        QTextStream(&qstr) << "READY";
+
+        ui->lb_status_word[index]->setText(qstr);
+        ui->lb_status_word[index]->setStyleSheet(
+            "QLabel{background:green;"
             "color:black;"
             "font:bold 75 12pt \"Noto Sans\";}");
       }

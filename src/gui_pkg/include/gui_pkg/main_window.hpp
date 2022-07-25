@@ -171,10 +171,21 @@ private:
    * @brief Sets GUI appearance for enabled buttons.
    */
   void SetEnabledStyleSheetSDO(QPushButton* button);
-
+/**
+ * @brief Sets enabled stylesheet for PDO buttons
+ * 
+ * @param button button to be enabled.
+ */
   void SetEnabledStyleSheetPDO(QPushButton* button);
-
+/**
+ * @brief Shows operational mode in the GUI.
+ */
   void ShowOperationMode();
+
+/**
+ * @brief Changes GUI apperance based on lifecycle state.
+ */
+  void ShowGUILifecycleState();
 
   QString GetDriveErrorMessage(const int& err_code);
   Ui::MainWindow* ui;
@@ -209,5 +220,7 @@ private:
   VideoCapture* opencv_video_cap;
   // Thread for ROS2 spinning.
   std::thread ros_spin_thread_;
+
+  uint8_t gui_apperance_state_=kInitialized;
   uint8_t em_state_ = 0;
 };

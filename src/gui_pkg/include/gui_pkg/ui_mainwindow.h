@@ -113,6 +113,7 @@ public:
   {
     if (MainWindow->objectName().isEmpty())
       MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
+      MainWindow->setMaximumSize(QSize(1920, 1080));
     centralwidget = new QWidget(MainWindow);
     centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
     gridLayout = new QGridLayout(centralwidget);
